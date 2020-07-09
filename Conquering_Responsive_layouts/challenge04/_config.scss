@@ -1,0 +1,84 @@
+$bg-header: #23424A;
+$row-1-h2: #87629A;
+$row-2-bg: #136C72;
+$btn-bg: #38CFD9;
+
+$max-width: 1050px;
+$gen-padding: 60px;
+$lim-width: 70%;
+
+$header-ypadding: 70px;
+
+@mixin robotofont($style, $font-size) {
+    font-family: 'Roboto', sans-serif;
+    font-size: $font-size;
+    @if ($style == 'black') {
+        font-weight: 900;
+    }
+    @else if ($style == 'regular') {
+        font-weight: 400;
+    }
+    @else if ($style == 'light') {
+        font-weight: 300;
+    }
+}
+
+/* ---------------------------------------------------------------------------------------- */
+
+.general-padding {
+    padding-left: $gen-padding;
+    padding-right: $gen-padding;
+}
+.max-width {
+    max-width: $max-width;
+    margin: auto;
+}
+.limit-width {
+    width: $lim-width;
+}
+
+.shaky:hover, .shaky:focus {
+    animation-name: shake;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+
+    @keyframes shake {
+        20%, 60% {
+            transform: rotate(-5deg) scale(1.1);
+        }
+        40%, 80% {
+            transform: rotate(5deg) scale(1.1);
+        }
+        0%, 100% {
+            transform: rotate(0) scale(1);
+        }
+    }
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 40px 0px;
+}
+
+/* --------------------------------------------------------------------- */
+
+@media screen and (min-width: 461px) {
+    .row-1-info + .row-1-info, .row-2-info + .row-2-info {
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .flex {
+        flex-direction: column;
+        align-items:center;
+    }
+    .row-1-info, .row-2-info {
+        margin-bottom: 30px;
+    }
+    .row-1-info + .row-1-info, .row-2-info + .row-1-info {
+        margin-left: 0;
+    }
+}

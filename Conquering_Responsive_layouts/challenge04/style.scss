@@ -1,0 +1,77 @@
+
+@import 'config';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+header {
+    background-color: $bg-header;
+    padding-top: $header-ypadding;
+    padding-bottom: $header-ypadding;
+
+    h1 {
+        @include robotofont('black', 4.8rem);
+        color: white;
+        margin-bottom: 15px;
+    }
+
+    p {
+        @include robotofont('light', 1.8rem);
+        color: white;
+        margin-bottom: 30px;
+    }
+
+    button {
+        @include robotofont('black', 2rem);
+        text-transform: uppercase;
+        background-color: $btn-bg;
+        padding: 15px 25px;
+        border-radius: 30px;
+        border: 0;
+    }
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+h2 {
+    margin-bottom: 15px;
+}
+
+
+.row-1 {
+    &-info {
+        text-align: center;
+        h2 {
+            @include robotofont('black', 3rem);
+            color: $row-1-h2;
+        }
+        p {
+            @include robotofont('regular', 1.6rem);
+        }
+    }
+}
+
+/* ------------------------------------------------------------------------------------- */
+
+.row-2 {
+    background-color: $row-2-bg;
+
+    &-info {
+        text-align: center;
+        color: white;
+        h2 {
+            @include robotofont('black', 3rem);
+        }
+        p {
+            @include robotofont('regular', 1.6rem);
+        }
+    }
+}
