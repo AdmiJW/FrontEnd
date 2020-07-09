@@ -1,0 +1,69 @@
+:root {
+	--button-color: #c0c0c0;
+	--accent-color: #0AF;
+}
+
+.container {
+	height: 500px;
+}
+
+.container button {
+	display: block;
+	position: relative;
+	margin: 10% 50%;
+	width: 200px;
+	height: 70px;
+	background-color: var(--button-color);
+	border: none;
+	font-size: 20px;
+
+	--border-size: 4px;
+}
+
+.container #button-one::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+	border: var(--border-size) solid var(--button-color);
+	transition: top, left, right, bottom, 100ms ease-in-out;
+}
+
+.container #button-one:hover::before {
+	top: calc( var(--border-size) * -2);
+	left: calc( var(--border-size) * -2);
+	right: calc( var(--border-size) * -2);
+	bottom: calc( var(--border-size) * -2);
+}
+
+.container #button-two {
+	z-index: 1;
+	transition: color 400ms ease-in-out;
+}
+
+.container #button-two::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transform: scaleX(0);
+	transform-origin: left;
+	background-color: var(--accent-color);
+	z-index: -1;
+
+	transition: transform, 500ms ease-in-out;
+}
+
+.container #button-two:hover {
+	color: white;
+}
+
+.container #button-two:hover::before{
+	transform: scaleX(1);
+}
+

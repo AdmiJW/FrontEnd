@@ -1,0 +1,208 @@
+:root {
+	margin: 0px;
+	padding: 0px;
+
+	font-family: 'Share Tech', Helvetica,  sans-serif;
+
+	--sourcefont: 'Source Code Pro', monospace;
+	--backgroundcolor: rgb(106,13,173);
+	--fontsize: 13px;
+	--formcolor: #146ca4;
+}
+
+body {
+	background-color: var(--backgroundcolor);
+	background: -webkit-linear-gradient( rgba(106,13,173,0.8), rgba(106,13,173,0.8)), url("https://us.123rf.com/450wm/ismagilov/ismagilov1608/ismagilov160800109/60811634-computer-lab-interior-desktops-on-tables-green-board-posters-on-wall-concept-of-studying-in-modern-t.jpg?ver=6");
+	background: linear-gradient( rgba(106,13,173,0.8), rgba(106,13,173,0.8)), url("https://us.123rf.com/450wm/ismagilov/ismagilov1608/ismagilov160800109/60811634-computer-lab-interior-desktops-on-tables-green-board-posters-on-wall-concept-of-studying-in-modern-t.jpg?ver=6");
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: 150%;
+}
+
+#main-frame {
+	width: 95vw;
+	margin: auto;
+}
+
+/* HEADER -------------------------------------------------------------------------- */
+
+#title {
+	font-family: var(--sourcefont), sans-serif;
+	text-align: center;
+	color: white;
+}
+#title h1{
+	position: relative;
+	font-size: 7vw;
+	animation-name: header-1;
+	animation-duration: 1s;
+	animation-timing-function: cubic-bezier(0,0,0,1);
+}
+#title h2{
+	position: relative;
+	font-size: 4.5vw;
+	animation-name: header-1;
+	animation-duration: 1s;
+	animation-delay: 1s;
+	animation-timing-function: cubic-bezier(0,0,0,1);
+	animation-fill-mode: backwards;
+}
+#description {
+	position: relative;
+	font-size: var(--fontsize);
+	text-align: justify;
+	padding: 0px 20%;
+	color: white;
+}
+
+@keyframes header-1 {
+	0% {
+		opacity: 0;
+		right: 100%;
+	}
+	100% {
+		opacity: 1;
+		right: 0%;
+	}
+}
+
+
+/* FORM -------------------------------------------------------------------------------*/
+#survey-form {
+	border-radius: 50px;
+	background-color: var(--formcolor);
+	padding: 0px 20px;
+}
+#survey-form h3 {
+	padding-top: 20px;
+	text-align: center;
+	font-size: 8vw;
+	color: white;
+	font-family: var(--sourcefont);
+}
+#survey-form div {
+	margin: 30px 0px;
+}
+#survey-form .instruct {
+	display: block;
+	font-weight: bold;
+	font-size: calc( var(--fontsize) + 0.5vw);
+	color: white;
+	margin-bottom: 0px;
+
+}
+label {
+	font-size: var(--fontsize);
+	color: white;
+}
+input[type="text"], input[type="number"], input[type="email"], input[type="tel"] {
+	width: 90%;
+	border-radius: 10px;
+	padding-left: 5px;
+	height: 25px;
+}
+input[type="radio"], input[type="checkbox"] {
+	transform: scale(1.2);
+}
+fieldset {
+	border-left: none; border-right: none; border-bottom: none;
+	border-color: white;
+	padding: 20px 5px;
+	display: flex;
+	flex-direction: column;
+}
+fieldset legend {
+	color: white;
+	font-size: calc( var(--fontsize) + 1vw);
+	text-align: center;
+	font-weight: bolder;
+}
+
+
+
+/* PERSONAL INFO ---------------------------------------------------------------------------*/
+
+#front-phoneNo {
+	width: 20%;
+}
+#back-phoneNo {
+	width: 70%;
+}
+
+/* PARTICIPATION INFO ----------------------------------------------------------------------*/
+
+#dropdown {
+	width: 20vw;
+	height: 30px;
+	border-radius: 10px;
+}
+
+input[type="submit"] {
+	position: relative;
+	margin: auto;
+	width: 40%;
+	height: 40px;
+	border: 0px;
+	border-radius: 10px;
+	color: white;
+	background-color: #89CFF0;
+	font-size: 20px;
+	font-weight: bolder;
+
+	transition: background-color color;
+	transition-duration: 300ms;
+}
+
+input[type="submit"]:hover {
+	background-color: white;
+	color: #89CFF0;
+}
+
+
+
+/* FOOTER --------------------------------------------------------------------------------*/
+#main-footer {
+	position: relative;
+	z-index: -1;
+	bottom: 80px;
+	border-radius: 50px;
+	background-color: #000080;
+	color: white;
+	height: 200px;
+	padding-top: 100px;
+}
+#main-footer #logo {
+	max-height: 80%;
+	height: 30vw;
+	float: left;
+	width: auto;
+	padding-left: 5%;
+	margin-right: 40px;
+	margin-bottom: 80px;
+}
+#main-footer span{
+	font-size: var(--fontsize);
+}
+
+
+@media (min-width: 800px) {
+	:root {
+		--fontsize: 20px;
+	}
+
+	#main-frame {
+		width: 85vw;
+		margin: auto;
+	}
+
+	#main-footer span {
+		font-size: calc(var(--fontsize) - 4px);
+	}
+
+	#survey-form .instruct {
+	font-size: calc( var(--fontsize) + 0.7vw);
+
+	input[type="radio"], input[type="checkbox"] {
+		transform: scale(1.4);
+	}
+}

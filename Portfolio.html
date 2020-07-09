@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AdmiJW's Portfolio</title>
+		<meta charset="UTF-8"/>
+		<meta name="author" content="Soh Jun Wei"/>
+		<meta name="keywords" content="html, css, portfolio"/>
+		<meta name="description" content="a dummy portfolio webpage"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" type="text/css" href="css/portfolio.css"/>
+		<link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=Coda&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+	</head>
+	
+	<body>
+		<header>
+			<h1><a href="#" tabindex="1">AdmiJW</a></h1>
+			<input type="checkbox" id="nav-checkbox"/>
+			<label for="nav-checkbox" id="open-nav">
+				<span class="fas fa-ellipsis-h"></span>
+			</label>
+			<nav id="navbar">
+				<ul>
+					<li>
+						<label for="nav-checkbox" id="close-nav">
+						<span class="fas fa-times"></span>
+						</label>
+					</li>
+					<li><a href="#profile-div" tabindex="1">About</a></li>
+					<li><a href="#projects-div" tabindex="1">Projects</a></li>
+					<li><a href="#contact-div" tabindex="1">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<div id="welcome-section">
+			<div id="welcome-text">
+				<h1>AdmiJW</h1>
+				<h3>Reporting for Duty!</h3>
+				<a href="#profile-div" tabindex="2">
+					<div class="button" id="learn-more-button">
+						Learn More &gt;
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<main>
+			<div id="profile-div">
+				<div class="skew-div">
+					<img src="https://instagram.fmkz1-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/18646459_1987250681503134_753166177991131136_n.jpg?_nc_ht=instagram.fmkz1-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=4Q3h3vXWko8AX_f_5LN&oh=2523bcfea2f68e9e33570270f824b2cd&oe=5F0D6144" alt="profile picture of AdmiJW"/>
+				</div>
+				<div id="profile-desc">
+					<h2>AdmiJW</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+				</div>
+			</div>
+
+			<div id="projects-div">
+				<h2>Projects</h2>
+				
+				<div id="projects">
+					<div class="project-tile">
+						<img src="https://user-images.githubusercontent.com/66473534/85366814-a9486700-b55a-11ea-92b3-b9ca870db9c0.PNG" alt="project of tribute page photo"/>
+						<a href="https://codepen.io/AdmiJW/pen/yLYGRQm" target="_blank" class="project-title" tabindex="3">Build a Tribute Page</a>
+					</div>
+					<div class="project-tile">
+						<img src="https://user-images.githubusercontent.com/66473534/85366804-a483b300-b55a-11ea-9092-997c043d6bae.PNG" alt="project of form page photo"/>
+						<a href="https://codepen.io/AdmiJW/pen/JjYqrez" target="_blank" class="project-title" tabindex="3">Build a Form Page</a>
+					</div>
+					<div class="project-tile">
+						<img src="https://user-images.githubusercontent.com/66473534/85366832-b2393880-b55a-11ea-9fbb-d9269b3c13cf.PNG" alt="responsive navigation website photo"/>
+						<a href="https://codepen.io/AdmiJW/pen/QWyyLNg" target="_blank" class="project-title" tabindex="3">Responsive Navigation Bar</a>
+					</div>
+					<div class="project-tile">
+						<img src="https://user-images.githubusercontent.com/66473534/85366817-abaac100-b55a-11ea-9b71-f587411f88d3.PNG" alt="project of product landing page photo"/>
+						<a href="https://codepen.io/AdmiJW/pen/OJMPrPV" target="_blank" class="project-title" tabindex="3">Build a Product Landing Page</a>
+					</div>
+					<div class="project-tile">
+						<img src="https://user-images.githubusercontent.com/66473534/85366795-a2215900-b55a-11ea-925a-2254f3364b47.PNG" alt="project of documentation page"/>
+						<a href="https://codepen.io/AdmiJW/pen/ExPPQZd" target="_blank" class="project-title smaller-font" tabindex="3">Build a Technical Documentation Page</a>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="contact-div">
+				<h2>I Look Forward To Hearing From You</h2>
+				<p>Feel free to contact me...</p>
+				<div id="contactlink-div">
+					<a href="https://github.com/AdmiJW" target="_blank" id="profile-link">
+						<img src="https://image.flaticon.com/icons/svg/25/25231.svg" alt="logo of github"/></a>
+					<a href="#" id="facebook-link">
+						<img src="https://user-images.githubusercontent.com/66473534/83874229-bc3ff680-a767-11ea-967a-cab02c8933d6.png" alt="logo of facebook"/></a>
+					<a href="#" id="google-link">
+						<img src="https://user-images.githubusercontent.com/66473534/83874233-bd712380-a767-11ea-912b-4f9e5992aa84.png" alt="logo of google"/></a>
+					<a href="#" id="insta-link">
+						<img src="https://user-images.githubusercontent.com/66473534/83874240-bf3ae700-a767-11ea-8b3d-a5ebbaf3ff39.png" alt="logo of instagram"/></a>
+				</div>
+			</div>
+
+			<footer>
+				<p>&copy;AdmiJW 2020</p>
+			</footer>
+		</main>
+	</body>
+</html>

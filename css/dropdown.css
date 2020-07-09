@@ -1,0 +1,301 @@
+:root {
+    --backgroundoverlay: rgba(0, 0, 0,0.3);
+    --headercolor: #130f40;
+    --headerhover: #30336b;
+    --textoverlay: rgba(0, 0, 0,0.3);
+    --dropdowncolor: #121920;
+    --dropdownhover: #202d3a;
+    --dropdownhover2: #485868;
+    --dropdownborder: #3498db;
+
+    --logofont: 'Merriweather', serif;
+    --navfont: 'Zilla Slab', serif;
+
+    --headerheight: 70px;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    color: white;
+}
+
+body {
+    min-height: 100vh;
+
+    background-color: #2c3e50;
+    background: linear-gradient(var(--backgroundoverlay), var(--backgroundoverlay)), url("https://image.freepik.com/free-photo/slice-delicious-pizza-with-ingredients-textured-wooden-background_23-2147926094.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+i {
+    position: relative;
+    top: 2.5px;
+    padding-left: 5px;
+}
+
+/* HEADER ------------------------------------------------------------- */
+
+    /* ---------------------------------
+        BURGER MENU
+        ------------------------------*/
+
+        #menu-div {
+            width: var(--size);
+            height: var(--size);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            margin-right: 25px;
+
+            --size: calc(var(--headerheight) - 35px);
+            --burger-height: 5px;
+            --burger-margin: 10px;
+            --burger-color: white;
+        }
+        
+        #menu-burger {
+            position: relative;
+            width: 100%;
+            height: var(--burger-height);
+            border-radius: 5px;
+            background-color: var(--burger-color);
+            transition: all 0.5s ease-in-out;
+        }
+        
+        #open-checkbox {
+            display: none;
+            position: absolute;
+            z-index: -999;
+        }
+        
+        #menu-burger::before, #menu-burger::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: var(--burger-height);
+            border-radius: 5px;
+            background-color: var(--burger-color);
+            transition: all 0.5s ease-in-out;
+        }
+        #menu-burger::before {
+            transform: translateY( calc(-1 * var(--burger-margin) ) );
+        }
+        #menu-burger::after {
+            transform: translateY( var(--burger-margin) );
+        }
+        
+        #open-checkbox:checked ~ #menu-div #menu-burger {
+            transform: translateX( -100%);
+            background-color: transparent;
+        }
+        #open-checkbox:checked ~ #menu-div #menu-burger::before {
+            transform: translate(100%, 0px) rotate(45deg);
+        }
+        #open-checkbox:checked ~ #menu-div #menu-burger::after {
+            transform: translate(100%, 0px) rotate(-45deg);
+        }
+
+    /*-------------------------------------------------------- */
+
+header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    width: 100vw;
+    height: var(--headerheight);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--headercolor);
+
+}
+
+.logo {
+    padding: 0px 20px;
+
+    text-transform: uppercase;
+    font-size: 40px;
+    font-family: var(--logofont);
+}
+
+.main-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-item {
+    position: relative;
+    display: inline-block;
+    height: var(--headerheight);
+    padding: 0px 10px;
+
+    cursor: pointer;
+
+    line-height: var(--headerheight);
+    font-size: 18px;
+    font-family: var(--navfont);
+
+    transition: background-color 0.5s ease;
+}
+.nav-item:hover, .nav-item:focus {
+    background-color: var(--headerhover);
+}
+
+.dropdown-div {
+    position: absolute;
+    top: var(--headerheight);
+    left: 0;
+    width: 150px;
+    overflow-y: auto;
+
+    transform: scaleY(0);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform-origin: top;
+
+    background-color: var(--dropdowncolor);
+    border-top: solid 3px var(--dropdownborder);
+}
+.main-nav li:nth-child(5) .dropdown-div {
+    left: initial;
+    right: 0;
+}
+
+.nav-item:hover > .dropdown-div, .nav-item:focus > .dropdown-div, .dropdown-div:focus-within {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+.dropdown-div ul {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    align-items: center;
+}
+.dropdown-div ul li {
+    width: 100%;
+}
+.dropdown-div a {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
+    transition: background-color 0.5s, border-bottom 0.5s;
+}
+.dropdown-div a:hover, .dropdown-div a:focus {
+    background-color: var(--dropdownhover2);
+}
+
+/* MAIN STUFF ------------------------------------------------------------- */
+main {
+    display: flex;
+    padding-right: 5vw;
+    justify-content: flex-end;
+    align-items: center;
+    height: calc(100vh - var(--headerheight) );
+}
+
+main h2 {
+    padding: 25px;
+
+    background-color: var(--textoverlay);
+    font-size: 7vw;
+    font-family: var(--logofont);
+    text-align: center;
+}
+
+
+/* MEDIA QUERY -------------------------------------- */
+
+/* Making the nav bar to become responsive: burger menu appears and show navigation menu on click */
+@media screen and (max-width: 860px) {
+    #menu-div {
+        display: flex;
+    }
+
+    #open-checkbox:checked ~ .main-nav {
+        right: 0;
+    }
+    .main-nav {
+        position: fixed;
+        height: calc( 100vh - var(--headerheight) );
+        width: 220px;
+        bottom: 0;
+        right: -220px;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow-y: auto;
+
+        background-color: black;
+        border-top: solid var(--dropdownborder) 5px;
+
+        transition: right 0.5s;
+
+        --dropdownheight: 50px;
+    }
+    .main-nav li {
+        width: 100%;
+        text-align: center;
+
+        transition: all 0.5s;
+    }
+    .main-nav li a {
+        width: 100%;
+    }
+    .dropdown-div {
+        position: relative;
+        width: 100%;
+        top: 0;
+
+        background-color: #1a2530;
+    }
+    .dropdown-div li {
+        height: var(--dropdownheight);
+        display: flex;
+    }
+    .dropdown-div a {
+        line-height: var(--dropdownheight);
+    }
+    .dropdown-div a:hover, .dropdown-div a:focus {
+        background-color: var(--dropdownhover2);
+    }
+    /* Make the dropdown item to have a bottom margin so items below it will not be stacked below the dropdown menu */
+    .main-nav > li:nth-child(3):hover, .main-nav > li:nth-child(3):focus, .main-nav > li:nth-child(3):focus-within {
+        margin-bottom: calc(4 * var(--dropdownheight) + 10px );
+    }
+}
+/* ----------------------------------------------------------------------- */
+
+/* When the screen becomes small, center the welcome text instead */
+@media screen and (max-width: 630px) {
+    main {
+        padding: 0px;
+        justify-content: center;
+    }
+    main h2 {
+        font-size: 10vw;
+        padding: 35px;
+    }
+}
+/* The logo overflows so make it small */
+@media screen and (max-width: 455px) {
+    .logo {
+        font-size: 28px;
+    }
+}

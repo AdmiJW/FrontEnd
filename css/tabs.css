@@ -1,0 +1,118 @@
+:root {
+    --darkerblue: #2980b9;
+    --lighterblue: #3498db;
+    --purple: #2c3e50;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+/* Setting the background color and center the tab panel to middle */
+body {
+    background-color: var(--darkerblue);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Make the tab panel to be 80% in width */
+.tab-div {
+    width: 80%;
+    position: relative;
+    display: block;
+}
+
+/* A dummy pane so the flex box does know how to center with content included */
+#dummy-pane {
+    position: relative;
+    height: 200px;
+    clear: both;
+    transform: translateY(-3.5px);
+    background-color: white;
+    z-index: -50;
+    border: solid var(--purple) 3px;
+}
+
+input[type="radio"] {
+    display: none;
+    z-index: -999;
+    position: absolute;
+}
+
+.tab-label {
+    position: relative;
+    min-height: 40px;
+    background-color: var(--lighterblue);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: center;
+    padding: 5px 0px;
+    width: 100px;
+
+    border: solid var(--purple) 3px;
+    border-radius: 10px 10px 0px 0px;
+    transition: all 0.5s;
+
+    float: left;
+    margin-right: 20px;
+}
+input[type="radio"]:checked ~ .tab-label, .tab-label:hover, .tab-label:focus {
+    outline: none;
+    background-color: white;
+    color: var(--lighterblue);
+    border-bottom: white;
+    z-index: 10;
+}
+
+.content {
+    position: absolute;
+    top: 40px;
+    max-height: 195px;
+    padding: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/*Font size is set to 0 so that even when hidden, it will not cause a scrollbar to appear even though it is not the tab that is selected*/
+.content * {
+    visibility: hidden;
+    font-size: 0px;
+    transform: translateX(-100%);
+    transition: transform 1s, opacity 1s;
+    opacity: 0;
+}
+.content h2 {
+    margin-bottom: 10px;
+}
+
+input[type="radio"]:checked ~ .content * {
+    visibility: visible;
+    font-size: 18px;
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+
+img {
+    float: right;
+    height: 125px;
+    width: auto;
+}
+
+
+@media screen and (max-width: 500px) {
+    .tab-label {
+        margin-right: 5px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .tab-label {
+        margin-right: -20px;
+    }
+}

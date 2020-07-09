@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Cheat Sheet</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="AdmiJW"/>
+    <meta name="description" content="Own created cheatsheet for bootstrap"/>
+    <meta name="keywords" content="html, bootstrap"/>
+    <meta name="viewport" content="width=device-width initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        hr {
+            margin: 50px 30px;
+        }
+        .container {
+            border: solid 1px rgb(126, 126, 126);
+            border-radius: 5px;
+        }
+
+        .cls {
+            color: #ef5777;
+        }
+        .exp {
+            color: #a10800;
+            background-color: rgb(238, 238, 238);
+        }
+
+        .title {
+            text-align: center;
+            text-decoration: underline;
+            color: #03a559;
+            font-weight: bolder;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <p>Use class <span class="cls">.container</span> as the general container to all contents</p>
+
+    <!-- TYPOGRAPHY INTRODUCTION -->
+    <h1 class="title">Typography</h1>
+    <div class="container">
+        <h2>Headings</h2>
+        <p class="exp">Use class <span class="cls">.h1</span> to <span class="cls">.h6</span> to obtain the equivalent effect as html element</p>
+        <br/>
+        <p class="h1">Header 1 Equivalent</p>
+        <p class="h2">Header 2 Equivalent</p>
+        <p class="h3">Header 3 Equivalent</p>
+        <p class="h4">Header 4 Equivalent</p>
+        <p class="h5">Header 5 Equivalent</p>
+        <p class="h6">Header 6 Equivalent</p>
+
+        <hr/>
+
+        <h2>Display Headings</h2>
+        <p class="exp">Use class <span class="cls">.display-#</span> to obtain display headings
+        , where # can be value from 1 to 4</p>
+        <br/>
+        <h1 class="display-1">Display 1</h1>
+        <h1 class="display-2">Display 2</h1>
+        <h1 class="display-3">Display 3</h1>
+        <h1 class="display-4">Display 4</h1>
+        
+        <hr/>
+
+        <h2>Page headers</h2>
+        <p class="exp">Use class <span class="cls">.page-header</span> to create page headers,
+        also use <span class="cls">&lt;small&gt;</span> elements to create fade effect,
+        try <span class="cls">.text-muted</span> as well!</p>
+        <br/>
+        <h2 class=".page-header">Hello, <small class="text-muted">world!</small></h1>
+
+        <hr/>
+
+        <h2>Lead, and inline elements</h2>
+        <p class="exp">Use <span class="cls">.lead</span> on a paragraph element to make
+        it stand out more. Also introduce various elements for styling inline text</p>
+        <br/>
+        <p class="lead">This paragraph will stand out more using <span class="cls">.lead</span>!</p>
+        <p>This is using <span class="cls">&lt;mark&gt;</span>: <mark>marked out</mark></p>
+        <p>This is using <span class="cls">&lt;del&gt;</span>: <del>crossed out</del></p>    
+        <p>This is using <span class="cls">&lt;u&gt;</span>: <u>underlined text</u></p>
+        <p>This is using <span class="cls">&lt;small&gt;</span>: <small>small text</small></p>
+
+        <hr/>
+
+        <h2>Text alignments and text transformations</h2>
+        <p class="exp">Use <span class="cls">.text-#</span> to set the text alignment,
+        where # can be left, center, right, justify.
+        Also, <span class="cls">.text-nowrap</span> sets it to not wrap the text
+        even if overflowed.</p>
+        <p class="exp">Use <span class="cls">.text-#</span> where # can be lowercase, uppercase
+        or capitalized to simply transform the text. Truncation is also available if the container is small</p>
+        <br/>
+        <p class="text-left">This text is aligned to left</p>
+        <p class="text-right">This text is aligned to right</p>
+        <p class="text-center">This text is aligned to center</p>
+        <p class="text-justify">This text is aligned to justify. The paragraph has to be long to see the effects</p>
+        <p class="text-nowrap">This text does not have wrapping set. So if the sentence is long it will overflow
+            . (Try sizing the window width down to see the overflow)
+        </p>
+
+        <br/>
+
+        <p class="text-uppercase">This text will be in all Uppercases</p>
+        <p class="text-lowercase">This text will be in all lowercases</p>
+        <p class="text-capitalize">This text will be capitalized, which is all first character uppercase</p>
+        <p class="text-truncate col-md-4 col-sm-4 col-xs-4">This text will be truncated due to small container, by three dots ...</p>
+            
+        <br/>
+    
+        <p class="exp">To easily float things to left and right, use <span class="cls">.float-#</span> where # is either left or right.
+        Note that floating requires clearing, therefore use <span class="cls">.clearfix</span> to apply same effect as clear: both</p>
+        <br/>
+        <p class="float-left">This text floats to the left!</p>
+        <div class="clearfix"></div>
+        <p class="float-right">This text floats to the right!</p>
+        <div class="clearfix"></div>
+
+        <hr/>
+
+        <h2>Blockquotes and its Source</h2>
+        <p class="exp">To have blockquotes, use the class <span class="cls">.blockquote</span>. Inside the <span class="cls">&lt;blockquote&gt;</span>
+        tag, you may have a <span class="cls">&lt;footer&gt;</span> tag element along with class <span class="cls">.blockquote-footer</span>
+        to have a source styled. Use the tag <span class="cls">&lt;cite&gt;</span> with a title attribute to contain the name or source of the quote</p>
+
+        <br/>
+
+        <blockquote class="blockquote">
+            This is an example of a blockquote
+            <footer class="blockquote-footer">Wise words by <cite title="Unknown">Anonymous</cite>.</footer>
+        </blockquote>
+        <blockquote class="blockquote text-right">
+            This is an example of a blockquote using class <span class="cls">.text-right</span>
+            <footer class="blockquote-footer">Wise words by <cite title="Unknown">Anonymous</cite>.</footer>
+        </blockquote>
+
+        <hr/>
+
+        <h2>Contextuals</h2>
+        <p class="exp">We can have contextual colors applied by using specified class names. For text, the format is <span class="cls">.text-#</span>,
+        where the # can be following: </p>
+        <br/>
+
+        <p>regular text without class</p>
+        <p class="text-primary">text-primary (Dark blue)</p>
+        <p class="text-success">text-success (Faint green)</p>
+        <p class="text-info">text-info (Light blue)</p>
+        <p class="text-warning">text-warning (Yellow)</p>
+        <p class="text-danger">text-danger (Red)</p>
+        <p class="text-muted">text-muted (Light grey)</p>
+        
+        <p class="exp">The same goes for background colors, the format is <span class="cls">.bg-#</span>,
+            where the # can be following: </p>
+        <br/>
+
+        <p>regular background without class</p>
+        <p class="bg-primary">bg-primary</p>
+        <p class="bg-success">bg-success</p>
+        <p class="bg-info">bg-info</p>
+        <p class="bg-warning">bg-warning</p>
+        <p class="bg-danger">bg-danger</p>
+
+        <hr/>
+
+        <h2>Basic List manipulations</h2>
+        <p class="exp">Annoyed by the list-style-type? Use class <span class="cls">.list-unstyled</span> to remove styles on list.</p>
+        <p class="exp">Want an inline list? Creating a navbar? Use class <span class="cls">.list-inline</span> on ul or ol element
+             and <span class="cls">.list-inline-item</span> on each list items li</p>
+        <br/>
+
+        <ul>Default list
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+        <br/>
+        <ul class="list-unstyled">Unstyled list, it removes margin. (Extra: use <span class="cls">&lt;code&gt;</span> to represent codes)
+            <br/><br/>
+            <li><code><pre>System.out.println();</pre></code></li>
+            <li><code><pre>console.log();</pre></code></li>
+            <li><code><pre>cout << "Hello, world!";</pre></code></li>
+        </ul>
+        <br/>
+        <ul class="list-inline">Inline list (Extra: use <span class="cls">&lt;kbd&gt;</span> to represent keyboard key input)
+            <br/>
+            <li class="list-inline-item">Press <kbd>A</kbd></li>
+            <li class="list-inline-item">Press <kbd>Enter</kbd></li>
+            <li class="list-inline-item">Press <kbd>Alt</kbd></li>
+        </ul>
+
+    </div>
+
+    <!-- BUTTONS INTRODUCTION -->
+    <h1 class="title">Buttons</h1>
+    <div class="container">
+        <h2>Quickly Setting Up Contextual Buttons</h2>
+        <p class="exp">Every button must have a class <span class="cls">.btn</span> for it to work. Add additional classes to style the
+        button as desired. Contextual buttons work here with format <span class="cls">.btn-#</span> where # is any of the contextuals</p>
+        <br/>
+
+        <button type="button" class="btn">Default styled button</button>
+        <button type="button" class="btn btn-primary">Primary styled button</button>
+        <button type="button" class="btn btn-secondary">Secondary styled button</button>
+        <button type="button" class="btn btn-success">Success styled button</button>
+        <button type="button" class="btn btn-info">Info styled button</button>
+        <button type="button" class="btn btn-warning">Warning styled button</button>
+        <button type="button" class="btn btn-link">Link styled button</button>
+        <button type="button" class="btn btn-light">Light styled button</button>
+        <button type="button" class="btn btn-dark">Dark styled button</button>
+
+        <br/>
+        <p class="exp">Bootstrap btn classes can be used on <span class="cls">&lt;a&gt;</span> and <span class="cls">&lt;input&gt;</span>
+        elements. For good practice, when using <span class="cls">&lt;a&gt;</span> include an attribute of <span class="cls">role="button"</span></p>
+        <br/>
+
+        <a class="btn btn-info" href="#" role="button">Button using a</a>
+        <input type="button" class="btn btn-success" value="Button using input"/>
+
+        <hr/>
+        
+        <h2>Button with only Outlines</h2>
+        <p class="exp">Buttons with contextual meaning but no background fill is also available. Use <span class="cls">.btn-outline-#</span></p>
+        <br/>
+
+        <button type="button" class="btn btn-outline-primary">Primary styled button</button>
+        <button type="button" class="btn btn-outline-secondary">Secondary styled button</button>
+        <button type="button" class="btn btn-outline-success">Success styled button</button>
+        <button type="button" class="btn btn-outline-info">Info styled button</button>
+        <button type="button" class="btn btn-outline-warning">Warning styled button</button>
+        <button type="button" class="btn btn-outline-light">Light styled button</button>
+        <button type="button" class="btn btn-outline-dark">Dark styled button</button>
+        
+        <hr/>
+
+        <h2>Button sizes</h2>
+        <p class="exp">We can set larger, smaller or block sized buttons by using <span class="cls">.btn-#</span> where # can be sm, lg, or block</p>
+    
+        <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+        <button type="button" class="btn btn-success btn-lg">Large button</button>
+        <button type="button" class="btn btn-warning btn-block">Block button</button>
+        
+        <hr/>
+
+        <h2>Button States</h2>
+        <p class="exp">Set button as pressed by using <span class="cls">.active</span> as well as attribute <span class="cls">aria-pressed="true"</span></p>
+        <p class="exp">Normal buttons can be disabled by adding <span class="cls">disabled</span> attribute. But it won't work with <span class="cls">&lt;a&gt;</span>
+        elements, therefore we can use <span class="cls">.disabled</span> class along with attributes <span class="cls">tabindex="-1"</span> and
+        <span class="cls">aria-disabled="true"</span></p>   
+        
+        <button type="button" class="btn btn-primary">Regular button</button>
+        <button type="button" class="btn btn-primary active" aria-pressed="true">Pressed button</button>
+        <br/>
+        <button type="button" class="btn btn-primary" disabled>Disabled button</button>
+        <a href="#" role="button" class="btn btn-danger disabled" aria-disabled="true" tabindex="-1">Disabled &lt;a&gt; Button</a>
+    </div>
+
+    <h1 class="title">Form Basics</h1>
+    <div class="container">
+        <h2>Form groups and Form control</h2>
+        <p class="exp">In forms, we can group different groups of input (Eg: Names, email input...) into <span class="cls">.form-group</span>
+        classes</p>
+        <p class="exp">We can make input elements to take the whole row across by using <span class="cls">.form-control</span> class</p>
+        <br/>
+
+        <form>
+            <div class="form-group">
+                <label for="names">Name: </label>
+                <input type="text" id="names" placeholder="John Smith"/>
+                <small class="text-muted"> (This is the input field without using class <span class="cls">.form-control</span>) </small>
+            </div>
+            <div class="form-group">
+                <label for="email">Email: </label>
+                <input type="email" id="email" class="form-control" placeholder="johnsmith@gmail.com"/>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender: </label>
+                <select class="form-control" id="gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Prefer not to say</option>
+                </select>
+            </div>
+        </form>
+
+        <hr/>
+
+        <h2>Sizing of Form controls</h2>
+        <p class="exp">The <span class="cls">.form-group</span> also comes with different sizes, namely large and small. Use format
+            <span class="cls">.form-control-#</span> <storng>in addition to <span class="cls">.form-control</span>"/></storng> where # is lg, or sm</p>
+        <br/>
+
+        <input type="text" class="form-control form-control-lg" placeholder=".form-control-lg"/>
+        <input type="text" class="form-control" placeholder=".form-control"/>
+        <input type="text" class="form-control form-control-sm" placeholder=".form-control-sm"/>
+
+        <hr/>
+
+        <h2>Basic layout of Forms</h2>
+        <p class="exp">We can use the <span class="cls">.row</span> group and <span class="cls">.col</span> nested inside it to achieve
+        horizontal row with several vertical columns. An even better practice for forms is to use <span class="cls">.form-row</span> instead
+        which the columns will be less spread out and more tightly placed</p>
+        <br/>
+
+        <form>
+            <small class="text-muted">Using .row</small>
+            <div class="row">
+                <div class="form-group col">
+                    <label for="first-name">First Name: </label>
+                    <input type="text" class="form-control" id="first-name" placeholder="John"/>
+                </div>
+                <div class="form-group col">
+                    <label for="last-name">Last Name: </label>
+                    <input type="text" class="form-control" id="last-name" placeholder="Smith"/>
+                </div>
+            </div>
+
+            <small class="text-muted">Using .form-row</small>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label for="first-name2">First Name: </label>
+                    <input type="text" class="form-control" id="first-name2" placeholder="John"/>
+                </div>
+                <div class="form-group col">
+                    <label for="last-name2">Last Name: </label>
+                    <input type="text" class="form-control" id="last-name2" placeholder="Smith"/>
+                </div>
+            </div>
+        </form>
+
+        <p class="exp">Forms can be aligned horizontally by customizing using the format <span class="cls">.col-#-#</span> where first #
+        is size (lg, sm, md...) and second is the integer in the 12 line grid system (How many columns it take up)</p>
+
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="address">Address: </label>
+                    <input type="text" class="form-control" id="address" placeholder="address"/>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="state">State: </label>
+                    <select id="state" class="form-control">
+                        <option>Johor</option>
+                        <option>Kuala Lumpur</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="postcode">Postcode: </label>
+                    <input type="number" class="form-control" id="postcode" placeholder="postcode"/>
+                </div>
+            </div>
+        </form>
+
+        <hr/>
+
+        <h2>Inline forms</h2>
+        <p class="exp">We can easily make an inline form row using class <span class="cls">.form-inline</span> which will set the form
+        to be flex. We may need to use some bootstrap shorthand <a href="https://getbootstrap.com/docs/4.0/utilities/spacing/" target="_blank">Spacing</a>
+        classes to adjust the spacing.</p>
+        <p class="exp">For the sake of screenreaders, we shall include the label element even though we don't want the user to see it,
+        by using <span class="cls">.sr-only</span> which means screen reader only</p>
+        <br/>
+
+        <form class="form-inline">
+            <label class="sr-only" for="email1">Email Part 1: </label>
+            <input type="text" id="email1" class="form-control mr-3" placeholder="johndoe62"/>
+
+            <label class="sr-only" for="email2">Email Part 2: </label>
+            <div class="input-group mr-3">
+                <div class="input-group-prepend"><div class="input-group-text">@</div></div>
+                <input type="text" id="email2" class="form-control" placeholder="gmail.com"/>
+            </div>
+
+            <div class="form-check mr-3">
+                <input type="checkbox" id="remember" class="form-check-input"/>
+                <label for="remember" class="form-check-label">Remember me</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Level Two</title>
+		<meta charset="UTF-8"/>
+		<style>
+			body {
+				background-color: #34495e;
+				color: white;
+			}
+			a {
+				color: white;
+				font-size: 20px;
+				border-radius: 10px;
+				padding: 10px;
+				background-color: grey;
+			}
+			.blocker {
+				height: 100vh;
+				width: 90vw;
+				margin: 50px auto;
+				background-color: #d35400;
+			}
+			h1 {
+				text-align: center;
+				font-size: 50px;
+				color: #f1c40f;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="dummy">Level Two</h1>
+
+		<!-- For HTML URL, it default to relatively point to the folder where this file is contained in. Therefore if left blank,
+			it actually points to the folder HTML URL where this document is contained in. Therefore we can also use this property
+			to navigate deeper into subfolders contained in this folder -->
+
+		
+		<h2>The following link links to the first level</h2>
+		<a href="../Level1.html">Click me</a>
+		<!-- Using two dots and a forward slash, it will refer to the parent folder, which is HTML URL folder back. From there
+			I will open the Level1.html document -->
+
+		<h2>The following link links to the third level</h2>
+		<a href="subfolder2/Level3.html">Click me</a>
+		<!-- URL find "subfolder2" contained in this html containing folder, then opens Level3.html -->
+
+		<div class="blocker"></div>
+
+		<h2 id="dummy">Dummy text :)</h2>
+
+		<div class="blocker"></div>
+	</body>
+</html>

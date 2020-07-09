@@ -1,0 +1,58 @@
+:root {
+    color: white;
+
+    --roboto: 'Roboto', sans-serif;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+/* ----------------------------------------------------- */
+
+header {
+    background-color: #23424A;
+    padding: 100px 60px;
+    font-family: var(--roboto);
+    font-size: 21px;
+}
+
+.container {
+    max-width: 950px;
+    margin: auto;
+}
+
+.size-limit {
+    width: 80%;
+}
+
+header h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+header p {
+    font-weight: lighter;
+    margin-bottom: 70px;
+}
+
+header button {
+    padding: 15px 30px;
+    border-radius: 30px;
+    border: 0;
+
+    text-transform: uppercase;
+    color: black;
+    background-color: #38CFD9;
+    font-size: 21px;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: background-color 0.5s, color 0.5s;
+}
+header button:hover, header button:focus {
+    background: white;
+    color: #38CFD9;
+}

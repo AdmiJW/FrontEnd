@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sample Navigation Dropdown</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="AdmiJW"/>
+        <meta name="description" content="A dummy webpage for navigation"/>
+        <meta name="keywords" content="html, css, nav, menu"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link type="text/css" rel="stylesheet" href="css/dropdown.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    </head>
+    <body>
+        <header>
+            <span class="logo">Hell's Kitchen</span>
+            <nav>
+                <input type="checkbox" id="open-checkbox"/>
+                <label id="menu-div" for="open-checkbox" tabindex="1">
+                    <div id="menu-burger">
+                    </div>
+                </label>
+                <ul class="main-nav">
+                    <li><a href="#" class="nav-item" tabindex="1">Home</a></li>
+                    <li><a href="#" class="nav-item" tabindex="1">About Us</a></li>
+                    <li class="nav-item" tabindex="1">Menu<i class="fas fa-caret-down"></i>
+                        <nav class="dropdown-div">
+                            <ul>
+                                <li><a href="#" tabindex="1">Main Course</a></li>
+                                <li><a href="#" tabindex="1">Side Dish</a></li>
+                                <li><a href="#" tabindex="1">Appetizer</a></li>
+                                <li><a href="#" tabindex="1">Drinks</a></li>
+                            </ul>
+                        </nav>
+                    </li>
+                    <li><a href="#" class="nav-item" tabindex="1">Promotions</a></li>
+                    <li class="nav-item" tabindex="1">Language<i class="fas fa-caret-down"></i>
+                        <nav class="dropdown-div">
+                            <ul>
+                                <li><a href="#" tabindex="1">English</a></li>
+                                <li><a href="#" tabindex="1">简体中文</a></li>
+                                <li><a href="#" tabindex="1">Bahasa Melayu</a></li>
+                            </ul>
+                        </nav>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <h2>Good Food<br/>Nice Food</h2>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Level One</title>
+		<meta charset="UTF-8"/>
+		<style>
+			body {
+				background-color: #34495e;
+				color: white;
+			}
+			a {
+				color: white;
+				font-size: 20px;
+				border-radius: 10px;
+				padding: 10px;
+				background-color: grey;
+			}
+			.blocker {
+				height: 100vh;
+				width: 90vw;
+				margin: 50px auto;
+				background-color: #27ae60;
+			}
+			h1 {
+				text-align: center;
+				font-size: 50px;
+				color: #2ecc71;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="dummy">Level One</h1>
+
+		<!-- For HTML URL, it default to relatively point to the folder where this file is contained in. Therefore if left blank,
+			it actually points to the folder HTML URL where this document is contained in. Therefore we can also use this property
+			to navigate deeper into subfolders contained in this folder -->
+
+		
+		<h2>The following link just links to itself ABSOLUTELY, but to see difference, press <a href="#dummy">this</a></h2>
+		<a href="/My Desktop/Website Creating/HTML URL/Level1.html">Click me</a>
+		<!-- Using a forward slash will refer to the root folder (where there is no more parent folder).
+			From here I will refer back to this document back itself -->
+
+		<h2>The following link also links to itself, but RELATIVELY</h2>
+		<a href="./Level1.html">Click me</a>
+		<!-- Using a single dot represents the folder where the file itself is contained in. In this case . represents HTML URL folder -->
+
+		<h2>The following link links to the second level</h2>
+		<a href="subfolder1/Level2.html">Click me</a>
+		<!-- URL first find "subfolder1" contained in the folder containing this document, then opens Level2.html -->
+
+		<h2>The following link links to the third level</h2>
+		<a href="subfolder1/subfolder2/Level3.html">Click me</a>
+		<!-- URL find "subfolder1" contained in this html containing folder, then finds "subfolder2" contained in "subfolder1", then opens Level3.html -->
+
+		<div class="blocker"></div>
+
+		<h2 id="dummy">Dummy text :)</h2>
+
+		<div class="blocker"></div>
+	</body>
+</html>

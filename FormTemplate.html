@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Registration Code For HTML</title>
+		<meta charset="UTF-8"/>
+		<meta name="description" content="A dummy website created to simulate a form filling website"/>
+		<meta name="keywords" content="HTML, Coding, CSS, Form, Register"/>
+		<meta name="author" content="Soh Jun Wei"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" type="text/css" href="css/formstyle.css"/>
+		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<main id="main-frame">
+			<!-- Header Section ------------------------------------------------------------------->
+			<header id="main-header">
+				<div id="title">
+					<h1>&lt;Coding Starter Pack/&gt;</h1>
+					<h2>&lt;h1&gt;It is never too late to start coding nowadays!&lt;/h1&gt;</h2>
+				</div>
+				<div id="description">
+					<p>Many people think that coding is only meant for someone who uses computer oftenly, and have strong base in logical and mathematical skills. However, we're here organizing this coding camp to prove that anyone can code as long as you know your English language!</p>
+					<p>Organized by Faculty of Computer Science University Lorem Ipsum, this camp will be held on <time datetime="2020-02-31">next Monday, which is 25<sup>th</sup> of May</time>, from <time datetime="09:00"> 9a.m.</time> till <time datetime="14:00">2p.m.</time> You don't have to worry about lunchtime as mouth-watering, tasty lunch will be prepared for the participants, for FREE! Official shirts will be provided, too!</p>
+				</div>
+			</header>
+
+			<!-- Form Section -------------------------------------------------------------------------->
+			<form id="survey-form">
+				<h3>Register Now</h3>
+				<fieldset id="personal-info">
+					<legend>Personal Information: </legend>
+
+					<div id="form-fname">
+						<label class="instruct" id="name-label" for="name">First Name: </label>	<br/>
+						<input id="name" name="first-name" type="text" placeholder="John" required/>	<br/>
+					</div>
+
+					<div id="form-lname">
+						<label class="instruct" for="last-name">Last Name: </label> <br/>
+						<input id="last-name" name="last-name" type="text" placeholder="Doe" required/> <br/>
+					</div>
+
+					<div id="form-age">
+						<label class="instruct" id="number-label" for="number">Age: </label> <br/>
+						<input id="number" name="age" type="number" min="18" max="60" placeholder="21" required/> <br/>
+					</div>
+
+					<div id="form-gender">
+						<label class="instruct" for="gender">Gender: </label> <br/>
+						<input id="male" name="gender" value="male" type="radio" required/>
+						<label for="male"> Male</label> <br/>
+						<input id="female" name="gender" value="female" type="radio"/>
+						<label for="female"> Female</label> <br/>
+						<input id="notToSay" name="gender" value="prefer-not-to-say" type="radio"/>
+						<label for="notToSay"> Prefer Not To Say</label> <br/>
+					</div>
+
+					<div id="form-email">
+						<label class="instruct" id="email-label" for="email">Email Address: </label> <br/>
+						<input id="email" type="email" name="email" placeholder="johndoe@gmail.com" required/> <br/>
+					</div>
+
+					<div id="form-phone">
+						<label class="instruct" for="front-phoneNo, back-phoneNo">Phone Number: </label> <br/>
+						<input id="front-phoneNo" name="front-phoneNo" type="tel" pattern="[0-9]{3}" placeholder="012" required/> - 
+						<input id="back-phoneNo" name="back-phoneNo" type="tel" pattern="[0-9]{7,8}" placeholder="34567890" required/> <br/>
+					</div>
+
+					<div id="form-studno">
+						<label class="instruct" for="student-no">Student Number: </label> <br/> 
+						<label>MS</label>
+						<input id="student-no" name="student-no" type="text" pattern="[0-9]{10}" placeholder="1918141850" required/>
+					<div>
+				</fieldset>
+
+				<fieldset id="participation-info">
+					<legend>Participation Info: </legend>
+
+					<div id="form-program">
+						<label class="instruct" for="program">Which program are you interested in? </label> <br/>
+						<input type="checkbox" id="check-html" name="program" value="html">
+						<label for="check-html"> Web Development Starter Pack V1.0 (HTML, CSS) </label> <br/>
+						<input type="checkbox" id="check-java" name="program" value="java">
+						<label for="check-java"> Java Starter Pack </label> <br/>
+						<input type="checkbox" id="check-python" name="program" value="python">
+						<label for="check-python"> Python Starter Pack </label> <br/>
+						<input type="checkbox" id="check-javascript" name="program" value="javascript"/>
+						<label for="check-javascript"> Web Development Starter Pack V2.0 (JS) </label> <br/>
+					</div>
+
+					<div id="form-faculty">
+						<label class="instruct" for="faculty">Which faculty are you from? </label> <br/>
+						<input type="radio" id="fac-edu" name="faculty" value="education" required>
+						<label for="fac-edu">Education</label> <br/>
+						<input type="radio" id="fac-eng" name="faculty" value="engineering">
+						<label for="fac-eng">Engineering</label> <br/>
+						<input type="radio" id="fac-sc" name="faculty" value="science">
+						<label for="fac-sc">Science</label> <br/>
+						<input type="radio" id="fac-med" name="faculty" value="medicine">
+						<label for="fac-med">Medicine</label> <br/>
+						<input type="radio" id="fac-law" name="faculty" value="law">
+						<label for="fac-law">Law</label> <br/>
+						<input type="radio" id="fac-compSc" name="faculty" value="computerSc">
+						<label for="fac-compSc">Computer Science</label> <br/>
+						<input type="radio" id="fac-oth" name="faculty" value="others">
+						<label for="fac-oth">Others</label> <br/>
+					</div>
+
+					<div id=form-shirtsize">
+						<label class="instruct" for="shirtsize">What are your shirt size? </label> <br/>
+						<select id="dropdown" name="shirt-size" required>
+							<option value="XS">XS</option>
+							<option value="S">S</option>
+							<option value="M">M</option>
+							<option value="L">L</option>
+							<option value="XL">XL</option>
+						</select>
+					</div>
+
+					<div id="form-experience">
+						<label class="instruct" for="prior-exp">Do you have any prior coding experience?</label> <br/>
+						<input type="checkbox" id="exp-java" name="experience" value="java">
+						<label for="exp-java"> Java</label> <br/>
+						<input type="checkbox" id="exp-c++" name="experience" value="c++">
+						<label for="exp-c++"> C++</label> <br/>
+						<input type="checkbox" id="exp-python" name="experience" value="python">
+						<label for="exp-python"> Python</label> <br/>
+						<input type="checkbox" id="exp-javascript" name="experience" value="javascript">
+						<label for="exp-javascript"> Javascript</label> <br/>
+						<input type="checkbox" id="exp-others" name="experience" value="others">
+						<label for="exp-others"> Others</label> <br/>
+					</div>
+
+					<div id="form-notes">
+						<label class="instruct" for="notes">Leave a notes to us for special remarks!</label>	<br/>
+						<textarea name="message" rows="10" cols="30" placeholder="Your notes here..."></textarea>
+						<br/>
+					</div>
+
+					<input type="submit" value="Submit"> <br/>
+				</fieldset>
+
+			</form>
+
+			<!-- Footer Section -------------------------------------------------------------------->
+			<footer id="main-footer">
+				<!-- https://www.freepnglogos.com/uploads/computer-logos-8.png -->
+				<img id="logo" src="https://www.freepnglogos.com/uploads/computer-logos-8.png" 
+				alt="official logo of faculty of computer science University Lorem Ipsum"/>
+				<span>
+					<h3>Provided to you by: </h3>
+					<p>Faculty of Computer Science <br/>University Lorem Ipsum<br/>1234, Jalan Lorem Ipsum<br/>12345 Lorem<br/>Ipsum</p>
+				</span>
+			</footer>
+
+			<!-- --------------------------------------------------------------------->
+		</main>
+	</body>
+</html>

@@ -1,0 +1,208 @@
+
+:root {
+	color:white;
+	background-color: #3e424b;
+}
+.content {
+	color: black;
+}
+p {
+	margin: 0;
+	padding: 0;
+}
+.grid {
+	display: grid;
+}
+.grid > div {
+	background-color: #CCC6C4;
+}
+.grid > div:nth-child(odd) {
+	background-color: #E5E1D6;
+}
+
+
+/*  Grid-1: We can make a container to display as grid by using display: grid.
+	We set up the rows and columns by using grid-template-rows and grid-template-columns and specifying the size of each unit.
+	The preferred unit is using Fractions (fr) as opposed to percentage (%) since percentage may be affected by the margin and padding etc */
+#grid-1 {
+	grid-template-columns: 1fr 2fr 1fr;
+	grid-template-rows: 1fr 250px;
+}
+
+/*	Grid-2: For n columns we originally have to repeat typing them n times. Imagine having something like 15 columns or more! Therefore we can use the
+	repeat function as so: repeat(times-repeat, values-to-repeat);
+	Note that the values-to-repeat are not fixed to single value only. Also, after the repeat function we still can define our own size
+*/
+
+#grid-2 {
+	grid-template-columns: repeat(2, 1fr 2fr) 90px;
+	grid-template-rows: 330px;
+}
+
+
+/*  Grid-3: When we set the columns or rows to a fixed size, the content inside may overflow out of the CELL size when the window resizes. Therefore we may set
+	the size with a FUNCTION: minmax() along with value auto. Therefore when the window is big the maximum size is automatically set, and when the window shrinks,
+	the cell will not be smaller than our set size.
+
+	Vice versa, we can set the minimum value so that even when the window is too small the item wont shrink further but kept it's minimum size instead
+ */
+#grid-3 {
+	grid-template-columns: repeat(3, minmax(auto, 300px) );
+}
+
+/*	Grid-4: We would set up gaps between items using the grid-column-gap and grid-column-row property. It can be of any units
+	A shorthand would be using grid-gap, and can be used with 2 values or 1 values
+	2 values is the gap in the order: ROW COLUMN
+	1 values will set the gap in row and column the same size
+*/
+#grid-4 {
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-gap: 10px 20px;
+	/*Equivalent to the following:
+		grid-column-gap: 20px;
+		grid-row-gap: 10px;
+	*/
+}
+
+/*	Grid-5: Perhaps like in flexbox we would want to set an items to consume multiple lines or columns, or even setting where to put them.
+	In grid we can simply achieve this using the concept of row-lines and column-lines.
+
+	For a grid of n columns or n rows, it would have n+1 column or row lines, starting from 1.
+	1	2	3	4
+	| i | i | i |		<<------ each | represents a column line, with their index above them
+
+	Therefore to set an item where they supposed to be and how much space they consume, use the grid-column/ grid-row properties on the items itself!
+	The syntax would be: 	starting-from-line / stop-at-line ;
+	*/
+#grid-5 {
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-tempalte-rows: 1fr 1fr 1fr;
+}
+#grid-5 > #c-4 {
+	background-color: #999DA0;
+	grid-column: 1 / 4;
+}
+#grid-5 > #c-3 {
+	grid-row: 3 / 4;
+	grid-column: 2 / 4;
+}
+
+/*	Grid-6:  Remember in flex box, align items is for aligning it vertically (up down center) and justify items is for aligning it horizontally (left right center)
+	The same goes for grid. The default value is Stretch, which stretches the item to fit the cell size
+	Values: start center end stretch
+
+	There are 2 ways to apply: On individual items which uses properties: 	align-self    justify-self
+							   On the container (applies to all items)  :   align-items   justify-items
+*/
+#grid-6 {
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 200px 200px;
+}
+#grid-6 > #c-5 {
+	align-self: center;
+}
+#grid-6 > #c-6 {
+	align-self: end;
+}
+#grid-6 > #c-7 {
+	justify-self: end;
+}
+#grid-6 > #c-8 {
+	justify-self: start;
+}
+
+/*	Grid-7: In grid, on top of defining columns and rows using grid-template-columns/rows, what we could do is define an area that we could place items in,
+	using grid-template-areas property.
+	we could then assign items to an area using grid-area property on each individual item
+
+	Note: use a dot . to represent a empty area;
+*/
+#grid-7 {
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-areas: "header header header"
+						". content advert"
+						"footer footer footer";
+}
+#grid-7 > #c-a {
+	grid-area: header;
+	background-color: tomato;
+}
+#grid-7 > #c-b {
+	grid-area: advert;
+	background-color: coral;
+}
+#grid-7 > #c-c {
+	grid-area: content;
+}
+#grid-7 > #c-d {
+	grid-area: footer;
+}
+
+/*	We could still use and define the areas on the fly without using grid-template-areas, but using the column lines and row lines concept instead.
+	On each individual items we have to define grid-area, with the following syntax:
+						row-start-line/ column-start-line/ row-end-line/ column-end-line;
+*/
+#grid-8 {
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: repeat(3, auto-fit);
+}
+#grid-8 > #c-e {
+	background-color: tomato;
+	grid-area: 1/1/2/4;
+}
+#grid-8 > #c-f {
+	background-color: coral;
+	grid-area: 2/3/3/4;
+}
+#grid-8 > #c-g {
+	grid-area: 2/2/3/3;
+}
+#grid-8 > #c-h {
+	grid-area: 3/1/4/4;
+}
+
+
+/*	In creating columns or rows, we could use the value auto-fill or auto-fit instead of a fixed value for the times of repetition, this way
+	it will always try and fit as many rows/columns as possible based on the size you specified
+
+	The difference between auto-fill and auto-fit is that, auto-fill will always insert empty columns/rows if there is enough space, resulting in empty space
+	auto-fit will collapse those empty spaces and actually STRETCH the content to fill out the empty spaces
+*/
+#grid-9 {
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr) );
+}
+
+/*	We can create a responsive website by using grid area itself in media query.
+	 Changing the grid-template-areas to suit the display width is never been so easy
+*/
+#grid-10 {
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-areas: "header header header"
+						". content advert"
+						"footer footer footer";
+}
+#grid-10 > #c-A {
+	grid-area: header;
+	background-color: tomato;
+}
+#grid-10 > #c-B {
+	grid-area: advert;
+	background-color: coral;
+}
+#grid-10 > #c-C {
+	grid-area: content;
+}
+#grid-10 > #c-D {
+	grid-area: footer;
+}
+
+/* Collapses to only 1 column layout if the width is small*/
+@media (max-width: 600px) {
+	#grid-10 {
+		grid-template-areas: "header"
+						  "advert"
+						  "content"
+						  "footer";
+	}
+}

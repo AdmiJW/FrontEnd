@@ -1,0 +1,75 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #2c3e50;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+/* COPY FROM HERE ---------------------------*/
+
+#menu-div {
+	border: solid white 5px;		/* Remove this property if don't want border */
+	padding: 20px;						/* Remove this padding as well */
+	width: var(--size);
+	height: var(--size);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+
+	/* CHange the property here to your preferred size */
+	--size: 150px;
+	--burger-height: 10px;
+	--burger-margin: 35px;
+	--burger-color: white;
+	/* ------------------------------------------ */
+}
+
+#menu-burger {
+	position: relative;
+	width: 100%;
+	height: var(--burger-height);
+	border-radius: 5px;
+	background-color: var(--burger-color);
+	transition: all 0.5s ease-in-out;
+}
+
+#open-checkbox {
+	display: none;
+	position: absolute;
+	z-index: -999;
+}
+
+#menu-burger::before, #menu-burger::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: var(--burger-height);
+	border-radius: 5px;
+	background-color: var(--burger-color);
+	transition: all 0.5s ease-in-out;
+}
+#menu-burger::before {
+	transform: translateY( calc(-1 * var(--burger-margin) ) );
+}
+#menu-burger::after {
+	transform: translateY(var(--burger-margin));
+}
+
+#open-checkbox:checked ~ #menu-burger {
+	transform: translateX(-100%);
+	background-color: transparent;
+}
+#open-checkbox:checked ~ #menu-burger::before {
+	transform: translate(100%, 0px) rotate(45deg);
+}
+#open-checkbox:checked ~ #menu-burger::after {
+	transform: translate(100%, 0px) rotate(-45deg);
+}

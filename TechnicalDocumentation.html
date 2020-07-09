@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple JavaFX Documentation</title>
+	<meta charset="UTF-8"/>
+	<meta name="author" content="Soh Jun Wei"/>
+	<meta name="keywords" content="html, css, freecodecamp, technical, documentation"/>
+	<meta name="description" content="A sample website to practice creating a technical documentation website"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" type="text/css" href="css/documentation.css"/>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+</head>
+
+<body>
+	<input type="checkbox" id="nav-checkbox"/>
+	<label for="nav-checkbox">
+		<span id="open-nav" class="fas fa-ellipsis-h"></span>
+	</label>
+
+
+	<!-- Navigation Bar -->
+	<nav id="navbar">
+		<header class="nav-header" id="nav-header">
+			<h1>JavaFX: Getting Started</h1>
+		</header>
+		<div class="link-div" id="link-div">
+			<label for="nav-checkbox" id="close-nav-div">
+				<span id="close-nav" class="fas fa-times"></span>
+			</label>
+			<div class="link-topic" id="nav-topic-0">
+				<a class="nav-link" href="#introduction">Introduction</a>
+			</div>
+			<div class="link-topic" id="nav-topic-1">
+				<a class="nav-link" href="#hello_world_in_javafx">Hello World in JavaFX</a>
+				<ul>
+					<a class="nav-link" href="#construct_the_application">Construct the Application</a>
+					<a class="nav-link" href="#run_the_application">Run the Application</a>
+				</ul>
+			</div>
+			<div class="link-topic" id="nav-topic-2">
+				<a class="nav-link" href="#creating_a_form_in_javafx">Creating a Form in JavaFX</a>
+				<ul>
+					<a class="nav-link" href="#create_the_project">Create the Project</a>
+					<a class="nav-link" href="#create_a_gridpane_layout">Create a GridPane Layout</a>
+					<a class="nav-link" href="#add_text,_labels,_and_text_fields">Add Text, Labels, and Text Fields</a>
+					<a class="nav-link" href="#add_a_button_and_text">Add a Button and Text</a>
+					<a class="nav-link" href="#add_code_to_handle_an_event">Add Code to Handle an Event</a>
+					<a class="nav-link" href="#run_the_application_2">Run the Application 2</a>
+				</ul>
+			</div>
+			<div class="link-topic" id="nav-topic-3">
+				<a class="nav-link" href="#reference">Reference</a>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Main Documentation -->
+	<main id="main-doc">
+		<!-- Topic-0 -->
+		<section class="main-section" id="introduction">
+			<header class="doc-header"><h2>Introduction</h2></header>
+			<p>JavaFX is a aset of graphics and media packages that enables developers to design, create, test, debug, and deploy rich client applications that operate consistently across diverse platforms.</p>
+			<p>Since the JavaFX library is written as a Java API, JavaFX application code can reference APIs from any Java library. For example, JavaFX applications can use Java API libraries to access native system capabilities and connect to server-based middleware applications.</p>
+			<p>The look and feel of JavaFX applications can be customized. Cascading Style Sheets (CSS) separate appearance and style from implementation so that developers can concentrate on coding. Graphic designers can easily customize the appearance and style of the application through the CSS. If you have a web design background, or if you would like to separate the user interface (UI) and the back-end logic, then you can develop the presentation aspects of the UI in the FXML scripting language and use Java code for the application logic. If you refer to design UIs without writing code, then use JavaFX Scene Builder. As you design the UI, Scene Builder creates FXML markup that can be ported to an Integerated Development Environment (IDE) so that developers can add the business logic.</p>
+		</section>
+		<!-- End of Topic 0 -->
+
+		<!-- Topic-1 -->
+		<section class="main-section" id="hello_world_in_javafx">
+			<header class="doc-header"><h2>Hello World in JavaFX</h2></header>
+			<p>The best way to teach you what it is like to create and build a JavaFX application is with a "Hello World" application. An added benefit of this tutorial is that it enables you to test that your JavaFX technology is properly installed.</p>
+			<p>The tool used in this tutrial is NetBeans IDE 7.3. Before you begin, ensure that the version of NetBeans IDE that yo are using supports JavaFX 2. See the <a href="https://docs.oracle.com/javafx/release-documentation.html" target="_blank">System Requirements</a> for details.</p>
+
+			<!-- Topic 1-1 -->
+			<section class="main-section" id="construct_the_application">
+				<header class="doc-header"><h3>Construct the Application</h3></header>
+				<ol>
+					<li>From the <b>File</b> menu, choose <b>New Project</b>.</li>
+					<li>In the <b>JavaFX</b> application category, choose <b>JavaFX Application</b>. Click <b>Next</b>.</li>
+					<li>Name the project <b>HelloWorld</b> and click <b>Finish</b>. <br/>
+					NetBeans opens the <code>HelloWorld.java</code> file and populates it with the code for a basic Hello World application, as shown in <a href="#example-1-1">Example 1-1</a>.
+					<div class="code-block" id="example-1-1">
+					<pre><code>
+package helloworld;
+
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+public class HelloWorld extends Application {
+	public static void main(String[]args) {
+		launch(args);
+	}
+
+	@Override
+	public void start(Stage primaryStage) {
+		primaryStage.setTitle("Hello World!");
+		Button btn = new Button();
+		btn.setText("Say 'Hello World'");
+		btn.setOnAction(new EventHandler&lt;ActionEvent&gt;() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				System.out.println("Hello World!");
+			}
+		});
+
+		StackPane root = new StackPane();
+		root.getChildren().add(btn);
+		primaryStage.setScene(new Scene(root, 300, 250) );
+		primaryStage.show();
+	}
+}
+					</code></pre></div>
+					</li>
+				</ol>
+				<p>Here are the important things to know about the basic structure of a JavaFX application:</p>
+				<ul>
+					<li><p>The main class for a JavaFX application extends the <code>javafx.application.Application</code> class. The <code>start()</code> method is the main entry point for all JavaFX applications.</p></li>
+					<li><p>A JavaFX application defines the user interface container by means of a stage and a scene. The JavaFX <code>Stage</code> class is the top-level JavaFX container. The JavaFX <code>Scene</code> class is the container for all content. <a href="#example-1-1">Example 1-1</a> creates the stage and scene and makes the scene visible in a given pixel size.</p></li>
+					<li><p>In JavaFX, the content of the scene is represented as a hierarchical scene graph of nodes. In this example, the root node is a <code>StackPane</code> object, which is a resizable layout node. This means that the root node's size tracks the scene's size and changes when the stage is resized by a user.</p></li>
+					<li><p>The root node contains one child node, a button control with text, plus an event handler to print a message when the button is pressed.</p></li>
+					<li><p>The <code>main()</code> method is not required for JavaFX applications when the JAR file for the application is created with the JavaFX Packager tool, which embeds the JavaFX Launcher in the JAR file. However, it is useful to include the <code>main()</code> method so you can run JAR files that were created without the JavaFX Launcher, such as when using an IDE in which the JavaFX tools are not fully integrated. Also, Swing applications that embed JavaFX code require the <code>main()</code> method.</p></li>
+				</ul>
+				<p><a href="#figure-1-1">Figure 1-1</a> shows the scene graph for the Hello World application. For more information on scene graphs see <a href="https://docs.oracle.com/javafx/2/scenegraph/jfxpub-scenegraph.html" target="_blank">Working with the JavaFX Scene Graph</a>.</p>
+				<figure id="figure-1-1">
+					<figcaption><h4>Figure 1-1 Hello World Scene Graph</h4></figcaption>
+					<img src="https://docs.oracle.com/javafx/2/get_started/img/helloworld_scenegraph.png" alt="A figure showing the working of the JavaFX Scene graph"/>
+				</figure>
+			</section>	
+			<!-- End of topic 1-1 -->
+
+			<!-- Topic 1-2 -->
+			<section class="main-section" id="run_the_application">
+				<header class="doc-header"><h3>Run the Application</h3></header>
+				<ol>
+					<li><p>In the Projects window, right-click the <b>HelloWorld</b> project node and choose <b>Run</b>.</p></li>
+					<li><p>Click the Say Hello World button.</p></li>
+					<li><p>Verify that the text "Hello World!" is printed to the NetBeans output window. <a href="#figure-1-2">Figure 1-2</a> shows the Hello World application, JavaFX style.</p></li>
+				</ol>
+				<figure id="figure-1-2">
+					<figcaption><h4>Figure 1-2 Hello World, JavaFX style</h4></figcaption>
+					<img src="https://docs.oracle.com/javafx/2/get_started/img/helloworld.png" alt="A figure showing the hello world application created using JavaFX"/>
+				</figure>
+			</section>
+			<!-- End of topic 1-2 -->
+		</section>	
+		<!-- End of topic 1 -->
+
+		<!-- Topic-2 -->
+		<section class="main-section" id="creating_a_form_in_javafx">
+			<header class="doc-header"><h2>Creating a Form in JavaFX</h2></header>
+			<p>Creating a form is a common activity when developing an application. This tutorial teaches you the basics of screen layout, how to add controls to a layout pane, and how to create input events.</p>
+			<p>In this tutorial, you will use JavaFX to build the login form shown in <a href="#figure-2-1">Figure 2-1</a>.</p>
+			<figure id="figure-2-1">
+				<figcaption><h4>Figure 2-1 Login Form</h4></figcaption>
+				<img src="https://docs.oracle.com/javafx/2/get_started/img/login.png" alt="A figure showing the login form application that will be created in this tutorial"/>
+			</figure>
+
+			<!-- Topic 2-1 -->
+			<section class="main-section" id="create_the_project">
+				<header class="doc-header"><h3>Create the Project</h3></header>
+				<p>Your first task is to create a JavaFX project in NetBeans IDE and name it Login:</p>
+				<ol>
+					<li><p>From the <b>File</b> menu, choose <b>New Project</b>.</p></li>
+					<li><p>In the <b>JavaFX</b> application category, choose <b>JavaFX Application</b>. Click <b>Next</b>.</p></li>
+					<li><p>Name the project <b>Login</b> and click <b>Finish</b>.</p>
+					<p>When you create a JavaFX project, NetBeans IDE provides a Hello World application as a starting pint, which you have already seen if you followed the <a href="#hello_world_in_javafx">Hello World</a> tutorial.</p></li>
+					<li><p>Remove the <code>start()</code> method that NetBeans IDE generated and replace it with the code in <a href="#example-2-1">Example 2-1</a>.</p></li>
+				</ol>
+				<div class="code-block" id="example-2-1">
+					<h4>Example 2-1 Application Stage</h4>
+					<pre><code>
+@Override
+public void start(Stage primaryStage) {
+	primaryStage.setTitle("JavaFX Welcome");
+
+	primaryStage.show();
+}
+				</code></pre></div>
+				<p><b>Tip:</b> After you add sample code into a NetBeans project, press Ctrl (or Cmd) + Shift + I to import the required packages. When there is a choice of import statements, choose the one that starts with <code>javafx</code>.</p>
+			</section>
+			<!-- End of Topic-2-1 -->
+
+			<!-- Topic-2-2 -->
+			<section class="main-section" id="create_a_gridpane_layout">
+				<header class="doc-header"><h3>Create a GridPane Layout</h3></header>
+				<p>For the login form, use a <code>GridPane</code> layout because it enables you to create a flexible grid of rows and columns in which to lay out controls. You can place controls in any cell in the grid, and you can make controls span cells as needed.</p>
+				<p>The code to create the <code>GridPane</code> layout is in <a href="#example-2-2">Example 2-2</a>. Add the code before the line <code>primaryStage.show();</code></p>
+				<div class="code-block" id="exmaple-2-2">
+					<h4>Example 2-2 GridPane with Gap and Padding Properties</h4>
+					<pre><code>
+GridPane grid = new GridPane();
+grid.setAlignment(Pos.CENTER);
+grid.setHgap(10);
+grid.setVgap(10);
+grid.setPadding(new Insets(25, 25, 25, 25));
+
+Scene scene = new Scene(grid, 300, 275);
+primaryStage.setScene(scene);
+					</code></pre>
+				</div>
+				<p><a href="#example-2-2">Example 2-2</a> creates a <code>GridPane</code> object and assigns it to the variable named <code>grid</code>. The alignment property changes the default position of the grid from the top left of the scene to the center. The gap properties manage the spacing between the rows and columns, while the padding property manages the space around the edges of the grid pane. The insets are in the order of top, right, bottom, and left. In this example, there are <code>25</code> pixels of padding on each side.</p>
+				<p>The scene is created with the grid pane as the root node, which is a common practice when working with layout containers. Thus, as the window is resized, the nodes within the grid pane are resized according to their layout constraints. In this example, the grid pane remains in the center when you grow or shrink the window. The padding properties ensure there is a padding around the grid pane when you make the window smaller.</p>
+				<p>This code sets the scene width and height to 300 by 275. If you do not set the scene dimensions, the scene defaults to the minimum size needed to display its contents.</p>
+			</section>
+			<!-- End of topic-2-2 -->
+
+			<!-- Topic 2-3 -->
+			<section class="main-section" id="add_text,_labels,_and_text_fields">
+				<header class="doc-header"><h3>Add Text, Labels, and Text Fields</h3></header>
+				<p>Looking at <a href="#figure-2-1">Figure 2-1</a>, you can see that the form requires the title "Welcome" and text and password fields for gathering information from the user. The code for creating these controls is in <a href="#example-2-3">Example 2-3</a>. Add this code after the line that sets the grid padding property.</p>
+				<div class="code-block" id="example-2-3">
+					<h4>Example 2-3 Controls</h4>
+					<pre><code>
+Text scenetitle = new Text("Welcome");
+scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20 ));
+grid.add(scenetitle, 0, 0, 2, 1);
+
+Label userName = new Label("User Name:");
+grid.add(userName, 0, 1);
+
+TextField userTextField = new TextField();
+grid.add(userTextField, 1, 1);
+
+Label pw = new Label("Password:");
+grid.add(pw, 0, 2);
+
+PassWordField pwBox = new PasswordField();
+grid.add(pwBox, 1, 2);
+					</code></pre>
+				</div>
+				<p>The first line creates a <code>Text</code> object that cannot be edited, sets the text to <code>Welcome</code>, and assigns it to a variable named <code>scenetitle</code>. The next line uses the <code>setFont()</code> method to set the font family, weight, and size of the <code>scenetitle</code> variable. Using an inline style is appropriate where the style is bound to a variable, but a better technique for styling the elements of your user interface is by using a style sheet. In the next tutorial, <a href="https://docs.oracle.com/javafx/2/get_started/css.htm#BABBGJBI" target="_blank">Fancy Forms with JavaFX CSS</a>, you will replace the inline style with a style sheet.</p>
+				<p>The <code>grid.add()</code> method adds the <code>scenetitle</code> variable to the layout <code>grid</code>. The numbering for columns and rows in the grid starts at zero, and <code>scenetitle</code> is added in column 0, row 0. The last two arguments of the <code>grid.add()</code> method set the column span to 2 and the row span to 1.</p>
+				<p>The next lines create a <code>Label</code> object with text <code>User Name</code> at column 0, row 1 and a <code>Text Field</code> object that can be edited. The text field is added to the grid pane at column 1, row 1. A password field and label are created and added to the grid pane in a similar fashion.</p>
+				<p>When working with a grid pane, you can display the grid lines, which is useful for debugging purposes. In this case, you can add <code>grid.setGridLinesVisible(true)</code> after the line that adds the password field. Then, when you run the application, you see the lines for the grid columns and rows as well as the gap properties, as shown in <a href="#figure-2-2">Figure 2-2</a>.</p>
+				<figure id="figure-2-2">
+					<figcaption><h4>Figure 2-2 Login Form with Grid Lines</h4></figcaption>
+					<img src="https://docs.oracle.com/javafx/2/get_started/img/login_gridlines_co.png" alt="A figure showing the login form application with grid lines enabled"/>
+				</figure>
+
+			</section>
+			<!-- End of Topic-2-3 -->
+
+			<!-- Topic 2-4 -->
+			<section class="main-section" id="add_a_button_and_text">
+				<header class="doc-header"><h3>Add a Button and Text</h3></header>
+				<p>The final two controls required for the application are a <code>Button</code> control for submitting the data and a <code>Text</code> control for diplaying a message when the user presses the button.</p>
+				<p>First, create the button and position it on the bottom right, which is a common placement for buttons that perform an action affecting the entire form. The code is in <a href="#example-2-4">Example 2-4</a>. Add this code before the code for the scene.</p>
+				<div class="code-block" id="example-2-4">
+					<h4>Example 2-4 Button</h4>
+					<pre><code>
+Button btn = new Button("Sign in");
+HBox hbBtn = new HBox(10);
+hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
+hbBtn.getChildren().add(btn);
+grid.add(hbBtn, 1, 4);
+					</code></pre>
+				</div>
+				<p>The first line creates a button named <code>btn</code> with the label <code>Sign in</code>, and the second line creates an <code>Hbox</code> layout pane named <code>hbBtn</code> with spacing of <code>10</code> pixels. The <code>HBox</code> pane sets an alignment for the button that is different from the alignment applied to the other controls in the grid pane. The <code>alignment</code> property has a value of <code>Pos.BOTTOM_RIGHT</code>, which positions a node at the bottom of the space vertically and at the right edge of the space horizontally. The button is added as a child of the <code>Hbox</code> pane, and the <code>HBox</code> pane is added to the grid in column 1, row 4.</p>
+				<p>Now, add a <code>Text</code> control for displaying the message, as shown in <a href="#example-2-5">Example 2-5</a>. Add this code before the code for the scene.</p>
+				<div class="code-block" id="example-2-5">
+					<h4>Example 2-5 Text</h4>
+					<pre><code>
+final Text actiontarget = new Text();
+	grid.add(actiontarget, 1, 6);
+					</code></pre>
+				</div>
+				<p><a href="#figure-2-3">Figure 2-3</a> shows the form now. You will not see the text message until you work through the next section of the tutorial, <a href="https://docs.oracle.com/javafx/2/get_started/form.htm#BABHABBF" target="_blank">Add Code to Handle an Event</a>.</p>
+				<figure id="figure-2-3">
+					<h4>Figure 2-3 Login Form with Button</h4>
+					<img src="https://docs.oracle.com/javafx/2/get_started/img/login.png" alt="A figure showing the application after completing the above tutorial segment"/>
+				</figure>
+			</section>
+			<!-- End of Topic 2-4 -->
+
+			<!-- Topic 2-5 -->
+			<section class="main-section" id="add_code_to_handle_an_event">
+				<header class="doc-header"><h3>Add Code to Handle an Event</h3></header>
+				<p>Finally, make the button display the text message when the user presses it. Add the code in <a href="#example-2-6">Example 2-6</a> before the code for the scene.</p>
+				<div class="code-block" id="example-2-6">
+					<h4>Example 2-6 Button Event</h4>
+					<pre><code>
+btn.setOnAction(new EventHandler<ActionEvent>() {
+
+	@Override
+	public void handle (ActionEvent e) {
+		actiontarget.setFill(Color.FIREBRICK);
+		actiontarget.setText("Sign in button pressed");
+	}
+});
+					</code></pre>
+				</div>
+				<p>The <code>setOnAction()</code> method is used to register an event handler that sets the <code>actiontarget</code> object to <code>Sign in button pressed</code> when the user presses the button. The color of the <code>actiontarget</code> object is set to firebrick red.</p>
+			</section>
+			<!-- End of Topic 2-5 -->
+
+			<!-- Topic 2-6 -->
+			<section class="main-section" id="run_the_application_2">
+				<header class="doc-header"><h3>Run the Application 2</h3></header>
+				<p>Right-click the <b>Login</b> project node in the Projects window, choose <b>Run</b>, and then click the Sign in button. <a href="#figure 2-4">Figure 2-4</a> shows the results. If you run into problems, then take a look at the code in the <a href="https://docs.oracle.com/javafx/2/get_started/Login.java.html" target="_blank"><code>Login.java</code></a> file.</p>
+				<figure id="figure-2-4">
+					<h4>Figure 2-4 Final Login Form</h4>
+					<img src="https://docs.oracle.com/javafx/2/get_started/img/login_final.png" alt="A figure showing the final login form"/>
+				</figure>
+			</section>
+			<!-- End of Topic 2-6 -->
+
+		</section>
+		<!-- End of Topic-2 -->
+
+		<!-- Reference -->
+		<section class="main-section" id="reference">
+			<header class="doc-header"><h2>Reference</h2></header>
+			<ul>
+				<li><p>All the documentation in this page is taken from <a href="https://docs.oracle.com/javafx/2/" target="_blank">Oracle JavaFX Documentation Website</a>.</p></li>
+			</ul>
+		</section>
+		<!-- End of reference -->
+	</main>
+</body>
+</html>

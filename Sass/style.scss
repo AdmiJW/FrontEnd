@@ -1,0 +1,75 @@
+
+@import 'config';
+@import 'util';
+@import 'mobile';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: $font-stack;
+}
+
+.showcase {
+    @include set-bg-color($background-color);
+
+    .container {
+        max-width: 950px;
+        margin: auto;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        // padding: 20px; Replaced by .p-1 class
+    
+        .logo {
+            font-size: 1.8rem;
+        }
+        .navmenu {
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+    
+            a {
+                text-decoration: none;
+                color: set-text-color($background-color);
+                font-size: 1.2rem;
+                padding: 0px 10px;
+            }
+            a:hover {
+                color: $secondary-color;
+            }
+        }
+    }
+
+    &-content {
+        // padding: 30px; Replaced by .p-2
+        display: flex;
+        flex-direction: row;
+        justify-items: space-between;
+        align-items: center;
+
+        &-intro {
+            h2 {
+                font-size: 2.5rem;
+                margin: 10px 0px;
+            }
+            p {
+                margin: 20px 0px;
+            }
+        }
+
+        img {
+            width: 50%;
+            height: auto;
+        }
+    }
+
+}
+

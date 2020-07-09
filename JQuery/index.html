@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JQuery Cheat Sheet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="script1.js"></script>
+    <script src="script2.js"></script>
+    <script src="script3.js"></script>
+    <style>
+        h1 {
+            font-size: 65px;
+            font-weight: bolder;
+        }
+        .topic {
+            text-align: center;
+            margin: 30px 0px;
+            color: coral;
+        }
+        hr {
+            background-color:rgba(255, 96, 96, 0.452);
+            padding: 3px 0px;
+            border-radius: 20px;
+            margin: 20px 10px;
+        }
+        .exp {
+            background-color: rgb(231, 231, 231);
+            padding: 10px;
+        }
+        .c {
+            background-color:rgb(61, 61, 61);
+            color: white;
+            padding: 0px 10px;
+        }
+        .container {
+            border: solid 1px black;
+            border-radius: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- -----------------------------------------
+        BASIC OF JQUERY: SOME OF ITS FUNCTIONS
+    ------------------------------------------------>
+
+    <h1 class="topic">Basics of JQuery: Some of its functions</h1>
+    <div class="container">
+        <!-- TOPIC A-0 ------------------------->
+        <h2 class="topic">Prevent bugs using Document ready</h2>
+        <p class="exp">To use JQuery, you should always include the whole code inside the lambda function passed in as argument
+            of ready function when you select the document, as follows: <code class="c">$(document).ready(function() { //code goes here... } ); </code>
+        </p>
+
+        <hr/>
+
+        <!-- TOPIC A-1 ------------------------->
+        <h2 class="topic">Adding class and removing class from elements</h2>
+        <p class="exp">We can add and remove classes easily by first using a <strong>selector</strong>, and using the functions
+        <code class="c">.addClass(" ");</code> and <code class="c">.removeClass(" ");</code> where the name of classes are passed in as arguments.
+        To put multiple classes, just seperate them by space</p>
+        
+        <div class="row">
+            <div class="col-6">
+                <button type="button" class="btn btn-primary" id="btnA-1a">Add class .btn-primary</button>
+                <button type="button" class="btn btn-primary" id="btnA-1b">Add class .btn-secondary</button>
+            </div>
+
+            <div class="col-6">   
+                <button type="button" class="btn btn-dark form-control my-2" id="targetA-1a">Tester Button</button>
+            </div>
+        </div>
+
+        <hr/>
+        
+        <!-- TOPIC A-2 ------------------------->
+        <h2 class="topic">Adding css and html properties</h2>
+        <p class="exp">We can use function <code class="c">.css(property, value);</code> to add css properties to a selected element</p>
+        <p class="exp">We can use function <code class="c">.prop(attribute, value);</code> to add html attributes to a selected element</p>
+        
+        <div class="row">
+            <div class="col-6">
+                <button type="button" class="btn btn-primary" id="btnA-2a">Change CSS bgcolor: red</button>
+                <button type="button" class="btn btn-primary" id="btnA-2b">Change CSS bgcolor: blue</button>
+                <button type="button" class="btn btn-primary" id="btnA-2c">Change attribute: disabled</button>
+                <button type="button" class="btn btn-primary" id="btnA-2d">Change attribute: enabled</button>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn btn-dark btn-block" id="targetA-2a">Tester Button</button>
+            </div>
+        </div>
+
+        <hr/>
+
+        <!-- TOPIC A-3 ------------------------->
+        <h2 class="topic">Manipulating Inner HTML</h2>
+        <p class="exp">We use function <code class="c">.html(newHTML);</code> to replace the entire html contained inside the tag of element selected</p>
+        <p class="exp">We use function <code class="c">.text(text);</code> to replace the text inside the tag of element selected. The difference between using
+            <code class="c">.html(newHTML);</code> is that the former renders the tag you put inside, while the latter consider all as text only</p>
+        
+        <div class="row">
+            <div class="col-6">
+                <button type="button" class="btn btn-primary" id="btnA-3a">Make it small and bold and em!</button>
+                <button type="button" class="btn btn-primary" id="btnA-3b">Make it text only!</button>
+                <input type="text" class="form-control form-control-sm" id="textA-3a" placeholder="text here"/>
+            </div>
+            <div class="col-6">
+                <h3 id="targetA-3a">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+            </div>
+        </div>
+
+        <hr/>
+
+        <!-- TOPIC A-4 ------------------------->
+        <h2 class="topic">Removing, cloning and moving HTML elements</h2>
+        <p class="exp">We use function <code class="c">.remove();</code> to remove the HTML element entirely from the document</p>
+        <p class="exp">We use function <code class="c">.clone();</code> to clone the selected HTML element, which can be chained with other functions</p>
+        <p class="exp">We use function <code class="c">.appendTo(selected);</code> to remove selected HTML element and append it at the selected HTML element</p>
+
+        <div class="row">
+            <div class="col-6">
+                <button type="button" class="btn btn-primary" id="btnA-4a">Remove button 1</button>
+                <button type="button" class="btn btn-primary" id="btnA-4b">Clone button 2 and paste there</button>
+                <button type="button" class="btn btn-primary" id="btnA-4c">Move button 3 here</button>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn btn-primary btn-block" id="targetA-4a">Button 1</button>
+                <button type="button" class="btn btn-warning btn-block" id="targetA-4b">Button 2</button>
+                <button type="button" class="btn btn-success btn-block" id="targetA-4c">Button 3</button>
+            </div>
+        </div>
+
+        <hr/>
+
+        <!-- TOPIC A-5 ------------------------->
+        <h2 class="topic">Selecting parent, children and specific elements</h2>
+        <p class="exp">Use function <code class="c">.parent();</code> to select the selected element's parent element</p>
+        <p class="exp">Use function <code class="c">.children();</code> to select the selected element's all children element</p>
+
+        <div class="row">
+            <div class="col-6">
+                <button type="button" class="btn btn-primary" id="btnA-5a">Make target parent background orange!</button>
+                <button type="button" class="btn btn-primary" id="btnA-5b">Make target children all btn-success!</button>
+            </div>
+            <div class="col-6">
+                <div id="targetA-5a" class="p-3">
+                    <button type="button" class="btn btn-primary" id="btnA-5a">Children1</button>
+                    <button type="button" class="btn btn-primary" id="btnA-5b">Children2</button>
+                    <button type="button" class="btn btn-primary" id="btnA-5b">Children3</button>
+                </div>
+            </div>
+        </div>
+
+        <hr/>
+    </div>
+
+    <!-- -----------------------------------------
+                        SELECTORS
+    ------------------------------------------------>
+
+    <h1 class="topic">Selectors</h1>
+    <div class="container">
+
+        <!-- TOPIC B-1 ------------------------->
+        <h2 class="topic">Some Selectors</h2>
+        <p class="exp">We can select a specified element with specified id by nesting them and stick the together. For example,
+            <code class="c">$("h1#heading")</code> only selects h1 elements with the id #heading</p>
+        <p class="exp">We can select a element but specified numbering only.
+            <ul>
+                <li><code class="c">$("p:first")</code> select p element but the first one only</li>
+                <li><code class="c">$("p:last")</code> select p element but the last one only</li>
+                <li><code class="c">$("p:even")</code> select p element but the even numbered ones only</li>
+                <li><code class="c">$("p:odd")</code> select p element but the odd numbered ones only</li>
+                <li><code class="c">$("p:nth-child( f(n) )")</code> select p element but according to the formula passed in f(n)
+                    (Eg: f(n) = 3 will select 3rd element, f(n) = 3n will select every 3 element</li>
+            </ul>
+        </p>
+        <p class="exp">We can select based on the type attribute by using <code class="c">$(":type")</code>, for example, <code class="c">$(":button")</code>
+            select all elements with the type attribute as button</p>
+        <p class="exp">We can select based on the attribute itself by using <code class="c">$("[attribute]")</code> where attribute is enclosed in square
+            brackets. For example, <code class="c">$("[href]")</code> select all elements with href attribute set. We can even select attribute with
+            specified value with <code class="c">$("[href="value"]")</code>.</p>
+
+        <hr/>
+    </div>
+
+    <!-- -----------------------------------------
+                    EVENTS
+    ------------------------------------------------>
+
+    <h1 class="topic">Events</h1>
+    <div class="container">
+
+        <!-- TOPIC C-1 ------------------------->
+        <h2 class="topic">Click, double click and hover</h2>
+        <p class="exp">We can add a click, double click and hover event listener to an element by using <code class="c">.click(function)</code>,
+            <code class="c">.dblclick(function)</code> and <code class="c">.hover(function)</code></p>
+        
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="btnC-1a">Click/ Double click me!</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="btnC-1b">Hover me!</button>
+
+        <hr/>
+
+        <!-- TOPIC C-2 ------------------------->
+        <h2 class="topic">The on function</h2>
+        <p class="exp">We can use the on function to specify specific mouse events to act on. The definition of the on function is
+            <code class="c">.on(action, function)</code> where the action can be one of follows: 
+            <ul>
+                <li><code class="c">click</code> : basic mouse click, mouseup followed by mousedown</li>
+                <li><code class="c">mouseenter</code> : when the mouse entered the area of the element</li>
+                <li><code class="c">mouseleave</code> : when the mouse leave the area of the element</li>
+                <li><code class="c">mousedown</code> : when the mouse button is pressed down</li>
+                <li><code class="c">mouseup</code> : when the mouse button is released</li>
+                <li><code class="c">mousemove</code> : when the mouse moves within the area of element</li>
+            </ul>
+        </p>
+        <p class="exp">Additionally, in the function argument, we can passed in an optional argument which is an object that contains information
+            of the mouse click</p>
+
+        <div class="row">
+            <div class="col-4">
+                <button type="button" class="btn btn-primary btn-lg" id="btnC-3a">mouseenter and mouseleave</button>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-primary btn-lg" id="btnC-3b">mousedown and mouseup</button>
+            </div>
+            <div class="col-4">
+                <div class="p-5" id="areaC-3a">Move your mouse into this area!</div>
+            </div>
+        </div>
+
+        <hr/>
+
+        <!-- TOPIC C-3 ------------------------->
+        <h2 class="topic">Focus and blur</h2>
+        <p class="exp">Focus is the opposite of blur. These two properties can be useful especially to forms and textfields. Use
+            <code class="c">.focus(function)</code> and <code class="c">.blur(function)</code></p>
+        <p class="exp">Tip: Within the callback function, you can use <code class="c">this</code> as selector to select the element that event occur on</p>
+
+        <input type="text" class="form-control form-control-lg" id="textC-4a" placeholder="type something..."/>
+
+        <hr/>
+
+        <!-- TOPIC C-4 ------------------------->
+        <h2 class="topic">Keypress, keyup and keydown event</h2>
+        <p class="exp">Register event when the keyboard action is done on specified element. Using <code class="c">.keypress(function)</code>,
+            <code class="c">.keyup(function)</code> and <code class="c">.keydown(function)</code>. The difference with keypress is that
+            <kbd>Shift</kbd>, <kbd>del</kbd> and <kbd>Esc</kbd> will not be registered an event</p>
+        
+        <div class="row">
+            <div class="col-6">
+                <textarea class="form-control" id="textC-5a" placeholder="Enter text"></textarea>
+            </div>
+            <div class="col-6">
+                <p id="targetC-5a">Your key will be displayed here: </p>
+                <p id="targetC-5b" class="text-break">Your text entered will be displayed here...</p>
+            </div>
+        </div>
+        
+        <hr/>
+
+        <!-- TOPIC C-5 ------------------------->
+        <h2 class="topic">Change event and Submit event</h2>
+        <p class="exp">When a selection list or choice has changed a value, we can capture the event and execute something with
+            <code class="c">.change(function)</code>. When a form is submitted, then we can use <code class="c">.submit(function)</code>
+            to do something as well. However, you might want to pass in an optional argument and use <code class="c">e.preventDefault();</code>
+            because the form would always be submitting and your code wouldn't be executed otherwise
+        </p>
+
+        <form  id="formC-6a">
+            <div class="form-group">
+                <label for="selectC-6a">Select: </label>
+                <select class="form-control" id="selectC-6a">
+                    <option>Primary</option>
+                    <option>Warning</option>
+                    <option>Success</option>
+                </select>
+            </div>
+            <input type="submit" class="btn btn-success" value="Submit"/>
+        </form>
+
+        <hr/>
+
+    </div>
+
+    <!-- -----------------------------------------
+                    DOM MANIPULATIONS
+    ------------------------------------------------>
+
+    <h1 class="topic">DOM Manipulations</h1>
+    <div class="container">
+
+        <!-- TOPIC D-1 ------------------------->
+        <h2 class="topic">Adding, removing and toggling classes and css properties</h2>
+        <p class='exp'>Adding classes is easily done with <code class="c">.addClass(classes)</code> where classes can be a single class name or
+            multiple of them seperated by spaces, just like what you would do in HTML</p>
+        <p class="exp">Removing classes is done with <code class="c">.removeClass(classes)</code> where if the argument is left blank, it will
+            entirely remove all the classes of the specified element.</p>
+        <p class="exp">In addition to that, classes can be toggled (Added and removed) by using <code class="c">.toggleClass(classes)</code></p>
+        <p class="exp">CSS can be added one at the time using <code class="c">.css(property, value)</code> or multiple at a time using Objects,
+            <code class="c">.css({property: value, property: value...})</code></p>
+
+        <div class="row">
+            <div class="col-6">
+                <button type="button" class="btn btn-primary btn-block" id="btnD-1a">Toggle class btn-success and form-control</button>
+                <button type="button" class="btn btn-primary btn-block" id="btnD-1b">Change the button's containing div css!</button>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn" id="targetD-1a">I'm targeted!</button>
+            </div>
+        </div>
+
+        <hr/>
+
+        <!-- TOPIC D-2 ------------------------->
+        <h2 class="topic">Append, prepend, appendTo, prependTo, before and after</h2>
+        <p class="exp">append and prepend will both put the element in the argument into the selected element. The difference is append will
+            put it at the last while prepend will add it at the head. <code class="c">.append(element)</code>, and <code class="c">.prepend(element)</code></p>
+        <p class="exp">appendTo and prependTo is almost like inverse of append and prepend, where the argument is the place you want to append to,
+            and the selector is the element you want to remove from its original place. <code class="c">.appendTo(target)</code>, and <code class="c">.prependTo(target)</code></p>
+        <p class="exp">Unlike append and prepend which places the item inside of the target, before <code class="c">.before(element)</code> and
+            after <code class="c">.after(element)</code> places the element directly before or after the selected element, not inside it.</p>
+
+        <div class="row">
+            <div class="col-6">
+                <button type="button" class="btn btn-primary btn-block" id="btnD-2a">Append to list</button>
+                <button type="button" class="btn btn-primary btn-block" id="btnD-2b">Prepend to list</button>
+                <button type="button" class="btn btn-primary btn-block" id="btnD-2c">Append last item to list 2</button>
+                <button type="button" class="btn btn-primary btn-block" id="btnD-2d">Prepend last item to list 2</button>
+                <button type="button" class="btn btn-primary btn-block" id="btnD-2e">Before list 2</button>
+                <button type="button" class="btn btn-primary btn-block" id="btnD-2f">After list 2</button>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col">
+                        List 1
+                        <ul id="listD-1">
+                            <li>Item 1</li>
+                            <li>Item 2</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        List 2
+                        <ul id="listD-2">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <hr/>
+
+        <!-- TOPIC D-3 ------------------------->
+        <h2 class="topic">Empty, Detach and Remove</h2>
+        <p class="exp">You can empty the entire selected element's html code by using <code class="c">.empty()</code></p>
+        <p class="exp">You can remove the selected element from document's flow by using <code class="c">.detach()</code> or
+            <code class="c">.remove()</code>. Both returns the data of element removed. The difference is that <code class="c">.detact()</code> still keeps the event handlers from the
+            removed element and will be useful if the element is supposed to be reinserted at a later time</p>
+
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-primary btn-block" id="btnD-3a">Empty the next div</button>
+                <button type="button" class="btn btn-primary btn-block" id="btnD-3b">Detach the next div</button>
+                <button type="button" class="btn btn-primary btn-block" id="btnD-3c">Reattach the div</button>
+                <button type="button" class="btn btn-primary btn-block" id="btnD-3d">Remove the div</button>
+            </div>
+            <div class="col" id="targetD-3a">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur rem quis alias pariatur distinctio minima sunt eaque magnam molestias reiciendis? Laborum minima perspiciatis magnam! Aliquid doloribus nam hic similique quibusdam.
+            </div>
+        </div>
+
+        <hr/>
+
+        <!-- TOPIC D-4 ------------------------->
+        <h2 class="topic">Prop() or Attr(). Wrap() and WrapAll()</h2>
+        <p class="exp">Both <code class="c">.prop(attribute, value)</code> and <code class="c">.attr(attribute, value)</code> will add attribute to the selected element.
+            The difference is <code class="c">.attr()</code> make changes in the HTML parsed code while <code class="c">.prop()</code>
+            make changes with the DOM tree, which can be thinked as actual property. It is more encouraged to use <code class="c">.prop()</code>. Attr will always return string
+            while prop can return other datatypes like boolean etc. Values returned by attr may not be in sync with the actual property value in DOM (after some changes)</p>
+        <p class="exp"><code class="c">.wrap(tag)</code> will wrap all the elements that match the selector in the tag specified, individually (no need for closing tag).
+            <code class="c">.wrapAll(tag)</code> will wrap all the elements that match the selector all in one tag specified</p>
+
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-primary btn-block" id="btnD-4a">Wrap individual elements</button>
+                <button type="button" class="btn btn-primary btn-block" id="btnD-4b">Wrap all in one</button>
+            </div>
+            <div class="col">
+                <p class="selectD-4">Element 1</p>
+                <p class="selectD-4">Element 2</p>
+                <p class="selectD-4">Element 3</p>
+                <p class="selectD-4">Element 4</p>
+            </div>
+        </div>
+
+        <hr/>
+
+        <!-- TOPIC D-5------------------------->
+        <h2 class="topic">Example</h2>
+        
+        <div class='row'>
+            <div class='col'>
+                <input type='text' class='form-control' id='textD-5a' placeholder="Press enter to insert to list"/>
+                <ul id='listD-5a'>List 1:
+                </ul>
+                <button type="button" class="btn btn-block btn-primary" id="btnD-5a">Obtain list items!</button>
+            </div>
+            <div class='col' id='targetD-5a'>
+                
+            </div>
+        </div>
+
+        <hr/>
+
+    </div>
+
+
+
+
+</body>
+</html>

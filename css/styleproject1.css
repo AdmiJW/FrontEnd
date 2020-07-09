@@ -1,0 +1,97 @@
+:root {
+	font-family: Verdana, Arial, sans-serif;
+	background-color: white;
+	margin: none;
+}
+
+.container {
+	width: 90%;
+	margin: auto;
+	background-color: #d3d3d3;
+}
+
+/* Headers */
+
+#main-header {
+	text-align: center;
+	overflow: hidden;
+}
+#title-and-desc {
+	margin-bottom: 20px
+}
+#title-and-desc h1{
+	font-size: 10vw;
+}
+
+#pic-and-desc {
+	text-align: justify;
+	font-size: 70%;
+}
+#pic-and-desc img {
+	display: block;
+	margin: auto;
+	width: 95%;
+}
+#pic-and-desc p {
+	margin: 10px 10px;
+}
+
+/* Content */
+
+main h2 {
+	text-align: center;
+	font-size: 170%;
+	margin: 10px 10px;
+}
+main ul {
+	padding: 0px;
+	margin: 10px 10px;
+}
+main li {
+	font-size: 80%;
+	margin: 10px 10px;
+	text-align: justify;
+}
+main blockquote {
+	margin: 10px 30px;
+}
+
+/* Footer */
+footer {
+	padding: 15px 5px;
+	background-color: black;
+	color: white;
+	font-size: 150%;
+	text-align: center;
+	font-weight: bold;
+}
+footer a{
+	color: white;
+	font-weight: bold;
+}
+
+
+@media only screen and (min-width: 768px) {
+	header {
+		position: relative;
+	}
+	#title-and-desc {
+		position: absolute;
+		display: inline;
+		float: left;
+		width: 50%;
+		margin: 0px;
+		top: 10%;
+		left: 0;
+		text-align: left;
+		padding-left: 30px;
+	}
+	#title-and-desc h1{
+		font-size: 6vw;
+	}
+	#pic-and-desc {
+		display: inline;
+		float: right;
+		width: 50%;
+	}
+}

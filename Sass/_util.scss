@@ -1,0 +1,43 @@
+%btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px;
+    margin: 0px 10px;
+    border-radius: 15px;
+    transition: transform 0.5s ease;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+.btn-primary {
+    @extend %btn;
+    @include set-bg-color( lighten($background-color, 10) );
+}
+
+.btn-secondary {
+    @extend %btn;
+    @include set-bg-color($secondary-color);
+}
+
+
+$list: (1,2,3,4,5);
+
+@each $i in $list {
+    .m-#{$i} {
+        margin: #{$i}rem;
+    }
+    .my-#{$i} {
+        margin: #{$i}rem 0;
+    }
+}
+
+@for $i from 1 through 5 {
+    .p-#{$i} {
+        padding: #{$i}rem;
+    }
+    .py-#{$i} {
+        padding: #{$i}rem 0;
+    }
+}

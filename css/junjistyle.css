@@ -1,0 +1,151 @@
+:root{
+	--neutral: #EFEFEF;
+	--watermelon: #FF3B3F;
+	--carbon: #A9A9A9;
+	--sky: #CAEBF2;
+}
+html, body{
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+body, h1, h2{
+	background-image: url("https://nerdist.com/wp-content/uploads/2019/09/Uzumaki-manga-2-09102019.jpg");
+	background-repeat: repeat;
+	background-position: center;
+	background-size: contain;
+	background-color: grey;
+	padding: 0px;
+	margin: 0px;
+}
+#main {
+	width: 95vw;
+	margin: auto;
+	background-color: var(--neutral);
+	border-left: solid black 3px;
+	border-right: solid black 3px;
+}
+
+/* TITLE ----------------------------------*/
+
+#title {
+	text-align: center;
+	background-color: var(--watermelon);
+	color: white;
+	font-family: Helvetica, sans-serif;
+}
+#title h1{
+	font-size: 15vw;
+	background: transparent;
+}
+#title h2{
+	font-size: 7vw;
+	background: transparent;
+}
+
+/* INTRODUCTION ----------------------------------*/
+
+#intro-div {
+	display: flex;
+	flex-direction: column-reverse;
+	margin: 10px 0px;
+}
+#intro-div #image {
+	display: block;
+	max-width: 80%;
+	height: auto;
+	align-self: center;
+	margin: auto;
+	border-radius: 10%;
+}
+#intro-div p, #img-caption {
+	text-align: center;
+}
+#intro-div #short-desc {
+	font-size: 18px;
+	margin: 0px 15px;
+}
+#intro-div #short-desc p{
+	text-align: justify;
+	font-family: Helvetica, sans-serif;
+}
+
+/* TRIBUTE INFO ----------------------------------*/
+
+#tribute-info {
+	margin: 0px 10px;
+	text-align: justify;
+}
+
+#quote {
+	margin-top: 30px;
+	text-align: center;
+	font-size: 23px;
+	font-style: italic;
+}
+#quote address{
+	text-align: right;
+	position: relative;
+	text-align: left;
+	left: 70%;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+/* FOOTER -----------------------------------------*/
+
+footer {
+	background-color: var(--watermelon);
+	color: white;
+	height: 3cm;
+	margin: 5px 0px;
+	padding: 2cm 40px;
+	font-size: 30px;
+	text-align: center;
+	font-weight: bolder;
+	font-family: Helvetica, sans-serif;
+}
+footer p{
+	margin: 0;
+}
+footer a{
+	text-decoration: none;
+	color: var(--sky);
+}
+
+/* MEDIA QUERY ---------------------------------- */
+@media (min-width: 600px) {
+	#title h1 {
+		font-size: 100px;
+	}
+	#title h2 {
+		font-size: 40px;
+	}
+
+	#intro-div {
+		flex-direction: row;
+		align-items: center;
+		min-height: 300px;
+		justify-content: space-evenly;
+	}
+	#intro-div #image {
+		max-width: 40%;
+		max-height: 800px;
+		width: auto;
+	}
+	#intro-div #short-desc {
+		max-width: 40%;
+		font-size: 1.8vw;
+	}
+
+	#tribute-info {
+		font-size: 17px;
+	}
+	
+}
+
+@media (max-width: 450px ) {
+	footer p {
+		font-size: 6vw;
+	}
+}

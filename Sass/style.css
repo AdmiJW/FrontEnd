@@ -1,0 +1,225 @@
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px;
+  margin: 0px 10px;
+  border-radius: 15px;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.btn-primary {
+  background-color: #418bff;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #ff8700;
+  color: #fff;
+}
+
+.m-1 {
+  margin: 1rem;
+}
+
+.my-1 {
+  margin: 1rem 0;
+}
+
+.m-2 {
+  margin: 2rem;
+}
+
+.my-2 {
+  margin: 2rem 0;
+}
+
+.m-3 {
+  margin: 3rem;
+}
+
+.my-3 {
+  margin: 3rem 0;
+}
+
+.m-4 {
+  margin: 4rem;
+}
+
+.my-4 {
+  margin: 4rem 0;
+}
+
+.m-5 {
+  margin: 5rem;
+}
+
+.my-5 {
+  margin: 5rem 0;
+}
+
+.p-1 {
+  padding: 1rem;
+}
+
+.py-1 {
+  padding: 1rem 0;
+}
+
+.p-2 {
+  padding: 2rem;
+}
+
+.py-2 {
+  padding: 2rem 0;
+}
+
+.p-3 {
+  padding: 3rem;
+}
+
+.py-3 {
+  padding: 3rem 0;
+}
+
+.p-4 {
+  padding: 4rem;
+}
+
+.py-4 {
+  padding: 4rem 0;
+}
+
+.p-5 {
+  padding: 5rem;
+}
+
+.py-5 {
+  padding: 5rem 0;
+}
+
+@media screen and (max-width: 580px) {
+  html {
+    font-size: 12px;
+  }
+  .showcase-content {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+  }
+  .showcase-content-intro {
+    max-width: 80%;
+  }
+  .showcase-content img {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  html {
+    font-size: 10px;
+  }
+  nav a {
+    padding: 0px;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.showcase {
+  background-color: #0e6cff;
+  color: #fff;
+}
+
+.showcase .container {
+  max-width: 950px;
+  margin: auto;
+}
+
+.showcase nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.showcase nav .logo {
+  font-size: 1.8rem;
+}
+
+.showcase nav .navmenu {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.showcase nav .navmenu a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0px 10px;
+}
+
+.showcase nav .navmenu a:hover {
+  color: #ff8700;
+}
+
+.showcase-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  justify-items: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.showcase-content-intro h2 {
+  font-size: 2.5rem;
+  margin: 10px 0px;
+}
+
+.showcase-content-intro p {
+  margin: 20px 0px;
+}
+
+.showcase-content img {
+  width: 50%;
+  height: auto;
+}
+/*# sourceMappingURL=style.css.map */

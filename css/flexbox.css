@@ -1,0 +1,119 @@
+:root {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #8ee4af;
+}
+
+.seperator {
+	margin-bottom: 20px;
+}
+
+/*container one: normal flexing */
+.containerflex-one, .containerflex-two, .containerflex-three,
+.containerflex-four, .containerflex-five, .containerflex-seven
+{
+	display: flex;
+}
+.containerflex-one div, .containerflex-two div, .containerflex-three div, 
+.containerflex-four div, .containerflex-five div, .containerflex-six div,
+.containerflex-seven div
+{
+	border: solid #379683 1px;
+	padding-left: 1%;
+	background-color: #5cdb95;
+	color: #edf5e1;
+}
+
+/*container two: uneven flexing */
+/*  This is the shorthand. The actual syntax can be
+	of flex: (flex-grow) (flex-shrink) (flex-basis);
+
+	flex-grow: when container is bigger than contents, determine how
+	each element will grow
+	flex-shrink: when container is smaller than contents, determine how
+	each element will shrink; 
+	flex-basis: Like the width attribute, will set the width of the flex item
+				by default
+	*/
+.containerflex-two 
+	.box-4 {
+		flex: 2;
+	}
+
+	.box-5 {
+		flex: 1;
+	}
+
+	.box-6 {
+		flex: 3;
+	}
+
+/*container three: manipulating orders*/
+.containerflex-three
+	.box-7 {
+		order: 2;
+	}
+	.box-8 {
+		order: 3;
+	}
+	.box-9 {
+		order: 1;
+	}
+
+/*container four: setting align-items */
+/* align items, as opposed to justify-content, is like determine how flex
+	items will align on the cross axis (If flex-direction is row, then cross axis is vertical) */
+.containerflex-four div {
+	flex: 1;
+}
+.containerflex-four {
+	align-items: flex-start;
+	/*	also try flex-end and center
+		by default the align-items are stretch, which stretch to the container size
+		or even baseline*/
+}
+
+/*you can change the flex-direction: column | row (default is row) */
+
+/*container five: flex basis and justify content*/
+.containerflex-five div {
+	flex-basis: 20%;
+	/*flex-basis is almost like setting the width of each item*/
+	/*here i've set the flex-basis to 20% so it wont stretch along the row*/
+}
+
+/*	If the container is bigger than each flex item or still has spaces,
+	determines how each flex item will do to arrange themselves with the spaces */
+.containerflex-five {
+	justify-content: space-around;
+
+	/*also try: center, flex-start, flex-end, space-between, space-evenly	*/
+	/*by default it is set in flex-start*/
+}
+
+/*container six*/
+/*	easy fix for responsive sites-- make it display flex only if the screen*/
+/*	is big enough*/
+/*	If the screen is small, go with normal document flow which
+	is one block per row */
+@media only screen and (min-width: 768px) {
+	.containerflex-six {
+		display: flex;
+	}
+}
+
+/*make it wrap so if screen changes it opens a new row automatically*/
+/*if flex-basis is not set it automatically wraps to whole row due to*/
+/*paragraph and heading*/
+.containerflex-seven div {
+	flex-basis: 20%;
+}
+.containerflex-seven {
+	flex-wrap: wrap;
+	/*	wrap-inverse: reverses the order
+		nowrap: default value, means no wrapping shall occur, shrinks the flex items*/
+	justify-content: space-around;
+}

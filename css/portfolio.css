@@ -1,0 +1,554 @@
+:root {
+    --backgroundcolor: #c8d6e5;
+    --headercolor: #5f5b5b;
+    --highlightcolor: #3a3838;
+    --overlaycolor: rgba(47, 53, 66, 0.6);
+    --welcometextcolor: rgba(47, 53, 66, 0.3);
+    --buttoncolor: #1e90ff;
+    --profilebackcolor: #0e73d8;
+    --profilebackstrip: rgb(36, 103, 180);
+    --profilebackgradient: #12a8a8;
+    --projectdivcolor: #718497;
+    --projectdivgradient: #272c33;
+    --tagcolor: #ff9f43;
+    --contactcolor: rgb(141, 0, 28);
+    /* rgb(128, 10, 34) */
+
+    --abeezeefont: 'ABeeZee', sans-serif;
+    --codafont: 'Coda', cursive;
+    --oswaldfont: 'Oswald', sans-serif;
+
+    scroll-behavior: smooth;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: var(--backgroundcolor);
+}
+
+/* HEADER ---------------------------------------------------------------------- */
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: var(--headercolor);
+    min-height: var(--header-height);
+    z-index: 100;
+    overflow: hidden;
+
+    --header-height: 70px
+}
+
+header a {
+    color: white;
+}
+
+header h1 {
+    float: left;
+    padding-left: 20px;
+    height: var(--header-height);
+
+    font-size: 50px;
+    text-transform: uppercase;
+    font-family: var(--codafont);
+}
+
+nav {
+    float: right;
+    transition: left 0.5s ease;
+}
+
+#nav-checkbox {
+    display: none;
+    position: absolute;
+    z-index: -999;
+}
+#open-nav {
+    display: none;
+    float: right;
+    line-height: var(--header-height);
+    margin-right: 25px;
+
+    color: white;
+    font-size: 35px;
+}
+nav ul {
+    height: var(--header-height);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    list-style-type: none;
+}
+nav ul li {
+    padding: 20px 20px;
+
+    font-size: 20px;
+    font-family: var(--codafont);
+
+    transition: background-color 0.5s ease, font-size 0.5s ease;
+}
+nav ul li:first-child {
+    display: none;
+}
+#close-nav {
+    display: none;
+    font-size: 30px;
+    color: white;
+}
+nav ul li:hover, nav ul li:focus {
+    background-color: var(--highlightcolor);
+    font-size: 25px;
+}
+
+/* WELCOME SECTION ------------------------------------------------------------------------------- */
+
+#welcome-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100vh;
+
+    background: linear-gradient( var(--overlaycolor), var(--overlaycolor) ), url(https://i.pinimg.com/originals/46/65/2f/46652f2908c16678edbcde2eb018dac9.jpg);
+    background-size: auto 150%;
+    background-position: 15% 30%;
+    background-repeat: no-repeat;
+}
+
+#welcome-text {
+    margin:0px 8vw 10vh 0px;
+    padding: 25px;
+    
+    background-color: var(--welcometextcolor);
+    color: white;
+    text-align: center;
+    font-family: var(--codafont);
+}
+#welcome-text h1{
+    font-size: 100px;
+}
+#welcome-text h3{
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+.button {
+    display: inline-block;
+    position: relative;
+    height: 50px;
+    width: 250px;
+    line-height: 50px;
+    z-index: 1;
+
+    background-color: var(--buttoncolor);
+    color: white;
+    font-size: 30px;
+    transition: color 0.5s ease;
+}
+.button::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+
+    background-color: white;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition: transform 0.5s ease;
+}
+.button:hover, button:focus {
+    color: black;
+    font-weight: bold;
+}
+.button:hover::before, .button:focus::before {
+    transform: scaleX(1);
+}
+
+
+/* PROFILE DIV ---------------------------------------------------------------- */
+#profile-div {
+    background-color: var(--profilebackcolor);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 30px 0px;
+}
+#profile-div::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    background-color: var(--profilebackstrip);
+}
+
+#profile-div .skew-div {
+    position: relative;
+    width: 40%;
+    max-width: 400px;
+    height: 300px;
+
+    transform: skewX(-10deg);
+    left: -25px;
+    overflow: hidden;
+}
+.skew-div img {
+    position: absolute;
+    transform: skewX(10deg);
+    left: 25px;
+    bottom: -80px;
+    height: 140%;
+    width: auto;
+}
+
+#profile-desc {
+    width: 55%;
+    padding: 20px 5% 20px 30px;
+    color: white;
+    font-family: var(--oswaldfont);
+    z-index: 1;
+}
+#profile-desc h2 {
+    font-size: 60px;
+    margin-bottom: 5px;
+}
+#profile-desc p {
+    font-size: 20px;
+}
+
+
+/* PROJECTS GRID ---------------------------------------------------- */
+#projects-div {
+    text-align: center;
+    padding: 50px 0px;
+    background: linear-gradient(180deg, var(--projectdivcolor), var(--projectdivgradient));
+}
+
+#projects-div h2 {
+    position: relative;
+    display: inline-block;
+    margin: 50px auto 100px auto;
+    width: 50%;
+    /* background-color: rgba(153, 166, 197, 0.3); */
+
+    font-size: 80px;
+    font-family: var(--oswaldfont);
+    text-align: center;
+    color: rgb(236, 236, 236);
+}
+#projects-div h2::before, #projects-div h2::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    left: 0;
+    background-color: #222f3e;
+}
+#projects-div h2:after {
+    top: 100%;
+}
+
+#projects {
+    display: grid;
+    width: 90%;
+    margin: auto;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr) );
+    grid-gap: 80px 50px;
+}
+.project-tile img{
+    width: 100%;
+}
+.project-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70px;
+    padding: 0px 20px;
+    background-color: #434d57;
+
+    color: white;
+    font-size: 25px;
+    font-family: var(--codafont);
+    box-shadow: inset 0.1em 0.1em 0.1em 0 rgba(255,255,255,0.5), inset -0.1em -0.1em 0.1em 0 rgba(0,0,0,0.5);
+}
+.project-title.smaller-font {
+    font-size: 19px;
+}
+.project-title::before, .project-title::after {
+    position: relative;
+    color: var(--tagcolor);
+    font-size: 40px;
+    opacity: 0;
+    transition: all 1s ease;
+}
+.project-title::before {
+    content: "<";
+    margin-right: 15px;
+    left: -5%;
+}
+.project-title::after {
+    content: "/>";
+    margin-left: 15px;
+    right: -5%;
+}
+
+.project-title:hover::before, .project-title:focus::before {
+    opacity: 1;
+    left: 0;
+}
+.project-title:hover::after, .project-title:focus::after {
+    opacity: 1;
+    right: 0;
+}
+
+
+/* CONTACT DIV ------------------------------------------------------------------ */
+#contact-div {
+    background-color: var(--contactcolor);
+    border-bottom: solid 10px #576574;
+}
+#contact-div h2{
+    color: white;
+    text-align: center;
+    font-family: var(--codafont);
+    font-weight: bold;
+    font-size: 55px;
+    padding: 100px 15% 20px 15%;
+}
+#contact-div p{
+    color: white;
+    text-align: center;
+    font-family: var(--codafont);
+    font-size: 20px;
+}
+
+#contactlink-div {
+    display: flex;
+    width: 50%;
+    margin: auto;
+    padding: 40px 0px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#contactlink-div img {
+    width: 50px;
+    height: 50px;
+}
+#contactlink-div a {
+    position: relative;
+    transition: all 0.5s ease;
+}
+#contactlink-div a::after {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 4px;
+    top: 100%;
+    left: -10%;
+
+    border-radius: 5px;
+
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
+#profile-link::after {
+    background-color: black;
+}
+#facebook-link::after {
+    background-color: rgb(0, 102, 255);
+}
+#google-link::after {
+    background-color: #33fd65;
+    background: linear-gradient(90deg, red, yellow, rgb(5, 255, 5), rgb(54, 54, 255))
+}
+#insta-link::after {
+    background-color: #ff3131;
+}
+#contactlink-div a:hover, #contactlink-div a:focus {
+    transform: scale(1.3);
+}
+#contactlink-div a:hover::after, #contactlink-div a:focus::after{
+    transform: scaleX(1);
+}
+
+
+
+/* FOOTER ---------------------------------------------- */
+footer {
+    background-color: var(--contactcolor);
+    height: 50px;
+}
+footer p {
+    color: white;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    font-family: var(--codafont);
+}
+
+
+/* MEDIA QUERIES -------------------------------------------- */
+
+/* Change the appearance of the profile div to let the profile pic become round and display flex to be vertical ---------------------*/
+@media screen and (max-width: 750px) {
+    #profile-div {
+        flex-direction: column;
+        background: linear-gradient(180deg, var(--profilebackcolor), var(--profilebackgradient) );
+    }
+    #profile-div::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 150px;
+        background-color: var(--profilebackstrip);
+        transform: translateY(70px);
+    }
+    
+    #profile-div .skew-div {
+        display: block;
+        width: 250px;
+        height: 250px;
+        margin: 15px 0px;
+        left: 0;
+    
+        transform: none;
+        border-radius: 100%;
+    }
+    .skew-div img {
+        transform: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+    }
+    
+    #profile-desc {
+        width: 100%;
+        padding: 10px 20px;
+    }
+    #profile-desc h2 {
+        text-align: center;
+        font-size: 60px;
+        margin: 5px 0px;
+    }
+    #profile-desc p {
+        text-align: justify;
+        font-size: 20px;
+    }
+}
+
+/* Making the before and after element (Text bar) of the h2 element to suit the text when screen becomes small -------------------------*/
+@media screen and (max-width: 480px) {
+    #projects-div h2{
+        width: 100%;
+    }
+    #projects-div h2::before, #projects-div h2::after {
+        width: 60%;
+        left: 20%;
+    }
+}
+
+/* Responsive Nav Bar ---------------------------------------------------------------------------------------------*/
+@media screen and (max-width: 580px) {
+
+    /* -----------------------------------------
+                RESPONSIVE NAV
+    ------------------------------------------*/
+    #navbar ul li:first-child {
+        display: block;
+    }
+    #open-nav, #close-nav {
+        display: inline-block;
+    }
+    #navbar {
+        float: none;
+        position: fixed;
+        width: 40%;
+        height: 100vh;
+        top: 0px;
+        left: 100%;
+        background-color: grey;
+        z-index: 50;
+    }
+    #navbar ul {
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    #navbar ul li {
+        width: 100%;
+        padding: 20px 0px;
+        text-align: center;
+    }
+    #navbar ul li * {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+    #nav-checkbox:checked ~ #navbar {
+        left: 60%;
+    }
+}
+
+/* CENTER WELCOME TEXT -------------------------------------------------------------------- */
+@media screen and (max-width: 830px) {
+    #welcome-section {
+        justify-content: center;
+    }
+    #welcome-text {
+        margin: 0px;
+        padding: 4vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    #welcome-section {
+        background-size: auto 100%;
+        background-position: 5% 30%;
+    }
+    #welcome-text h1 {
+        font-size: 18vw;
+    }
+    #welcome-text h3 {
+        font-size: 10vw;
+    }
+    .button {
+        width: 50vw;
+
+        font-size: 5vw;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-height: 820px) {
+    #welcome-section {
+        background-size: 100% auto;
+    }
+}
+
+/* SMALLER FOOTER TEXT ------------------------------------------------------------------*/
+@media screen and (max-width: 400px) {
+    #contact-div h2 {
+        font-size: 30px;
+    }
+}

@@ -1,0 +1,405 @@
+:root {
+	margin: 0px;
+	padding: 0px;
+	font-family: Helvetica, sans-serif;
+	scroll-behavior: smooth;
+
+	--marigold: #ffa502;
+	--nunito: 'Nunito', sans-serif;
+	--perm-marker: 'Permanent Marker', cursive, sans-serif;
+	--red: #e12423;
+	--light-grey: #f5f5f5;
+	--light-blue: #77C3EC;
+	--lighter-org: #ff8b3d;
+	--darker-org: #ff781f;
+	--green: #3CB043;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: var(--red);
+	background: linear-gradient( rgba(225,36,35,0.5),rgba(225,36,35,1), rgba(225,36,35,1) ), url("https://image.freepik.com/free-photo/assortment-various-craft-items-wooden-background_23-2147898984.jpg");
+	background-position: top-center;
+	background-size: 150%;
+	background-repeat: no-repeat;
+}
+a {
+	text-decoration: none;
+}
+
+
+/* HEADER ---------------------------------------------------------------------------------------- */
+header {
+	background-color: var(--marigold);
+	position: sticky;
+	z-index: 99;
+	top: 0;
+	left: 0;
+	display: block;
+}
+header * {
+	display: inline;
+}
+
+#title {
+	display: block;
+	padding: 10px 5px 0px 5px;
+}
+#header-img {
+	width: 80px;
+	height: auto;
+	margin: 0px 20px 0px 0px;
+}
+#title > a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-family: var(--nunito);
+	font-weight: bolder;
+	font-size: 18px;
+}
+#nav-bar > #nav-list {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	list-style-type: none;
+	margin: 0px;
+	padding: 10px 0px;
+}
+#nav-bar > #nav-list > li {
+	transition: transform, color;
+	transition-duration: 0.5s;
+}
+#nav-bar > #nav-list > li > a {
+	font-weight: bold;
+	color: white;
+}
+#nav-bar > #nav-list > li:hover {
+	transform: scale(1.2);
+}
+
+/* BIG TEXT ------------------------------------------------------------------------------*/
+#big-text {
+	color: white;
+	font-size: 6vw;
+	line-height: 200%;
+	text-align: center;
+	padding: 12% 0px;
+}
+#big-text > h2{
+	margin: 0px;
+	padding: 0px;
+	font-family: var(--perm-marker);
+}
+
+/* MAIN CONTENT ------------------------------------------------------------------------*/
+main {
+	background-color: var(--light-grey);
+	width: 95vw;
+	margin: auto;
+	border-radius: 10px;
+	padding: 0px 1vw;
+}
+
+	/* VIDEO DIV -------------------------------------------------------------------------*/
+	#video-div {
+		text-align: center;
+		padding-top: 20px;
+	}
+	#video-div > iframe {
+		margin: auto;
+		width: 90%;
+		min-height: 50vw;
+	}
+
+	/* SPECIAL DIV --------------------------------------------------------------------------*/
+	#special-div {
+		text-align: justify;
+	}
+	#special-div > ul {
+		list-style-type: none;
+		padding: 0px 20px;
+	}
+	#special-div > ul > li {
+		height: auto;
+		margin: 30px 0px;
+		display: flex;
+		align-items: center;
+	}
+	#special-div img {
+		width: 90px;
+		height: auto;
+		padding-right: 30px;
+	}
+	#special-div h3 {
+		font-size: 30px;
+		font-weight: bold;
+		text-align: left;
+		font-family: var(--nunito);
+		margin: 20px 0px;
+		line-height: 1em;
+	}
+
+	/* PROMPT DIV -------------------------------------------------------------------------------*/
+	#prompt-contact {
+		background-color: var(--light-blue);
+		position: relative;
+		width: 102%;
+		right: 1%;
+		z-index: 0;
+		margin: auto;
+		color: white;
+		text-align: center;
+	}
+	#prompt-contact h4 {
+		font-size: 6.5vw;
+		margin: 0px;
+		padding: 30px 0px;
+		font-family: var(--perm-marker);
+	}
+	#prompt-contact  #contact-button {
+		display: inline-block;
+		background-color: var(--marigold);
+		width: 200px;
+		height: 30px;
+		border-radius: 15px;
+		color: white;
+		text-decoration: none;
+		font-size: 20px;
+		font-family: var(--nunito);
+		font-weight: bold;
+		padding-top: 8px;
+		margin-bottom: 30px;
+	}
+	#prompt-contact #contact-button:hover {
+		animation-name: shake;
+		animation-duration: 1s;
+	}
+
+	@keyframes shake {
+		20%, 60% {
+			transform: rotate(-5deg);
+		}
+		40%, 80% {
+			transform: rotate(5deg);
+		}
+		0%, 100% {
+			transform: rotate(0deg);
+		}
+	}
+
+	/* GALLERY ----------------------------------------------------------------------------*/
+	#gallery h2 {
+		font-size: 50px;
+		font-family: var(--perm-marker);
+		text-align: center;
+	}
+	.for-sale {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(3, minmax(80px, auto)) ;
+		grid-template-areas: "pic1 pic1 pic2"
+							 "pic1 pic1 pic3"
+							 "desc desc buy";
+		margin: 10px 0px;
+	}
+	.for-sale img {
+		width: 100%;
+		height: auto;
+	}
+	.for-sale .pic-1 {
+		grid-area: pic1;
+	}
+	.for-sale .pic-2 {
+		grid-area: pic2;
+	}
+	.for-sale .pic-3 {
+		grid-area: pic3;
+	}
+	.for-sale .item-desc {
+		grid-area: desc;
+		text-align: justify;
+		padding: 15% 10px;
+		margin: 0px;
+		background-color: var(--lighter-org);
+		color: white;
+		font-size: 15px;
+		border-bottom-left-radius: 20px;
+	}
+	.for-sale a {
+		grid-area: buy;
+		height: 100%;
+		color: white;
+		font-size: 35px;
+		text-align: center;
+		align-self: center;
+		font-family: var(--perm-marker);
+		line-height: 1em;
+		background-color: var(--darker-org);
+		border-bottom-right-radius: 20px;
+
+		transition: color;
+		transition-duration: 0.5s;
+	}
+	.for-sale .buy-button {
+		padding-top: 30%;
+	}
+
+	.for-sale a:hover {
+		color: black;
+	}
+
+	/* FORM ----------------------------------------------------------------*/
+	#form {
+		padding-bottom: 50px;
+	}
+	#form legend {
+		margin: auto;
+		font-size: 40px;
+		font-weight: bold;
+		font-family: var(--nunito);
+	}
+	#form input[type="submit"] {
+		display: block;
+		margin: 20px auto;
+		width: 100px;
+		height: 30px;
+		border-radius: 20px;
+	}
+	#form label {
+		display: inline-block;
+		width: 15%;
+		text-align: center;
+	}
+	#form input {
+		width: 70%;
+		height: 30px;
+		border-radius: 20px;
+		padding-left: 10px;
+	}
+	#form p {
+		text-align: center;
+	}
+
+/* FOOTER -------------------------------------------------------*/
+#footer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	background-color: var(--green);
+	width: 97vw;
+	padding: 0px 10px;
+	margin: auto;
+	box-sizing: border-box;
+	height: 130px;
+
+}
+#footer-text ul {
+	list-style-type: none;
+	padding: 20px 0px;
+	margin: 0px;
+}
+#footer-text ul li {
+	display: inline;
+	margin: 0px 3vw;
+}
+#footer-text p {
+	margin: 0px 3vw;
+}
+
+#contact-logo {
+	text-align: center;
+	flex-basis: 50%;
+}
+#contact-logo img {
+	width: 45px;
+	height: auto;
+}
+
+
+/*------------------------------------------------------------------------------------------------------------
+-----------------------------------MEDIA QUERIES -----------------------------------------------------------*/
+
+@media (min-width: 690px) {
+	#header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 10px 1.5vw;
+	}
+	#header #title {
+		padding: 0px;
+	}
+	#nav-bar ul li {
+		margin: 0px 1vw;
+	}
+
+	#big-text {
+		font-size: 3.5vw;
+	}
+
+	#prompt-contact h4 {
+		font-size: 3vw;
+	}
+}
+
+@media (min-width: 760px) {
+	#video-special-div {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 20px 0px;
+	}
+	#special-div {
+		flex-basis: 45%;
+		padding-right: 10px;
+	}
+	#special-div > ul {
+		padding: 0px;
+	}
+	#special-div > ul > li {
+		margin: 0px;
+	}
+	#special-div img {
+		padding-right: 10px;
+	}
+	#special-div h3 {
+		font-size: 25px;
+	}
+	#special-div p {
+		font-size: 14px;
+	}
+
+	#video-div {
+		flex-basis: 50%;
+		padding-top: 0px;
+	}
+	#video-div > iframe {
+		margin: auto;
+		width: 100%;
+	}
+
+
+	#gallery {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	#gallery h2 {
+		flex-basis: 100%;
+	}
+	#gallery .for-sale {
+		flex-basis: 49.5%;
+		grid-template-rows: repeat(2, minmax(80px, 1fr) ) 0.5fr ;
+		align-items: stretch;
+	}
+
+
+	#contact-logo {
+		text-align: right;
+		margin-right: 7vw;
+	}	
+
+}
