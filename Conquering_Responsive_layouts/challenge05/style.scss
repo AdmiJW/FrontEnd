@@ -1,0 +1,84 @@
+
+@import 'config';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+header {
+    background-color: $bg-header;
+    padding-top: $header-ypadding;
+    padding-bottom: $header-ypadding;
+
+    h1 {
+        @include robotofont('black', 4.8rem);
+        color: white;
+        margin-bottom: 15px;
+    }
+
+    p {
+        @include robotofont('light', 1.8rem);
+        color: white;
+        margin-bottom: 30px;
+    }
+
+    button {
+        @include robotofont('black', 2rem);
+        text-transform: uppercase;
+        background-color: $btn-bg;
+        padding: 15px 25px;
+        border-radius: 30px;
+        border: 0;
+    }
+
+    img {
+        width: 35%;
+        height: auto;
+        align-self: center;
+    }
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+section {
+    padding: 50px 0;
+
+    .article-1 {
+
+        h2 {
+            @include robotofont('black', 2.5rem);
+            color: $h2-color;
+            margin-bottom: 20px;
+        }
+        p {
+            @include robotofont('regular', 1.3rem);
+            margin: 15px 0px;
+        }
+    }
+
+    .article-2 {
+        background-color: $article2-bg;
+        color: white;
+        text-align: center;
+        padding: 40px 25px;
+
+        flex-direction: column;
+
+        h3 {
+            @include robotofont('black', 2.8rem);
+            margin-bottom: 15px;
+        }
+
+        p {
+            @include robotofont('regular', 1.3rem);
+            margin-bottom: 15px;
+        }
+    }
+}
