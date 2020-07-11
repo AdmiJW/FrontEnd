@@ -1,0 +1,63 @@
+
+$header-color: #27ae60;
+$inter-font: 'Inter', sans-serif;
+$btn-color: #3498db;
+$main-h2-color: #2980b9;
+$list-item-bg: #27ad5f;
+$list-item-border: #1c7c44;
+
+
+@mixin headermixin {
+    background-color: $header-color;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    box-shadow: 0px 5px 5px 0px rgb(99, 99, 99);
+}
+
+@mixin inter-font($style, $size) {
+    font-family: $inter-font;
+    font-weight: 400;
+    @if ($style == 'bold') {
+        font-weight: 700;
+    }
+    @else if ($style == 'black') {
+        font-weight: 900;
+    }
+    font-size: $size;
+}
+
+@mixin borderstyle($size, $color, $radius) {
+    border: solid $size $color;
+    border-radius: $radius;
+}
+
+
+
+/* MEDIA --------------------------------------------------- */
+@media screen and (max-width: 670px) {
+    #search-box {
+        width: 50%;
+    }
+    #main-container #add-item-div {
+        text-align: center;
+        #add-item-field {
+            display: block;
+            width: 100%;
+            margin: 20px 0px;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+
+        #search-box {
+            width: 100%;
+        }
+    }
+}

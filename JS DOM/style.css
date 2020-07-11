@@ -1,0 +1,127 @@
+/* MEDIA --------------------------------------------------- */
+@media screen and (max-width: 670px) {
+  #search-box {
+    width: 50%;
+  }
+  #main-container #add-item-div {
+    text-align: center;
+  }
+  #main-container #add-item-div #add-item-field {
+    display: block;
+    width: 100%;
+    margin: 20px 0px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  header #search-box {
+    width: 100%;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* GENERAL --------------------------------------------------------------- */
+.input-box {
+  border: solid 2px #5c5c5c;
+  border-radius: 20px;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+}
+
+.container {
+  border: solid 2px #9e9e9e;
+  border-radius: 30px;
+  width: 90%;
+  margin: 50px auto;
+  padding: 1.4em;
+}
+
+/* SPECIFIC ---------------------------------------------------- */
+header {
+  background-color: #27ae60;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 30px;
+  -webkit-box-shadow: 0px 5px 5px 0px #636363;
+          box-shadow: 0px 5px 5px 0px #636363;
+}
+
+header h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+header input {
+  width: 20rem;
+}
+
+#main-container h2 {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-weight: 700;
+  font-size: 2.3rem;
+  color: #2980b9;
+  margin: 0.5em 0px;
+}
+
+#main-container #add-item-div input {
+  width: 20rem;
+  margin-right: 25px;
+}
+
+#main-container #add-item-div button {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.5em 1em;
+  background-color: #3498db;
+  color: white;
+  border: 0;
+  border-radius: 1em;
+}
+
+#main-container #items-div ul {
+  list-style-type: none;
+}
+
+#main-container #items-div ul li {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border: solid 2px #1c7c44;
+  border-radius: 10px;
+  display: block;
+  background-color: #27ad5f;
+  color: white;
+  padding: 0.5em;
+  margin: 0.2em 0px;
+}
+/*# sourceMappingURL=style.css.map */

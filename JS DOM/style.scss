@@ -1,0 +1,76 @@
+@import 'config';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* GENERAL --------------------------------------------------------------- */
+
+.input-box {
+    @include borderstyle(2px, rgb(92, 92, 92), 20px );
+    padding: 0.5em 1em;
+    font-size: 1rem;
+}
+
+.container {
+    @include borderstyle(2px, rgb(158, 158, 158), 30px);
+    width: 90%;
+    margin: 50px auto;
+    padding: 1.4em;
+}
+
+/* SPECIFIC ---------------------------------------------------- */
+
+header {
+    @include headermixin;
+
+    h1 {
+        @include inter-font('bold', 2.5rem);
+        text-transform: uppercase;
+    }
+
+    input {
+        width: 20rem;
+    }
+}
+
+#main-container {
+    h2 {
+        @include inter-font('bold', 2.3rem);
+        color: $main-h2-color;
+        margin: 0.5em 0px;
+    }
+
+    #add-item-div {
+        input {
+            width: 20rem;
+            margin-right: 25px;
+        }
+        button {
+            @include inter-font('bold', 1rem);
+            padding: 0.5em 1em;
+            background-color: $btn-color;
+            color: white;
+            border: 0;
+            border-radius: 1em;
+        }
+    }
+
+    #items-div {
+        ul {
+            list-style-type: none;
+
+            li {
+                @include inter-font('bold', 1.2rem);
+                @include borderstyle(2px, $list-item-border, 10px);
+                display: block;
+                background-color: $list-item-bg;
+                color: white;
+                padding: 0.5em;
+                margin: 0.2em 0px;
+            }
+        }
+    }
+}
