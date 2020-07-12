@@ -21,6 +21,15 @@
     padding: 1.4em;
 }
 
+.remove-button {
+    @include inter-font('black', 1rem);
+    @include borderstyle(0px, black, 15px);
+    padding: 10px 15px;
+    background-color: rgb(255, 70, 70);
+    color: white;
+    
+}
+
 /* SPECIFIC ---------------------------------------------------- */
 
 header {
@@ -65,7 +74,9 @@ header {
             li {
                 @include inter-font('bold', 1.2rem);
                 @include borderstyle(2px, $list-item-border, 10px);
-                display: block;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 background-color: $list-item-bg;
                 color: white;
                 padding: 0.5em;

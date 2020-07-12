@@ -51,6 +51,18 @@
   padding: 1.4em;
 }
 
+.remove-button {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-weight: 900;
+  font-size: 1rem;
+  border: solid 0px black;
+  border-radius: 15px;
+  padding: 10px 15px;
+  background-color: #ff4646;
+  color: white;
+}
+
 /* SPECIFIC ---------------------------------------------------- */
 header {
   background-color: #27ae60;
@@ -118,7 +130,15 @@ header input {
   font-size: 1.2rem;
   border: solid 2px #1c7c44;
   border-radius: 10px;
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #27ad5f;
   color: white;
   padding: 0.5em;
