@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //Handler function called when Add! button is clicked to insert a new list item, also clears the text field
     function appendList() {
         let txtfield = document.getElementById('add-item-field');
-        if (txtfield.value == '') return;
+        if (txtfield.value.trim() == '') return;
 
         let li = createListItem( txtfield.value );
         txtfield.value = "";

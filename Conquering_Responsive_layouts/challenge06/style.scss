@@ -1,0 +1,127 @@
+
+@import 'config';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+nav {
+    background-color: $nav-bg;
+    min-height: $nav-height;
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    align-items: center;
+
+    .max-width {
+        width: 100%;
+    }
+    ul {
+        display: flex;
+        justify-content: flex-start;
+        list-style-type: none;
+        align-items: center;
+
+        * {
+            margin-right: 10px;
+            @include robotofont('regular', 2.25rem);
+            text-transform: uppercase;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover, a:focus {
+            color: $btn-bg;
+        }
+        button {
+            border-radius: 2.5rem;
+            padding: 0.2em 1em;
+            border: none;
+        }
+        button:hover, button:focus {
+            background-color: $btn-bg;
+        }
+    }
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+header {
+    background-color: $bg-header;
+    padding-top: $header-ypadding;
+    padding-bottom: $header-ypadding;
+
+    h1 {
+        @include robotofont('black', 4.8rem);
+        color: white;
+        margin-bottom: 15px;
+    }
+
+    p {
+        @include robotofont('light', 1.8rem);
+        color: white;
+        margin-bottom: 30px;
+    }
+
+    button {
+        @include robotofont('black', 2rem);
+        text-transform: uppercase;
+        background-color: $btn-bg;
+        padding: 15px 25px;
+        border-radius: 30px;
+        border: 0;
+    }
+
+    img {
+        width: 35%;
+        height: auto;
+        align-self: center;
+    }
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+section {
+    padding: 50px 0;
+
+    .article-1 {
+
+        h2 {
+            @include robotofont('black', 2.5rem);
+            color: $h2-color;
+            margin-bottom: 20px;
+        }
+        p {
+            @include robotofont('regular', 1.3rem);
+            margin: 15px 0px;
+        }
+    }
+
+    .article-2 {
+        background-color: $article2-bg;
+        color: white;
+        text-align: center;
+        padding: 40px 25px;
+
+        flex-direction: column;
+
+        h3 {
+            @include robotofont('black', 2.8rem);
+            margin-bottom: 15px;
+        }
+
+        p {
+            @include robotofont('regular', 1.3rem);
+            margin-bottom: 15px;
+        }
+    }
+}
