@@ -25,9 +25,13 @@
     @include inter-font('black', 1rem);
     @include borderstyle(0px, black, 15px);
     padding: 10px 15px;
-    background-color: rgb(255, 70, 70);
+    background-color: $removebtn-bg;
+    border: solid 2px darken($removebtn-bg, 40%);
     color: white;
-    
+    cursor: pointer;
+}
+.remove-button:hover, .remove-button:focus {
+    background-color: darken($removebtn-bg, 20%);
 }
 
 /* SPECIFIC ---------------------------------------------------- */
@@ -64,6 +68,10 @@ header {
             color: white;
             border: 0;
             border-radius: 1em;
+            cursor: pointer;
+        }
+        button:hover, button:focus {
+            background-color: darken($btn-color, 10%);
         }
     }
 

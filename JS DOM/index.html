@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title>JS Vanilla DOM Cheat Sheet</title>
+    <meta charset='UTF-8'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    <meta name='author' content='AdmiJW'/>
+    <meta name='keywords' content='HTML, CSS, JS, DOM'/>
+    <meta name='description' content='own made cheatsheet for vanilla JS DOM Manipulation'/>
+</head>
+<body>
+
+    <h1 class='gen-topic'>JavaScript Vanilla DOM Manipulation Cheat Sheet</h1>
+    
+    <div class='container'>
+        <h2 class='topic'>About DOM</h2>
+        <p class='exp'>In DOM (Document Object Model), all HTML elements are defined as objects. The highest of them
+            all, document object represents our web page. Using JS, we can manipulate everything that occurs in a web page
+        </p>
+        <p class='exp'>It's important to note that the text or contents that we type in between the tags, goes into the
+            <b>Text Node</b> of the element object. See figure below:
+        </p>
+        <img class='img' src='https://www.w3schools.com/js/pic_htmltree.gif' alt='JS DOM'/>
+    </div>
+
+    <!-- ----------------------------
+    DOCUMENT OBJECT
+    ----------------------------------->
+    <div class='container'>
+        <h2 class='topic'>Document Object</h2>
+        <p class='exp'>The document object is the highest element in the DOM. It represents the web page, and carries
+            informations that we may need
+        </p>
+        <p class='exp'>Some of the document properties: <ul>
+            <li><div class='list'>
+                <code>document.domain</code><span> to obtain the domain of the webpage</span>
+                <button type='button' class='btn'>Test</button>
+            </div></li>
+            <li><div class='list'>
+                <code>document.URL</code><span> to obtain the full URL of the webpage</span> 
+                <button type='button' class='btn'>Test</button>
+            </li>
+            <li><div class='list'>
+                <code>document.title</code><span> to obtain the title of the webpage (in title tag)</span> 
+                <button type='button' class='btn'>Test</button>
+            </div></li>
+            <li><div class='list'>
+                <code>document.doctype</code><span> to obtain the doctype of the webpage</span> 
+                <button type='button' class='btn'>Test</button>
+            </div></li>
+            <li><div class='list'>
+                <code>document.head</code><span> to get the head element of this document</span> 
+                <button type='button' class='btn'>Test</button>
+            </div></li>
+            <li><div class='list'>
+                <code>document.body</code><span> to get the body element of this document</span>
+                <button type='button' class='btn'>Test</button>
+            </div></li>
+            <li><div class='list'>
+                <code>document.all</code><span> to get ALL the elements of this document</span> 
+                <button type='button' class='btn'>Test</button>
+            </div></li>
+            <li><div class='list'>
+                <code>document.forms</code><span> to get all the forms of this document</span> 
+                <button type='button' class='btn'>Test</button>
+            </div></li>
+            <li><div class='list'>
+                <code>document.links</code><span> to get all the links (anchor tag or areas with href) of this document</span> 
+                <button type='button' class='btn'>Test</button>
+            </div></li>
+            <li><div class='list'>
+                <code>document.images</code><span> to get all the images of this document</span> 
+                <button type='button' class='btn'>Test</button>
+            </div></li>
+        </ul> and <a href='https://www.w3schools.com/js/js_htmldom_document.asp' target='_blank'>many more</a>...</p>
+    </div>
+
+    <!-- ----------------------------
+    SELECTORS
+    ----------------------------------->
+    <div class='container'>
+        <h2 class='topic'>Selectors</h2>
+        <p class='exp'>There are mainly 4 ways of selecting elements in the document, namely,
+            <ul>
+                <li><code>document.getElementById</code><span> to get element by ID (Remember every element can only
+                    have ONE unique ID</span>
+                    <button class='btn'>Test</button>
+                </li>
+                <li><code>document.getElementsByClassName</code><span> to get element(s) by class name. 
+                    It returns an array-like object which we can access by index number and using for loop</span>
+                    <button class='btn'>Test</button>
+                </li>
+                <li><code>document.getElementsByTagName</code><span> to get element(s) by tag name.
+                    It returns an array-like object which we can access by index number and using for loop</span>
+                    <button class='btn'>Test</button>
+                </li>
+                <li><code>document.querySelector</code><span> to get element by using CSS Selectors.
+                    It returns the first element matching the CSS selectors only</span>
+                    <button class='btn'>Test</button></li>
+                <li><code>document.querySelectorAll</code><span> to get element(s) by using CSS Selectors.
+                    It returns an array-like object which we can access by index number and using for loop</span>
+                    <button class='btn'>Test</button></li>
+            </ul>
+        </p>
+    </div>
+
+    <!------------------------
+    HTML TEXT AND STYLE
+    ----------------------------->
+    <div class='container'>
+        <h2 class='topic'>HTML Text and Style</h2>
+        <p class='exp'>To get the contents wrapped inside the tags, we can use those: <code>.innerText</code>, 
+        <code>.textContent</code> and <code>.innerHTML</code></p>
+        <p class='exp'>Both <code>.innerText</code> and <code>.textContent</code> returns the text contained
+        directly and indirectly (wrapped in other child node/ tags) of the selected element. The difference is
+        that <code>.textContent</code> will return text content as it is, with extra spaces just like in HTML.
+        Also, <code>.textContent</code> won't ignore text inside <code>&lt;script&gt;</code> and <code>&lt;style&gt;</code>
+        tags, as well as text that are hidden with CSS rules (like display: none)</p>
+        <p class='exp'><code>.innerHTML</code> will return all the text wrapped inside the selected element,
+        including the tags.</p>
+        <p class='exp'>We can assign text to the <code>.innerText</code> and <code>.textContent</code>, both of which
+        will remove all child nodes and append a text node containing the specified string (Tags are ignored).
+        Setting <code>.innerHTML</code> will make the HTML tag to be actually rendered instead</p>
+
+        <div class='codeblock'>
+            <p>         This p tag contains leading spaces and       <em> emphasis </em>stuff lol.</p>
+            <button type='button' class='btn'>Use .innerText</button>
+            <button type='button' class='btn'>Use .textContent</button>
+            <button type='button' class='btn'>Use .innerHTML</button>
+            <button type='button' class='btn'>Set .innerText</button>
+            <button type='button' class='btn'>Set .innerHTML</button>
+        </div>
+
+        <p class='exp'>We can set attributes of element using either of those: <code>element.attribute = value</code>
+        where attribute is any of attribute properties, like href, or <code>element.setAttribute(attribute, value)</code></p>
+        <p class='exp'>We can change the CSS style of element by using <code>element.style.properties = value</code>
+        where properties is any CSS property like background-color, and value being its respective valid value</p>
+
+        <button type='button' class='btn'>Target Button</button>
+        <button type='button' class='btn'>Change target attribute to disabled</button>
+        <button type='button' class='btn'>Change target button CSS</button>
+    </div>
+
+</body>
+</html>

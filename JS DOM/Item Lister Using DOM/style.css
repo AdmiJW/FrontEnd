@@ -60,7 +60,13 @@
   border-radius: 15px;
   padding: 10px 15px;
   background-color: #ff4646;
+  border: solid 2px #790000;
   color: white;
+  cursor: pointer;
+}
+
+.remove-button:hover, .remove-button:focus {
+  background-color: #df0000;
 }
 
 /* SPECIFIC ---------------------------------------------------- */
@@ -117,6 +123,11 @@ header input {
   color: white;
   border: 0;
   border-radius: 1em;
+  cursor: pointer;
+}
+
+#main-container #add-item-div button:hover, #main-container #add-item-div button:focus {
+  background-color: #217dbb;
 }
 
 #main-container #items-div ul {
