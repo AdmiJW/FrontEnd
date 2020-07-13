@@ -1,0 +1,61 @@
+$header-bg: #F3EED9;
+$second-sec-bg: #222C2A;
+$third-sec-bg: #824936;
+
+$header-fontcolor: #824936;
+
+$roboto: 'Roboto', sans-serif;
+$playfair: 'Playfair Display', serif;
+
+$max-width: 1128px;
+$gen-padding: 80px;
+$header-height: 660px;
+$intersec-padding: 40px;
+
+@mixin robotofont ($weight, $size) {
+    font-family: $roboto;
+    font-size: $size;
+
+    @if ($weight == 'light') {
+        font-weight: 300;
+    }
+    @else if ($weight == 'regular') {
+        font-weight: 400;
+    }
+}
+
+@mixin playfairfont ($size) {
+    font-family: $playfair;
+    font-size: $size;
+    font-weight: 900;
+}
+
+
+/* ------------------------------------ */
+
+.general-maxwidth {
+    max-width: $max-width + 2 * $gen-padding;
+    padding-left: $gen-padding;
+    padding-right: $gen-padding;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.row-item {
+    width: 45%;
+    height: auto;
+}
+
+.row-item + .row-item {
+    margin-left: 40px;
+}
+
+.sec {
+    padding-top: $intersec-padding;
+    padding-bottom: $intersec-padding;
+}

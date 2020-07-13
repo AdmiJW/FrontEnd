@@ -1,0 +1,113 @@
+@import 'config';
+
+html {
+    font-size: 10px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* --------------------------------------------------------- */
+
+header {
+    background-color: $header-bg;
+    min-height: $header-height;
+
+    .general-maxwidth {
+        display: flex;
+        min-height: $header-height;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .herotxt {
+        flex-basis: 75%;
+        text-align: center;
+        color: $header-fontcolor;
+
+        h3 {
+            @include robotofont('light', 1.8rem);
+        }
+        h1 {
+            @include playfairfont(6rem);
+        }
+    }
+}
+
+/* ------------------------------------------------- */
+
+#first-sec {
+
+    h2 {
+        @include playfairfont(3.6rem);
+        color: $header-fontcolor;
+        text-align: center;
+        margin: 25px 0px;
+    }
+
+    p {
+        @include robotofont('regular', 2.1rem);
+    }
+}
+
+.section-text {
+    align-self: flex-start;
+
+    h2 {
+        @include playfairfont(3.6rem);
+        margin-bottom: 30px;
+    }
+    p {
+        @include robotofont('regular', 2.1rem);
+    }
+}
+
+#second-sec, #third-sec {
+    color: white;
+
+    img {
+        align-self: flex-start;
+    }
+}
+#second-sec {
+    background-color: $second-sec-bg;
+}
+#third-sec {
+    background-color: $third-sec-bg;
+}
+
+/* ---------------------------------------- */
+
+@media screen and (max-width: 700px) {
+    #second-sec, #third-sec {
+        .row {
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .row-item {
+            width: 100%;
+            align-self: center;
+            margin: 20px 0px;
+        }
+        .row-item + .row-item {
+            margin-left: 0px;
+        }
+        img {
+            border-radius: 40px;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    html {
+        font-size: 8px;
+    }
+    .general-maxwidth {
+        padding-left: $gen-padding - 50px;
+        padding-right: $gen-padding - 50px;
+    }
+}
