@@ -31,10 +31,19 @@ body {
 /*  This is the shorthand. The actual syntax can be
 	of flex: (flex-grow) (flex-shrink) (flex-basis);
 
+	The flex-grow, flex-shrink and flex-basis is set on the items itself, not on flexbox
+
+	When we set the container to be bigger than items, eg: width: 100%, the items by default may not stretch.
+	This is where we shall specify how the items will stretch
+
 	flex-grow: when container is bigger than contents, determine how
 	each element will grow
 	flex-shrink: when container is smaller than contents, determine how
 	each element will shrink; 
+
+	By default, flex-grow is set to 0 while flex-shrink is set to 1. Flex-grow property specifies how much the
+	item will grow relative to the rest of the items inside flexbox
+
 	flex-basis: Like the width attribute, will set the width of the flex item
 				by default
 	*/

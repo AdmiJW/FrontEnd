@@ -136,9 +136,55 @@
         <p class='exp'>We can change the CSS style of element by using <code>element.style.properties = value</code>
         where properties is any CSS property like background-color, and value being its respective valid value</p>
 
-        <button type='button' class='btn'>Target Button</button>
         <button type='button' class='btn'>Change target attribute to disabled</button>
         <button type='button' class='btn'>Change target button CSS</button>
+
+        <button type='button' class='btn'>Target Button</button>
+    </div>
+
+    <div class='container'>
+        <h2 class='topic'>Traversing in the DOM</h2>
+        <p class='exp'>There are usually 2 variants: Node and Element. Note that text Node is considered a node 
+            as well. Therefore if between the tags there is white spaces, using node may return text node instead,
+            which is out of expectation</p>
+        <p class='exp'>To get the parent node/element of an element, we can use <code>.parentNode</code> or <code>
+            .parentElement</code>. </p>
+        <p class='exp'>To get the child node(s)/ element(s) of an element, we use <code>.childNodes</code> or <code>
+            .children</code>. </p>
+        <p class='exp'>To get the first child, use <code>.firstChild</code> or <code>.firstElementChild</code>.</p>
+        <p class='exp'>To get the last child, use <code>.lastChild</code> or <code>.lastElementChild</code>.</p>
+        <p class='exp'>To get the next sibling, use <code>.nextSibling</code> or <code>.nextELementSibling</code>.</p>
+        <p class='exp'>To get the previous sibling, use <code>.previousSibling</code> or <code>.previousElementSibling</code>.</p>
+
+        <div class='codeblock'>
+            <button type='button'>Show the parent</button>
+            <button type='button'>Show the child</button>
+            <button type='button'>Show the first child</button>
+            <button type='button'>Show the last child</button>
+            <button type='button'>Show the next sibling</button>
+            <button type='button'>Show the previous sibling</button>
+
+            <div id='parent'> Parent Div
+                <p id='prev-sibling'>Previous Sibling</p>
+                <p id='target'>Target <span>Child 1</span><span> Child 2</span><span> Child 3</span></p>
+                <p id='next-sibling'>Next Sibling</p>
+            </div>
+        </div>
+    </div>
+
+    <div class='container'>
+        <h2 class='topic'>Creation and Destruction of Element</h2>
+        <p class='exp'>To create a new element, we use <code>document.createElement(tag)</code> where
+            tag is the name of the tag. Usually this expression is assigned to variable and used later</p>
+        <p class='exp'>To add text into the element, we would need to create a Text Node, via <code>
+            document.createTextNode(txt)</code> where txt is a string type argument. After creation, it
+            has to be added to the element as child node (see below).</p>
+        <p class='exp'>To change the class and id of the element, we can go ahead and use assignment operator,
+            <code>elem.className = 'classname'</code> for setting classes and <code>elem.id = 'id'</code>
+            for setting id</p>
+        <p class='exp'>To perform operations on element such as appending, removing and replacing, use
+            <code>elem.appendChild(e)</code>, <code>elem.removeChild(e)</code> and <code>elem.replaceChild(new, old)</code>
+        </p>
     </div>
 
 </body>
