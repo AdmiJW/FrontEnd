@@ -7,10 +7,14 @@
     <meta name='author' content='AdmiJW'/>
     <meta name='keywords' content='HTML, CSS, JS, DOM'/>
     <meta name='description' content='own made cheatsheet for vanilla JS DOM Manipulation'/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' href='style.css'/>
 </head>
+
 <body>
 
-    <h1 class='gen-topic'>JavaScript Vanilla DOM Manipulation Cheat Sheet</h1>
+    <h1 class='topic'>JavaScript Vanilla DOM Manipulation Cheat Sheet</h1>
     
     <div class='container'>
         <h2 class='topic'>About DOM</h2>
@@ -31,48 +35,91 @@
         <p class='exp'>The document object is the highest element in the DOM. It represents the web page, and carries
             informations that we may need
         </p>
-        <p class='exp'>Some of the document properties: <ul>
-            <li><div class='list'>
-                <code>document.domain</code><span> to obtain the domain of the webpage</span>
-                <button type='button' class='btn'>Test</button>
-            </div></li>
-            <li><div class='list'>
-                <code>document.URL</code><span> to obtain the full URL of the webpage</span> 
-                <button type='button' class='btn'>Test</button>
+
+        <hr/>
+
+        Some of the document properties: 
+        <ul class='spec-list'>
+            <li>
+                <div class='list-left'>
+                    <code>document.domain</code> to obtain the domain of the webpage
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-1'>Test</button>
+                </div>
             </li>
-            <li><div class='list'>
-                <code>document.title</code><span> to obtain the title of the webpage (in title tag)</span> 
-                <button type='button' class='btn'>Test</button>
-            </div></li>
-            <li><div class='list'>
-                <code>document.doctype</code><span> to obtain the doctype of the webpage</span> 
-                <button type='button' class='btn'>Test</button>
-            </div></li>
-            <li><div class='list'>
-                <code>document.head</code><span> to get the head element of this document</span> 
-                <button type='button' class='btn'>Test</button>
-            </div></li>
-            <li><div class='list'>
-                <code>document.body</code><span> to get the body element of this document</span>
-                <button type='button' class='btn'>Test</button>
-            </div></li>
-            <li><div class='list'>
-                <code>document.all</code><span> to get ALL the elements of this document</span> 
-                <button type='button' class='btn'>Test</button>
-            </div></li>
-            <li><div class='list'>
-                <code>document.forms</code><span> to get all the forms of this document</span> 
-                <button type='button' class='btn'>Test</button>
-            </div></li>
-            <li><div class='list'>
-                <code>document.links</code><span> to get all the links (anchor tag or areas with href) of this document</span> 
-                <button type='button' class='btn'>Test</button>
-            </div></li>
-            <li><div class='list'>
-                <code>document.images</code><span> to get all the images of this document</span> 
-                <button type='button' class='btn'>Test</button>
-            </div></li>
-        </ul> and <a href='https://www.w3schools.com/js/js_htmldom_document.asp' target='_blank'>many more</a>...</p>
+            <li>
+                <div class='list-left'>
+                    <code>document.URL</code> to obtain the full URL of the webpage
+                    </div>
+                    <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-2'>Test</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>document.title</code> to obtain the title of the webpage (in title tag)
+                </div>
+                <div class='list-right'> 
+                    <button type='button' class='btn btn-primary' id='btnA-3'>Test</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>document.doctype</code> to obtain the doctype of the webpage 
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-4'>Test</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>document.head</code> to get the head element of this document 
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-5'>Test</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>document.body</code> to get the body element of this document
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-6'>Test</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>document.all</code> to get ALL the elements of this document 
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-7'>Test</button>
+                </div>
+            </li>
+            <li><div class='list-left'>
+                    <code>document.forms</code> to get all the forms of this document 
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-8'>Test</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>document.links</code> to get all the links (anchor tag or areas with href) of this document 
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-9'>Test</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>document.images</code> to get all the images of this document 
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-10'>Test</button>
+                </div>
+            </li>
+        </ul> and <a href='https://www.w3schools.com/js/js_htmldom_document.asp' target='_blank'>many more</a>...
     </div>
 
     <!-- ----------------------------
@@ -81,25 +128,52 @@
     <div class='container'>
         <h2 class='topic'>Selectors</h2>
         <p class='exp'>There are mainly 4 ways of selecting elements in the document, namely,
-            <ul>
-                <li><code>document.getElementById</code><span> to get element by ID (Remember every element can only
-                    have ONE unique ID</span>
-                    <button class='btn'>Test</button>
+            <ul class='spec-list'>
+                <li>
+                    <div class='list-left'>
+                        <code>document.getElementById</code> to get element by ID (Remember every element can only
+                        have ONE unique ID
+                    </div>
+                    <div class='list-right'>
+                        <button class='btn btn-primary' id='btnB-1'>Test</button>
+                    </div>
                 </li>
-                <li><code>document.getElementsByClassName</code><span> to get element(s) by class name. 
-                    It returns an array-like object which we can access by index number and using for loop</span>
-                    <button class='btn'>Test</button>
+                <li>
+                    <div class='list-left'>
+                        <code>document.getElementsByClassName</code> to get element(s) by class name. 
+                        It returns an array-like object which we can access by index number and using for loop
+                    </div>
+                    <div class='list-right'>
+                        <button class='btn btn-primary' id='btnB-2'>Test</button>
+                    </div>
                 </li>
-                <li><code>document.getElementsByTagName</code><span> to get element(s) by tag name.
-                    It returns an array-like object which we can access by index number and using for loop</span>
-                    <button class='btn'>Test</button>
+                <li>
+                    <div class='list-left'>
+                        <code>document.getElementsByTagName</code> to get element(s) by tag name.
+                        It returns an array-like object which we can access by index number and using for loop
+                    </div>
+                    <div class='list-right'>
+                        <button class='btn btn-primary' id='btnB-3'>Test</button>
+                    </div>
                 </li>
-                <li><code>document.querySelector</code><span> to get element by using CSS Selectors.
-                    It returns the first element matching the CSS selectors only</span>
-                    <button class='btn'>Test</button></li>
-                <li><code>document.querySelectorAll</code><span> to get element(s) by using CSS Selectors.
-                    It returns an array-like object which we can access by index number and using for loop</span>
-                    <button class='btn'>Test</button></li>
+                <li>
+                    <div class='list-left'>
+                        <code>document.querySelector</code> to get element by using CSS Selectors.
+                        It returns the first element matching the CSS selectors only
+                    </div>
+                    <div class='list-right'>
+                        <button class='btn btn-primary' id='btnB-4'>Test</button>
+                    </div>
+                </li>
+                <li>
+                    <div class='list-left'>
+                        <code>document.querySelectorAll</code> to get element(s) by using CSS Selectors.
+                        It returns an array-like object which we can access by index number and using for loop
+                    </div>
+                    <div class='list-right'>
+                        <button class='btn btn-primary' id='btnB-5'>Test</button>
+                    </div>
+                </li>
             </ul>
         </p>
     </div>
@@ -122,26 +196,44 @@
         will remove all child nodes and append a text node containing the specified string (Tags are ignored).
         Setting <code>.innerHTML</code> will make the HTML tag to be actually rendered instead</p>
 
+        <hr/>
+
         <div class='codeblock'>
-            <p>         This p tag contains leading spaces and       <em> emphasis </em>stuff lol.</p>
-            <button type='button' class='btn'>Use .innerText</button>
-            <button type='button' class='btn'>Use .textContent</button>
-            <button type='button' class='btn'>Use .innerHTML</button>
-            <button type='button' class='btn'>Set .innerText</button>
-            <button type='button' class='btn'>Set .innerHTML</button>
+            <div class='codeblock-left'>
+                <button type='button' class='btn btn-primary btn-block' id='btnC-1'>Use .innerText</button>
+                <button type='button' class='btn btn-primary btn-block' id='btnC-2'>Use .textContent</button>
+                <button type='button' class='btn btn-primary btn-block' id='btnC-3'>Use .innerHTML</button>
+                <button type='button' class='btn btn-primary btn-block' id='btnC-4'>Set .innerText</button>
+                <button type='button' class='btn btn-primary btn-block' id='btnC-5'>Set .innerHTML</button>
+            </div>
+            <div class='codeblock-right'>
+                <p>         This p tag contains leading spaces and       <em> emphasis </em>stuff lol.</p>
+            </div>
         </div>
+
+        <hr/>
 
         <p class='exp'>We can set attributes of element using either of those: <code>element.attribute = value</code>
         where attribute is any of attribute properties, like href, or <code>element.setAttribute(attribute, value)</code></p>
         <p class='exp'>We can change the CSS style of element by using <code>element.style.properties = value</code>
         where properties is any CSS property like background-color, and value being its respective valid value</p>
 
-        <button type='button' class='btn'>Change target attribute to disabled</button>
-        <button type='button' class='btn'>Change target button CSS</button>
+        <hr/>
 
-        <button type='button' class='btn'>Target Button</button>
+        <div class='codeblock'>
+            <div class='codeblock-left'>
+                <button type='button' class='btn btn-primary btn-block' id='btnC-6'>Change target attribute to disabled</button>
+                <button type='button' class='btn btn-primary btn-block' id='btnC-7'>Change target button CSS</button>
+            </div>
+            <div class='codeblock-right'>
+                <button type='button' class='btn btn-danger btn-block' id='targetE-1'>Target Button</button>    
+            </div>
+        </div>
     </div>
 
+    <!------------------------
+        TRAVERSING IN THE DOM
+    ----------------------------->
     <div class='container'>
         <h2 class='topic'>Traversing in the DOM</h2>
         <p class='exp'>There are usually 2 variants: Node and Element. Note that text Node is considered a node 
@@ -156,22 +248,31 @@
         <p class='exp'>To get the next sibling, use <code>.nextSibling</code> or <code>.nextELementSibling</code>.</p>
         <p class='exp'>To get the previous sibling, use <code>.previousSibling</code> or <code>.previousElementSibling</code>.</p>
 
-        <div class='codeblock'>
-            <button type='button'>Show the parent</button>
-            <button type='button'>Show the child</button>
-            <button type='button'>Show the first child</button>
-            <button type='button'>Show the last child</button>
-            <button type='button'>Show the next sibling</button>
-            <button type='button'>Show the previous sibling</button>
+        <hr/>
 
-            <div id='parent'> Parent Div
-                <p id='prev-sibling'>Previous Sibling</p>
-                <p id='target'>Target <span>Child 1</span><span> Child 2</span><span> Child 3</span></p>
-                <p id='next-sibling'>Next Sibling</p>
+        <div class='codeblock'>
+            <div class='codeblock-left'>
+                <button type='button' class='btn btn-primary btn-block' id='btnD-1'>Show the parent</button>
+                <button type='button' class='btn btn-primary btn-block' id='btnD-2'>Show the child</button>
+                <button type='button' class='btn btn-primary btn-block' id='btnD-3'>Show the first child</button>
+                <button type='button' class='btn btn-primary btn-block' id='btnD-4'>Show the last child</button>
+                <button type='button' class='btn btn-primary btn-block' id='btnD-5'>Show the next sibling</button>
+                <button type='button' class='btn btn-primary btn-block' id='btnD-6'>Show the previous sibling</button>
+            </div>
+
+            <div class='codeblock-right'>
+                <div id='parent'> Parent Div
+                    <p id='prev-sibling'>Previous Sibling</p>
+                    <p id='target'>Target <span>Child 1</span><span> Child 2</span><span> Child 3</span></p>
+                    <p id='next-sibling'>Next Sibling</p>
+                </div>
             </div>
         </div>
     </div>
 
+    <!------------------------
+        CREATION & DESTRUCTION
+    ----------------------------->
     <div class='container'>
         <h2 class='topic'>Creation and Destruction of Element</h2>
         <p class='exp'>To create a new element, we use <code>document.createElement(tag)</code> where
@@ -185,6 +286,73 @@
         <p class='exp'>To perform operations on element such as appending, removing and replacing, use
             <code>elem.appendChild(e)</code>, <code>elem.removeChild(e)</code> and <code>elem.replaceChild(new, old)</code>
         </p>
+
+        <hr/>
+
+        <div class='codeblock'>
+            <div class='codeblock-left'>
+                <input type='text' class='form-control' id='textE-1' placeholder='Enter value here...'/>
+                <button type='button' class='btn btn-primary btn-block' id='btnE-1'>Add new list item</button>
+                <button type='button' class='btn btn-primary btn-block' id='btnE-2'>Remove last list item</button>
+                <button type='button' class='btn btn-primary btn-block' id='btnE-3'>Replace all list item text</button>
+                <button type='button' class='btn btn-primary btn-block' id='btnE-4'>Style list item with class</button>
+                <button type='button' class='btn btn-primary btn-block' id='btnE-5'>Unstyle list item</button>
+            </div>
+            <div class='codeblock-right'>
+                <ul id='targetE-1'>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!------------------------
+    EVENT LISTENERS
+    ----------------------------->
+    <div class='container'>
+        <h2 class='topic'>Event Listeners</h2>
+        <p class='exp'>We add event listeners to selected element using <code>.addEventListener(type, function)</code>
+            and remove it by <code>.removeEventListener(type, function)</code>
+        </p>
+        <ul>
+            <li><code>click</code></li>
+            <li><code>keydown</code></li>
+            <li><code>keyup</code></li>
+            <li><code>keypress</code></li>
+            <li><code>load</code> fired when this element loads</li>
+            <li><code>mousedown</code></li>
+            <li><code>mouseup</code></li>
+            <li><code>mouseenter</code> fired when pointer enters the area</li>
+            <li><code>mouseleave</code> fires when pointer leaves the area</li>
+            <li><code>mouseover</code> fires when pointer enters the inner content</li>
+            <li><code>mouseout</code> fires when pointer leaves the inner content</li>
+            <li><code>focus</code></li>
+            <li><code>blur</code></li>
+            <li><code>input</code></li>
+            <li><code>change</code></li>
+        </ul>
+
+        <hr/>
+
+        <div class='codeblock'>
+            <div class='codeblock-left'>
+                <input type='text' class='form-control' id='textF-1' placeholder='Text here'/>
+            </div>
+            <div class='codeblock-right'>
+                <p id='targetF-1'>Text goes here...</p>
+            </div>
+        </div>
+        
+        <hr/>
+        
+        <div class='codeblock'>
+            <div class='codeblock-left'>
+                <div id='divF-1'>Content</div>
+            </div>
+            <div class='codeblock-right'>
+                <p id='targetF-1'>Response goes here...</p>
+            </div>
+        </div>
+
     </div>
 
 </body>

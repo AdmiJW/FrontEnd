@@ -4,11 +4,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function appendList() {
         let txtfield = document.getElementById('add-item-field');
         if (txtfield.value.trim() == '') return;
-
+        
+        document.getElementById('add-item-audio').load();
         let li = createListItem( txtfield.value );
         txtfield.value = "";
 
         document.getElementById('items-list').appendChild(li);
+        document.getElementById('add-item-audio').play();
     }
 
 
