@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JS BOM Cheat Sheet</title>
+    <meta charset="UTF-8">
+    <meta name='author' content='AdmiJW'/>
+    <meta name='keywords' content='HTML, CSS, JS, BOM'/>
+    <meta name='description' content='JS BOM Cheat Sheet'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' href='style.css'/>
+
+</head>
+<body>
+    
+    <h1 class='topic'>JavaScript Vanilla BOM Cheat Sheet</h1>
+
+    <!-- -----------------
+    ABOUT BOM
+    --------------------->
+    <div class='container'>
+        <h2 class='topic'>About BOM</h2>
+        <p class='exp'>Like <abbr title='Document Object Model'>DOM</abbr>, BOM, or Browser Object Model
+            allows the Java script to interact with the browser itself.
+        </p>
+        <p class='exp'>The highest level of the BOM is <code>window</code> object. It represents the browser window itself
+            and all the javascript functions, objects and variables belong to it. Even the DOM is actually part of the BOM,
+            which is accessed by <code>window.document</code>. However in most cases, the <code>window</code> keyword can be
+            ignored, that's why we can refer to DOM using <code>document</code> and not its full path <code>document.window</code>
+        </p>
+
+        <hr/>
+        
+        Some of the BOM methods:
+        <ul class='spec-list'>
+            <li>
+                <div class='list-left'>
+                    <code>window.innerHeight</code> returns inner height of browser window
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-1'>Get inner Height</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>window.innerWidth</code> returns inner width of browser window
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-2'>Get inner Width</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>window.open()</code> opens a new window
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-3'>Open new Window</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>window.close()</code> closes the current window
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-4'>Close this window</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>window.moveTo()</code> moves the current window
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-5'>Move this window</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>window.resizeTo()</code> resize the current window
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-6'>Resize this window</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>window.alert(msg)</code> pops an alert box along with a message 
+                </div>
+                <div class='list-right'>
+                    <input type='text' class='form-control' id='textA-1' placeholder='Enter text...' />
+                    <button type='button' class='btn btn-primary' id='btnA-7'>Alert Me!</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>window.confirm(msg)</code> pops an confirm box with given message. This method
+                    will have a return value of either <b>true</b> if user clicks OK, or <b>false</b> if cancel is clicked.
+                    This can be used in a if... else block for deciding actions.
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-8'>Confirm Me!</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>window.prompt(msg, defaultValue)</code> pops an prompt box to obtain input from user.
+                    This method returns the value of input if user clicks <b>OK</b>, and
+                    <b>null</b> if user clicks cancel.
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-9'>Prompt Me!</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>window.setTimeout(function, millisec)</code> and <code>window.clearTimeout(setTimeoutObject)</code> work
+                    together to start and stop a timer to execute a function. <code>.setTimeout</code> works such a way that
+                    after specified millisecs of where the code is executed, will call upon the function unless <code>clearTimeout</code>
+                    is called with the setTimeout variable passed in as argument
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-10'>3 Second Alert!</button>
+                    <button type='button' class='btn btn-primary' id='btnA-11'>Do Not Alert!</button>
+                    <p id='statusA-1'>Click the alert button to start Alert!</p>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>window.setInterval(function, millisec)</code> and <code>window.clearInterval(setIntervalObject)</code> work
+                    similar to <code>.setTimeout</code>, but instead of executing once, it will keep repeating the timer over and over again
+                    and keep executing the function at timed intervals. Only way to stop is using <code>.clearInterval()</code> method
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnA-10'>3 Second Alert!</button>
+                    <button type='button' class='btn btn-primary' id='btnA-11'>Stop Repeating!</button>
+                    <p id='statusA-1'>Click the alert button to start Countdown to next exec!</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- -----------------
+    WINDOW.SCREEN OBJECT
+    --------------------->
+    <div class='container'>
+        <h2 class='topic'>Window Screen Object</h2>
+        <p class='exp'>The <code>window.screen</code> object contains information about the user's screen.</p>
+
+        <hr/>
+
+        Some of the <code>window.screen</code> properties:
+        <ul class='spec-list'>
+            <li>
+                <div class='list-left'>
+                    <code>screen.width</code> returns the width of visitor's screen
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnB-1'>Get Screen Width</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>screen.height</code> returns the height of visitor's screen
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnB-2'>Get Screen Height</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>screen.availWidth</code> returns the available width of visitor's screen, which excludes the interface features like Windows Taskbar
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnB-3'>Get Screen Available Width</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>screen.availHeight</code> returns the available height of visitor's screen, which excludes interface features like Windows Taskbar
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnB-4'>Get Screen Available Height</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>screen.colorDepth</code> or <code>screen.pixelDepth</code> returns the number of bits used to display one color
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnB-5'>Get Color Depth</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ----------------------
+    WINDOW.LOCATION OBJECT
+    --------------------------->
+    <div class='container'>
+        <h2 class='topic'>Window Location Object</h2>
+        <p class='exp'><code>window.location</code> object represents the current page location, which can
+            be used to get the current page address (URL), and even redirect the browser to a new page.
+        </p>
+
+        <hr/>
+
+        Some of <code>window.location</code> properties and methods:
+        <ul class='spec-list'>
+            <li>
+                <div class='list-left'>
+                    <code>window.location.href</code> returns the href (URL) of the current page
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnC-1'>Get Href</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>window.location.hostname</code> returns the domain name of the web host (Eg: www.google.com)
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnC-2'>Get Domain Name</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>window.location.pathname</code> returns the path, and filename of the current page (The part of URL after domain name)
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnC-3'>Get Path Name</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>window.location.protocol</code> returns the web protocol of the page (Eg: HTTP/ HTTPS... )
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnC-4'>Get Protocol</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>window.location.port</code> returns the internet host port (Browsers may not display default port number of 80(http) or 443(https) )
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnC-4'>Get Port</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>window.location.assign(URL)</code> loads a new document from given URL argument
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnC-4'>Go To Google</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ------------
+    WINDOW HISTORY OBJECT
+    ------------------ -->
+    <div class='container'>
+        <h2 class='topic'>Window History Object</h2>
+        <p class='exp'><code>window.history</code> object contains the browser's history.
+        </p>
+
+        <hr/>
+
+        Some of the <code>window.history</code> methods:
+        <ul class='spec-list'>
+            <li>
+                <div class='list-left'>
+                    <code>history.back()</code> is same as clicking back in the browser
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnD-1'>Back</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>history.forward()</code> is same as clicking forward in the browser
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnD-2'>Forward</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ---------------
+    WINDOW NAVIGATOR OBJECT
+    ------------------ -->
+    <div class='container'>
+        <h2 class='topic'>Window Navigator Object</h2>
+        <p class='exp'><code>window.navigator</code> object contains information regarding the visitor's browser</p>
+
+        <hr/>
+
+        Some of the <code>window.navigator</code> properties and methods:
+        <ul class='spec-list'>
+            <li>
+                <div class='list-left'>
+                    <code>navigator.cookieEnabled</code> returns if the cookie is enabled in browser
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnE-1'>Is Cookie Enabled?</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>navigator.appName</code> returns the application name of browser. However most
+                    popular browser name will return 'Netscape'
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnE-2'>Get Application Name</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>navigator.appCodeName</code> returns the application code name of browser. However most
+                    popular browser name will return 'Mozilla'
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnE-3'>Get Application Code Name</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>navigator.product</code> returns the product name of browser engine. However most
+                    popular browser will return 'Gecko'
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnE-4'>Get Product Name</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>navigator.appVersion</code> returns the version information of browser
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnE-5'>Get App Version</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>navigator.userAgent</code> returns the user-agent header send by the browser
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnE-6'>Get Browser Agent</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>navigator.platform</code> returns the browser platform (OS that it runs)
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnE-7'>Get Platform (OS)</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>navigator.language</code> returns the browser's language
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnE-8'>Get Language</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>navigator.onLine</code> returns if the browser is online or not
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnE-9'>My Online Status</button>
+                </div>
+            </li>
+            <li>
+                <div class='list-left'>
+                    <code>navigator.javaEnabled()</code> method returns if Java is enabled or not
+                </div>
+                <div class='list-right'>
+                    <button type='button' class='btn btn-primary' id='btnE-10'>Can I run Java?</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>

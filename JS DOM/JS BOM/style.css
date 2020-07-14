@@ -1,6 +1,6 @@
 
 body {
-    background-color: #7a0000;
+    background-color: #341f97;
 }
 * {
     padding: 0;
@@ -18,10 +18,10 @@ h1 {
 .topic {
     text-align: center;
     margin: 30px 0px;
-    color: #00fd5d;
+    color: #ffa502;
 }
 hr {
-    background-color:rgba(255, 96, 96, 0.452);
+    background-color:#ffa502;
     padding: 3px 0px;
     border-radius: 20px;
     margin: 20px 10px;
@@ -31,18 +31,9 @@ hr {
     padding: 10px;
 }
 code {
-    background-color:rgb(61, 61, 61);
-    color: rgb(255, 215, 215);
+    background-color:#2f3542;
+    color: rgb(110, 255, 122);
     padding: 0px 10px;
-}
-.codeblock {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.codeblock-left, .codeblock-right {
-    flex-basis: 50%;
-    padding: 10px;
 }
 .container {
     border-radius: 20px;
@@ -56,14 +47,14 @@ code {
 .spec-list li {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     border: solid 1px black;
     border-radius: 10px;
     padding: 10px;
     margin: 10px 0px;
 }
 .spec-list li * {
-    flex-basis: 50%;
+    flex-basis: 48%;
 }
 
 
