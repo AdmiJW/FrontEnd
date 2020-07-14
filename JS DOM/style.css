@@ -68,6 +68,16 @@ code {
 
 
 
+.style-list {
+    border-radius: 10px;
+    background: linear-gradient(to left,violet, indigo, blue, green, yellow, orange, red);
+    color: white;
+    text-align: center;
+    margin: 10px 0px;
+}
+
+
+
 
 #parent {
     background-color: #3498db;
@@ -93,6 +103,10 @@ code {
 
 
 #divF-1 {
-    padding: 80px;
+    padding: 40px;
     background-color: #2ecc71;
+}
+#divF-2 {
+    padding: 20px;
+    background-color: #c9cc2e;
 }

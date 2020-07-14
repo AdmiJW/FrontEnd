@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel='stylesheet' type='text/css' href='style.css'/>
+    <script src='js1.js'></script>
+    <script src='js2.js'></script>
+    <script src='js3.js'></script>
+    <script src='js4.js'></script>
+    <script src='js5.js'></script>
+    <script src='js6.js'></script>
 </head>
 
 <body>
@@ -38,14 +44,14 @@
 
         <hr/>
 
-        Some of the document properties: 
+        Some of the document properties: <small class='text-muted'>(Check out the console after clicking the buttons)</small>
         <ul class='spec-list'>
             <li>
                 <div class='list-left'>
                     <code>document.domain</code> to obtain the domain of the webpage
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnA-1'>Test</button>
+                    <button type='button' class='btn btn-primary btnA' id='btnA-1'>Test</button>
                 </div>
             </li>
             <li>
@@ -53,7 +59,7 @@
                     <code>document.URL</code> to obtain the full URL of the webpage
                     </div>
                     <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnA-2'>Test</button>
+                    <button type='button' class='btn btn-primary btnA' id='btnA-2'>Test</button>
                 </div>
             </li>
             <li>
@@ -61,7 +67,7 @@
                     <code>document.title</code> to obtain the title of the webpage (in title tag)
                 </div>
                 <div class='list-right'> 
-                    <button type='button' class='btn btn-primary' id='btnA-3'>Test</button>
+                    <button type='button' class='btn btn-primary btnA' id='btnA-3'>Test</button>
                 </div>
             </li>
             <li>
@@ -69,7 +75,7 @@
                     <code>document.doctype</code> to obtain the doctype of the webpage 
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnA-4'>Test</button>
+                    <button type='button' class='btn btn-primary btnA' id='btnA-4'>Test</button>
                 </div>
             </li>
             <li>
@@ -77,7 +83,7 @@
                     <code>document.head</code> to get the head element of this document 
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnA-5'>Test</button>
+                    <button type='button' class='btn btn-primary btnA' id='btnA-5'>Test</button>
                 </div>
             </li>
             <li>
@@ -85,7 +91,7 @@
                     <code>document.body</code> to get the body element of this document
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnA-6'>Test</button>
+                    <button type='button' class='btn btn-primary btnA' id='btnA-6'>Test</button>
                 </div>
             </li>
             <li>
@@ -93,14 +99,14 @@
                     <code>document.all</code> to get ALL the elements of this document 
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnA-7'>Test</button>
+                    <button type='button' class='btn btn-primary btnA' id='btnA-7'>Test</button>
                 </div>
             </li>
             <li><div class='list-left'>
                     <code>document.forms</code> to get all the forms of this document 
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnA-8'>Test</button>
+                    <button type='button' class='btn btn-primary btnA' id='btnA-8'>Test</button>
                 </div>
             </li>
             <li>
@@ -108,7 +114,7 @@
                     <code>document.links</code> to get all the links (anchor tag or areas with href) of this document 
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnA-9'>Test</button>
+                    <button type='button' class='btn btn-primary btnA' id='btnA-9'>Test</button>
                 </div>
             </li>
             <li>
@@ -116,7 +122,7 @@
                     <code>document.images</code> to get all the images of this document 
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnA-10'>Test</button>
+                    <button type='button' class='btn btn-primary btnA' id='btnA-10'>Test</button>
                 </div>
             </li>
         </ul> and <a href='https://www.w3schools.com/js/js_htmldom_document.asp' target='_blank'>many more</a>...
@@ -135,7 +141,7 @@
                         have ONE unique ID
                     </div>
                     <div class='list-right'>
-                        <button class='btn btn-primary' id='btnB-1'>Test</button>
+                        <button class='btn btn-primary btnB' id='btnB-1'>Test</button>
                     </div>
                 </li>
                 <li>
@@ -144,7 +150,7 @@
                         It returns an array-like object which we can access by index number and using for loop
                     </div>
                     <div class='list-right'>
-                        <button class='btn btn-primary' id='btnB-2'>Test</button>
+                        <button class='btn btn-primary btnB' id='btnB-2'>Test</button>
                     </div>
                 </li>
                 <li>
@@ -153,7 +159,7 @@
                         It returns an array-like object which we can access by index number and using for loop
                     </div>
                     <div class='list-right'>
-                        <button class='btn btn-primary' id='btnB-3'>Test</button>
+                        <button class='btn btn-primary btnB' id='btnB-3'>Test</button>
                     </div>
                 </li>
                 <li>
@@ -162,7 +168,7 @@
                         It returns the first element matching the CSS selectors only
                     </div>
                     <div class='list-right'>
-                        <button class='btn btn-primary' id='btnB-4'>Test</button>
+                        <button class='btn btn-primary btnB' id='btnB-4'>Test</button>
                     </div>
                 </li>
                 <li>
@@ -171,7 +177,7 @@
                         It returns an array-like object which we can access by index number and using for loop
                     </div>
                     <div class='list-right'>
-                        <button class='btn btn-primary' id='btnB-5'>Test</button>
+                        <button class='btn btn-primary btnB' id='btnB-5'>Test</button>
                     </div>
                 </li>
             </ul>
@@ -207,7 +213,7 @@
                 <button type='button' class='btn btn-primary btn-block' id='btnC-5'>Set .innerHTML</button>
             </div>
             <div class='codeblock-right'>
-                <p>         This p tag contains leading spaces and       <em> emphasis </em>stuff lol.</p>
+                <p id='targetC-1'>         This p tag contains leading spaces and       <em> emphasis </em>stuff lol.</p>
             </div>
         </div>
 
@@ -226,7 +232,7 @@
                 <button type='button' class='btn btn-primary btn-block' id='btnC-7'>Change target button CSS</button>
             </div>
             <div class='codeblock-right'>
-                <button type='button' class='btn btn-danger btn-block' id='targetE-1'>Target Button</button>    
+                <button type='button' class='btn btn-danger btn-block' id='targetC-2'>Target Button</button>    
             </div>
         </div>
     </div>
@@ -296,7 +302,6 @@
                 <button type='button' class='btn btn-primary btn-block' id='btnE-2'>Remove last list item</button>
                 <button type='button' class='btn btn-primary btn-block' id='btnE-3'>Replace all list item text</button>
                 <button type='button' class='btn btn-primary btn-block' id='btnE-4'>Style list item with class</button>
-                <button type='button' class='btn btn-primary btn-block' id='btnE-5'>Unstyle list item</button>
             </div>
             <div class='codeblock-right'>
                 <ul id='targetE-1'>
@@ -321,10 +326,10 @@
             <li><code>load</code> fired when this element loads</li>
             <li><code>mousedown</code></li>
             <li><code>mouseup</code></li>
-            <li><code>mouseenter</code> fired when pointer enters the area</li>
-            <li><code>mouseleave</code> fires when pointer leaves the area</li>
-            <li><code>mouseover</code> fires when pointer enters the inner content</li>
-            <li><code>mouseout</code> fires when pointer leaves the inner content</li>
+            <li><code>mouseenter</code> fires when pointer enters the element</li>
+            <li><code>mouseleave</code> fires when pointer leaves the element</li>
+            <li><code>mouseover</code> fires when pointer enters the element AND child elements</li>
+            <li><code>mouseout</code> fires when pointer leaves the element AND child elements</li>
             <li><code>focus</code></li>
             <li><code>blur</code></li>
             <li><code>input</code></li>
@@ -339,6 +344,7 @@
             </div>
             <div class='codeblock-right'>
                 <p id='targetF-1'>Text goes here...</p>
+                <p id='targetF-2'>Key indicator goes here...</p>
             </div>
         </div>
         
@@ -346,10 +352,16 @@
         
         <div class='codeblock'>
             <div class='codeblock-left'>
-                <div id='divF-1'>Content</div>
+                <div id='divF-1'>
+                    Main Div where event applied
+                    <div id='divF-2'>Inner content</div>
+                </div>
             </div>
             <div class='codeblock-right'>
-                <p id='targetF-1'>Response goes here...</p>
+                <p id='targetF-3'>Enter response goes here...</p>
+                <p id='targetF-4'>Leave response goes here...</p>
+                <p id='targetF-5'>Over response goes here...</p>
+                <p id='targetF-6'>Out response goes here...</p>
             </div>
         </div>
 
