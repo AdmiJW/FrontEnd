@@ -89,6 +89,7 @@ function setDigital(hr, min, sec) {
     document.getElementById('d-hr').innerText = (hr / 10 < 1)? "0" + hr: hr;
     document.getElementById('d-min').innerText = (min / 10 < 1)? "0" + min: min;
     document.getElementById('d-sec').innerText = (sec / 10 < 1)? "0" + sec: sec;
+    document.getElementById('d-ampm').innerText = (hr >= 12)? 'PM': 'AM';
 }
 setDigital(dHr, min, sec);
 

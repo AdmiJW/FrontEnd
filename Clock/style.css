@@ -127,11 +127,11 @@ body {
 }
 
 .sm-container {
-  padding: var(--d-padding) 0px;
+  padding: var(--d-padding);
   background-color: black;
   border: solid grey var(--d-padding);
   border-radius: 30px;
-  width: var(--container-size);
+  width: calc( var(--container-size) * 1.2);
 }
 
 .sm-container .digit-div {
@@ -144,5 +144,9 @@ body {
   font-size: var(--d-font-size);
   font-family: "Orbitron", sans-serif;
   color: #2ed573;
+}
+
+.sm-container .d-ampm {
+  margin-left: 0.25em;
 }
 /*# sourceMappingURL=style.css.map */

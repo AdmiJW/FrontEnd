@@ -94,11 +94,11 @@ body {
 
 .sm-container {
 
-    padding: $d-padding 0px;
+    padding: $d-padding;
     background-color: black;
     border: solid grey $d-padding;
     border-radius: 30px;
-    width: $container-size;
+    width: calc( var(--container-size) * 1.2);
 
     .digit-div {
         display: flex;
@@ -106,5 +106,9 @@ body {
         font-size: $d-font-size;
         font-family: $d-font;
         color: #2ed573;
+    }
+
+    .d-ampm {
+        margin-left: 0.25em;
     }
 }
