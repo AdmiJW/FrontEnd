@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel='stylesheet' type='text/css' href='style.css'/>
+    <script src='js1.js'></script>
 
 </head>
 <body>
@@ -40,7 +41,7 @@
                     <code>window.innerHeight</code> returns inner height of browser window
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnA-1'>Get inner Height</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnA-1'>Get inner Height</button>
                 </div>
             </li>
             <li>
@@ -48,15 +49,16 @@
                     <code>window.innerWidth</code> returns inner width of browser window
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnA-2'>Get inner Width</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnA-2'>Get inner Width</button>
                 </div>
             </li>
             <li>
                 <div class='list-left'>
-                    <code>window.open()</code> opens a new window
+                    <code>window.open()</code> opens a new window. Optional argument is a URL indicating where the new window should go
                 </div>
                 <div class='list-right'>
                     <button type='button' class='btn btn-primary' id='btnA-3'>Open new Window</button>
+                    <button type='button' class='btn btn-primary' id='btnA-3.1'>Open google.com</button>
                 </div>
             </li>
             <li>
@@ -64,23 +66,28 @@
                     <code>window.close()</code> closes the current window
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnA-4'>Close this window</button>
+                    <button type='button' class='btn btn-primary' id='btnA-4'>Close opened window</button>
                 </div>
             </li>
             <li>
                 <div class='list-left'>
-                    <code>window.moveTo()</code> moves the current window
+                    <code>window.moveTo(x, y)</code> moves the selected window. We can use it on a window variable returned with <code>window.open</code>. 
+                    Then, we can make it to be focused using <code>window.focus</code>.
+                    <code>window.moveBy(x, y)</code> also works but it moves relative to the window's position
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnA-5'>Move this window</button>
+                    <button type='button' class='btn btn-primary' id='btnA-5'>Open new window</button>
+                    <button type='button' class='btn btn-primary' id='btnA-5.1'>Move & Focus</button>
                 </div>
             </li>
             <li>
                 <div class='list-left'>
-                    <code>window.resizeTo()</code> resize the current window
+                    <code>window.resizeTo(x, y)</code> resize the current window.
+                    <code>window.resizeBy(x, y)</code> works similar but relative to the window's size
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnA-6'>Resize this window</button>
+                    <button type='button' class='btn btn-primary' id='btnA-6'>Open new window</button>
+                    <button type='button' class='btn btn-primary' id='btnA-6.1'>Resize the Window</button>
                 </div>
             </li>
             <li>
@@ -100,6 +107,7 @@
                 </div>
                 <div class='list-right'>
                     <button type='button' class='btn btn-primary' id='btnA-8'>Confirm Me!</button>
+                    <p id='targetA-1'></p>
                 </div>
             </li>
             <li>
@@ -110,6 +118,7 @@
                 </div>
                 <div class='list-right'>
                     <button type='button' class='btn btn-primary' id='btnA-9'>Prompt Me!</button>
+                    <p id='targetA-2'></p>
                 </div>
             </li>
             <li>
@@ -120,8 +129,8 @@
                     is called with the setTimeout variable passed in as argument
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnA-10'>3 Second Alert!</button>
-                    <button type='button' class='btn btn-primary' id='btnA-11'>Do Not Alert!</button>
+                    <button type='button' class='btn btn-primary' id='btnA-10'>3 Second Bomb!</button>
+                    <button type='button' class='btn btn-primary' id='btnA-11'>Defuse Bomb!</button>
                     <p id='statusA-1'>Click the alert button to start Alert!</p>
                 </div>
             </li>
@@ -132,9 +141,9 @@
                     and keep executing the function at timed intervals. Only way to stop is using <code>.clearInterval()</code> method
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnA-10'>3 Second Alert!</button>
-                    <button type='button' class='btn btn-primary' id='btnA-11'>Stop Repeating!</button>
-                    <p id='statusA-1'>Click the alert button to start Countdown to next exec!</p>
+                    <button type='button' class='btn btn-primary' id='btnA-12'>3 Second Promote!</button>
+                    <button type='button' class='btn btn-primary' id='btnA-13'>Stop Repeating!</button>
+                    <p id='statusA-2'>Click the alert button to start Countdown to next exec!</p>
                 </div>
             </li>
         </ul>
@@ -157,7 +166,7 @@
                     <code>screen.width</code> returns the width of visitor's screen
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnB-1'>Get Screen Width</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnB-1'>Get Screen Width</button>
                 </div>
             </li>
             <li>
@@ -165,7 +174,7 @@
                     <code>screen.height</code> returns the height of visitor's screen
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnB-2'>Get Screen Height</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnB-2'>Get Screen Height</button>
                 </div>
             </li>
             <li>
@@ -173,7 +182,7 @@
                     <code>screen.availWidth</code> returns the available width of visitor's screen, which excludes the interface features like Windows Taskbar
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnB-3'>Get Screen Available Width</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnB-3'>Get Screen Available Width</button>
                 </div>
             </li>
             <li>
@@ -181,7 +190,7 @@
                     <code>screen.availHeight</code> returns the available height of visitor's screen, which excludes interface features like Windows Taskbar
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnB-4'>Get Screen Available Height</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnB-4'>Get Screen Available Height</button>
                 </div>
             </li>
             <li>
@@ -189,7 +198,7 @@
                     <code>screen.colorDepth</code> or <code>screen.pixelDepth</code> returns the number of bits used to display one color
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnB-5'>Get Color Depth</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnB-5'>Get Color Depth</button>
                 </div>
             </li>
         </ul>
@@ -213,7 +222,7 @@
                     <code>window.location.href</code> returns the href (URL) of the current page
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnC-1'>Get Href</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnC-1'>Get Href</button>
                 </div>
             </li>
             <li>
@@ -221,7 +230,7 @@
                     <code>window.location.hostname</code> returns the domain name of the web host (Eg: www.google.com)
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnC-2'>Get Domain Name</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnC-2'>Get Domain Name</button>
                 </div>
             </li>
             <li>
@@ -229,7 +238,7 @@
                     <code>window.location.pathname</code> returns the path, and filename of the current page (The part of URL after domain name)
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnC-3'>Get Path Name</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnC-3'>Get Path Name</button>
                 </div>
             </li>
             <li>
@@ -237,7 +246,7 @@
                     <code>window.location.protocol</code> returns the web protocol of the page (Eg: HTTP/ HTTPS... )
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnC-4'>Get Protocol</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnC-4'>Get Protocol</button>
                 </div>
             </li>
             <li>
@@ -245,7 +254,7 @@
                     <code>window.location.port</code> returns the internet host port (Browsers may not display default port number of 80(http) or 443(https) )
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnC-4'>Get Port</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnC-5'>Get Port</button>
                 </div>
             </li>
             <li>
@@ -253,7 +262,7 @@
                     <code>window.location.assign(URL)</code> loads a new document from given URL argument
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnC-4'>Go To Google</button>
+                    <button type='button' class='btn btn-primary' id='btnC-6'>Go To Google</button>
                 </div>
             </li>
         </ul>
@@ -306,7 +315,7 @@
                     <code>navigator.cookieEnabled</code> returns if the cookie is enabled in browser
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnE-1'>Is Cookie Enabled?</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnE-1'>Is Cookie Enabled?</button>
                 </div>
             </li>
             <li>
@@ -315,7 +324,7 @@
                     popular browser name will return 'Netscape'
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnE-2'>Get Application Name</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnE-2'>Get Application Name</button>
                 </div>
             </li>
             <li>
@@ -324,7 +333,7 @@
                     popular browser name will return 'Mozilla'
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnE-3'>Get Application Code Name</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnE-3'>Get Application Code Name</button>
                 </div>
             </li>
             <li>
@@ -333,7 +342,7 @@
                     popular browser will return 'Gecko'
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnE-4'>Get Product Name</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnE-4'>Get Product Name</button>
                 </div>
             </li>
             <li>
@@ -341,7 +350,7 @@
                     <code>navigator.appVersion</code> returns the version information of browser
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnE-5'>Get App Version</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnE-5'>Get App Version</button>
                 </div>
             </li>
             <li>
@@ -349,7 +358,7 @@
                     <code>navigator.userAgent</code> returns the user-agent header send by the browser
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnE-6'>Get Browser Agent</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnE-6'>Get Browser Agent</button>
                 </div>
             </li>
             <li>
@@ -357,7 +366,7 @@
                     <code>navigator.platform</code> returns the browser platform (OS that it runs)
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnE-7'>Get Platform (OS)</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnE-7'>Get Platform (OS)</button>
                 </div>
             </li>
             <li>
@@ -365,7 +374,7 @@
                     <code>navigator.language</code> returns the browser's language
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnE-8'>Get Language</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnE-8'>Get Language</button>
                 </div>
             </li>
             <li>
@@ -373,7 +382,7 @@
                     <code>navigator.onLine</code> returns if the browser is online or not
                 </div>
                 <div class='list-right'>
-                    <button type='button' class='btn btn-primary' id='btnE-9'>My Online Status</button>
+                    <button type='button' class='btn btn-primary show-code-only' id='btnE-9'>My Online Status</button>
                 </div>
             </li>
             <li>
