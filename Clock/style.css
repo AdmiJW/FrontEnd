@@ -1,0 +1,148 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  --container-size: 75vmin;
+  --clock-size: calc( var(--container-size) * 0.9 );
+  --border-size: calc( var(--clock-size) * 0.075 );
+  --clock-radius: calc( var(--clock-size) * 0.5 - var(--border-size) );
+  --hr-pointer-width: calc( var(--clock-radius) * 0.04);
+  --hr-pointer-length: calc( var(--clock-radius) * 0.5);
+  --hr-pointer-offset: calc( var(--hr-pointer-width) / 2);
+  --min-pointer-width: calc( var(--clock-radius) * 0.02);
+  --min-pointer-length: calc( var(--clock-radius) * 0.75);
+  --min-pointer-offset: calc( var(--min-pointer-width) / 2);
+  --sec-pointer-width: calc( var(--clock-radius) * 0.01);
+  --sec-pointer-length: calc( var(--clock-radius) * 0.9);
+  --sec-pointer-offset: calc( var(--sec-pointer-width) / 2);
+  --font-size: calc( var(--clock-radius) * 0.3);
+  --num-dist: calc( var(--clock-radius) * 0.8);
+  --d-font-size: calc( var(--font-size) * 1.25);
+  --d-padding: calc( var(--d-font-size) * 0.20);
+  --d-border: var(--d-padding);
+}
+
+/* ------------------------------------------------------
+
+------------------------------------------------------ */
+body {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: url("https://www.publicdomainpictures.net/pictures/250000/velka/holz-hintergrund.jpg"), black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.container {
+  width: var(--container-size);
+  height: var(--container-size);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.clock {
+  width: var(--clock-size);
+  height: var(--clock-size);
+  position: relative;
+  background: url("https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?size=626&ext=jpg"), white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: contain;
+  border: solid #000000 var(--border-size);
+  border-radius: 50%;
+}
+
+.clock .n {
+  position: absolute;
+  display: inline-block;
+  color: black;
+  font-size: var(--font-size);
+}
+
+.clock-hour {
+  width: var(--hr-pointer-width);
+  height: var(--hr-pointer-length);
+  position: absolute;
+  top: calc( var(--clock-radius) - var(--hr-pointer-offset));
+  left: calc( var(--clock-radius) - var(--hr-pointer-offset));
+  background-color: #ffa502;
+  z-index: 3;
+  -webkit-transform-origin: center top;
+          transform-origin: center top;
+}
+
+.clock-minute {
+  width: var(--min-pointer-width);
+  height: var(--min-pointer-length);
+  position: absolute;
+  top: calc( var(--clock-radius) - var(--min-pointer-offset));
+  left: calc( var(--clock-radius) - var(--min-pointer-offset));
+  background-color: #e74c3c;
+  z-index: 2;
+  -webkit-transform-origin: center top;
+          transform-origin: center top;
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+
+.clock-second {
+  width: var(--sec-pointer-width);
+  height: var(--sec-pointer-length);
+  position: absolute;
+  top: calc( var(--clock-radius) - var(--sec-pointer-offset));
+  left: calc( var(--clock-radius) - var(--sec-pointer-offset));
+  background-color: #2ed573;
+  z-index: 1;
+  -webkit-transform-origin: center top;
+          transform-origin: center top;
+  -webkit-transform: rotate(60deg);
+          transform: rotate(60deg);
+}
+
+.sm-container {
+  padding: var(--d-padding) 0px;
+  background-color: black;
+  border: solid grey var(--d-padding);
+  border-radius: 30px;
+  width: var(--container-size);
+}
+
+.sm-container .digit-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: var(--d-font-size);
+  font-family: "Orbitron", sans-serif;
+  color: #2ed573;
+}
+/*# sourceMappingURL=style.css.map */

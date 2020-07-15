@@ -1,0 +1,68 @@
+html {
+    --container-size: 75vmin;
+
+    --clock-size: calc( var(--container-size) * 0.9 );
+    --border-size: calc( var(--clock-size) * 0.075 );
+    --clock-radius: calc( var(--clock-size) * 0.5 - var(--border-size) );
+
+    --hr-pointer-width: calc( var(--clock-radius) * 0.04);
+    --hr-pointer-length: calc( var(--clock-radius) * 0.5);
+    --hr-pointer-offset: calc( var(--hr-pointer-width) / 2);
+
+    --min-pointer-width: calc( var(--clock-radius) * 0.02);
+    --min-pointer-length: calc( var(--clock-radius) * 0.75);
+    --min-pointer-offset: calc( var(--min-pointer-width) / 2);
+
+    --sec-pointer-width: calc( var(--clock-radius) * 0.01);
+    --sec-pointer-length: calc( var(--clock-radius) * 0.9);
+    --sec-pointer-offset: calc( var(--sec-pointer-width) / 2);
+
+    --font-size: calc( var(--clock-radius) * 0.3);
+
+    --num-dist: calc( var(--clock-radius) * 0.8);
+
+    --d-font-size: calc( var(--font-size) * 1.25);
+    --d-padding: calc( var(--d-font-size) * 0.20);
+    --d-border: var(--d-padding);
+}
+
+$container-size: var(--container-size);
+
+$clock-size: var(--clock-size);
+$clock-radius: var(--clock-radius);
+$border-size: var(--border-size);
+
+$hr-pointer-width: var(--hr-pointer-width);
+$hr-pointer-length: var(--hr-pointer-length);
+
+$min-pointer-width: var(--min-pointer-width);
+$min-pointer-length: var(--min-pointer-length);
+$min-pointer-offset: var(--min-pointer-width);
+
+$sec-pointer-width: var(--sec-pointer-width);
+$sec-pointer-length: var(--sec-pointer-length);
+$sec-pointer-offset: var(--sec-pointer-offset);
+
+$font-size: var(--font-size);
+
+$num-dist: var(--num-dist);
+
+$d-padding: var(--d-padding);
+$d-font-size: var(--d-font-size);
+$d-padding: var(--d-padding);
+
+$d-font: 'Orbitron', sans-serif;
+
+$clock-color: #000000;
+$hr-color: #ffa502;
+$min-color: #e74c3c;
+$sec-color: #2ed573;
+
+
+@mixin background-img ($url, $fallback){
+    background: url($url), $fallback;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}

@@ -1,0 +1,110 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@import 'config';
+/* ------------------------------------------------------
+
+------------------------------------------------------ */
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include background-img('https://www.publicdomainpictures.net/pictures/250000/velka/holz-hintergrund.jpg', black);
+}
+
+.container {
+    width: $container-size;
+    height: $container-size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+//-----------------------------------------------------------------------------
+
+.clock {
+    width: $clock-size;
+    height: $clock-size;
+    position: relative;
+
+    @include background-img('https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?size=626&ext=jpg', white);
+    background-size: contain;
+
+    border: solid $clock-color $border-size;
+    border-radius: 50%;
+
+    .n {
+        position: absolute;
+        display: inline-block;
+        color: black;
+        font-size: $font-size;
+    }
+
+    &-hour {
+        width: $hr-pointer-width;
+        height: $hr-pointer-length;
+        position: absolute;
+        top: calc( var(--clock-radius) - var(--hr-pointer-offset) );
+        left: calc( var(--clock-radius) - var(--hr-pointer-offset) );
+        background-color: $hr-color;
+        
+        z-index: 3;
+
+        transform-origin: center top;
+    }
+
+    &-minute {
+        width: $min-pointer-width;
+        height: $min-pointer-length;
+        position: absolute;
+        top: calc( var(--clock-radius) - var(--min-pointer-offset) );
+        left: calc( var(--clock-radius) - var(--min-pointer-offset) );
+        background-color: $min-color;
+        z-index: 2;
+
+        transform-origin: center top;
+        transform: rotate(30deg);
+    }
+
+    &-second {
+        width: $sec-pointer-width;
+        height: $sec-pointer-length;
+        position: absolute;
+        top: calc( var(--clock-radius) - var(--sec-pointer-offset) );
+        left: calc( var(--clock-radius) - var(--sec-pointer-offset) );
+        background-color: $sec-color;
+        
+        z-index: 1;
+
+        transform-origin: center top;
+        transform: rotate(60deg);
+    }
+
+}
+
+//-----------------------------------------------------------------------------------
+
+.sm-container {
+
+    padding: $d-padding 0px;
+    background-color: black;
+    border: solid grey $d-padding;
+    border-radius: 30px;
+    width: $container-size;
+
+    .digit-div {
+        display: flex;
+        justify-content: center;
+        font-size: $d-font-size;
+        font-family: $d-font;
+        color: #2ed573;
+    }
+}
