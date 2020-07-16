@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    const clocktick = new Audio('https://freesound.org/data/previews/254/254316_4062622-lq.mp3');
+    clocktick.volume = 0.8;
+
 // --------------------------
 //  NUMBER PLACEMENT
 // --------------------------
@@ -77,10 +80,12 @@ let loopmilis = 1000;
 let timeMultipler = loopmilis / 1000;
 
 const interval = setInterval( function() {
+    clocktick.currentTime = 0;
     secDeg = (secDeg + 6 * timeMultipler)  % 360;
     minDeg = (minDeg + 0.1 * timeMultipler ) % 360;
     hrDeg = (hrDeg + (1/120) * timeMultipler ) % 360;
     setPointers(hrDeg, minDeg, secDeg);
+    clocktick.play().catch( () => console.log('Wait user to interact document first') );
 }, loopmilis);
 
 //----------------------------------------------------------------------------------------------------------

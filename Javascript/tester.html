@@ -9,25 +9,16 @@
     
 <script> //--------------------------------------------------------------------------------------------------
 
-const express = require('express');
-const path = require('path');
-
-const app = express();
-
-app.use(express.json() );
-app.use(express.urlencoded({ extended: false } ) );
-
-app.get('/', (req,res) => {
-    res.send('Hello From Express');
+var p1 = new Promise(function(resolve, reject) {
+  resolve('Success');
+  resolve('Success 2');
 });
 
-app.listen(5000, () => console.log('Server started on 5000') );
-
-
-
-
-
-
+p1.then(function(value) {
+  console.log(value); // "Success!"
+}).then(function(value) {
+    console.log('yo');
+});
 
 
 </script> <!-- ----------------------------------------------------------------------------------------------->>
