@@ -6,10 +6,13 @@
 
 	--sourcefont: 'Source Code Pro', monospace;
 	--backgroundcolor: rgb(106,13,173);
-	--fontsize: 13px;
+	--fontsize: 1.5rem;
 	--formcolor: #146ca4;
 }
 
+* {
+	box-sizing: border-box;
+}
 body {
 	background-color: var(--backgroundcolor);
 	background: -webkit-linear-gradient( rgba(106,13,173,0.8), rgba(106,13,173,0.8)), url("https://us.123rf.com/450wm/ismagilov/ismagilov1608/ismagilov160800109/60811634-computer-lab-interior-desktops-on-tables-green-board-posters-on-wall-concept-of-studying-in-modern-t.jpg?ver=6");
@@ -24,6 +27,10 @@ body {
 	margin: auto;
 }
 
+html {
+	font-size: 10px;
+}
+
 /* HEADER -------------------------------------------------------------------------- */
 
 #title {
@@ -33,14 +40,14 @@ body {
 }
 #title h1{
 	position: relative;
-	font-size: 7vw;
+	font-size: min(7vw, 8rem);
 	animation-name: header-1;
 	animation-duration: 1s;
 	animation-timing-function: cubic-bezier(0,0,0,1);
 }
 #title h2{
 	position: relative;
-	font-size: 4.5vw;
+	font-size: min(4.5vw, 5rem);
 	animation-name: header-1;
 	animation-duration: 1s;
 	animation-delay: 1s;
@@ -68,6 +75,7 @@ body {
 
 
 /* FORM -------------------------------------------------------------------------------*/
+
 #survey-form {
 	border-radius: 50px;
 	background-color: var(--formcolor);
@@ -76,7 +84,7 @@ body {
 #survey-form h3 {
 	padding-top: 20px;
 	text-align: center;
-	font-size: 8vw;
+	font-size: min(8vw, 6rem);
 	color: white;
 	font-family: var(--sourcefont);
 }
@@ -95,14 +103,24 @@ label {
 	font-size: var(--fontsize);
 	color: white;
 }
+
+input {
+	border: 0;
+}
 input[type="text"], input[type="number"], input[type="email"], input[type="tel"] {
 	width: 90%;
 	border-radius: 10px;
-	padding-left: 5px;
+	padding-left: 10px;
 	height: 25px;
 }
 input[type="radio"], input[type="checkbox"] {
 	transform: scale(1.2);
+}
+
+textarea {
+	width: 100%;
+	padding: 15px;
+	border-radius: 20px;
 }
 fieldset {
 	border-left: none; border-right: none; border-bottom: none;
@@ -146,7 +164,7 @@ input[type="submit"] {
 	border-radius: 10px;
 	color: white;
 	background-color: #89CFF0;
-	font-size: 20px;
+	font-size: 2rem;
 	font-weight: bolder;
 
 	transition: background-color color;
@@ -163,31 +181,35 @@ input[type="submit"]:hover {
 /* FOOTER --------------------------------------------------------------------------------*/
 #main-footer {
 	position: relative;
+	display: block;
 	z-index: -1;
 	bottom: 80px;
 	border-radius: 50px;
 	background-color: #000080;
 	color: white;
-	height: 200px;
-	padding-top: 100px;
+	padding-top: 90px;
 }
 #main-footer #logo {
-	max-height: 80%;
-	height: 30vw;
-	float: left;
+	height: 50%;
+	max-height: 150px;
 	width: auto;
-	padding-left: 5%;
-	margin-right: 40px;
-	margin-bottom: 80px;
+	float: left;
+	margin: 0 5%;
 }
-#main-footer span{
+#main-footer span {
+	display: inline-block;
+	width: auto;
+	height: auto;
 	font-size: var(--fontsize);
+	margin: 0 10%;
 }
 
+
+/* MEDIA QUERIES----------------------------------------------------------- */
 
 @media (min-width: 800px) {
 	:root {
-		--fontsize: 20px;
+		--fontsize: 2rem;
 	}
 
 	#main-frame {
@@ -195,12 +217,9 @@ input[type="submit"]:hover {
 		margin: auto;
 	}
 
-	#main-footer span {
-		font-size: calc(var(--fontsize) - 4px);
-	}
-
 	#survey-form .instruct {
 	font-size: calc( var(--fontsize) + 0.7vw);
+	}
 
 	input[type="radio"], input[type="checkbox"] {
 		transform: scale(1.4);
