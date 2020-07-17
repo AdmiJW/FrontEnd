@@ -237,9 +237,10 @@
 
 /*
     An even elegant code solution is using async and await keywords. This way it enables us to store promises and run it into a variable.
-    Async is used before the function keyword itself to mark this function as asynchronized
+    Async is used before the function keyword itself to mark this function as asynchronized function, and enables the 'await' keyword to be
+        used inside the function
     Await is used on the function calls which return a promise, to tell the code interpreter to wait for the function to return value before
-    execution of next line of code in the function
+        execution of next line of code in the function
 */
 
     function login (email, password) {
@@ -300,3 +301,4 @@
         }
     }
     display();
+    console.log('-----I get ran when async functions are running!-----');
