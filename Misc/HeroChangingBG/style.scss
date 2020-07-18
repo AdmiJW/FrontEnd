@@ -1,0 +1,142 @@
+@import 'config';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html {
+    font-size: 10px;
+}
+
+/* ------------------------------------------------------------- */
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+
+    opacity: 0;
+
+    transition: opacity 1s ease;
+}
+#bg-1 {
+    @include bgimg('https://images.alphacoders.com/736/thumb-1920-736461.png');
+}
+#bg-2 {
+    @include bgimg('https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/64ae6631986403.56700f4545419.jpg');
+}
+#bg-3 {
+    @include bgimg('https://i.pinimg.com/originals/28/f4/42/28f4425568f3c8935ec500f5106e7d4e.jpg');
+}
+#bg-4 {
+    @include bgimg('https://www.iamag.co/wp-content/uploads/2017/07/cover-yourname.jpg');
+}
+
+.container {
+    @include flex;
+    @include bgimg('https://i.pinimg.com/originals/ce/26/51/ce2651ad55fc40708f4297ad3b23fa70.jpg');
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+.column {
+    @include flex;
+    flex-direction: column;
+    position: relative;
+
+    height: 100%;
+
+    &-contents {
+        @include flex;
+        height: 50%;
+        min-height: 280px;
+        border-top: solid 2px $borderopacity;
+        border-bottom: solid 2px $borderopacity;
+        z-index: 1;
+    }
+
+    &-number {
+        position: absolute;
+        font-size: 12rem;
+
+        font-family: $heebo-font;
+        color: rgba(0,0,0,.5);
+    }
+
+    &-text {
+        @include flex;
+        flex-direction: column;
+        
+        height: 100%;
+        min-height: 280px;
+        opacity: 0;
+        transform: translateY(100%);
+        pointer-events: none;
+
+        transition: opacity 1s ease, transform 1s ease;
+
+        background-color: #eee;
+        font-family: $roboto-font;
+        text-align: center;
+        
+        h2 {
+            font-size: 3rem;
+            margin: 10px 10px;
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 0px 10px;
+        }
+    }
+}
+
+.column + .column {
+    border-left: 2px solid $borderopacity;
+}
+
+
+/* -------------------------------------------------------------------- */
+
+.column-contents:hover .column-text {
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 2;
+}
+
+
+
+@media screen and (max-width: 550px) {
+    .container {
+        overflow-y: auto;
+        flex-direction: column;
+    }
+    
+    .column {
+    
+        &-contents {
+            height: 100%;
+            border: 0;
+            min-height: 0;
+        }
+    
+        &-text {
+            min-height: 0px;
+
+            transform: translateY(0);
+            transform: translateX(100%);
+        }
+    }
+    
+    .column + .column {
+        border: 0;
+        border-top: 2px solid $borderopacity;
+    }
+}

@@ -1,0 +1,22 @@
+$borderopacity: rgba(0,0,0,.2);
+$heebo-font: 'Heebo', sans-serif;
+$roboto-font: 'Roboto', sans-serif;
+
+@mixin flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin bgimg($url) {
+
+    background-color: #CCC;
+
+    background-image: url($url);
+    
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+}
