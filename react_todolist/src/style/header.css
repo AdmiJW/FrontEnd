@@ -1,0 +1,72 @@
+.header {
+  min-height: 120px;
+  padding: 20px;
+  text-align: center;
+  background-color: #1e90ff;
+  color: white;
+  font-size: 15px;
+}
+
+.header .search-field {
+  width: 100%;
+  min-height: 35px;
+  border-radius: 35px;
+  border: 0;
+  padding-left: 10px;
+  margin: 10px 0px;
+}
+
+.header button {
+  padding: 0.75em 1.25em;
+  margin: 1px 5px;
+  border-radius: 20px;
+  border: 0;
+  cursor: pointer;
+  background-color: #70a1ff;
+  color: white;
+  font-weight: bold;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+.header button:hover, .header button:focus {
+  background-color: #97bbff;
+}
+
+@media screen and (min-width: 500px) {
+  .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .header h1 {
+    font-size: 40px;
+  }
+  .header .header-func {
+    padding-left: 10px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    text-align: right;
+  }
+  .header .search-field {
+    width: min(100%, 400px);
+  }
+  .header .header-button-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: min(100%, 400px);
+    margin-left: auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+/*# sourceMappingURL=header.css.map */
