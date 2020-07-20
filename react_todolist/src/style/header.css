@@ -1,3 +1,14 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
 .header {
   min-height: 120px;
   padding: 20px;
@@ -29,8 +40,8 @@
   transition: background-color 0.5s ease;
 }
 
-.header button:hover, .header button:focus {
-  background-color: #97bbff;
+.header button:hover, .header button.hover, .header button:focus {
+  background-color: #0052f0;
 }
 
 @media screen and (min-width: 500px) {
@@ -44,6 +55,8 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    padding-left: max(20px, calc( calc(100% - 1000px) / 2 ) );
+    padding-right: max(20px, calc( calc(100% - 1000px) / 2 ) );
   }
   .header h1 {
     font-size: 40px;

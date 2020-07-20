@@ -1,0 +1,99 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+.toDo {
+  padding-left: max(20px, calc( calc(100% - 1000px) / 2 ) );
+  padding-right: max(20px, calc( calc(100% - 1000px) / 2 ) );
+}
+
+.toDo h2 {
+  margin: 20px 0px;
+  text-align: center;
+  font-size: min(50px, 7vw);
+}
+
+.toDo-ul {
+  list-style-type: none;
+}
+
+.toDo-li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 15px;
+  margin: 10px 0px;
+  border-radius: 30px;
+}
+
+.toDo-li-checkbox {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+.toDo-li-task {
+  -webkit-box-flex: 7;
+      -ms-flex: 7;
+          flex: 7;
+  font-size: 15px;
+  color: white;
+  margin: 0px 10px;
+}
+
+.toDo-li-expire {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 15px;
+  color: white;
+  font-weight: bolder;
+  margin: 0px 10px;
+}
+
+.toDo-li-delete {
+  padding: .75em 1em;
+  border: solid 4px white;
+  border-radius: 50%;
+  color: white;
+  background-color: #ff2525;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+.toDo-li-delete:hover, .toDo-li-delete:focus {
+  background-color: #b30000;
+}
+
+@media screen and (max-width: 300px) {
+  .toDo-li {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+  }
+  .toDo-li * {
+    margin: 5px 0px;
+  }
+}
+/*# sourceMappingURL=todo.css.map */

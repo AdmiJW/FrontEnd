@@ -7,3 +7,28 @@
 html {
     font-size: 10px;
 }
+
+@mixin big-screen-limit {
+    padding-left: unquote("max(20px, calc( calc(100% - 1000px) / 2 ) )");
+    padding-right: unquote("max(20px, calc( calc(100% - 1000px) / 2 ) )");
+}
+
+@mixin buttonstyle {
+    $button-color: #70a1ff;
+
+    padding: 0.75em 1.25em;
+    margin: 1px 5px;
+    border-radius: 20px;
+    border: 0;
+    cursor: pointer;
+
+    background-color: $button-color;
+    color: white;
+    font-weight: bold;
+
+    transition: background-color 0.5s ease;
+
+    &:hover, &.hover, &:focus {
+        background-color: darken($button-color, 25%);
+    }
+}

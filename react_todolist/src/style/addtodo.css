@@ -1,0 +1,70 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+.add-todo-div {
+  padding-left: max(20px, calc( calc(100% - 1000px) / 2 ) );
+  padding-right: max(20px, calc( calc(100% - 1000px) / 2 ) );
+  background-color: #a2d1ff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.add-todo-div * {
+  display: block;
+  width: 100%;
+  margin: 10px 0px;
+}
+
+.add-todo-div input[type='text'], .add-todo-div input[type='date'] {
+  min-height: 35px;
+  border-radius: 35px;
+  padding: 0px 10px;
+  border: 0;
+}
+
+.add-todo-div input[type='submit'] {
+  padding: 0.75em 1.25em;
+  margin: 1px 5px;
+  border-radius: 20px;
+  border: 0;
+  cursor: pointer;
+  background-color: #70a1ff;
+  color: white;
+  font-weight: bold;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+.add-todo-div input[type='submit']:hover, .add-todo-div input[type='submit'].hover, .add-todo-div input[type='submit']:focus {
+  background-color: #0052f0;
+}
+
+@media screen and (min-width: 550px) {
+  .add-todo-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .add-todo-div * {
+    margin: 0px 10px;
+  }
+  .add-todo-div .addtodo-field {
+    -webkit-box-flex: 3;
+        -ms-flex: 3;
+            flex: 3;
+  }
+  .add-todo-div .addtodo-date, .add-todo-div .addtodo-submit {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+/*# sourceMappingURL=addtodo.css.map */
