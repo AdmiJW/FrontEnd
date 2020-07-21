@@ -8,4 +8,9 @@
 html {
   font-size: 10px;
 }
+
+.App {
+  min-height: 100vh;
+  background-color: white;
+}
 /*# sourceMappingURL=general.css.map */

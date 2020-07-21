@@ -9,6 +9,11 @@ html {
   font-size: 10px;
 }
 
+.App {
+  min-height: 100vh;
+  background-color: white;
+}
+
 .toDo {
   padding-left: max(20px, calc( calc(100% - 1000px) / 2 ) );
   padding-right: max(20px, calc( calc(100% - 1000px) / 2 ) );
@@ -16,7 +21,9 @@ html {
 
 .toDo h2 {
   margin: 20px 0px;
+  color: #2e97ff;
   text-align: center;
+  text-decoration: underline;
   font-size: min(50px, 7vw);
 }
 
@@ -37,6 +44,8 @@ html {
   padding: 10px 15px;
   margin: 10px 0px;
   border-radius: 30px;
+  -webkit-transition: all 0.75s cubic-bezier(0, 0, 0.01, 1);
+  transition: all 0.75s cubic-bezier(0, 0, 0.01, 1);
 }
 
 .toDo-li-checkbox {
@@ -51,6 +60,7 @@ html {
       -ms-flex: 7;
           flex: 7;
   font-size: 15px;
+  font-weight: bold;
   color: white;
   margin: 0px 10px;
 }
@@ -79,6 +89,18 @@ html {
 
 .toDo-li-delete:hover, .toDo-li-delete:focus {
   background-color: #b30000;
+}
+
+.toDo-li.show {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+}
+
+.toDo-li.invis {
+  opacity: 0;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
 }
 
 @media screen and (max-width: 300px) {

@@ -1,7 +1,7 @@
 @import 'general';
 
 $font-color: white;
-
+$h2-color: #2e97ff;
 $delete-bg: rgb(255, 37, 37);
 
 .toDo {
@@ -10,7 +10,9 @@ $delete-bg: rgb(255, 37, 37);
     h2 {
         margin: 20px 0px;
 
+        color: $h2-color;
         text-align: center;
+        text-decoration: underline;
         font-size: unquote('min(50px, 7vw)');
     }
 
@@ -26,6 +28,9 @@ $delete-bg: rgb(255, 37, 37);
         margin: 10px 0px;
         border-radius: 30px;
 
+        // transition: transform .75s cubic-bezier(0, 0, 0.01, 1), opacity .75s cubic-bezier(0, 0, 0.01, 1);
+        transition: all .75s cubic-bezier(0,0,0.01, 1);
+
         &-checkbox {
             transform: scale(1.5);
             transform-origin: center;
@@ -34,6 +39,7 @@ $delete-bg: rgb(255, 37, 37);
         &-task {
             flex: 7;
             font-size: 15px;
+            font-weight: bold;
             color: $font-color;
             margin: 0px 10px;
         }
@@ -62,6 +68,16 @@ $delete-bg: rgb(255, 37, 37);
 
         &-delete:hover, &-delete:focus {
             background-color: darken(red, 15%);
+        }
+
+        &.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        &.invis {
+            opacity: 0;
+            transform: translateX(-100%);
         }
     }
 

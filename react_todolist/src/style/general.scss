@@ -13,6 +13,12 @@ html {
     padding-right: unquote("max(20px, calc( calc(100% - 1000px) / 2 ) )");
 }
 
+.App {
+    min-height: 100vh;
+    background-color: white;
+    // background: linear-gradient( 180deg, #fff, #fff, #fff, rgb(226, 226, 226), rgb(156, 156, 156));
+}
+
 @mixin buttonstyle {
     $button-color: #70a1ff;
 

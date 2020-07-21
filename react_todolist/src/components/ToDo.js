@@ -7,13 +7,26 @@ class ToDo extends React.Component {
         super(props);
 
         this.itemChange = this.itemChange.bind(this);
-
-
     }
 
+    //The state stores the to-do items, and the next available id to be assigned to the to-dos.
+    //Currently the id is based on simple incrementing
+    state = {
+        todoItems: [],
+        nextid: 0
+    }
+
+    /*  Fires when the component receives a new prop, which could be a new to-do to append or request to filter
+        the to-do items.
+        If it was a new item, then construct the new to-do object, and update the state. Also implemented a sort
+        function so that everytime a new item is added, it re-sorts the to-do to have the closest expiring tasks on
+        top
+        Else, filter the to-do items based on filtering condition, and update the state.
+    */
     static getDerivedStateFromProps(nextProps, prevState) {
         const len = prevState.todoItems.length;
 
+        //New item request
         if (nextProps.newitem !== null ) {
             const newitem = nextProps.newitem;
             const newList = {
@@ -23,8 +36,15 @@ class ToDo extends React.Component {
                 task: newitem.task,
                 hide: false
             };
-            return { todoItems: [...prevState.todoItems, newList], nextid: prevState.nextid + 1 };
+            return { todoItems: [...prevState.todoItems, newList]
+                .sort( (a,b) => {
+                    if ( Number.isNaN(a.expiring) ) return -1;
+                    if ( Number.isNaN(b.expiring) ) return 1;
+                    return Date.parse(a.expiring) - Date.parse(b.expiring);
+
+                }), nextid: prevState.nextid + 1 };
         }
+        //Filter to-do
         else if (nextProps.search !== null ) {
             const comp = nextProps.search.includeComplete;
             const incomp = nextProps.search.includeIncomplete;
@@ -36,14 +56,15 @@ class ToDo extends React.Component {
                 return e;
             })]}
         }
+        //None of the above, return null (State will not update)
         return null;
     }
 
-    state = {
-        todoItems: [],
-        nextid: 0
-    }
-
+    
+    /*  A callback function passed into each of the to-do items. It fires when to-do items was interacted,
+        like delete button or checkbox checked or uncheck. Identify the event type, and update the state
+        based on that
+    */
     itemChange(item, event) {
         this.props.clearProps();
         if (event === 'checkbox') {
