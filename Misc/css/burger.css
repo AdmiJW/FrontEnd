@@ -25,16 +25,16 @@ body {
 	cursor: pointer;
 
 	/* CHange the property here to your preferred size */
-	--size: 150px;
-	--burger-height: 10px;
-	--burger-margin: 35px;
+	--size: 100px;			/* Set the size of the burger container, effects the width of burger */
+	--burger-height: 7px;	/* How thick the burger will be */
+	--burger-margin: 20px;	/* How seperated the burger will be */
 	--burger-color: white;
 	/* ------------------------------------------ */
 }
 
 #menu-burger {
 	position: relative;
-	width: 100%;
+	min-width: calc(0.8 * var(--size) );
 	height: var(--burger-height);
 	border-radius: 5px;
 	background-color: var(--burger-color);
