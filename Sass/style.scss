@@ -1,4 +1,6 @@
 
+//Import other sass files which may or may not be processed. SASS files that shouldn't be processed will need to start with underscore '_',
+// like example here: _config.scss. However, when importing, we omit the underscore that are supposed to be there
 @import 'config';
 @import 'util';
 @import 'mobile';
@@ -13,7 +15,11 @@
     font-family: $font-stack;
 }
 
+// SASS allows for complex nesting, which simplifies code for a little and removes the need for writing lengthy selectors. For example,
+// .container is nested in .showcase. When processed, the CSS equivalent is '.showcase .container'
 .showcase {
+
+    //Use @include keyword to include the mixins defined. You can pass in arguments to be used in the mixin
     @include set-bg-color($background-color);
 
     .container {
@@ -48,6 +54,8 @@
         }
     }
 
+    // When using the ampersand & sign, it will take the parent's selector and just paste it here. THerefore in this case
+    // it is equivalent to .showcase-content
     &-content {
         // padding: 30px; Replaced by .p-2
         display: flex;

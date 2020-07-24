@@ -1,3 +1,6 @@
+
+//  Using the percent sign kind of mean that this selector is like 'abstract' or 'base' mixin where it is actually used to be extended into other
+//  groups. It is sometimes called Base class
 %btn {
     display: inline-block;
     text-decoration: none;
@@ -11,6 +14,7 @@
     }
 }
 
+//  Below 2 buttons will be extending %btn, therefore inherits all the properties of that group
 .btn-primary {
     @extend %btn;
     @include set-bg-color( lighten($background-color, 10) );
@@ -22,8 +26,13 @@
 }
 
 
+//  Creates a variable which stores a list of range 1 to 5, which will be used for iteration in below example
 $list: (1,2,3,4,5);
 
+//  Iterates through the elements in the list variable, and set the selectors accordingly.
+//  We access the variable by using a # sign with curly brackets following.
+
+//  Here this is actually simulating the BootStrap classes of .m-1 to .m-5 which sets margin on the element.
 @each $i in $list {
     .m-#{$i} {
         margin: #{$i}rem;
@@ -33,6 +42,8 @@ $list: (1,2,3,4,5);
     }
 }
 
+//  We could also get ranges by using a for loop. The keyword from can be used to mark the range and we could use 'to' or 'through'.
+//  Difference is that through is inclusive while to is not.
 @for $i from 1 through 5 {
     .p-#{$i} {
         padding: #{$i}rem;
@@ -41,3 +52,15 @@ $list: (1,2,3,4,5);
         padding: #{$i}rem 0;
     }
 }
+
+// Using map in a each loop
+$map-colors: ( 'primary': #2980b9,
+        'secondary': #e74c3c,
+        'tertiary': #27ae60);
+
+@each $key, $value in $map-colors {
+    .#{$key}-txt {
+        color: $value;
+    }
+}
+

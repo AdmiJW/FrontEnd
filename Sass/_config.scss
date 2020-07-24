@@ -1,13 +1,16 @@
+//SASS variables are declared with dollar-sign $. Note however it cannot be replaced with CSS's variable which start with double dash -- 
 $background-color: #0e6cff;
 $secondary-color: #ff8700;
 $font-stack: Arial, Helvetica, sans-serif;
 
-
+//Creates a mixin which is a group of CSS rules that can be reused. It can take in arguments to be used in the CSS group rules.
 @mixin set-bg-color($color) {
     background-color: $color;
     color: set-text-color($color);
 }
 
+//  Function, unlike mixins, is supposed to return some sort of value. In this example it returns the text color if the background is dark, and vice
+//  versa. Note the use of conditionals @if and @else, with @return
 @function set-text-color($bg-color) {
     @if (lightness($bg-color) > 70) {
         @return #111111;

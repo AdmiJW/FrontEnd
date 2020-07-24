@@ -105,6 +105,18 @@
   padding: 5rem 0;
 }
 
+.primary-txt {
+  color: #2980b9;
+}
+
+.secondary-txt {
+  color: #e74c3c;
+}
+
+.tertiary-txt {
+  color: #27ae60;
+}
+
 @media screen and (max-width: 580px) {
   html {
     font-size: 12px;
