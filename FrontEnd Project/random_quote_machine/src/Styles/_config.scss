@@ -1,0 +1,9 @@
+
+@mixin getBGStyle($url) {
+    background-color: #34495e;
+    background-image: url($url);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}

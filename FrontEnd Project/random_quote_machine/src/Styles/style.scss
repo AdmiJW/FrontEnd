@@ -1,0 +1,89 @@
+
+@import 'config';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+main {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: #34495e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+//-------------------------------------------------------------
+//  BACKGROUNDS
+//-------------------------------------------------------------
+
+$listurl: ("https://i.pinimg.com/originals/7a/7d/cf/7a7dcfa6474ec4cbfa81113eebe3c0dc.jpg",
+           "https://i.pinimg.com/originals/99/4e/53/994e5335b9e54a2bdee1077049c7d653.jpg",
+           "https://wallpaperplay.com/walls/full/6/3/9/3074.jpg",
+           "https://i.pinimg.com/originals/8a/ce/a9/8acea9261c892e75b0651de1d4f4e0e1.jpg",
+           "https://i.pinimg.com/originals/27/6c/85/276c851e879565b746fc0421fb689590.jpg");
+
+.bg {
+    position: absolute;
+    min-width: 100vw;
+    min-height: 100vh;
+
+    transition: opacity 2s ease;
+}
+
+@for $i from 1 through 5 {
+    #bg-#{$i} {
+        @include getBGStyle( nth($listurl, $i) );
+    }
+}
+
+//-------------------------------------------------------------
+//  QUOTE DIV
+//----------------------------------------------------------
+.quote {
+    max-width: 800px;
+    width: 80%;
+    height: 50vh;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    overflow-x: hidden;
+
+    border-radius: 50px;
+    background-color: rgb(247, 247, 247);
+
+    //ARROW BUTTONS ------------------------
+    .arrow-btn {
+        appearance: none;
+        outline: none;
+        border: 0;
+
+        min-width: 40px;
+        font-size: 3.5rem;
+        background-color: rgb(247, 247, 247);
+        cursor: pointer;
+
+        transition: background-color .5s ease, font-size .5s ease, min-width .5s ease;
+
+        &:hover, &:focus {
+            background-color: rgb(226, 226, 226);
+            font-size: 4rem;
+            min-width: 50px;
+        }
+    }
+    //END OF ARROW BUTTONS ------------------------------
+
+    //MIDDLE SECTION ------------------------------
+    &-mid {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+}
