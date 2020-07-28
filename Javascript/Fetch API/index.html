@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title>Fetch API Sandbox</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src='script.js'></script>
+    <script src="https://use.fontawesome.com/48a4f656fd.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+
+    <style>
+        .fas {
+            font-size: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class='container' >
+        <h1 class='display-4 mb-4 text-center'>Fetch API Sandbox</h1>
+        <div class='d-flex'>
+            <button type='button' class='btn btn-primary mr-4' id='fetchTxt'>Fetch Text File</button>
+            <button type='button' class='btn btn-success mr-4' id='fetchJSON'>Fetch JSON File</button>
+            <button type='button' class='btn btn-warning mr-4' id='fetchOnline'>Fetch Online (Async)</button>
+        </div>
+        <form class='form-group card card-body m-3' id='post'>
+            <h2 class='text-center'>Form Submission</h2>
+            <label for='title'>Title:</label>
+            <input type='text' class='form-control' id='title' placeholder='Enter Title...' />
+            <label for='desc'>Description:</label>
+            <textarea class='form-control' id='desc' placeholder='Enter description...' ></textarea>
+            <button type='submit' class='btn btn-primary m-3'>Submit</button>
+        
+            <div class='card card-body m-2'>
+                <h3 class='text-center'>Response From Server: </h3>
+                <div id='response'></div>
+            </div>
+        </form>
+    
+        <div id='contents'>
+
+        </div>
+    </div>
+</body>
+</html>
