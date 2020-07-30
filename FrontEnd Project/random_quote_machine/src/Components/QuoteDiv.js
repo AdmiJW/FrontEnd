@@ -1,25 +1,18 @@
 import React from 'react';
 
-class QuoteDiv extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+function QuoteDiv(props) {
+    const { quoteText, quoteAuthor } = props.quote;
 
-
-    render() {
-        const { quoteText, quoteAuthor } = this.props.quote;
-        return (
-            <blockquote className='blockquote' style={ 
-                this.props.fetching? { opacity: 0}: {opacity: 1}
-                } >
-                <p>{quoteText}</p>
-                <footer className='blockquote-footer'>
-                    { (quoteAuthor)? quoteAuthor: 'Anonymous' }
-                </footer>
-            </blockquote>
-        );
-    }
-
+    return (
+        <blockquote className='blockquote' style={
+            props.fetching ? { opacity: 0 } : { opacity: 1 }
+        } >
+            <p id='text'>{quoteText}</p>
+            <footer id='author' className='blockquote-footer'>
+                {(quoteAuthor) ? quoteAuthor : 'Anonymous'}
+            </footer>
+        </blockquote>
+    )
 }
 
 export default QuoteDiv;

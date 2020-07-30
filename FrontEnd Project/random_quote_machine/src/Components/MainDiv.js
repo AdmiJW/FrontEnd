@@ -3,7 +3,7 @@ import React from 'react';
 import QuoteWrapper from './QuoteWrapper';
 
 
-//Function to return the JSX of the backgrounds.
+//Function to return the JSX of the 5 different backgrounds.
 function obtainBGJSX(visibleBGID) {
     const visibleVal = [];
     for (let i = 0; i < 5; i ++ ) {
@@ -19,6 +19,8 @@ function obtainBGJSX(visibleBGID) {
         </React.Fragment>
     );
 }
+
+
 
 class MainDiv extends React.Component {
     constructor(props) {

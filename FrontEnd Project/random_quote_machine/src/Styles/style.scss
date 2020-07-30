@@ -50,7 +50,7 @@ $listurl: ("https://i.pinimg.com/originals/7a/7d/cf/7a7dcfa6474ec4cbfa81113eebe3
 .quote {
     max-width: 800px;
     width: 80%;
-    height: 50vh;
+    height: unquote('clamp(200px, 50vh, 800px)');
     z-index: 1;
     display: flex;
     justify-content: space-between;

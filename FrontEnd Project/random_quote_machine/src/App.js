@@ -4,11 +4,6 @@ import MainDiv from './Components/MainDiv';
 import './Styles/style.scss';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-
 
   render() {
     return (
