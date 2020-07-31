@@ -1,0 +1,146 @@
+<!-- ============================
+    DTD Cheat Sheet
+===============================-->
+
+<!--
+     DTD stands for Document Type Definition, which is one of validator format for XML files. (Other being XSD (Schema) )
+     The usual format is like this: <!{block} {name} {datas...} >
+
+     Validators validate the GRAMMAR for XML files.
+        DTD -> Structural
+        Schema -> Content
+
+     
+     THe building blocks of an XML document consists of
+        >   Elements    (The usual tag wraps)
+        >   Attributes  (The attributes in the tag)
+        >   Entities    (Special characters like < )
+        >   PCDATA      (Parsed Character Data, where entities will be parsed)
+        >   CDATA       (Character Data, entities not parsed)
+
+
+    To use DTD, We can include it inside XML file directly, using this after the xml declaration
+
+    <!DOCTYPE {rootelem-name} [
+        .
+        .
+        YOUR DTD HERE
+        .
+        .
+    ]>
+
+
+    Or using external DTD file and link it in
+
+    <!DOCTYPE {rootelem-name} SYSTEM "path">
+
+    We use SYSTEM if it is local file. Path is the file path to the dtd file itself
+
+
+ -->
+
+ <!-- ===========================
+     ELEMENTS
+  ============================== -->
+<!--
+    To declare an element in DTD, use <!ELEMENT {element-name} ({category}) >
+    The category needs to be enclosed in bracket
+
+    Eg: For XML of
+        <note>
+            <msg>Hello World</msg>
+        <note>
+
+        We would write DTD:
+        <!ELEMENT note (msg) >
+            <!ELEMENT msg (#PCDATA) >
+        
+        ** No need for enclosing tag
+            
+
+    See variations:
+    
+    >   <!ELEMENT {elem-name} EMPTY >                       (Defines an empty element. In XML it may be self-closing like
+                                                            <br /> )
+    >   <!ELEMENT {elem-name} (child1, child2, child3) >    (Defines an element which contains 'child1', 'child2' and 
+                                                            'child3' elements in it)
+    >   <!ELEMENT {elem-name} (child+) >                    (Defines an element which contains 1 or more 'child' in it
+    >   <!ELEMENT {elem-name} (child*) >                    (Defines an element which contains 0 or more 'child' in it
+    >   <!ELEMENT {elem-name} (child?) >                    (Defines an element which contains 0 or 1 'child' in it
+    >   <!ELEMENT {elem-name} (child1|child2) >             (Defines an element which may have 'child1' or 'child2' 
+                                                            in it, but not both)
+    >   <!ELEMENT {elem-name} (#PCDATA|to|form)* >          (Combine all of above. This element may have 1 or more
+                                                            #PCDATA, to and from)
+
+-->
+
+
+
+ <!--===========================
+     ATTRIBUTES
+  ============================-->
+<!--
+    Aside from defining elements, attributes must also be defined in DTD
+
+    <!ATTLIST {elem-name} {attrib-name} {type} {modifier/value} >
+
+    Here is list of types:
+    >   CDATA
+    >   ('en1'|'en2')      The VALUE must be one of 'en1' or 'en2'
+    >   ID                 ID value which is unique among the elements
+    >   IDREF              Reference ID value, which is ID of another element
+    >   IDREFS             Multiple IDREF
+    >   NMTOKEN            A Valid XML name
+    >   NMTOKENS           Multiple NMTOKEN
+    >   ENTITY             An Entity (Special character, remember?) 
+    >   ENTITIES           Multiple ENTITY
+    >   NOTATION           Name of Notation
+    >   xml:               Redefined XML value
+
+    Here is list of values:
+    >   {value}            A default value if not set. Like: <!ATTLIST person gender ('male','female') 'male'>
+    >   #REQUIRED          Compulsory for XML to have this Attribute
+    >   #IMPLIED           Optional attribute, if the DTD writer also don't know to set a default value
+    >   #FIXED {value}     Attribute is fixed to a specified value
+
+
+    DOWNSIDES OF ATTRIBUTES:
+    >   Attributes cannot hold multiple data, but elements can
+    >   Attributes not easily expandable
+    >   Cannot describe the structure of the data like element does
+    >   Hard to manipulate by program code
+    >   Not easily test by DTD
+
+-->
+
+
+
+<!-- =======================
+    EXAMPLE DTD FOR USERS.XML
+========================= -->
+
+
+<!-- Using + sign to indicate one or more (user) -->
+<!ELEMENT users (user+) >
+	<!-- Indicate the elements that will be in user element. The later DTD must also
+		be defined in same order -->
+	<!ELEMENT user (name, username, email, address, phone, website, company) >
+	<!-- Using !ATTLIST to indicate an attribute, and #REQUIRED means compulsory -->
+	<!ATTLIST user id ID #REQUIRED >
+		<!ELEMENT name (#PCDATA) >
+		<!ELEMENT username (#PCDATA) >
+		<!ELEMENT email (#PCDATA) >
+		<!ELEMENT address (street, suite, city, zipcode, geo) >
+			<!ELEMENT street (#PCDATA) >
+			<!ELEMENT suite (#PCDATA) >
+			<!ELEMENT city (#PCDATA) >
+			<!ELEMENT zipcode (#PCDATA) >
+			<!ELEMENT geo (lat,lng) >
+				<!ELEMENT lat (#PCDATA) >
+				<!ELEMENT lng (#PCDATA) >
+			<!ELEMENT phone (#PCDATA) >
+			<!ELEMENT website (#PCDATA) >
+			<!ELEMENT company (compname, catchPhrase, bs) >
+				<!ELEMENT compname (#PCDATA) >
+				<!ELEMENT catchPhrase (#PCDATA) >
+				<!ELEMENT bs (#PCDATA) >

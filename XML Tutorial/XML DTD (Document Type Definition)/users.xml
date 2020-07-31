@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!DOCTYPE users [
+    <!ELEMENT users (#PCDATA) >
+]>
+
+<users>
+    <user id='1'>
+        <name>Leanne Graham</name>
+        <username>Bret</username>
+        <email>Sincere@april.biz</email>
+        <address>
+            <street>Kulas Light</street>
+            <suite>Apt. 556</suite>
+            <city>Geenborough</city>
+            <zipcode>92998-3874</zipcode>
+            <geo>
+                <lat>-37.3159</lat>
+                <lng>81.1496</lng>
+            </geo>
+        </address>
+        <phone>1-770-736-8031 x56442</phone>
+        <website>hildegard.org</website>
+        <company>
+            <name>Romaguera-Crona</name>
+            <catchPhrase>Multi-layered client-server neural-net</catchPhrase>
+            <bs>harness real-time e-markets</bs>
+        </company>
+    </user>
+
+
+    <user id='2'>
+        <name>Ervin Howell</name>
+        <username>Antonette</username>
+        <email>Shanna@melissa.tv</email>
+        <address>
+            <street>Victor Plains</street>
+            <suite>Suite 879</suite>
+            <city>Wisokyburgh</city>
+            <zipcode>90566-7771</zipcode>
+            <geo>
+                <lat>-43.9509</lat>
+                <lng>-34.4618</lng>
+            </geo>
+        </address>
+        <phone>010-692-6593 x09125</phone>
+        <website>anastasia.net</website>
+        <company>
+            <name>Deckow-Crist</name>
+            <catchPhrase>Proactive didactic contingency</catchPhrase>
+            <bs>synergize scalable supply-chains</bs>
+        </company>
+    </user>
+
+    <user id='3'>
+        <name>Clementine Bauch</name>
+        <username>Samantha</username>
+        <email>Nathna@yesenia.net</email>
+        <address>
+            <street>Douglas Extension</street>
+            <suite>Suite 847</suite>
+            <city>McKenziehaven</city>
+            <zipcode>59590-4157</zipcode>
+            <geo>
+                <lat>-68.6102</lat>
+                <lng>-47.0653</lng>
+            </geo>
+        </address>
+        <phone>1-463-123-4447</phone>
+        <website>ramiro.info</website>
+        <company>
+            <name>Romaguera-Jacobson</name>
+            <catchPhrase>Face to face bifurcated interface</catchPhrase>
+            <bs>e-enable strategic applications</bs>
+        </company>
+    </user>
+    
+</users>
