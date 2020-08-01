@@ -1,8 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
-<!DOCTYPE users [
-    <!ELEMENT users (#PCDATA) >
-]>
+<!DOCTYPE users SYSTEM 'DTDCheatSheet.dtd'>
 
 <users>
     <user id='1'>

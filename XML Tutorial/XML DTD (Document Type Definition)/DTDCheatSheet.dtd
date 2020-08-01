@@ -70,7 +70,7 @@
     >   <!ELEMENT {elem-name} (child1|child2) >             (Defines an element which may have 'child1' or 'child2' 
                                                             in it, but not both)
     >   <!ELEMENT {elem-name} (#PCDATA|to|form)* >          (Combine all of above. This element may have 1 or more
-                                                            #PCDATA, to and from)
+                                                            #PCDATA, to or from)
 
 -->
 
@@ -122,11 +122,13 @@
 
 <!-- Using + sign to indicate one or more (user) -->
 <!ELEMENT users (user+) >
+
 	<!-- Indicate the elements that will be in user element. The later DTD must also
 		be defined in same order -->
 	<!ELEMENT user (name, username, email, address, phone, website, company) >
 	<!-- Using !ATTLIST to indicate an attribute, and #REQUIRED means compulsory -->
 	<!ATTLIST user id ID #REQUIRED >
+	
 		<!ELEMENT name (#PCDATA) >
 		<!ELEMENT username (#PCDATA) >
 		<!ELEMENT email (#PCDATA) >

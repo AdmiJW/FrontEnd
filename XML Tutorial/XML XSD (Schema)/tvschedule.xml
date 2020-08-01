@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+
+<tvSchedule name='Singapore'
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="tvschedule.xsd"
+>
+	<channel chan='Channel8'>
+		<banner>Channel 8</banner>
+		<day>
+			<date>2020-08-02</date>
+			<programsLot vtr='false'>
+				<time>12:00</time>
+				<title rating='PG13' language='chinese'>Saturday Cinema: The Vanished Murderer</title>
+				<description>Prisoner Fu Yuan digs a tunner in her prison cell and escapes.</description>
+			</programsLot>
+			<programsLot vtr='true'>
+				<time>12:55</time>
+				<title rating='PG' language='chinese'>Code of Honour - EP 15</title>
+				<description>Tian He puts pressure on Jian Feng to get Ah Zai involved in their illicit dealings.</description>
+			</programsLot>
+			<programsLot vtr='true'>
+				<time>14:50</time>
+				<title>It's A Small World Sr 4 - EP 6</title>
+				<description>Join Mark Lee and his foreign students as they discuss about undesirable habits when travelling overseas.</description>
+			</programsLot>
+		</day>
+		<day>
+			<date>2020-08-30</date>
+			<programsLot>
+				<time>12:00</time>
+				<title rating='PG' language='chinese'>The First Half of My Life - EP 19</title>
+				<description>Laojin, the warehouse manager, persues Zijun by taking her to work.</description>
+			</programsLot>
+			<programsLot vtr='true'>
+				<time>14:00</time>
+				<title rating='G' language='chinese'>Young Justice Bao - EP 3</title>
+				<description>Young Justice Bao, a 1993 series produced by Mediacorp and starring Chew Chor Meng as young Bao Zheng.</description>
+			</programsLot>
+		</day>
+		<day>
+			<date>2020-08-09</date>
+			<holiday>Singapore National Day</holiday>
+		</day>
+	</channel>
+	
+	<channel chan='Channel 5'>
+		<banner>Channel 5</banner>
+		<day>
+			<date>2020-08-02</date>
+			<programsLot vtr='false'>
+				<time>12:00</time>
+				<title rating='PG13' language='korean'>Train To Busan</title>
+				<description>Sok-woo, a father with not much time for his daughter, Soo-ahn, are boarding the KTX</description>
+			</programsLot>
+			<programsLot vtr='true'>
+				<time>12:50</time>
+				<title rating='PG13' language='english'>Jamestown S2 - EP 1</title>
+				<description>A terrible crime throws suspicion on the whole colony</description>
+			</programsLot>
+			<programsLot vtr='true'>
+				<time>15:20</time>
+				<title rating="PG">Savage Kingdom - EP 5</title>
+				<description>Sekekama, the undisputed King of the Marse Pride lions</description>
+			</programsLot>
+		</day>
+	</channel>
+	
+</tvSchedule>
+

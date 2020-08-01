@@ -1,0 +1,473 @@
+<!-- 
+    XML Schema is one of another validators for XML documents. The file extension is .xsd (XML Schema Document)
+-->
+
+<!--===================================================================================================
+        HOW TO USE
+    
+    =================INSIDE SCHEMA
+
+    Since XML schema is also an XML document, it must has a root element, and the root element is 'schema'
+    XML Schema will use a namespace, which is commonly called 'xs' or 'xsd'. This will be defined in the root element tag, linking to the
+    following namespace: http://www.w3.org/2001/XMLSchema
+
+    Example:
+        <xs: schema                                             (Defines a schema root element, with a prefix namespace xs (Defined in next row) )
+            xmlns:xs = 'http://www.w3.org/2001/XMLSchema'       (Defines a namespace of XML Schema, with the prefix as 'xs' )
+            targetNamespace = '<yourWebsiteNamespace>'          (Defines targeted namespace, which should be the namespace for the XML 
+                                                                    document instance (the namespace that should be used for the XML we are validating ) )
+            xmlns = '<yourWebsiteNamespace>'                    (Default namespace is also defined here)
+            elementFormDefault = 'qualified'                    (Any elements used by the XML instance document that are declared in this schema, 
+                                                                    must be namespace qualified)
+        >
+
+    However, if the XML document instance does not use a namespace, then we could just use a shorter version:
+    
+        <xs: schema
+            xmlns:xs = 'http://www.w3.org/2001/XMLSchema'
+        >
+
+    ===========INSIDE XML INSTANCE
+
+    Example:
+        <root
+            xmlns = '<yourwebsiteNamespace>'                                (Defines the default namespace of this XML document)
+            xmlns:xsi = 'http://www.w3.org/2001/XMLSchema_instance'         (Defines the namespace 'xsi' (XML Schema instance) )
+            xsi:schemaLocation = '<yourwebsiteNamespace> <pathToSchema>'    (Specifies the namespace of this document and the location of schema)
+        >
+
+    If the schema does not use a target namespace, then:
+
+        <root
+            xmlns:xsi = 'http://www.w3.org/2001/XMLSchema_instance'         
+            xsi:noNamespaceSchemaLocation = '<pathToSchema'                 (Here we use noNamespaceSchemaLocation)
+        >
+-->
+
+<!--====================================================================================================
+            SIMPLE ELEMENTS
+    
+    Simple elements are elements that only contains text. NO ATTRIBUTES OR OTHER ELEMENTS INSIDE
+
+    We declare as follows:
+            <xs:element name='xxx' type='yyy'/>
+
+    The common types used:
+        >   xs:string
+        >   xs:decimal
+        >   xs:integer
+        >   xs:boolean
+        >   xs:date
+        >   xs:time
+
+    Eg: <xs:element name='age' type='xs:integer'/>
+
+    We can set DEFAULT VALUES or FIXED VALUES
+
+        <xs:element name='xxx' type='yyy' default='val'/>
+        <xs:element name='xxx' type='yyy' fixed='val'/>
+
+
+===================================================================================================-->
+
+
+<!--===================================================================================================
+            ATTRIBUTES
+    
+    We define XML attributes the similar way:
+
+        <xs:attribute name='xxx' type='yyy'
+
+    Default values and Fixed values are available:
+        <xs:attribute name='xxx' type='yyy' default='val'/>
+        <xs:attribute name='xxx' type='yyy' fixed='val'/>
+
+    Other than that, REQUIRED ATTRIBUTES are defined by using 'use' attribute:
+        <xs:attribute name='xxx' type='yyy' use='required'/>
+
+    Eg:     <xs:attribute name='name' type='xs:string' use='required' />
+
+===================================================================================================-->
+
+
+<!--===================================================================================================
+            XSD RESTRICTIONS/ FACETS
+    
+    We might want to restrict what values or what kind of value can go into the element. We use FACETS (Restrictions) on those
+
+    Type of FACETS:
+    >   enumeration         (Choices/ Lists of allowed values)
+    >   fractionDigits      (Max no of decimal points allowed)
+    >   length              
+        maxLength
+        minLength
+    >   minExclusive        (Ranges of allowed numeric values, like 0 to 100)
+        maxExclusive
+        minInclusive
+        maxInclusive
+    >   pattern             (Similar to REGEX)  
+    >   totalDigits
+    >   whiteSpace          -preserve
+                            -replace
+                            -collapse
+
+
+    Eg: Restriction on an element:
+
+        <xs:element name='gender'>
+            <xs:simpleType>
+                <xs:restriction base='xs:string'>
+                    <xs:enumeration value='Male'/>                  (The element can only has 'Male', 'Female', or 'Unknown' as its value)
+                    <xs:enumeration value='Female'/>                Like so:       <gender>Male</gender>
+                    <xs:enumeration value='Unknown'/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:element>
+
+    Eg: Restriction of an Attribute:   
+
+        <xs:element name='price'>
+            <xs:complexType>                                            (Attribute containing elements are complex Types)
+                <xs:simpleContent>                                      (We are dealing with simple contents here (Text) )
+                    <xs:extension base='xs:decimal'>                    (We want to extend this complex type model, where the base is decimal digit (Price) )
+                        <xs:attribute name='currency' type='curr'/>     (We define an attribute here, where the type referred will be defined below) 
+                    </xs:extension>
+                </xs:simpleContent>
+            </xs:complexType>
+        </xs:element>
+
+        <xs:simpleType name='curr'>                                 (Here we define the type called by the curr, as a simpleType)
+            <xs:restriction base='xs:string'>                       (A restriction is required where the base is of type String)
+                <xs:enumeration value='USD'/>
+                <xs:enumeration value='EUR'/>
+                <xs:enumeration value='CND'/>
+            </xs:restriction>
+        </xs:simpleType>
+
+        Eg:    Valid:   <price currency='USD'>12.345</price>
+===================================================================================================-->
+
+
+<!--===================================================================================================
+            COMPLEX ELEMENTS
+    
+    There are four types of complex elements:
+    >   EMPTY
+    >   CONTAINING OTHER ELEMENTS
+    >   TEXT & ATTRIBUTE
+    >   MIX OF ABOVE
+
+    Note: After declaration of <xs:complexType> or <xs:simpleType>, it must be followed by <xs:element>, <xs:attribute>, 
+            <xs:simpleType> or <xs:complexType> or any other INDICATORS
+
+
+    ==============COMPLEX EMPTY
+
+        Let's say the empty element has an attribute:
+
+                <xs:element name='xxx'>
+                    <xs:complexType>
+                        <xs:attribute name='aaa' type='bbb'/>
+                    </xs:complexType>
+                </xs:element>
+
+            OR
+            
+                <xs:element name='xxx' type='emptyAttrib' />
+
+                <xs:complexType name='emptyAttrib'>
+                    <xs:attribute name='aaa' type='bbb'/>
+                </xs:complexType>
+
+        If it was completely empty:
+
+                <xs:element name='xxx'>
+                    <xs:complexType>
+                        <xs:complexContent>
+                            <xs:restriction base='xs:anyContent' />
+                        </xs:complexContent>
+                    </xs:complexType>
+                </xs:element>
+
+    ============COMPLEX ELEMENTS
+    
+            <xs:element name='xxx'>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name='aaa' type='bbb'/>
+                        <xs:element name='ccc' type='ddd'/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            OR
+            
+            <xs:element name='xxx' type='complexElem'/>
+
+            <xs:complexType name='complexElem'>
+                <xs:sequence>
+                    <xs:element name='aaa' type='bbb'/>
+                    <xs:element name='ccc' type='ddd'/>
+                </xs:sequence>
+            </xs:complexType>
+
+    
+    ===============COMPLEX TEXT & ATTRIBUTES
+
+    Text and attributes are considered simple contents, therefore we will use simpleContent
+    Using simpleContent however requires either an EXTENSION or RESTRICTION
+
+    Remember that complexType CANNOT has EXTENSION or RESTRICTION directly as its child
+
+            <xs:element name='xxx'>
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base='aaa'>
+                            <xs:attribute name='bbb' type='ccc'/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+
+            OR
+
+            <xs:element name='xxx' type='complexAtt'/>
+
+            <xs:complexType name='complexAtt'>
+                <xs:simpleContent>
+                    <xs:extension base='ccc'>
+                        <xs:attribute name='ddd' type='eee'/>
+                    </xs:extension>
+                </xs:simpleContent>
+            </xs:complexType>
+
+    
+    ============COMPLEX MIXED
+
+    To allow for text to exist in between elements, then use the attribute mixed='true' in the complexType definition
+
+            <xs:element name='xxx'>
+                <xs:complexType mixed='true'>
+                    <xs:element name='aaa' type='bbb'/>
+                </xs:complexType>
+            </xs:element>
+
+        Eg: valid:  <xxx> 
+                        This is very much 
+                        <aaa> MIXED </aaa> 
+                    </xxx>
+
+===================================================================================================-->
+
+
+<!--=================================================================================================== 
+        XSD INDICATORS
+
+    1. Order Indicators
+
+            > all           (Appear in any order,but must occur only Once, meaning minOccur can be 0 or 1, but maxOccur must be 1)
+            > choice        (Either one or other can occur)
+            > Sequence      (In specified order)
+
+                <xs:all>
+                    <xs:element name='aaa' type='bbb'/>
+                    <xs:element name='ccc' type='ddd'/>
+                </xs:all>
+    
+    2. Occurrence Indicators
+
+            > maxOccurs
+            > minOccurs
+
+                <xs:element name='aaa' type='bbb' minOccurs='0' maxOccurs='10'/>
+
+    3. Group Indicators
+            
+            > Element groups            (!Must be followed by order indicators: All, Choice or Sequence)
+            > Attribute groups
+
+                <xs:group name='elemGroup'>
+                    <xs:sequence>
+                        <xs:element name='aaa' type='bbb'/>
+                        <xs:element name='ccc' type='ddd'/>
+                    </xs:sequence>
+                </xs:group>
+
+                <xs:attributeGroup name='attGroup'>
+                    <xs:attribute name='eee' type='fff'/>
+                    <xs:attribute name='ggg' type='hhh'/>
+                </xs:attributeGroup>
+
+                        (MERGE V )
+
+                <xs:element name='zzz'>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:group ref='elemGroup'/>                         (Here the element group is referenced)
+                            <xs:element name='iii' type='jjj'/>                 (Additional element here)
+                        </xs:sequence>
+                        <xs:attributeGroup rel='attGroup'/>s                    (Here the attribute group is referenced)
+                    </xs:complexType>
+                </xs:element>
+
+=================================================================================================== -->
+
+
+<!-- ===================================================================================================
+    ANY and AnyAttribute
+
+    We can define an any element, such that we don't have to define its name. This is commonly used with minOccurs and maxOccurs to
+    indicate how many of wildcard elements can be included
+
+    We also can define an any attribute in similar fashion.
+
+    With those, we can define the additional elements or attributes in separate xsd file, and use them in place of the any element:
+
+        <xs:element name='family'>                                                     
+            <xs:complexType>
+                <xs:sequence>
+                    <xs:element name='mother' type='xs:string'/>
+                    <xs:element name='father' type='xs:string'/>
+                    <xs:any minOccurs='0' maxOccurs='5'/>
+                </xs:sequence>
+                <xs:anyAttribute minOccurs='0' maxOccurs='1'/>
+            </xs:complexType>
+        </xs:element>
+
+        In another xsd file:
+
+        <xs:element name='children'>
+            <xs:complexType>
+                <xs:sequence>
+                    <xs:element name='child' type='xs:string' minOccurs='1'/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:element>
+
+        <xs:attribute name='noOfPeople' use='required'>
+            <xs:simpleType>
+                <xs:restriction base='xs:integer'>
+                    <xs:minInclusive value='1'/>
+                    <xs:maxInclusive value='10'/>
+                </xs:restruction>
+            </xs:simpleType>
+        </xs:attribute>
+
+
+        Then by combining files:
+                <family noOfPeople='5' >
+                    <mother>Ann</mother>
+                    <father>John</father>
+                    <children>
+                        <child>Jerry</child>
+                        <child>Davie</child>
+                    </children>
+                </family>
+
+=================================================================================================== -->
+
+<!--===================================================================================================
+        Element Substitution
+
+    If an element is not present in the XML schema instance, then we can substitute it with another
+    This is useful for multilingual datas
+
+        <xs:element name='name' type='xs:string'/>
+        <xs:element name='navn' substitutionGroup='name' />         (navn will substitute name if name is not present)
+
+        So <navn>John Doe</navn> is valid
+
+    Note: Substitute elements must have same or derived types as the substituted one
+          Also substitution groups must be declared GLOBAL (Not nested inside)
+
+    We can block an element from being substituted by using 'block' attribute
+
+        <xs:element name='name' type='xs:string' block='substitution'/>
+
+===================================================================================================-->
+
+<?xml version='1.0' encoding='UTF-8'?>
+
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+
+<!-- TVSCHEDULE, the root element -->
+<xs:element name='tvSchedule'>
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name='channel' type='channel' minOccurs='1' maxOccurs='unbounded'/>
+		</xs:sequence>
+		<xs:attribute name='name' type='xs:string' use='required'/>
+	</xs:complexType>
+</xs:element>
+
+
+<xs:complexType name='channel'>
+	<xs:sequence>
+		<xs:element name='banner' type='xs:string'/>
+		<xs:element name='day' type='day' minOccurs='1' maxOccurs='unbounded'/>
+	</xs:sequence>
+	<xs:attribute name='chan' type='xs:string' use='required'/>
+</xs:complexType>
+
+
+
+<xs:complexType name='day'>
+	<xs:sequence>
+		<xs:element name='date' type='xs:date'/>
+		<xs:choice>
+			<xs:element name='programsLot' type='programsLot' minOccurs='1' maxOccurs='unbounded'/>
+			<xs:element name='holiday' type='xs:string'/>
+		</xs:choice>
+	</xs:sequence>
+</xs:complexType>
+
+
+
+<xs:complexType name='programsLot'>
+	<xs:sequence>
+		<xs:element name='time' type='time'/>
+		<xs:element name='title' type='title'/>
+		<xs:element name='description' type='xs:string'/> 
+	</xs:sequence>
+	<xs:attribute name='vtr' type='xs:boolean'/>
+</xs:complexType>
+
+<xs:simpleType name='time'>
+	<xs:restriction base='xs:string'>
+		<xs:pattern value='[0-2][0-9]:[0-9][0-9]'/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name='title'>
+	<xs:simpleContent>
+		<xs:extension base='xs:string'>
+			<xs:attributeGroup ref="titleAtt"></xs:attributeGroup>
+		</xs:extension>
+	</xs:simpleContent>
+</xs:complexType>
+
+
+<xs:attributeGroup name="titleAtt">
+	<xs:attribute name='rating' type='rating' />
+	<xs:attribute name='language' type='language' />
+</xs:attributeGroup>
+
+<xs:simpleType name="rating">
+	<xs:restriction base='xs:string'>
+		<xs:enumeration value="G"/>
+		<xs:enumeration value="PG"/>
+		<xs:enumeration value='PG13'/>
+		<xs:enumeration value='PG18'/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name='language'>
+	<xs:restriction base='xs:string'>
+		<xs:enumeration value='chinese'/>
+		<xs:enumeration value='english'/>
+		<xs:enumeration value='malay'/>
+		<xs:enumeration value='korean'/>
+	</xs:restriction>
+</xs:simpleType>
+
+</xs:schema>
