@@ -1,0 +1,85 @@
+<!--===============================================================
+
+Like HTML, XML will be parsed into a DOM like tree, where the root node is the root tag of the XML
+Therefore, we need a way to traverse between the nodes in the XML DOM. We'll use XPath for that
+
+Syntax:
+
+    1.  SELECTORS  
+        >   nodename                                            (Select all nodes with the name 'nodename')
+        >   /                                                   (Select direct child node from the parent node (current node), like root/node1 )
+                                                                (If used at beginning of the XPath, it represents absolute path)
+        >   //                                                  (Select all the nodes in the document from the current node that matches)
+        >   .                                                   (Represents the current node, like in Python, the default xml.etree.ElementTree
+                                                                 parser returns the root node. So we need to use ./node1/node2)
+        >   ..                                                  (Represents the parent node of this node)
+        >   @                                                   (Select attribute, like ./@lang selects all attributes called lang from current node)
+
+    2.  PREDICATES
+            are used similar to filters, to select nodes based on a condition
+        >   [1]                                                 (Select the first node)
+        >   [last() ]                                           (Select the last node)
+        >   [last() - 1]                                        (Select the last but one node (Last Second node) )
+        >   [position() < 3]                                    (Selects the first and second node) 
+        >   [@lang ]                                            (Select nodes that has attribute 'lang' )
+        >   [@lang = 'en' ]                                     (Select nodes that has attribute 'lang' with value 'en')
+        >   [price > 35]                                        (Select nodes that has price element with value over 35)
+        >   [price > 35]/title                                  (Select the title node of parent node whose has price element with value over 35)
+
+    3.  WILDCARDS
+        >   *                                                   (Any element)
+        >   @*                                                  (Any attribute)
+        >   node()                                              (Any element or attribute)
+
+    4.  OR SELECTOR
+        >   .//book/title | .//book/price                         (Selects both the title element and price element in book element)
+
+
+    Eg: 
+        >   /rootNode/childNode/childNode2                      (Select childNode2 inside childNode inside rootNode)
+        >   /rootNode/childNode[lastName='John']/childNode2     (Select childNode2 whose parent is childNode which has element lastName of value
+                                                                 'John')
+        >   /rootNode/childNode[@EmployeeID=4]/childNode2       (Select childNode2 whose parent is childNode which has attribute EmployeeID of 4)
+        >   //childNode[@employeeID=4]                           (Select all childNodes that has attribute EmployeeID of value 4 from current node)
+
+    
+
+    FOR EXAMPLES OF XML XPATH USAGE, SEE PYTHON > TOPICS > NETWORKING > XML XPATH IN THIS PC
+
+===============================================================-->
+
+<bookstore>
+    <book>
+        <title lang='en'>Book1</title>
+        <price>12.99</price>
+    </book>
+    <book>
+        <title lang='ru'>Book2</title>
+        <price>32.99</price>
+    </book>
+    <book>
+        <title lang='en'>Book3</title>
+        <price>10.99</price>
+    </book>
+    <book>
+        <title lang='en'>Book4</title>
+        <price>1.50</price>
+    </book>
+    <book>
+        <title lang='ch'>Book5</title>
+        <price>99.00</price>
+    </book>
+    <book>
+        <title lang='ch'>Book6</title>
+        <price>59.00</price>
+    </book>
+    <book>
+        <title lang='ch'>Book7</title>
+        <price>39.00</price>
+    </book>
+</bookstore>
+
+
+
+
+

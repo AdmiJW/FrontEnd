@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+
+<!-- TVSCHEDULE, the root element -->
+<xs:element name='tvSchedule'>
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name='channel' type='channel' minOccurs='1' maxOccurs='unbounded'/>
+		</xs:sequence>
+		<xs:attribute name='name' type='xs:string' use='required'/>
+	</xs:complexType>
+</xs:element>
+
+
+
+<xs:complexType name='channel'>
+	<xs:sequence>
+		<xs:element name='banner' type='xs:string'/>
+		<xs:element name='day' type='day' minOccurs='1' maxOccurs='unbounded'/>
+	</xs:sequence>
+	<xs:attribute name='chan' type='xs:string' use='required'/>
+</xs:complexType>
+
+
+
+<xs:complexType name='day'>
+	<xs:sequence>
+		<xs:element name='date' type='xs:date'/>
+		<xs:choice>
+			<xs:element name='programsLot' type='programsLot' minOccurs='1' maxOccurs='unbounded'/>
+			<xs:element name='holiday' type='xs:string'/>
+		</xs:choice>
+	</xs:sequence>
+</xs:complexType>
+
+
+
+<xs:complexType name='programsLot'>
+	<xs:sequence>
+		<xs:element name='time' type='time'/>
+		<xs:element name='title' type='title'/>
+		<xs:element name='description' type='xs:string'/> 
+	</xs:sequence>
+	<xs:attribute name='vtr' type='xs:boolean'/>
+</xs:complexType>
+
+<xs:simpleType name='time'>
+	<xs:restriction base='xs:string'>
+		<xs:pattern value='[0-2][0-9]:[0-9][0-9]'/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name='title'>
+	<xs:simpleContent>
+		<xs:extension base='xs:string'>
+			<xs:attributeGroup ref="titleAtt"></xs:attributeGroup>
+		</xs:extension>
+	</xs:simpleContent>
+</xs:complexType>
+
+
+<xs:attributeGroup name="titleAtt">
+	<xs:attribute name='rating' type='rating' />
+	<xs:attribute name='language' type='language' />
+</xs:attributeGroup>
+
+<xs:simpleType name="rating">
+	<xs:restriction base='xs:string'>
+		<xs:enumeration value="G"/>
+		<xs:enumeration value="PG"/>
+		<xs:enumeration value='PG13'/>
+		<xs:enumeration value='PG18'/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name='language'>
+	<xs:restriction base='xs:string'>
+		<xs:enumeration value='chinese'/>
+		<xs:enumeration value='english'/>
+		<xs:enumeration value='malay'/>
+		<xs:enumeration value='korean'/>
+	</xs:restriction>
+</xs:simpleType>
+
+</xs:schema>
