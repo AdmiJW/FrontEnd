@@ -51,6 +51,7 @@
 
     // //Function to fetch the data from server, which delay is set at 1 second. A callback function is passed as argument to perform
     // //something on the data
+    //
     // function fetchInfo(callback) {
     //     setTimeout(() => {
     //         let result = { name: 'AdmiJW', gender: 'Male' };
@@ -148,6 +149,7 @@
     the callback function, where the argument passed into the resolve() as the parameter.
     The same goes when something goes wrong. In this case, we would use .catch() where we need to pass in a function where the error object
     passed into the reject() should be the parameter.
+    The resolve() and reject() will return a new Promise object, so that we can chain the .then and .catch methods 
 */
 
     // let pass = false;
@@ -239,7 +241,7 @@
     An even elegant code solution is using async and await keywords. This way it enables us to store promises and run it into a variable.
     Async is used before the function keyword itself to mark this function as asynchronized function, and enables the 'await' keyword to be
         used inside the function
-    Await is used on the function calls which return a promise, to tell the code interpreter to wait for the function to return value before
+    Await is used on the function calls which return a promise, to tell the code interpreter to wait for the function to return before
         execution of next line of code in the function
 */
 

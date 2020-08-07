@@ -8,9 +8,26 @@
 	<meta name="description" content="A template tribute website for the popular horror manga artist - Junji Itou"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="stylesheet" type="text/css" href="css/junjistyle.css"/>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+
+	<!-- This script will check the browser's preference to dark mode. If it confirms, will start the webpage on dark mode immediately!-->
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			if (window.matchMedia('(prefers-color-scheme: dark)').media !== 'not all') {
+				document.getElementById('dark-mode').checked = true;
+			}
+		});
+	</script>
 </head>
 
 <body>
+
+<!-- Dark mode toggle here -->
+<label for='dark-mode'><i class="far fa-moon"></i></label>
+<input type='checkbox' class='dark-mode hidden' id='dark-mode' />
+<!-- Dark mode toggle here -->
+
 <div id="main"/>
 	<header id="title">
 		<h1>Junji Ito</h1>

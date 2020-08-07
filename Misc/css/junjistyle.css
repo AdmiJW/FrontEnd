@@ -8,6 +8,40 @@ html, body{
 	max-width: 100%;
 	overflow-x: hidden;
 }
+/* DARK MODE EXPERIMENT ---------------------------- */
+.hidden {
+	position: absolute;
+	display: none;
+}
+
+.fa-moon {
+	position: fixed;
+	right: 0px;
+	top: 0px;
+	padding: 10px 20px;
+	font-size: 3rem;
+	cursor: pointer;
+	z-index: 999;
+	background-color: #34495e;
+	border-radius: 30px 0px 0px 30px;
+	color: white;
+}
+
+#main {
+	transition: filter .15s;
+}
+
+/* Here apart from #main, I also apply the same filter to some other elements. Since those elements get applied the filter twice, the effect
+	is going to cancel out 	*/
+.dark-mode:checked ~ #main, 
+.dark-mode:checked ~ #main img,
+.dark-mode:checked ~ #main footer,
+.dark-mode:checked ~ #main #title
+{
+	filter: invert(1) hue-rotate(180deg);
+}
+
+/* DARK MODE EXPERIMENT ------------------------------*/
 
 body, h1, h2{
 	background-image: url("https://nerdist.com/wp-content/uploads/2019/09/Uzumaki-manga-2-09102019.jpg");
