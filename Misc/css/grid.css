@@ -26,7 +26,7 @@ p {
 	The preferred unit is using Fractions (fr) as opposed to percentage (%) since percentage may be affected by the margin and padding etc */
 #grid-1 {
 	grid-template-columns: 1fr 2fr 1fr;
-	grid-template-rows: 1fr 250px;
+	grid-template-rows: 1fr 500px;
 }
 
 /*	Grid-2: For n columns we originally have to repeat typing them n times. Imagine having something like 15 columns or more! Therefore we can use the
@@ -77,7 +77,7 @@ p {
 	*/
 #grid-5 {
 	grid-template-columns: 1fr 1fr 1fr;
-	grid-tempalte-rows: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
 }
 #grid-5 > #c-4 {
 	background-color: #999DA0;

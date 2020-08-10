@@ -43,6 +43,55 @@
 <body>
     <h1 class='h1 text-center my-5'>Cookies, Local Storage and Session Storage</h1>
     <p class='text-center my-4'>You can view the cookies, local storage and session storage on Dev Tools > Application > Storage</p>
+
+    <table class='table table-striped table-dark table-hover table-bordered'>
+        <thead>
+            <tr>
+                <th></th>
+                <th scope='col'>Cookie</th>
+                <th scope='col'>Local Storage</th>
+                <th scope='col'>Session Storage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope='row'>Capacity</th>
+                <td>4kB</td>
+                <td>10MB</td>
+                <td>5MB</td>
+            </tr>
+            <tr>
+                <th scope='row'>Support</th>
+                <td>HTML4/HTML5</td>
+                <td>HTML5</td>
+                <td>HTML5</td>
+            </tr>
+            <tr>
+                <th scope='row'>Accessible</th>
+                <td>Any window</td>
+                <td>Any window</td>
+                <td>Local tab only</td>
+            </tr>
+            <tr>
+                <th scope='row'>Expires</th>
+                <td>Set by Programmer</td>
+                <td>Never Expire</td>
+                <td>As soon as tab closed</td>
+            </tr>
+            <tr>
+                <th scope='row'>Storage Location</th>
+                <td>Server / Browser</td>
+                <td>Browser only</td>
+                <td>Browser only</td>
+            </tr>
+            <tr>
+                <th scope='row'>Sent with HTTP Request</th>
+                <td>YES</td>
+                <td>NO</td>
+                <td>NO</td>
+            </tr>
+        </tbody>
+    </table>
     
     <form class='container' id='form'>
 
