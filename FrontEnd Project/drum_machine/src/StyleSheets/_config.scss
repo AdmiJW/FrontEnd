@@ -1,0 +1,45 @@
+$background-img: 'https://wallpapercave.com/wp/7aUBMp4.jpg';
+$machine-color: rgb(52, 73, 94);
+$rounded-radius: 25px;
+$screen-radius: $rounded-radius - 10px;
+
+$volume-spinner-color: rgb(102, 130, 156);
+
+$power-btn-color: rgb(192, 57, 43);
+
+$drum-pad-color: rgb(189, 195, 199);
+
+$digital-font: 'Orbitron', sans-serif;
+
+#root {
+    background-color: red;
+}
+
+@mixin background-style($url) {
+    background-image: url($url);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin font($style, $size, $color) {
+    @if ($style == 'digital') {
+        font-family: $digital-font;
+    }
+    font-size: $size;
+    color: $color;
+}
+
+
+.btn-press {
+    transform: translateY(5px);
+    box-shadow: none;
+}

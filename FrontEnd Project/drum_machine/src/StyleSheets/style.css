@@ -1,0 +1,380 @@
+#root {
+  background-color: red;
+}
+
+.btn-press {
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  background-color: #2c3e50;
+  background-image: url("https://wallpapercave.com/wp/7aUBMp4.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.drum-machine {
+  width: min(80%, 1000px);
+  height: min(80%, 500px);
+  padding: 20px;
+  border-radius: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  background-color: #34495e;
+  -webkit-box-shadow: 0px 30px 0px #22303d;
+          box-shadow: 0px 30px 0px #22303d;
+}
+
+.machine-screen {
+  height: max(50px, 30%);
+  width: 100%;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border-radius: 15px;
+  background-color: green;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.8rem;
+  color: black;
+  letter-spacing: 1px;
+  overflow-x: auto;
+}
+
+.control-panel {
+  height: max(100px, 30%);
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-areas: "volume volume power" "volume volume power" "bank bank bank";
+  padding: 10px 0px;
+}
+
+.control-panel .control-volume {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: volume;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1rem;
+  color: white;
+}
+
+.control-panel .control-volume .volume-spinner {
+  width: 40px;
+  height: 40px;
+  background-color: #66829c;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 5px 0px #475b6e;
+          box-shadow: 0px 5px 0px #475b6e;
+}
+
+.control-panel .control-volume .volume-spinner::after {
+  content: "";
+  display: block;
+  height: 50%;
+  width: 5%;
+  background-color: white;
+  margin: auto;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+}
+
+.control-panel .control-power {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: power;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.control-panel .control-power .power-btn {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  height: 50%;
+  width: 50%;
+  background-color: #c0392b;
+  border: none;
+  -webkit-box-shadow: 0px 5px 0px #962d22;
+          box-shadow: 0px 5px 0px #962d22;
+  cursor: pointer;
+}
+
+.control-panel .control-bank {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: bank;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.control-panel .control-bank label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.drum-pad-container {
+  height: 100%;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+
+.drum-pad-container .drum-pad {
+  width: min(100px, 80%);
+  height: 80%;
+  position: relative;
+  border-radius: 15%;
+  -webkit-box-shadow: 0px 5px 0px #6c777f;
+          box-shadow: 0px 5px 0px #6c777f;
+  background-color: #bdc3c7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.5rem;
+  color: black;
+  cursor: pointer;
+}
+
+.drum-pad-container .drum-pad::after {
+  content: "";
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 15%;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  border: solid 3px red;
+}
+
+@media screen and (min-width: 750px) {
+  .drum-machine {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .machine-screen {
+    height: clamp(100px, 65%, 300px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .control-panel {
+    height: max(100px, 75%);
+        grid-template-areas: ". power ." "volume volume volume" "bank bank bank";
+    padding: 10px 20px;
+  }
+  .control-panel .control-volume {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: volume;
+  }
+  .control-panel .control-volume .volume-spinner {
+    width: 60px;
+    height: 60px;
+  }
+  .control-panel .control-power .power-btn {
+    height: 70%;
+    width: 100%;
+  }
+  .control-panel .control-bank {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+  .drum-pad-container {
+    height: max(100px, 65%);
+  }
+}
+
+@media screen and (max-width: 750px) and (max-height: 580px) {
+  .machine-screen {
+    height: max(50px, 30%);
+    width: 100%;
+    padding: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 15px;
+    background-color: green;
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.8rem;
+    color: black;
+    letter-spacing: 1px;
+    overflow-x: auto;
+  }
+}
+/*# sourceMappingURL=style.css.map */

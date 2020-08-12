@@ -1,0 +1,262 @@
+@import 'config';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+}
+
+//============================================================================
+//============================================================================
+
+#root {
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgb(44, 62, 80);
+    @include background-style($background-img);
+
+    @include flex(row, center, center);
+}
+
+//============================================================================
+//====================DRUM MACHINE============================================
+.drum-machine {
+    width: unquote('min(80%, 1000px)');
+    height: unquote('min(80%, 500px)');
+
+    padding: 20px;
+    border-radius: $rounded-radius;
+    @include flex(column, flex-start, stretch);
+    
+    background-color: $machine-color;
+    box-shadow: 0px 30px 0px darken($machine-color, 10%);
+}
+
+
+
+//============================================================================
+//====================DRUM MACHINE - SCREEN===================================
+.machine-screen {
+    height: unquote('max(50px, 30%)');
+    width: 100%;
+    padding: 10px;
+
+    @include flex(column, space-between, flex-start);
+
+    border-radius: $screen-radius;
+    background-color: green;
+
+    @include font('digital', 1.8rem, black);
+    letter-spacing: 1px;
+    overflow-x: auto;
+}
+
+
+//============================================================================
+//====================DRUM MACHINE - CONTROLS=================================
+.control-panel {
+    height: unquote('max(100px, 30%)');
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: "volume volume power"
+                        "volume volume power"
+                        "bank bank bank";
+    padding: 10px 0px;
+
+    //===============================
+    //=======VOLUME AREA=============
+    .control-volume {
+        grid-area: volume;
+
+        @include flex(column, space-around, center);
+        @include font('digital', 1rem, white);
+
+        .volume-spinner {
+            width: 40px;
+            height: 40px;
+            background-color: $volume-spinner-color;
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            box-shadow: 0px 5px 0px darken($volume-spinner-color, 15%);
+
+            &::after {
+                content: "";
+                display: block;
+                height: 50%;
+                width: 5%;
+                background-color: white;
+
+                margin: auto;
+
+                transform-origin: bottom;
+            }
+        }
+    }
+
+    //===============================
+    //=======POWER AREA==============
+    .control-power {
+        grid-area: power;
+
+        @include flex(column, space-around, center);
+
+        .power-btn {
+            @include font('digital', 1.5rem, white);
+            height: 50%;
+            width: 50%;
+            background-color: $power-btn-color;
+            border: none;
+            box-shadow: 0px 5px 0px darken($power-btn-color, 10%);
+            cursor: pointer;
+        }
+    }
+
+    //===============================
+    //=======BANK SLIDER AREA========
+    .control-bank {
+        grid-area: bank;
+
+        @include flex(column, space-around, stretch);
+        @include font('digital', 1.3rem, white);
+
+        label {
+            @include flex(row, space-between, center);
+        }
+
+    }
+}
+
+
+
+
+//============================================================================
+//====================DRUM MACHINE - DRUM PADS================================
+.drum-pad-container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+
+    .drum-pad {
+        width: unquote('min(100px, 80%)');
+        height: 80%;
+        position: relative;
+
+        border-radius: 15%;
+        box-shadow: 0px 5px 0px darken($drum-pad-color, 30%);
+
+        background-color: $drum-pad-color;
+
+        @include flex(row, center, center);
+        @include font('digital', 1.5rem, black);
+        
+        cursor: pointer;
+
+        &::after {
+            content: "";
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+
+            border-radius: 15%;
+
+            transform-origin: center;
+            transform: scale(.95);
+
+            border: solid 3px red;
+        }
+    }
+}
+
+
+
+
+//============================================================================
+//====================MEDIA QUERY=============================================
+@media screen and (min-width: 750px ) {
+
+    //====================DRUM MACHINE===============
+    .drum-machine {
+        @include flex(row, space-between, flex-start);
+    }
+
+    //====================DRUM MACHINE - SCREEN========
+    .machine-screen {
+        height: unquote('clamp(100px, 65%, 300px)');
+        @include flex(column, space-evenly, flex-start);
+    }
+
+    //====================DRUM MACHINE - CONTROLS======
+    .control-panel {
+        height: unquote('max(100px, 75%)');
+
+        grid-template-areas: ". power ."
+                            "volume volume volume"
+                            "bank bank bank";
+
+        padding: 10px 20px;
+
+        //=======VOLUME AREA=============
+        .control-volume {
+            grid-area: volume;
+
+            .volume-spinner {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        //=======POWER AREA==============
+        .control-power {
+            .power-btn {
+                height: 70%;
+                width: 100%;
+            }
+        }
+
+        //=======BANK SLIDER AREA========
+        .control-bank {
+            @include flex(column, space-evenly, stretch);
+        }
+
+    }
+
+    //====================DRUM MACHINE - DRUM PADS===== 
+    .drum-pad-container {
+        height: unquote('max(100px, 65%)');
+    }
+}
+
+@media screen and (max-width: 750px) and (max-height: 580px) {
+    //====================DRUM MACHINE - SCREEN===================================
+    .machine-screen {
+        height: unquote('max(50px, 30%)');
+        width: 100%;
+        padding: 10px;
+
+        @include flex(row, space-between, center);
+
+        border-radius: $screen-radius;
+        background-color: green;
+
+        @include font('digital', 1.8rem, black);
+        letter-spacing: 1px;
+        overflow-x: auto;
+    }
+}
