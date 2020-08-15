@@ -1,5 +1,6 @@
 $background-img: 'https://wallpapercave.com/wp/7aUBMp4.jpg';
 $machine-color: rgb(52, 73, 94);
+$audiosrc-bg: #34495e;
 $rounded-radius: 25px;
 $screen-radius: $rounded-radius - 10px;
 
@@ -38,8 +39,27 @@ $digital-font: 'Orbitron', sans-serif;
     color: $color;
 }
 
+@mixin font-stroke($stroke-width ,$color) {
+    text-shadow: 0 0 $stroke-width $color, 0 0 $stroke-width  $color, 0 0 $stroke-width  $color, 0 0 $stroke-width  $color,
+    0 0 $stroke-width $color, 0 0 $stroke-width  $color, 0 0 $stroke-width  $color, 0 0 $stroke-width  $color;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+.closed-invis {
+    opacity: 0;
+    z-index: -999;
+
+    form {
+        transform: translateX(-200%);
+    }
+}
+
 
 .btn-press {
     transform: translateY(5px);
-    box-shadow: none;
+    box-shadow: none !important;
 }

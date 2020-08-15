@@ -5,9 +5,6 @@ import Controls from './Controls';
 import DrumPad from './DrumPadContainer';
 
 class DrumMachine extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         //========== JSX =============
@@ -21,5 +18,6 @@ class DrumMachine extends React.Component {
         //============================
     }
 }
+
 
 export default DrumMachine;
