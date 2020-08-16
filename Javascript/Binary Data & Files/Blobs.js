@@ -107,6 +107,16 @@ document.documentElement.appendChild(link2);
 const fr2 = new FileReader();
 fr2.onload = () => {
     console.log("Converted back into ArrayBuffer: ", fr2.result );
+
+
+    console.log('====== END OF Blobs =========');
+    console.log("");
+    console.log("");
+    console.log("");
+    console.log("");
 }
 
-fr2.readAsArrayBuffer(myBlob)
+fr2.readAsArrayBuffer( myBlob );
+
+
+

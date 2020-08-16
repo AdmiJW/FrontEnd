@@ -8,12 +8,14 @@
     <script src='ArrayBuffer and TypeArray.js'></script>
     <script src='TextEncoder and TextDecoder.js'></script>
     <script src='Blobs.js'></script>
+    <script src='File and FileReader.js'></script>
 
     <style>
         body {
             width: 100vw;
             height: 100vh;
             background-color: #333;
+            color: white;
         }
 
         a {
@@ -23,5 +25,10 @@
     </style>
 </head>
 <body>
+    <input type='file' id='fileinput' />
+
+    <label for='audioinput'>Put audio files</label>
+    <input type='file' id='audioinput' accept='audio/*' />
+    <audio src='#' id='audiocontrol' controls></audio>
 </body>
 </html>
