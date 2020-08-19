@@ -4,7 +4,6 @@ import Reducer from '../Reducers/Reducer';
 
 //  Remove extension when build!
 
-const store = createStore( Reducer, compose( applyMiddleware(Thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() ) );
+const store = createStore( Reducer, applyMiddleware(Thunk) );
 
 export default store;

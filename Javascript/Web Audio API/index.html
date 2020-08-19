@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title>Web Audio API</title>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+
+    <!-- CUSTOM STYLING -->
+    <style>
+        body {
+            background-color: #2c3e50; 
+        }
+
+        body > div {
+            background-color: #ecf0f1;
+        }
+        
+    </style>
+
+    <!-- JS -->
+    <script src='script.js'></script>
+
+</head>
+
+
+<body>
+    <div class='container d-flex flex-column justify-content-center p-2 my-4'>
+        <h1 class='text-center p-2'>AUDIO INPUT</h1>
+
+        <div class=' container file-input-div p-3'>
+            <input type='file' accept='audio/*' class='file-input' id='file-input' />
+        </div>
+
+        <div class='oscillator-div p-3'>
+            <label for='select-osc'>Select Wave Pattern: </label>
+            <select class='select-osc form-control' id='select-osc'>
+                <option disabled selected></option>
+                <option>sine</option>
+                <option>square</option>
+                <option>triangle</option>
+                <option>sawtooth</option>
+            </select>
+        </div>
+
+        <div class='volume d-flex flex-column p-3'>
+            <label for='volume-input' class='m-0 text-center'>
+                Volume: <span class='volume-num' id='volume-num'> 50 </span>
+            </label>
+            <input type='range' class='volume-input form-control-range' id='volume-input' min=0 max=1 step=0.01 value=0.5 />
+        </div>
+
+        <div class='panning d-flex flex-column p-3'>
+            <label for='panning-input' class='m-0 text-center'>
+                Panning: <span class='pan-num' id='pan-num'> 0 </span>
+            </label>
+            <input type='range' class='panning-input form-control-range' id='panning-input' min=-1 max=1 step=0.05 value=0 />
+        </div>
+
+        <div class='frequency d-flex flex-column p-3'>
+            <label for='frequency-input' class='m-0 text-center'>
+                Oscillator Frequency: <span class='frequency-num' id='frequency-num'> 800 Hz </span>
+            </label>
+            <input type='range' class='frequency-input form-control-range' id='frequency-input' min=20 max=2000 step=10 value=800 />
+        </div>
+
+        <div class='detune d-flex flex-column p-3'>
+            <label for='detune-input' class='m-0 text-center'>
+                Oscillator Detune: <span class='detune-num' id='detune-num'> xx </span>
+            </label>
+            <input type='range' class='detune-input form-control-range' id='detune-input' min=0 max=2000 step=1 value=0 />
+        </div>
+
+        <div class='lfo-type p-3'>
+            <label for='select-lfo'>Select LFO Wave Pattern: </label>
+            <select class='select-lfo form-control' id='select-lfo'>
+                <option disabled selected></option>
+                <option>sine</option>
+                <option>square</option>
+                <option>triangle</option>
+                <option>sawtooth</option>
+            </select>
+        </div>
+
+        <div class='lfo-freq p-3 d-flex flex-column'>
+            <label for='lfo-freq-input' class='m-0 text-center'>
+                LFO Frequency: <span class='lfo-freq-num' id='lfo-freq-num'> 0 Hz </span>
+            </label>
+            <input type='range' class='lfo-freq-input' id='lfo-freq-input' min=0 max=200 step=1 value=0 />
+        </div>
+
+        <div class='filter-type p-3'>
+            <label for='filter-type-input'>Filter Type: </label>
+            <select class='filter-type-input form-control' id='filter-type-input'>
+                <option>lowpass</option>
+                <option>highpass</option>
+                <option>bandpass</option>
+                <option>lowshelf</option>
+                <option>highshelf</option>
+                <option>peaking</option>
+                <option>notch</option>
+                <option>allpass</option>
+            </select>
+
+            <label for='filter-freq-input'>
+                Filter Frequency: <span class='filter-freq-num' id='filter-freq-num'> 800 Hz </span>
+            </label>
+            <input type='range' class='filter-freq-input form-control-range' id='filter-freq-input' min=20 max=10000 step=10 value=800 />
+        </div>
+
+        <div class='btn-control p-3 d-flex justify-content-around'>
+            <button type='button' class='playpause btn btn-lg btn-light' id='playpause' data-isplaying='false'>
+                <i class="fas fa-play"></i>
+            </button>
+            <button type='button' class='stop btn btn-lg btn-light' id='stop'>
+                <i class='fas fa-stop'></i>
+            </button>
+        </div>
+    </div>
+</body>
+</html>

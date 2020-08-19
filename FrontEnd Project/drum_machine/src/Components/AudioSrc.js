@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import PropTypes from 'prop-types';
+
 import ActionCreators from '../Redux/Actions/ActionCreators';
 
 
@@ -11,34 +13,33 @@ class AudioSrc extends React.Component {
         this.audiofileChanged = this.audiofileChanged.bind(this);
         this.playPauseBtn = this.playPauseBtn.bind(this);
         this.resetBtn = this.resetBtn.bind(this);
+        this.volChanged = this.volChanged.bind(this);
     }
 
-    //  TODO IMPLEMENT A VOLUME
-    componentDidUpdate() {
-
-    }
-
+    //  Called when the user selects a local file or submitted a URL to external audio file
     audiofileChanged(e) {
         e.preventDefault();
         const { audio, volume, setAudio } = this.props;
         const elem = e.target;
+
+        //  The new audio HTML element, which we will dispatch to store when we set the src attribute
+        const audioElem = document.createElement('audio');
+        audioElem.volume = document.getElementById('audiosrc-volume-input').value;
+        audioElem.onended = () => {     //  Once audio ends, it will reset
+            this.resetBtn();
+        }
+        const fileReader = new FileReader();
 
         //  Request from Local file
         if (e.target.id === 'audiosrc-local-input') {
             
             const files = elem.files[0];
             //  Testing if it is a valid sound file
-            if ( files && /audio\/.+/.test(files.type) ) {
+            if ( files && files.type.startsWith('audio') ) {
                 //  If there is a audio previously, stop it from playing (if it does)
                 if (audio)
                     audio.pause();
 
-                const audioElem = document.createElement('audio');
-                audioElem.volume = 0.1;    //RESET THIS==============================================
-                audioElem.onended = () => {     //  Once audio ends, it will reset
-                    this.resetBtn();
-                }
-                const fileReader = new FileReader();
                 fileReader.onload = () => {     //  Callback
                     audioElem.src = fileReader.result;
                     setAudio(audioElem, files.name );
@@ -53,16 +54,38 @@ class AudioSrc extends React.Component {
         //  Request From URL
         else if (e.target.id === 'audiosrc') {
             const url = document.getElementById('audiosrc-online-input').value;
+            const proxy = 'https://cors-anywhere.herokuapp.com/';   //  Proxy to prevent CORS error
 
             fetch(url)
-            .then(e => console.log(e) )
+            .catch(e => fetch(proxy + url, {headers: {'Origin': ''} }) )        //Attempt proxy 1
+            .then(e => e.blob() )
+            .then(blob => {
+                //  If the url file fetched back was a valid audio file
+                if (blob.type.startsWith('audio') ) {
+                    //Stop the audio playing, if it was
+                    if (audio)
+                        audio.pause();
 
+                    fileReader.onload = () => {     //  Callback
+                        audioElem.src = fileReader.result;
+                        setAudio(audioElem, url );
+                        this.resetBtn();
+                    }
+                    fileReader.readAsDataURL(blob);
+                }
+                else
+                    return Promise.reject();
+            })
+            .catch(e => {
+                alert('Unable to load Audio URL!');
+            })
         }
     }
 
+    //  Called when the play or pause button is clicked
     playPauseBtn() {
         const { audio, isAudioPlaying, playPause } = this.props;
-        if (!audio) return;
+        if (!audio) return;     //  There is no audio HTML element, therefore do nothing
 
         if (isAudioPlaying) {
             audio.pause();
@@ -74,8 +97,10 @@ class AudioSrc extends React.Component {
         }
     }
 
+    //  Called when the stop button is clicked
     resetBtn() {
         const { audio, resetAudio } = this.props;
+        //  If there is HTML audio element, stop it and reset time to 0
         if (audio) {
             audio.pause();
             audio.currentTime = 0;
@@ -84,7 +109,16 @@ class AudioSrc extends React.Component {
     }
 
 
+    //  Called when the volume slider is changed.
+    volChanged(e) {
+        const { audio } = this.props;
+        if (audio) {
+            audio.volume = e.target.value;
+        }
+    }
 
+
+    //  Just apply event listener to the close button so it closes the window on click
     componentDidMount() {
         document.getElementById('audiosrc-close-btn').addEventListener('click', () => {
             this.props.toogleOverlay();
@@ -117,7 +151,7 @@ class AudioSrc extends React.Component {
                         <label htmlFor='audiosrc-online-input'>Internet</label>
                         <p><small>(Only raw files allowed)</small></p>
                         <input className='audiosrc-online-input' id='audiosrc-online-input' 
-                            type='url' placeholder='Put URL here... ' />
+                            type='url' placeholder='Enter URL here...' defaultValue='https://www.ee.columbia.edu/~dpwe/sounds/music/mambo_no_5-lou_bega.wav' />
                         <input type='submit' className='audiosrc-online-submit' id='audiosrc-online-submit'
                              value='Go >'/>
                     </div>
@@ -133,6 +167,11 @@ class AudioSrc extends React.Component {
                             <i className='fas fa-undo'></i>
                         </button>
                     </div>
+                    <div className='audiosrc-volume' id='audiosrc-volume'>
+                        <label htmlFor='audiosrc-vol-input'>Volume: </label>
+                        <input type='range' className='audiosrc-volume-input' id='audiosrc-volume-input'
+                            min='0' max='1' step='0.01' onInput={ this.volChanged } />
+                    </div>
                 </form>
             </div>
         )
@@ -145,6 +184,18 @@ class AudioSrc extends React.Component {
 //  PropTypes, MapStateToProps, MapDispatchToProps
 //====================================================
 
+AudioSrc.propTypes = {
+    volume: PropTypes.number.isRequired,
+    isOverlayShow: PropTypes.bool.isRequired,
+    audio: PropTypes.object,
+    audioName: PropTypes.string.isRequired,
+    isAudioPlaying: PropTypes.bool.isRequired,
+
+    toogleOverlay: PropTypes.func.isRequired,
+    setAudio: PropTypes.func.isRequired,
+    playPause: PropTypes.func.isRequired,
+    resetAudio: PropTypes.func.isRequired
+}
 
 function mapStateToProps( store ) {
     return {

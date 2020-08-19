@@ -1,14 +1,15 @@
 import ActionType from '../Actions/ActionType'
 
 const initialState = {
-    isPowerOn: true,
-    volume: 50,
-    currentBank: 0,     
-    currentSfx: '',
-    isOverlayShow: true,
-    audio: null,
-    audioName: '',
-    isAudioPlaying: false
+    isPowerOn: true,    // if false, the audio element of drum pads will not have a src attribute, hence no sound
+    volume: 50,             
+    currentBank: 0,     // 0 means the first bank, 1 means the first and 2 is the second
+    currentSfx: '',     // The name of the last played Sfx
+    isOverlayShow: false,      //  is the audio selector window shown? Will set the class of window to hidden or not,
+                                // as well as set drum pad to make sound on key press or not
+    audio: null,           //  Current loaded audio
+    audioName: '',          //  CUrrent loaded audio name
+    isAudioPlaying: false     //    Is the audio currently playing?
 }
 
 function Reducer(state = initialState, action) {

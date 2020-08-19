@@ -1,9 +1,4 @@
 
-/*
-    TOOGLE_POWER:   Toggled when the power button is pressed. Toogles between power on and off
-    CHG_VOLUME:     Toggled when the volume spinner is spinned. Changes the volume of the sounds
-    DRUMPAD_PRESS:  Toggled when the user presses one of drum pads. This is required to Show the Sfx name in screen
-*/
 
 const ActionTypes = {
     TOOGLE_POWER: 'TOOGLE_POWER',

@@ -222,6 +222,29 @@ html {
   margin-left: 15px;
 }
 
+.audiosrc .audiosrc-volume {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.6rem;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.audiosrc .audiosrc-volume-input {
+  margin-left: 15px;
+}
+
 .drum-machine {
   width: min(80%, 1000px);
   height: min(80%, 500px);
@@ -276,18 +299,72 @@ html {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
   -ms-grid-rows: (1fr)[3];
       grid-template-rows: repeat(3, 1fr);
-      grid-template-areas: "volume volume power" "volume volume power" "bank bank bank";
+      grid-template-areas: "audio volume volume power" "audio volume volume power" "bank bank bank bank";
   padding: 10px 0px;
+}
+
+.control-panel .control-audio {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: audio;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1rem;
+  color: white;
+}
+
+.control-panel .control-audio .audio-panel {
+  height: 20px;
+  width: 20px;
+  margin: 10px 0px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #c0392b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.control-panel .control-audio .audio-panel::after {
+  content: "";
+  display: block;
+  height: 50%;
+  width: 50%;
+  border-radius: 50%;
+  background-color: black;
 }
 
 .control-panel .control-volume {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
-  -ms-grid-column: 1;
+  -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-area: volume;
   display: -webkit-box;
@@ -324,14 +401,12 @@ html {
   width: 5%;
   background-color: white;
   margin: auto;
-  -webkit-transform-origin: bottom;
-          transform-origin: bottom;
 }
 
 .control-panel .control-power {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
-  -ms-grid-column: 3;
+  -ms-grid-column: 4;
   grid-area: power;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -363,7 +438,7 @@ html {
 .control-panel .control-bank {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
+  -ms-grid-column-span: 4;
   grid-area: bank;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -635,7 +710,9 @@ html {
   }
   .control-panel {
     height: max(100px, 85%);
-        grid-template-areas: ". power ." "volume volume volume" "bank bank bank";
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "audio . power" "volume volume volume" "bank bank bank";
     padding: 10px 20px;
   }
   .control-panel .control-volume {

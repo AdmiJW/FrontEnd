@@ -141,7 +141,16 @@ html {
         button + button {
             margin-left: 15px;
         }
+    }
 
+    //=========== VOLUME CONTROL ==================
+    .audiosrc-volume {
+        @include font('digital', 1.6rem, white);
+        @include flex(row, center, center);
+
+        &-input {
+            margin-left: 15px;
+        }
     }
 }
 
@@ -187,12 +196,40 @@ html {
     width: 100%;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    grid-template-areas: "volume volume power"
-                        "volume volume power"
-                        "bank bank bank";
+    grid-template-areas: "audio volume volume power"
+                        "audio volume volume power"
+                        "bank bank bank bank";
     padding: 10px 0px;
+
+    //====================================
+    //=======TOGGLE AUDIO AREA=============
+    .control-audio {
+        grid-area: audio;
+
+        @include flex(column, center, center);
+        @include font('digital', 1rem, white);
+
+        .audio-panel {
+            height: 20px;
+            width: 20px;
+            margin: 10px 0px;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: $audio-input-color;
+            @include flex(row, center, center);
+
+            &::after {
+                content: "";
+                display: block;
+                height: 50%;
+                width: 50%;
+                border-radius: 50%;
+                background-color: black;
+            }
+        }
+    }
 
     //===============================
     //=======VOLUME AREA=============
@@ -220,8 +257,6 @@ html {
                 background-color: white;
 
                 margin: auto;
-
-                transform-origin: bottom;
             }
         }
     }
@@ -350,7 +385,8 @@ html {
     .control-panel {
         height: unquote('max(100px, 85%)');
 
-        grid-template-areas: ". power ."
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "audio . power"
                             "volume volume volume"
                             "bank bank bank";
 

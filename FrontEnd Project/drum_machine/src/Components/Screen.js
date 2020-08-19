@@ -10,6 +10,7 @@ class Screen extends React.Component {
         this.getBankName = this.getBankName.bind(this);
     }
 
+    //  Since bank state is passed in as Number codes, we need to decode it
     getBankName(code) {
         switch(code) {
             case 0: return 'Acoustic';

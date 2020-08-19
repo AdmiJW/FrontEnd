@@ -11,6 +11,7 @@ class Controls extends React.Component {
         this.powerBtnPress = this.powerBtnPress.bind(this);
         this.bankModeChanged = this.bankModeChanged.bind(this);
         this.volumeBtnPress = this.volumeBtnPress.bind(this);
+        this.openAudioPanel = this.openAudioPanel.bind(this);
 
         this.maxVolDegree = 300;
     }
@@ -27,16 +28,24 @@ class Controls extends React.Component {
         }, 500);
     }
 
+    //  Opens the audio overlay window
+    openAudioPanel() {
+        this.props.toogleOverlay();
+    }
 
+    //  Will return a CSS transform property which applies the rotation degree for window notch
     getRotationStyle() {
         const deg = this.props.volume * this.maxVolDegree / 100;
         return {transform: `rotate(${deg}deg)`};
     }
+    //  Get the volume set based on the degree of the mouse from the center of the element
     getRotationVolume(deg) {
         return Math.round(100 * deg / this.maxVolDegree );
     }
 
-
+    //  When the user mousedown (or touch hold) the volume notch, we need to apply the onmove event
+    //  on the notch itself, and will keep track of the degree from the center of notch, which determines
+    //  the volume
     volumeBtnPress(e) {
         const spinner = e.target;
         const [ height, width, x, y ] = [spinner.clientHeight, spinner.clientWidth, 
@@ -72,8 +81,11 @@ class Controls extends React.Component {
             }
         }
 
+        //  Applies the event listener when the user moves while holding down on the volume notch
         spinner.addEventListener('mousemove', move);
         spinner.addEventListener('touchmove', move);
+
+        //  Applies event listener when the user releases the volume notch, to remove the move event listener
         spinner.addEventListener('mouseup', () => {
             spinner.removeEventListener('mousemove', move);
         });
@@ -86,7 +98,7 @@ class Controls extends React.Component {
 
     }
 
-
+    //  Called when the bank selected is changed
     bankModeChanged(e) {
         const slider = e.target;
         this.props.changeBank( Math.round(slider.value / 50) );
@@ -103,6 +115,11 @@ class Controls extends React.Component {
                         style={ this.getRotationStyle() } 
                         onMouseDown={this.volumeBtnPress }
                         onTouchMove={this.volumeBtnPress } />
+                </div>
+                <div className='control-audio'>
+                    <label htmlFor='audio-panel'>Audio In</label>
+                    <div className='audio-panel' id='audio-panel' onClick={ this.openAudioPanel }>
+                    </div>
                 </div>
                 <div className='control-power' id='control-power'>
                     <button type='button' className='power-btn' id='power-btn' onClick={this.powerBtnPress } >
@@ -134,7 +151,8 @@ Controls.propTypes = {
 
     togglePower: PropType.func.isRequired,
     volumeChange: PropType.func.isRequired,
-    changeBank: PropType.func.isRequired
+    changeBank: PropType.func.isRequired,
+    toogleOverlay: PropType.func.isRequired
 }
 
 function mapStateToProps( store ) {
@@ -148,7 +166,8 @@ function mapDispatchToProps( dispatch ) {
     return {
         togglePower: () => dispatch(ActionCreator.togglePower() ),
         volumeChange: (volume) => dispatch(ActionCreator.volumeChange(volume) ),
-        changeBank: (code) => dispatch(ActionCreator.changeBank(code) )
+        changeBank: (code) => dispatch(ActionCreator.changeBank(code) ),
+        toogleOverlay: () => dispatch(ActionCreator.toogleOverlay() )
     }
 }
 

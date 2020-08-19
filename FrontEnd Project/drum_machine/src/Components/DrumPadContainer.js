@@ -6,8 +6,10 @@ import PropType from 'prop-types';
 import DrumPad from './DrumPad';
 import ActionCreators from '../Redux/Actions/ActionCreators';
 
+//  The Banks of Drum pad sfx. It will be fetched and converted into Base 64 Data URL upon mounted, so
+//  it will not keep fetching after some time passed
 const soundLib = {
-    EmptyBank: [['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['',''] ],
+    EmptyBank: [['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''],['',''] ],
     Bank1: [
         ['Open Hi-hat',
         'https://raw.githubusercontent.com/AdmiJW/Items/master/Misc/DrumSoundSelected/CYCdh_ElecK06-OpHat.wav'
@@ -97,6 +99,8 @@ const soundLib = {
     ]
 }
 
+
+//  Since soundLib is implemented using array, we need a way to map the keys to the index of array
 const mapKeyToIndex = {
     Q: 0,
     W: 1,
@@ -118,14 +122,17 @@ class DrumPadContainer extends React.Component {
         this.drumPadPressed = this.drumPadPressed.bind(this);
     }
 
+    //  The current bank selected, that should be play
     state = {
         bank: soundLib.Bank1
     }
 
     static getDerivedStateFromProps( nextProps, prevState ) {
-        const { isPowerOn, currentBank } = nextProps;
+        const { isPowerOn, isOverlayShow, currentBank } = nextProps;
+        //  If the power is off, or the overlay is shown, then apply empty bank
+        //  Else just get the selected bank based on the slider in Control component
         return {
-            bank:   isPowerOn?
+            bank:   isPowerOn && !isOverlayShow?
                     currentBank === 0? soundLib.Bank1 :
                     currentBank === 1? soundLib.Bank2 :
                                       soundLib.Bank3 : soundLib.EmptyBank
@@ -133,29 +140,56 @@ class DrumPadContainer extends React.Component {
     }
 
     componentDidMount() {
+        //  When the key is pressed, it will trigger the drum pad pressed callback with the key passed in as param
         document.addEventListener('keydown', e => {
             this.drumPadPressed( e.key.toUpperCase() );
         })
+
+        //  Upon component mounted, will fetch the URL's Sfx data, and convert it into Base 64 Data URL,
+        //  replace it as URL in the bankLib object, so audio HTML element won't need to fetch repeatedly
+        for (let bank in soundLib) {
+            soundLib[bank].forEach(sfx => {
+                if (sfx[1] ) {
+                    fetch(sfx[1])
+                    .then(e => e.blob() )
+                    .then(blob => {
+                        const fr = new FileReader();
+                        fr.onload = () => {
+                            sfx[1] = fr.result;
+                            this.forceUpdate();
+                        }
+                        fr.readAsDataURL(blob);
+                    });
+                }
+            });
+        }
     }
 
+    //  Called when an individual drum pad is clicked, or a keyboard key is pressed
     drumPadPressed(key) {
+        //  Since any key will trigger this function, we need to check if it is a valid key
         if ( mapKeyToIndex[key] === undefined ) return;
 
         const { volume, drumPadPress } = this.props;
 
         const audio = document.getElementById(key);
+
         const btn = document.getElementById(key + '-btn');
 
-        audio.volume = volume / 100;
-        audio.currentTime = 0;
-        audio.play();
+        if (audio) {
+            audio.volume = volume / 100;
+            audio.currentTime = 0;
+            audio.play();
+        }
 
+        //  Dispatch function, which sets the name of pressed Sfx to screen
         drumPadPress( this.state.bank[ mapKeyToIndex[key] ][0] );
 
+        //  Animation
         btn.className = 'drum-pad btn-press';
         setTimeout(() => {
             btn.className = 'drum-pad';
-        }, 500);
+        }, 100);
     }
 
 
@@ -188,6 +222,7 @@ DrumPadContainer.propTypes = {
     isPowerOn: PropType.bool.isRequired,
     volume: PropType.number.isRequired,
     currentBank: PropType.number.isRequired,
+    isOverlayShow: PropType.bool.isRequired,
 
     drumPadPress: PropType.func.isRequired
 };
@@ -197,7 +232,8 @@ function mapStateToProps( store ) {
     return {
         isPowerOn: store.isPowerOn,
         volume: store.volume,
-        currentBank: store.currentBank
+        currentBank: store.currentBank,
+        isOverlayShow: store.isOverlayShow
     }
 }
 

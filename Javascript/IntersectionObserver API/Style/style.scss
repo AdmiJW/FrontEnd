@@ -1,0 +1,392 @@
+
+:root {
+    --body-bg: #2c3e50;
+    --nav-bg: #34495e;
+    --nav-height: 70px;
+    --main-color: #eeeeee;
+    --login-bg: #27ae60;
+    --join-bg: #3498db;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    background-color: var(--body-bg);
+}
+
+//=========================================================
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin font($style, $weight, $size) {
+    @if ($style == 'logo') {
+        font-family: 'Bangers', cursive;
+    }
+    @if ($style == 'text') {
+        font-family: 'Roboto Slab', serif;
+    }
+    @if ($weight == 'bold') {
+        font-weight: 900;
+    }
+
+    font-size: $size;
+}
+
+//  Same effect as limiting the max-width (To prevent on wide screens, the text stretch across)
+//  Here the max width is set to 800px
+@mixin preventBigScreen() {
+    padding-left: unquote('max(15px , calc( (100vw - 800px) / 2) )') !important;
+    padding-right: unquote('max(15px, calc( (100vw - 800px) / 2) )') !important;
+}
+
+
+//==================HEADER==============================
+.header {
+    position: sticky;
+    top: 0;
+    @include preventBigScreen;
+    min-height: var(--nav-height);
+    background-color: var(--body-bg);
+    @include flex(row, space-between, center);
+    z-index: 999;
+
+    transition: min-height .5s ease, background-color .5s ease;
+    * {
+        transition: transform .5s ease;
+    }
+
+
+    // Company logo
+    .logo {
+        @include font('logo', 'regular', 3.5rem);
+        color: white;
+    }
+
+    // Navigation menu. Show as a row on wide screen, as openable, absolute menu on narrower screen
+    .nav {
+        .nav-links {
+            .nav-link {
+                @include font('text', 'regular', 2rem);
+                position: relative;
+                text-align: center;
+                text-decoration: none;
+                color: white;
+
+                //  When hovered, will show a underline transition
+                &::after {
+                    content: '';
+                    position: absolute;
+                    background-color: white;
+                    top: 100%;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    transition: transform .5s ease;
+                    transform-origin: center;
+                    transform: scaleX(0);
+                }
+                &:hover::after {
+                    transform: scaleX(1);
+                }
+            }
+        }
+        
+    }
+
+    // Navgation buttons - Login and Join
+    .nav-btn {
+        padding: 10px 25px;
+        cursor: pointer;
+        border: none;
+        border-radius: 20px;
+    }
+    #login, #login-wide {
+        background-color: var(--login-bg);
+        @include font('text', 'regular', 1.8rem);
+        color: white;
+        transition: all .5s ease;
+
+        &:hover, &:focus {
+            background-color: white;
+            color: black;
+            transform: scale(1.05);
+        }
+    }
+    #join, #join-wide {
+        background-color: var(--join-bg);
+        @include font('text', 'regular', 1.8rem);
+        color: white;
+
+        transition: all .5s ease;
+
+        &:hover, &:focus {
+            background-color: white;
+            color: black;
+            transform: scale(1.05);
+        }
+    }
+
+
+    // The button to show the nav menu on narrow screens
+    .toogle-menu-btn {
+        color: white;
+    }
+}
+
+//================HEADER STYLES===================
+.header.out-hero {
+    background-color: var(--nav-bg);
+    min-height: calc(var(--nav-height) - 10px);
+    * {
+        transform-origin: center;
+        transform: scale(0.9);
+    }
+
+}
+
+
+//==================HERO==============================
+.hero {
+    @include preventBigScreen;
+    width: 100%;
+    height: calc(100vh - var(--nav-height) );
+
+    @include flex(row, center,center);
+
+    h1 {
+        max-width: 500px;
+        color: white;
+        letter-spacing: .5rem;
+        @include font('logo', '', 5rem);
+        text-align: center;
+    }
+
+}
+
+
+//==================ABOUT US===================
+.about-us {
+    @include flex(column, flex-start, center);
+    @include preventBigScreen();
+    background-color: var(--main-color);
+    overflow-x: hidden;
+
+    //  Div Title
+    h2 {
+        margin: 30px 0px;
+        @include font('text', 'bold', 4rem);
+    }
+
+    //  The div which contains sections, where each contains the photo and text
+    .showcases {
+        display: grid;
+        margin: 30px 0px;
+        grid-template-rows: repeat(3, 1fr);
+
+        .section {
+            img {
+                width: 100%;
+                height: auto;
+
+                transition: transform 1s ease, opacity .5s ease;
+            }
+
+            &-txt {
+                @include font('text', 'regular', 1.5rem);
+                text-align: center;
+
+                transition: transform 1s ease, opacity .5s ease;
+                transition-delay: .5s;
+
+                h3 { @include font('text', 'bold', 2.5rem); }
+            }
+
+            // Alternate the image and the text position at even numbered sections
+            &:nth-child(2n) {
+                img {
+                    grid-column: 2;
+                }
+                .section-txt {
+                    grid-column: 1;
+                    grid-row: 1;
+                }
+            }
+        }
+
+
+    }
+}
+
+//  The CSS applied to the sections when it haven't been scrolled to
+.section.out-screen {
+    img {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+
+    .section-txt {
+        transform: translateX(50%);
+        opacity: 0;
+    }
+
+    &:nth-child(2n) {
+        img {
+            transform: translateX(50%);
+        }
+        .section-txt {
+            transform: translateX(-50%);
+        }
+    }
+
+}
+
+//==================FOOTER ===================
+.footer {
+    @include preventBigScreen();
+    @include flex(column, flex-start, center);
+
+    h2 {
+        @include font('text', 'bold', 5rem);
+        color: white;
+        margin: 30px 0px;
+    }
+
+    p {
+        @include font('text', 'regular', 1.5rem);
+        color: white;
+        text-align: center;
+        margin: 10px 0px;
+    }
+}
+
+
+
+
+//===========MEDIA QUERIES=================
+
+// Wide screen navigation set up. The navigation will be in a row on the header
+@media screen and (min-width: 701px) {
+    .header {
+        .nav {
+            .nav-links {
+                @include flex(row, space-between, center);
+
+                .nav-link {
+                    margin: 0px 4px;
+                }
+            }
+
+            .menu-btns {
+                display: none;
+            }
+        }
+
+        .widescreen-btn {
+            @include flex(row, space-between, center);
+
+            button {
+                margin: 0px 4px;
+            }
+        }
+
+        .toogle-menu-btn {
+            display: none;
+        }
+    }
+}
+
+// At 500px above, set the about us as grid. At 500px below, the about us sections will just show in a single column
+@media screen and (min-width: 500px) {
+    .showcases {
+        gap: 50px 0px;
+        .section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0px 20px;
+            align-items: center;
+
+            &-txt {
+                text-align: left !important;
+            }
+
+            &:nth-child(2n) .section-txt {
+                text-align: right !important;
+            }
+        }
+    }
+}
+
+
+//  Narrow screen. Set up the navigation
+@media screen and (max-width: 700px) {
+    .header {
+        .nav {
+            overflow-y: auto;
+            position: fixed;
+            width: 50vw;
+            height: 100vh;
+            top: 0;
+            left: -50%;
+            padding: 0px 20px;
+            background-color: var(--nav-bg);
+            z-index: 100;
+            
+            border-top: solid 5px #2980b9;
+
+            transition: left .5s ease;
+            transform: scale(1) !important;
+            * {
+                transform: scale(1) !important;
+            }
+
+            &.open {
+                left: 0px;
+            }
+
+            .nav-links {
+                @include flex(column, flex-start, center);
+                padding: 10% 0px;
+
+                a {
+                    color: white;
+                    margin: 5px 0px;
+                }
+            }
+
+            .menu-btns {
+                padding: 5% 0px;
+                @include flex(column, flex-start, center);
+
+                button {
+                    margin: 10px 0px;
+                }
+            }
+        }
+
+
+        .toogle-menu-btn {
+            @include font('', '', 3rem);
+        }
+    }
+}
+
+// Very narrow screen. Put widescreen button display to nones
+@media screen and (max-width: 400px) {
+    
+    .widescreen-btn {
+        display: none;
+    }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title>Intersection Observer Sample Website</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta charset="UTF-8"/>
+
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+
+    <!-- CSS -->
+    <link rel='stylesheet' href='Style/style.css' />
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto+Slab:wght@400;900&display=swap" rel="stylesheet">
+
+    <!-- Script -->
+    <script src='script.js'></script>
+</head>
+<body>
+    <!-- The sticky header menu -->
+    <header class='header' id='header'>
+        <span class='logo' id='logo'>IntObsv</span>
+        <nav class='nav' id='nav'>
+            <div class='nav-links' id='nav-links'>
+                <a href='#' class='nav-link' id='home'>Home</a>
+                <a href='#' class='nav-link' id='about'>About</a>
+                <a href='#' class='nav-link' id='another'>Another Page</a>
+                <a href='#' class='nav-link' id='pricing'>Pricing</a>
+                <a href='#' class='nav-link' id='blog'>Blog</a>
+            </div>
+
+            <div class='menu-btns' id='menu-btns'>
+                <button type='button' class='nav-btn' id='login'>Login</button>
+                <button type='button' class='nav-btn' id='join'>Join</button> 
+            </div>
+        </nav>
+        <nav class='widescreen-btn' id='widescreen-btn' >
+            <button type='button' class='nav-btn' id='login-wide'>Login</button>
+            <button type='button' class='nav-btn' id='join-wide'>Join</button> 
+        </nav>
+        <i class="fas fa-ellipsis-h toogle-menu-btn" id='toogle-menu-btn'></i>
+    </header>
+    
+    <main class='main'>
+        <div class='hero' id='hero'>
+            <h1>Intersection Observer is Just Purely Awesome!</h1>
+        </div>
+        
+        <div class='about-us' id='about-us'>
+            <h2>About Us</h2>
+            <div class='showcases' id='showcases'>
+                <section class='section out-screen' id='section-1'>
+                    <img loading='lazy' src='https://live.staticflickr.com/2912/13981352255_fc59cfdba2_b.jpg' alt='sample-img-1'/>
+                    <div class='section-txt' id='section-1-txt'>
+                        <h3>Fast and Reliable</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, quos?
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, laboriosam!
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, fuga.
+                        </p>
+                    </div>
+                </section>
+                <section class='section out-screen' id='section-2'>
+                    <img loading='lazy' src='https://live.staticflickr.com/4561/38054606355_26429c884f_b.jpg' alt='sample-img-2'/>
+                    <div class='section-txt' id='section-2-txt'>
+                        <h3>Responsible and Trustworthy</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, quos?
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, laboriosam!
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, fuga.
+                        </p>
+                    </div>
+                </section>
+                <section class='section out-screen' id='section-3'>
+                    <img loading='lazy' src='https://cdn2.hubspot.net/hubfs/4976390/Imported_Blog_Media/BLG_Andrew-G_-River-Sample_09_13_12.png' alt='sample-img-3'/>
+                    <div class='section-txt' id='section-3-txt'>
+                        <h3>Quality Assurance</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, quos?
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, laboriosam!
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, fuga.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class='footer' id='footer'>
+        <h2>Contact Us!</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, maxime?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, placeat?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, placeat.
+        </p>
+    </footer>
+</body>
+</html>
