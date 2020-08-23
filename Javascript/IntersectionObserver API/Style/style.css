@@ -26,8 +26,8 @@ body {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  padding-left: max(15px , calc( (100vw - 800px) / 2) ) !important;
-  padding-right: max(15px, calc( (100vw - 800px) / 2) ) !important;
+  padding-left: max(15px , calc( (100vw - 1000px) / 2) ) !important;
+  padding-right: max(15px, calc( (100vw - 1000px) / 2) ) !important;
   min-height: var(--nav-height);
   background-color: var(--body-bg);
   display: -webkit-box;
@@ -149,8 +149,8 @@ body {
 }
 
 .hero {
-  padding-left: max(15px , calc( (100vw - 800px) / 2) ) !important;
-  padding-right: max(15px, calc( (100vw - 800px) / 2) ) !important;
+  padding-left: max(15px , calc( (100vw - 1000px) / 2) ) !important;
+  padding-right: max(15px, calc( (100vw - 1000px) / 2) ) !important;
   width: 100%;
   height: calc(100vh - var(--nav-height));
   display: -webkit-box;
@@ -191,8 +191,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: max(15px , calc( (100vw - 800px) / 2) ) !important;
-  padding-right: max(15px, calc( (100vw - 800px) / 2) ) !important;
+  padding-left: max(15px , calc( (100vw - 1000px) / 2) ) !important;
+  padding-right: max(15px, calc( (100vw - 1000px) / 2) ) !important;
   background-color: var(--main-color);
   overflow-x: hidden;
 }
@@ -274,8 +274,8 @@ body {
 }
 
 .footer {
-  padding-left: max(15px , calc( (100vw - 800px) / 2) ) !important;
-  padding-right: max(15px, calc( (100vw - 800px) / 2) ) !important;
+  padding-left: max(15px , calc( (100vw - 1000px) / 2) ) !important;
+  padding-right: max(15px, calc( (100vw - 1000px) / 2) ) !important;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -1,0 +1,231 @@
+
+// VARIABLES
+:root {
+    --bg-color: #2c3e50;
+    --selector-color: rgb(219, 219, 219);
+}
+$bg-color: #2c3e50;
+$selector-color: rgb(219, 219, 219);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+//==================================================
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+
+@keyframes bounce {
+    0%, 7.5%, 12.5%, 17.5% {
+        transform: translateX(0px);
+    }
+    5% {
+        transform: translateX(50%);
+    }
+    10% {
+        transform: translateX(25%);
+    }
+    15% {
+        transform: translateX(12.5%);
+    }
+}
+@keyframes bounce-rev {
+    0%, 7.5%, 12.5%, 17.5% {
+        transform: translateX(0px);
+    }
+    5% {
+        transform: translateX(-50%);
+    }
+    10% {
+        transform: translateX(-25%);
+    }
+    15% {
+        transform: translateX(-12.5%);
+    }
+}
+
+
+//====================================================
+
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    @include flex(column, flex-start, center);
+    
+    background-color: var(--bg-color);
+}
+
+
+//  CAROUSEL ============================================
+
+.carousel-track {
+
+    @include flex(row, space-between, center);
+    position: relative;
+    width: 90%;
+    flex-grow: 1;
+    margin: 5vh 0px;
+
+    overflow-x: hidden;
+
+    //  LEFT & RIGHT BUTTON ================================
+    .carousel-btn {
+        @include flex(row, center, center);
+        min-width: 50px;
+        min-height: 50px;
+        margin: 0px 10px;
+        z-index: 999;
+        
+        border-radius: 50%;
+        border: none;
+
+        font-size: 4rem;
+
+        cursor: pointer;
+
+        &:hover, &:focus {
+            background-color: darken(white, 25%);
+        }
+
+        animation: bounce 5s ease-out 0s infinite normal;
+    }
+    #btn-right {
+        animation: bounce-rev 5s ease-out 0s infinite normal;
+    }
+
+
+    //  SLIDES ====================================
+    .slide {
+        position: absolute;
+        @include flex(column, space-evenly, center);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        transition: left 1s ease;
+
+        // Slide Image (Could have use background property instead)
+        .slide-img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            object-fit: cover;
+            object-position: center;
+        }
+
+
+        // Slide title
+        .slide-title {
+            opacity: 0;
+            transform: translateX(-50%);
+            
+            transition: opacity 3s ease, transform 1s ease;
+            transition-delay: 1s;
+        }
+        &.selected .slide-title {
+            opacity: 1;
+            transform: translateX(0);
+
+            position: relative;
+            max-width: 75%;
+            font-size: 4rem;
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(51, 52, 53, 0.7);
+            color: white;
+
+            z-index: 1;
+        }
+
+        // Slide text
+        .slide-txt {
+            opacity: 0;
+            transform: translateX(50%);
+            
+            transition: opacity 3s ease, transform 1s ease;
+            transition-delay: 2s;
+        }
+        &.selected .slide-txt {
+            opacity: 1;
+            transform: translateX(0);
+
+            position: relative;
+            max-width: 75%;
+            font-size: 2rem;
+            text-align: center;
+            padding: 15px;
+            background-color: rgba(51, 52, 53, 0.7);
+            color: white;
+
+            z-index: 1;
+        }
+
+
+    }
+
+
+
+}
+
+
+
+
+// SELECTOR ==========================
+.selector {
+    @include flex(row, space-between, center); 
+    min-width: 90%;
+    padding: 20px 0px;
+
+
+    &-option {
+        min-height: 10px;
+        flex-grow: 1;
+        background-color: var(--selector-color);
+
+        cursor: pointer;
+
+        transition: background-color .5s ease;
+
+        &:hover {
+            background-color: darken( $selector-color, 25%);
+        }
+        &.selected {
+            background-color: #3498db;
+        }
+    }
+
+    &-option + &-option {
+        margin-left: 3%;
+    }
+}
+
+
+
+
+//  MEDIA QUERIES ==============================
+@media screen and (max-width: 450px) {
+    .carousel-track {
+        .carousel-btn {
+            min-width: 35px;
+            min-height: 35px;
+
+            font-size: 2rem;
+        }
+    }
+    
+}

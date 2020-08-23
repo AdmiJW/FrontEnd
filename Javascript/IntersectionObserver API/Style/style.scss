@@ -48,8 +48,8 @@ body {
 //  Same effect as limiting the max-width (To prevent on wide screens, the text stretch across)
 //  Here the max width is set to 800px
 @mixin preventBigScreen() {
-    padding-left: unquote('max(15px , calc( (100vw - 800px) / 2) )') !important;
-    padding-right: unquote('max(15px, calc( (100vw - 800px) / 2) )') !important;
+    padding-left: unquote('max(15px , calc( (100vw - 1000px) / 2) )') !important;
+    padding-right: unquote('max(15px, calc( (100vw - 1000px) / 2) )') !important;
 }
 
 
