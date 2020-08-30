@@ -1,0 +1,355 @@
+
+@import 'config';
+
+html {
+    font-size: 10px;
+}
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing : border-box;
+}
+
+//==========================================================
+
+.main {
+    width: 100vw;
+    height: 100vh;
+
+    @include flex(column, space-around, center);
+
+    background-color: #34495e;      // Fallback Color
+    background-image: $background;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+
+}
+
+//  The div which contains the timer and the note. The existance of this div is so that the timer and note
+//  will be in 1 single row, side by side
+.timer-and-note {
+    width: unquote(' min(800px, 80%) ');
+    height: unquote(' clamp(100px, 50vh,500px) ');
+
+    @include flex(row, center, center);
+}
+
+
+//  ============================================================
+//              CONFIG WINDOW
+//  ============================================================
+.config {
+    @include flex(column, flex-start, stretch);
+
+    width: 90vw;
+    height: 90vh;
+
+    z-index: 999;
+
+    position: fixed;
+
+    //  By Default, the setting window is not shown (Closed)
+    transform: translateX(-200%);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+
+    //  The config window header, which consists of the logo, title and the close button
+    &-head {
+        @include flex(row, space-between, center);
+        @include font('text', 3rem, $config-color);
+        
+        border-radius: 10px 10px 0px 0px;
+        min-height: 30px;
+        padding: 5px 15px;
+
+        background-color: $config-bg;
+
+        #close-config-btn {
+            @include no-default-btn;
+            @include btn-transition(1.3);
+            @include font('text', 2.5rem, $config-color);
+        }
+        
+    }
+
+    //  Config window's body. All of the settings goes here
+    &-body {
+        flex-grow: 1;
+        @include flex(column, flex-start, stretch);
+        background-color: lighten($config-bg, 5%); 
+        
+        overflow-y: auto;
+
+        padding: 20px;
+    
+        .config-set {
+            border: solid 2px $config-color;
+            flex-grow: 1;
+
+            legend {
+                text-align: center;
+                @include font('text', 3rem, $config-legend);
+            }
+
+            .config-wrapper {
+                display: grid;
+                height: 90%;
+                
+                padding: 20px;
+                gap: 15px;
+
+                justify-items: center;
+                align-items: center;
+
+                @include font('text', 2rem, $config-color);
+
+                input, select {
+                    width: 90%;
+                }
+
+                input[type='file'] {
+                    display: none;
+                }
+                .config-btn {
+                    @include no-default-btn;
+                    @include btn-transition(1.1);
+                    @include font('text', 2rem, $config-color);
+                    border: solid 2px $config-color;
+                    border-radius: 10px;
+                    padding: 5px;
+                    margin: 0px 10px;
+                }
+
+                #config-delete-alarm {
+                    color: red;
+                    border-color: red;
+                }
+                
+            }
+
+            .config-val {
+                color: $config-highlight;
+            }
+        }
+    }
+
+}
+
+//  When config window is opened, indicated by .opened class, show the config window
+.config.opened {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+//  ============================================================
+//              MOTIVATION QUOTE BOARD
+//  ============================================================
+.motiv {
+    position: relative;
+    @include flex(column, space-evenly, center);
+
+    width: unquote(' min(500px, 80%) ');
+    height: unquote(' clamp(100px, 30vh,300px) ');
+
+    padding: 10px 0px;
+
+    overflow: auto;
+
+    border: solid 8px $quote-border;
+    border-radius: 10px;
+    background-color: $quote-bg;
+
+    //  SPINNER
+    #spinner {
+        position: absolute;
+        color: white;
+        opacity: 0;
+        animation: none;
+        transition: opacity .5s ease;
+    }
+
+    //  Quote Text
+    #motiv-quote {
+        max-width: 80%;
+        @include font('handwriting', unquote('min(4vh, 4vw, 2.5rem)'), white);
+        text-align: left;
+        padding-left: 20px;
+        border-left: 3px solid white;
+        border-radius: 2px;
+
+        //  This class is applied when the quote is detected to be large (long quote). Shrink the font size
+        &.lg-quote {
+            font-size: unquote('min(3vh, 3vw, 2rem)');
+        }
+    }
+
+    //  Quote Cite (Author)
+    #motiv-cite {
+        width: 80%;
+        @include font('handwriting', unquote('min(3vh, 3vw, 2rem)'), rgb(221, 221, 221));
+        text-align: right;
+
+        &::before {
+            content: '-';
+        }
+    }
+
+    //  .loading class applied during fetching quote process. Show the spinner
+    &.loading {
+        @include flex(column, center, center);
+
+        #spinner {
+            opacity: 1;
+            animation: spinning 2s linear 0s infinite normal;
+        }
+    }
+    
+
+}
+
+
+
+//  ============================================================
+//              NOTE
+//  ============================================================
+.note-div {
+    display: none;
+}
+
+.note {
+    @include flex(column, space-evenly, center);
+    position: relative;
+    height: 100%;
+
+    overflow: auto;
+
+    z-index: 2;
+
+    background-color: $note-bg;
+
+    transform: skewX(5deg);
+
+    &-label {
+        @include font('handwriting', 2.7rem, black);
+        text-align: center;
+    }
+    p {
+        @include font('handwriting', 2rem, black);
+        text-align: center;
+    }
+}
+
+//  Just a decoration which make the note look 3D
+.note-bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: -3.8vw;
+
+    background-color: $note-shadow;
+    z-index: 1;
+
+    transform: skewX(-5deg);
+}
+
+
+//  ============================================================
+//              TIMER
+//  ============================================================
+.timer {
+    width: unquote(' min(500px, 80%) ');
+    height: 100%;
+
+    overflow: auto;
+    
+    @include flex(column, space-evenly, center);
+
+    border: solid 10px $timer-border;
+    background-color: $timer-bg;
+
+    &-time {
+        flex-grow: 1;
+        width: 100%;
+        @include flex(column, center, center);
+
+        //  Showing the timer status, either Session, Break or Initialization
+        .timer-label {
+            @include font('text', 3rem, $timer-color);
+        }
+
+        //  Showing the time left in MM:SS
+        .time-left {
+            @include font('digital', 6rem, $timer-color);
+        }
+    }
+
+    //  The toolbar of the timer. Play pause button, reset and open config window button is here
+    &-options {
+        @include flex(row, space-evenly, center);
+
+        width: unquote(' min(300px, 100%) ');
+        padding: 10px 0px;
+
+        button {
+            @include no-default-btn;
+            @include btn-transition(1.3);
+            @include font('', 2rem, $timer-color);
+        }
+    }
+
+}
+
+
+
+
+
+//  ============================================================
+//              MEDIA QUERY
+//  ============================================================
+
+//  When the screen is big,
+//  >   Make the note appear at side of timer
+//  >   The config window show the settings in 2 columns, instead of single column only
+@media screen and (min-width: 700px) {
+    .timer-and-note {
+        @include flex(row, space-between, center);
+    }
+
+    .note-div {
+        display: block;
+        position: relative;
+        height: 100%;
+        margin: 0px 30px;
+        min-width: 200px;
+    }
+
+    .config {
+        &-body .config-set {
+            .config-wrapper {
+                grid-template-columns: 1fr 2fr;
+
+                padding: 0px 20px 30px 20px;
+                gap: 5px;
+
+                justify-items: start;
+
+                .btn-control {
+                    justify-self: center;
+                }
+                
+            }
+        }
+    
+    }
+}
+
+
+//  When screen is small, make the timer big so text won't overflow
+@media screen and (max-width: 400px) {
+    .timer {
+        width: 100%;
+    }
+}
