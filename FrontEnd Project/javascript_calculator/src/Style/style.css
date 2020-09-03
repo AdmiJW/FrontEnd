@@ -1,0 +1,225 @@
+html {
+  font-size: 10px;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  background-color: #bdc3c7;
+  background-image: url("https://raw.githubusercontent.com/AdmiJW/Items/master/Misc/school-classroom-in-blur-background-without-young-student-blurry-view-of-elementary-class-room-no-kid-or-teacher-with-chairs-and-tables-in-campus-vintage-effect-style-pictures/1375.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.calculator {
+  width:  clamp(320px, 70vw, 500px) ;
+  height:  clamp(300px, 80vh, 800px) ;
+  padding: 20px;
+  background-color: #34495e;
+  border-radius: 30px;
+  -webkit-box-shadow: 0px 20px 0px 0px #2b3c4e;
+          box-shadow: 0px 20px 0px 0px #2b3c4e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.screen {
+  width: 100%;
+  min-height: 70px;
+  max-height: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding: 0px 5px;
+  background-color: #95a5a6;
+  border-radius: 10px;
+}
+
+.screen-formula {
+  text-align: right;
+  overflow-wrap: anywhere;
+  overflow-y: auto;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
+  font-size:  min(3vw, 3vh, 20px) ;
+  color: black;
+}
+
+.screen hr {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  border: none;
+}
+
+.screen-last {
+  text-align: right;
+  overflow-wrap: anywhere;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
+  font-size:  min(5vw, 5vh, 40px) ;
+  color: black;
+}
+
+.buttons {
+  height: 65%;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[5];
+      grid-template-rows: repeat(5, 1fr);
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.buttons .button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  background-color: white;
+  color: black !important;
+  -webkit-box-shadow: 0px 5px 0px 0px #cccccc;
+          box-shadow: 0px 5px 0px 0px #cccccc;
+  font-family: 'Balsamiq Sans', cursive;
+  font-weight: 400;
+  font-size: 1.7rem;
+  color: black;
+}
+
+.buttons .button:hover, .buttons .button:focus {
+  border: solid 2px orange;
+}
+
+.buttons .button.pressed {
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.buttons .button#equals {
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 2;
+  grid-area: 5/4/6/6;
+  cursor: pointer;
+  border-radius: 2px;
+  background-color: #d35400;
+  color: white !important;
+  -webkit-box-shadow: 0px 5px 0px 0px #6d2b00;
+          box-shadow: 0px 5px 0px 0px #6d2b00;
+}
+
+.buttons .button#equals:hover, .buttons .button#equals:focus {
+  border: solid 2px orange;
+}
+
+.buttons .button#equals.pressed {
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.buttons .button#del, .buttons .button#clear {
+  cursor: pointer;
+  border-radius: 2px;
+  background-color: #3333ff;
+  color: white !important;
+  -webkit-box-shadow: 0px 5px 0px 0px #0000cc;
+          box-shadow: 0px 5px 0px 0px #0000cc;
+}
+
+.buttons .button#del:hover, .buttons .button#del:focus, .buttons .button#clear:hover, .buttons .button#clear:focus {
+  border: solid 2px orange;
+}
+
+.buttons .button#del.pressed, .buttons .button#clear.pressed {
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.buttons .button#sin, .buttons .button#cos, .buttons .button#tan, .buttons .button#pow, .buttons .button#sqrt {
+  cursor: pointer;
+  border-radius: 2px;
+  background-color: #2c3e50;
+  color: white !important;
+  -webkit-box-shadow: 0px 5px 0px 0px #080b0e;
+          box-shadow: 0px 5px 0px 0px #080b0e;
+}
+
+.buttons .button#sin:hover, .buttons .button#sin:focus, .buttons .button#cos:hover, .buttons .button#cos:focus, .buttons .button#tan:hover, .buttons .button#tan:focus, .buttons .button#pow:hover, .buttons .button#pow:focus, .buttons .button#sqrt:hover, .buttons .button#sqrt:focus {
+  border: solid 2px orange;
+}
+
+.buttons .button#sin.pressed, .buttons .button#cos.pressed, .buttons .button#tan.pressed, .buttons .button#pow.pressed, .buttons .button#sqrt.pressed {
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+@media screen and (max-width: 400px) {
+  .screen-formula {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: black;
+  }
+  .screen-last {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    color: black;
+  }
+}
+/*# sourceMappingURL=style.css.map */

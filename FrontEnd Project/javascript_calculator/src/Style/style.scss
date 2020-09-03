@@ -1,0 +1,125 @@
+
+@import 'config';
+
+html {
+    font-size: 10px;
+}
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+//==================================================================
+
+
+#root {
+    width: 100vw;
+    height: 100vh;
+
+    @include background( #bdc3c7, $background-url );
+    @include flex(row, center, center);
+}
+
+
+
+// CALCULATOR =====================================================
+.calculator {
+
+    width: unquote(' clamp(320px, 70vw, 500px) ');
+    height: unquote(' clamp(300px, 80vh, 800px) ');
+    padding: 20px;
+
+    background-color: $calculator-color;
+    border-radius: 30px;
+
+    box-shadow: 0px 20px 0px 0px darken($calculator-color, 5%);
+    
+    @include flex(column, space-between, center);
+
+}
+
+
+// SCREEN =====================================================
+.screen {
+    width: 100%;
+    min-height: 70px;
+    max-height: 30%;
+    @include flex(column, space-between, flex-end);
+    padding: 0px 5px;
+
+    background-color: $screen-color;
+    border-radius: 10px;
+
+    &-formula {
+        text-align: right;
+        overflow-wrap: anywhere;
+        overflow-y: auto;
+        @include font('digital', unquote(' min(3vw, 3vh, 20px) '), black);
+    }
+
+    hr {
+        width: 100%;
+        height: 1px;
+        background-color: black;
+        border: none;
+    }
+
+    &-last {
+        text-align: right;
+        overflow-wrap: anywhere;
+        @include font('digital', unquote(' min(5vw, 5vh, 40px) '), black );
+    }
+
+}
+
+
+
+// BUTTONS ====================================================
+.buttons {
+
+    height: 65%; //TEMP
+    width: 100%;
+
+
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+
+    .button {
+        @include removeBtnStyle;
+        @include customBtnStyle(white, black);
+        @include font('key', 1.7rem, black);
+
+        &#equals {
+            grid-area: 5/4/6/6;
+            @include customBtnStyle($equal-btn-color, white);
+        }
+
+        &#del, &#clear {
+            @include customBtnStyle($del-ac-btn-color, white);
+        }
+
+        &#sin, &#cos, &#tan, &#pow, &#sqrt {
+            @include customBtnStyle( $func-btn-color, white);
+        }
+    }
+}
+
+
+
+
+
+// MEDIA QUERIES =======================================
+@media screen and (max-width: 400px) {
+    .screen {
+        &-formula {
+            @include font('digital', 15px, black);
+        }
+    
+        &-last {
+            @include font('digital', 25px, black );
+        }
+    }
+}
