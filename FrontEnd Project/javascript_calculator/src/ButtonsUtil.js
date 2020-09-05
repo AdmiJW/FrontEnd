@@ -6,7 +6,7 @@ const buttons = [
     ['sin', 'sin', false],
     ['cos', 'cos', false],
     ['tan', 'tan', false],
-    ['xⁿ', 'pow', false],
+    ['fas fa-superscript', 'pow', true],
     ['fas fa-square-root-alt', 'sqrt', true],
     ['7', 'seven', false],
     ['8', 'eight', false],

@@ -1,0 +1,32 @@
+
+$dark-theme-bg: #34495e;
+$light-theme-bg: #ecf0f1;
+
+:root {
+    --maxWidth: 1200px;
+}
+
+@mixin preventLargeScreen() {
+    padding-left: unquote(' max(20px, calc( (100vw - var(--maxWidth) ) / 2 ) )' );
+    padding-right: unquote(' max(20px, calc( (100vw - var(--maxWidth) ) / 2 ) )' );
+}
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+
+@mixin font($style, $size, $color, $bold) {
+    @if ($style == 'text') {
+        font-family: 'Titillium Web', sans-serif;
+    }
+
+    @if ($bold == 'bold') {
+        font-weight: 700;
+    }
+    font-size: $size;
+    color: $color;
+}

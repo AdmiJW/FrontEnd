@@ -1,0 +1,41 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: content-box;
+}
+:root {
+    --bg-color: #34495e;
+}
+html {
+    font-size: 10px;
+}
+
+
+body {
+    height: 100vh;
+
+    background-color: var(--bg-color) !important;
+}
+h1 {
+    font-size: 4rem !important;
+    color: white;
+}
+
+#map {
+    min-height: 400px;
+}
+
+.pinLocation {
+    color: white;
+    font-size: 2rem;
+}
+.pinLocation__findMe {
+    font-size: 2rem !important;
+}
+.pinLocation__search__field {
+    height: 100% !important;
+    font-size: 2rem !important;
+}
+.pinLocation__search__btn {
+    font-size: 2rem !important;
+}

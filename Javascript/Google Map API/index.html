@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Google Map API</title>
+    <meta charset='UTF-8'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name='description' content='My little google map API project' />
+    <meta name='author' content='AdmiJW'/>
+    <meta name='keywords' content='HTML CSS JS API GoogleMap'/>
+
+    <!-- CSS -->
+    <link rel='stylesheet' type='text/css' href='style.css'/>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- JS -->
+    <script src='script.js'></script>
+
+    <!-- Google Map API -->
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjaQVcApTvbWoWcZ5G6D5sDwHPVNFyj5s&callback=initMap">
+    </script>
+
+</head>
+
+<body class='container d-flex flex-column'>
+    <h1 class='text-center my-5'>I Know Where you Live</h1>
+
+    <div class='pinLocation py-3 form-group form-row' id='pinLocation'>
+        <button type='button' class='pinLocation__findMe btn btn-primary col-md-3' id='pinLocation__findMe'>Find My Location</button>
+        <span class='col-md-3 text-center '>or</span>
+        <div class='pinLocation__search input-group col-md-6' id='pinLocation__search'>
+            <input type='text' class='pinLocation__search__field form-control' id='pinLocation__search__field'
+                placeholder='Search location...' />
+            <button type='button' class='pinLocation__search__btn btn btn-success' id='pinLocation__search__btn'>
+                <i class="fas fa-search-location"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class='map flex-grow-1 my-3' id='map'>
+
+    </div>
+    
+</body>
+
+</html>
