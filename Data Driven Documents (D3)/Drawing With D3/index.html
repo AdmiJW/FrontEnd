@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+    
+<head>
+    <title>Drawing Doraemon with D3</title>
+    <meta charset='UTF-8'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    <meta name='author' content='AdmiJW'/>
+
+    <!-- D3 Content Distribution Network -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <!-- JS -->
+    <script src='script.js' ></script>
+
+    <!-- INLINE STYLING FOR CENTERING-->
+    <style>
+        body {
+            margin: 0;
+            background-color: #2c3e50;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        svg {
+            background-color: white;
+            border: 5px solid red;
+
+            /*  SUitable size for all screen */
+            width: min(75vw, 75vh);
+        }
+    </style>
+</head>
+
+<body>
+    <svg viewBox='0 0 200 200'></svg>
+</body>
+
+</html>
