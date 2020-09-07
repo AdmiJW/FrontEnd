@@ -1,0 +1,321 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+@-webkit-keyframes shakey {
+  20% {
+    -webkit-transform: scale(1.1) rotate(-5deg);
+            transform: scale(1.1) rotate(-5deg);
+  }
+  40% {
+    -webkit-transform: scale(1.1) rotate(5deg);
+            transform: scale(1.1) rotate(5deg);
+  }
+  60% {
+    -webkit-transform: scale(1.1) rotate(-5deg);
+            transform: scale(1.1) rotate(-5deg);
+  }
+  80% {
+    -webkit-transform: scale(1.1) rotate(5deg);
+            transform: scale(1.1) rotate(5deg);
+  }
+  0%, 100% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes shakey {
+  20% {
+    -webkit-transform: scale(1.1) rotate(-5deg);
+            transform: scale(1.1) rotate(-5deg);
+  }
+  40% {
+    -webkit-transform: scale(1.1) rotate(5deg);
+            transform: scale(1.1) rotate(5deg);
+  }
+  60% {
+    -webkit-transform: scale(1.1) rotate(-5deg);
+            transform: scale(1.1) rotate(-5deg);
+  }
+  80% {
+    -webkit-transform: scale(1.1) rotate(5deg);
+            transform: scale(1.1) rotate(5deg);
+  }
+  0%, 100% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+}
+
+body {
+  background-color: #34495e;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body h1 {
+  text-align: center;
+  font-size: 4rem;
+  padding: .5em 0px;
+  font-family: 'Grandstander', cursive;
+}
+
+.burgerbuilder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.burgerbuilder__controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 10px 0px;
+}
+
+.burgerbuilder__controls .btn {
+  margin: 5px 5px;
+}
+
+.burgerbuilder__controls #add_bunTop, .burgerbuilder__controls #add_bunBottom, .burgerbuilder__controls #add_cheese {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Grandstander', cursive;
+  font-size: 2rem;
+  padding: 10px 20px;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  color: white;
+  background-color: #f39c12;
+}
+
+.burgerbuilder__controls #add_bunTop:hover, .burgerbuilder__controls #add_bunTop:focus, .burgerbuilder__controls #add_bunBottom:hover, .burgerbuilder__controls #add_bunBottom:focus, .burgerbuilder__controls #add_cheese:hover, .burgerbuilder__controls #add_cheese:focus {
+  -webkit-animation: shakey 1s ease;
+          animation: shakey 1s ease;
+}
+
+.burgerbuilder__controls #add_egg {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Grandstander', cursive;
+  font-size: 2rem;
+  padding: 10px 20px;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  color: #e67e22;
+  background-color: #ecf0f1;
+}
+
+.burgerbuilder__controls #add_egg:hover, .burgerbuilder__controls #add_egg:focus {
+  -webkit-animation: shakey 1s ease;
+          animation: shakey 1s ease;
+}
+
+.burgerbuilder__controls #add_lettuce {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Grandstander', cursive;
+  font-size: 2rem;
+  padding: 10px 20px;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  color: white;
+  background-color: #27ae60;
+}
+
+.burgerbuilder__controls #add_lettuce:hover, .burgerbuilder__controls #add_lettuce:focus {
+  -webkit-animation: shakey 1s ease;
+          animation: shakey 1s ease;
+}
+
+.burgerbuilder__controls #add_patty {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Grandstander', cursive;
+  font-size: 2rem;
+  padding: 10px 20px;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  color: white;
+  background-color: #b42a00ce;
+}
+
+.burgerbuilder__controls #add_patty:hover, .burgerbuilder__controls #add_patty:focus {
+  -webkit-animation: shakey 1s ease;
+          animation: shakey 1s ease;
+}
+
+.burgerbuilder__controls #add_tomatoSauce {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Grandstander', cursive;
+  font-size: 2rem;
+  padding: 10px 20px;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  color: white;
+  background-color: red;
+}
+
+.burgerbuilder__controls #add_tomatoSauce:hover, .burgerbuilder__controls #add_tomatoSauce:focus {
+  -webkit-animation: shakey 1s ease;
+          animation: shakey 1s ease;
+}
+
+.burgerbuilder__controls #add_cheeseSauce {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Grandstander', cursive;
+  font-size: 2rem;
+  padding: 10px 20px;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  color: white;
+  background-color: #d48506;
+}
+
+.burgerbuilder__controls #add_cheeseSauce:hover, .burgerbuilder__controls #add_cheeseSauce:focus {
+  -webkit-animation: shakey 1s ease;
+          animation: shakey 1s ease;
+}
+
+.burgerbuilder__controls #reset {
+  border: solid 4px black !important;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Grandstander', cursive;
+  font-size: 2rem;
+  padding: 10px 20px;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  color: black;
+  background-color: white;
+}
+
+.burgerbuilder__controls #reset:hover, .burgerbuilder__controls #reset:focus {
+  -webkit-animation: shakey 1s ease;
+          animation: shakey 1s ease;
+}
+
+.burgerbuilder__svg {
+  background-color: #ecf0f1;
+  width: 90%;
+  min-height: 500px;
+  max-height: 600px;
+  border: solid 5px red;
+}
+
+#bunbun {
+  -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+}
+
+@media screen and (min-width: 500px) {
+  .burgerbuilder {
+    width: 100%;
+    max-width: 800px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .burgerbuilder__controls {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .burgerbuilder__svg {
+    max-width: 450px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

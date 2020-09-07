@@ -1,0 +1,163 @@
+<!-- ===============================================================================================
+    
+>   Sometimes, we would like to mix different XML files in one single, large XML file
+    For example, we would like to have the MathML or SVG incorporated directly in our XHTML (Kinda like HTML)
+    based document
+
+>   This allows for many advantages, like webpages with many functionalities, but the problem arises when the user agent
+    (Browser) tries to parse or render the document:
+
+            Say, if there are 2 elements having the same tag name, then how should the user agent shall distinguish 
+            which tag name is that of one dialects (We call those different type of XML as dialects), or the another?
+            How can it tell that the XML tag is something that it knows and parsable, or just some meaningless XML
+            file that just contains inforamtion and arbitrary element that are unknown to it?
+
+            Eg: Both the MathML and SVG contains the <title> element. How can user agent know if the <title> element
+                belongs to MathML or SVG when it encounters one?
+
+    One can say that the solution is declaring of DOCTYPE (In Document Type Definition, DTD). However, that is not the case.
+    A DTD may still collide with another in its DOCTYPE declaration, with similar stuff in the DTD
+
+    The solution to this problem is by giving the XML content explicit NAMESPACE DECLARATIONS, like a dialect of the element name
+
+
+    ===============================================================================================
+    DECLARING DEFAULT NAMESPACES
+    ===============================================================================================
+
+    See:
+
+            <svg xmlns='http://www.w3.org/2000/svg'>
+                ...
+            </svg>
+
+    This is the syntax for declaring a DEFAULT NAMESPACE in svg element, where all the descendants of the current XML element will have the
+    same namespace name applied to it. (Unless specified otherwise)
+
+    URI are usually used as namespace names, (To an extent that namespace names are sometimes called namespace URI) because usually it is unique,
+    not becuase it can 'link' somewhere. It had became a common phenomenon and behaviour
+
+    Within a namespace declared element, we can have an element with its default namespace name REDECLARED, such that the decendants of the
+    redeclared namespace element also get its namespace applied as the redeclared one
+
+    Eg:
+
+                <html xmlns='http://www.w3.org/1999/xhtml'>     
+                    <body>                                      |
+                                                                |
+                        ...                                     |   All the stuff here has namespace applied to that of xhtml
+                                                                |
+                    <svg xmlns='http://www.w3.org/2000/svg'>
+                        ...                                     |   All the stuff here however has namespace applied to that of SVG
+                    </svg>
+                                                                |
+                    </body>                                     |
+                                                                |   All the stuff here has namespace applied to that of xhtml
+                        ...                                     |
+                                                                |
+                </html>
+
+
+
+    ===============================================================================================
+    NAMESPACE PREFIXES
+    ===============================================================================================
+
+    XML parameters (Just another name for attributes) by default don't have namespace applied at all, EVEN THOUGH THE ATTRIBUTE BELONGS
+    TO A NAMESPACE DEFINED ELEMENT. Those parameters are known to be unique because it belongs to the parent element which is unique by itself
+
+    REMEMBER THAT ATTRIBUTES DON'T GET ASSIGNED DEFAULT NAMESPACE
+
+    Sometimes it's necessary to define parameters so that they can be reused on many different elements.
+    For example,
+        'href' attribute is used in many other dialects. However, since they don't get assigned a namespace (Not even a default namespace),
+        they shall be explicitly declared a namespace
+
+    Since default namespaces don't get applied on the attributes, we have to actually use NAMESPACE PREFIXES to apply a namespace name to
+    attributes 
+    Syntax:
+
+                xmlns:<prefixname> = '<namespace name>'
+
+    This is declared much like an attribute in the element of XML element. Then, within that element we can begin using the <prefix> we've
+    defined in attributes, or even elements
+
+                <script <prefixname>:href='...'> </script>
+
+    Eg:
+
+                <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+                    <script xlink:href='myScript.js' > </script>
+                </svg>
+
+    You can see the href attribute is in the SVG element, which has namespace prefix 'xlink' declared. The 'href' attribute is then applied
+    the 'xlink' namespace 
+
+
+    XML error will be thrown if we assign element or attribute to a namespace prefix that hasn't been declared / bound to a namespace name
+
+    Note that namespace prefix can also be used on elements, but since it is not default namespace, to apply to all its descendants we have to
+    assign each one by ourselves, which default namespace could've done that for us
+
+    <html xmlns:svg='http://www.w3.org/2000/svg'>
+        <svg:svg width='500' height='500'>                                      |
+            <svg:circle cx='0' cy'='0' r='50' />                                |   See if we don't declare default namespace, to apply those
+            <svg:rect x='100' y='500' width='100' height='100' />               |   namespaces all elements will need to be prefixed by 'svg'
+        </svg:svg>                                                              |
+    </html>
+
+
+
+    ===============================================================================================
+    SCRIPTING IN NAMESPACED XML
+    ===============================================================================================
+
+    Let's say we want to use javascript to manipulate those SVG elements in our HTML DOM. We find that doesn't work with what we usually
+    do in DOM Manipulation. This is because SVG is namespaced, and requires other methods to perform that task
+
+    In general, if we are scripting (Creating, Manipulating...) XML elements, we have to be careful because of their namespaces
+
+    DOM Level 1 recommendation was not aware of the existance of the namespaces. This creates problems to namespaces elements like SVG.
+    Therefore we will have to use DOM Level 2 Core methods to do the job:
+
+
+            DOM Level 1                     DOM Level 2
+            _________________________________________________
+            createAttribute         >       createAttributeNS
+            createElement           >       createElementNS
+            getAttributeNode        >       getAttributeNodeNS      
+            getAttribute            >       getAttributeNS
+            getElementsByTagName    >       getElementsByTagNameNS
+            getNamedItem            >       getNamedItemNS
+            hasAttribute            >       hasAttributeNS
+            removeAttribute         >       removeAttributeNS
+            removeNamedItem         >       removeNamedItemNS
+            setAttribute            >       setAttributeNS
+            setAttributeNode        >       setAttributeNode
+            setNamedItem            >       setNamedItemNS
+
+    With the DOM Level 2 namespaced methods, the added first parameter of each element must take in the namespace name / URL as argument
+
+    Eg:
+            Instead of createElement('svg'), we wll use createElementNS('http://www.w3.org/2000/svg', 'svg');
+
+    For attributes that don't have assigned a prefix namespace, we shall pass in NULL as argument. Although it belongs to a namespaced element,
+    remember that probably most attributes don't have namespaces assigned to them
+
+    Eg:
+            The 'cx' attribute in <circle> SVG element shall have no namespace assigned, although it belongs to element with namespace of svg.
+            TO access, we use
+
+                myCircle.getAttributeNS( null, 'cx' );
+
+    However, some attributes DID have a prefix namespaces assigned. The best example would be the 'href' attribute mentioned above
+
+                myScript.getAttributeNS( 'http://www.w3.org/1999/xlink', 'href' );
+
+    Lastly, for setting attributes htat has a namespace set to it, we shall include their namespace prefix in the attribute name argument so
+    DOM can easily convert between the two
+
+                myScript.setAttrubuteNS( 'http://www.w3.org/1999/xlink', 'xlink:href', 'script.js' );
+
+
+-->

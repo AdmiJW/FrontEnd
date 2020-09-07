@@ -1,0 +1,157 @@
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+}
+
+$body-bg: #34495e;
+$svg-fallbk-bg: #ecf0f1;
+
+
+//=========================   UTILITIES   ===============================
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin btn($color-bg, $color-txt) {
+    @include btn-style;
+    color: $color-txt;
+    background-color: $color-bg;
+}
+
+@mixin btn-style {
+    appearance: none;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    
+    font-family: 'Grandstander', cursive;
+    font-size: 2rem;
+
+    padding: 10px 20px;
+    transform-origin: center;
+
+    &:hover, &:focus {
+        animation: shakey 1s ease;
+    }
+
+}
+
+@keyframes shakey {
+    20% {
+        transform: scale(1.1) rotate(-5deg); 
+    }
+    40% {
+        transform: scale(1.1) rotate(5deg); 
+    }
+    60% {
+        transform: scale(1.1) rotate(-5deg); 
+    }
+    80% {
+        transform: scale(1.1) rotate(5deg); 
+    }
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+
+
+//=========================================================================
+
+body {
+    background-color: $body-bg;
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    @include flex(column, flex-start, center);
+
+    h1 {
+        text-align: center;
+        font-size: 4rem;
+        padding: .5em 0px;
+        font-family: 'Grandstander', cursive;
+    }
+}
+
+.burgerbuilder {
+
+    @include flex(column, flex-start, center);
+
+    &__controls {
+        @include flex(row, center, center);
+        flex-wrap: wrap;
+        margin: 10px 0px;
+
+        .btn {
+            margin: 5px 5px;
+        }
+
+        #add_bunTop, #add_bunBottom, #add_cheese {
+            @include btn(#f39c12, white);
+        }
+        #add_egg {
+            @include btn(#ecf0f1, #e67e22);
+        }
+        #add_lettuce {
+            @include btn(#27ae60, white);
+        }
+        #add_patty {
+            @include btn(#b42a00ce, white)
+        }
+        #add_tomatoSauce {
+            @include btn(red, white);
+        }
+        #add_cheeseSauce {
+            @include btn(#d48506, white);
+        }
+
+        #reset {
+            border: solid 4px black !important;
+            @include btn(white, black);
+        }
+    }
+
+    &__svg {
+        background-color: $svg-fallbk-bg;
+
+        width: 90%;
+        min-height: 500px;
+        max-height: 600px;
+
+        border: solid 5px red;
+    }
+
+}
+
+#bunbun {
+    transform: translateY(100px);
+}
+
+
+//  MEDIA QUERIES ==========================================
+@media screen and (min-width: 500px) {
+    
+    .burgerbuilder {
+        width: 100%;
+        max-width: 800px;
+        @include flex(row-reverse, space-around, center);
+
+        &__controls {
+            @include flex(column, flex-start, center);
+        }
+
+        &__svg {
+            max-width: 450px;
+        }
+
+    }
+}
