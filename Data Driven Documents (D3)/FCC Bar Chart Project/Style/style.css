@@ -1,0 +1,340 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+:root {
+  --max-size: 1400px;
+}
+
+body {
+  background-color: #2c3e50;
+  width: 100vw;
+  height: 100vh;
+  padding-left:  max(20px, calc( (100vw - var(--max-size) ) / 2) )  !important;
+  padding-right:  max(20px, calc( (100vw - var(--max-size) ) / 2) )  !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  max-height: 800px;
+  padding: 5vh 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#openclose-menu-btn {
+  display: none;
+}
+
+.notes {
+  width: 250px;
+  height: 100%;
+  padding: 0px 20px;
+  background-color: #e84118;
+  overflow-y: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.notes h1 {
+  padding: 20px 0px;
+  font-family: 'Bebas Neue', cursive;
+  font-weight: 400;
+  font-size: 4.5rem;
+  text-align: center;
+  color: white;
+  text-decoration: underline;
+}
+
+.notes__note {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  width: 95%;
+  min-height: 150px;
+  margin: 15px 0px;
+  padding: 0px 10px;
+  background-color: #ffeaa7;
+  -webkit-box-shadow: 0px 10px 20px 0px #272727;
+          box-shadow: 0px 10px 20px 0px #272727;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  text-align: left;
+  color: black;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #2ecc71;
+  border-width: 0px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.notes__note:hover, .notes__note:focus {
+  border-width: 5px;
+}
+
+.notes__note span {
+  font-weight: 700;
+  text-align: right;
+}
+
+.notes__note .del-note-btn {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #daa600;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-transition: -webkit-transform .5s ease;
+  transition: -webkit-transform .5s ease;
+  transition: transform .5s ease;
+  transition: transform .5s ease, -webkit-transform .5s ease;
+}
+
+.notes__note .del-note-btn:hover, .notes__note .del-note-btn:focus {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.notes__note.closing {
+  opacity: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.graph {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  max-height: 100%;
+  max-width: 100%;
+  background-color: #ecf0f1;
+  -webkit-box-shadow: 0px 5px 15px 0px #b1c2c6;
+          box-shadow: 0px 5px 15px 0px #b1c2c6;
+}
+
+.graph #title {
+  font-family: 'Bebas Neue', cursive;
+  font-weight: 400;
+  font-size: 2.5rem;
+  text-align: center;
+  color: black;
+}
+
+.graph #y-axis .tick line {
+  stroke: rgba(230, 126, 34, 0.3);
+}
+
+.graph #y-axis-label {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  color: black;
+}
+
+.graph .bars .bar {
+  fill: #3498db;
+  translate: x .5s ease;
+}
+
+.graph .bars .bar:hover, .graph .bars .bar:focus {
+  fill: white;
+}
+
+.tooltip {
+  position: absolute;
+  width: 150px;
+  height: 75px;
+  background-color: #d4d4d4;
+  opacity: 0;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 15px 0px #2c2c2c;
+          box-shadow: 0px 0px 15px 0px #2c2c2c;
+  -webkit-transition: opacity .3s ease;
+  transition: opacity .3s ease;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tooltip__time {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-align: center;
+  color: black;
+}
+
+.tooltip__gdp {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+  color: green;
+}
+
+@-webkit-keyframes floatup {
+  from {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: translate(0px, -100px);
+            transform: translate(0px, -100px);
+    opacity: 0;
+  }
+}
+
+@keyframes floatup {
+  from {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: translate(0px, -100px);
+            transform: translate(0px, -100px);
+    opacity: 0;
+  }
+}
+
+.added-indicator {
+  position: absolute;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+  color: black;
+  opacity: 0;
+  -webkit-animation: none 2s linear;
+          animation: none 2s linear;
+}
+
+#cite {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  text-align: center;
+  color: blue;
+  fill: blue;
+}
+
+@media screen and (max-width: 800px) {
+  #openclose-menu-btn {
+    position: fixed;
+    display: inline-block;
+    top: 10px;
+    left: 0px;
+    padding: 5px 5px 5px 15px;
+    border-radius: 0px 15px 15px 0px;
+    -webkit-box-shadow: -2px 5px 5px 0px #222222;
+            box-shadow: -2px 5px 5px 0px #222222;
+    z-index: 999;
+    cursor: pointer;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+    min-width: 55px;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    font-weight: 400;
+    font-size: 3rem;
+    text-align: center;
+    color: black;
+    background-color: white;
+  }
+  .notes {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    left: -250px;
+    top: 0px;
+    padding-top: 50px;
+    -webkit-transition: left .5s ease;
+    transition: left .5s ease;
+  }
+  .notes.opened {
+    left: 0;
+  }
+}
+/*# sourceMappingURL=style.css.map */

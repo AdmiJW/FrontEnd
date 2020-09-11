@@ -1,0 +1,300 @@
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+}
+:root {
+    --max-size: 1400px;
+}
+$background: #2c3e50;
+$selection-bg: #e84118;
+$note-bg: #ffeaa7;
+$note-border: #2ecc71;
+$svg-bg: #ecf0f1;
+$notediv-width: 250px;
+
+//=================================================================
+//============= UTILITIES =========================================
+//=================================================================
+
+@mixin flex( $direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin preventBigScreen() {
+    padding-left: unquote(' max(20px, calc( (100vw - var(--max-size) ) / 2) ) ') !important;
+    padding-right: unquote(' max(20px, calc( (100vw - var(--max-size) ) / 2) ) ') !important; 
+}
+
+@mixin font($type, $size, $color, $align, $bold) {
+    @if ($type == 'roboto') {
+        font-family: 'Roboto', sans-serif;
+    } @else if ($type == 'heavy') {
+        font-family: 'Bebas Neue', cursive;
+    }
+
+    @if ($bold == 'bold') {
+        font-weight: 700;
+    } @else {
+        font-weight: 400;
+    }
+    font-size: $size;
+    text-align: $align;
+    color: $color;
+}
+
+@mixin removeBtnStyle() {
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+}
+
+
+//=================================================================
+//============= BODY =========================================
+//=================================================================
+body {
+    background-color: $background;
+    width: 100vw;
+    height: 100vh;
+    @include preventBigScreen();
+
+    @include flex(row, center, center);
+}
+main {
+    width: 100%;
+    height: 100%;
+    max-height: 800px;
+    padding: 5vh 0px;
+
+    @include flex(row, space-between, center);
+}
+
+
+
+//=================================================================
+//============= SELECTION DIV AND BTN ==============================
+//=================================================================
+
+#openclose-menu-btn {
+    display: none;
+}
+
+.notes {
+
+    width: 250px;
+    height: 100%;
+    padding: 0px 20px;
+
+    background-color: $selection-bg;
+
+    overflow-y: auto;
+    @include flex(column, flex-start, center);
+
+    h1 {
+        padding: 20px 0px;
+
+        @include font('heavy', 4.5rem, white, center, 'regular');
+        text-decoration: underline;
+    }
+
+
+    &__note {
+        position: relative;
+        @include flex(column, space-evenly, stretch);
+
+        width: 95%;
+        min-height: 150px;
+        margin: 15px 0px;
+        padding: 0px 10px;
+
+        background-color: $note-bg;
+        box-shadow: 0px 10px 20px 0px rgb(39, 39, 39);
+
+        @include font('roboto', 1.5rem, black, left, 'regular');
+
+        transition: all .3s ease;
+        border-style: solid;
+        border-radius: 5px;
+        border-color: $note-border;
+        border-width: 0px;
+
+        box-sizing: content-box;
+        &:hover, &:focus {
+            border-width: 5px;
+        }
+
+        span {
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .del-note-btn {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+
+            @include font('roboto', 2.5rem, darken($note-bg, 40%), center, '');
+            @include removeBtnStyle();
+
+            transition: transform .5s ease;
+
+            &:hover, &:focus {
+                transform: scale(1.15);
+            }
+        }
+
+        &.closing {
+            opacity: 0;
+            transform: translateX(-50%);
+        }
+
+    }
+
+}
+
+
+
+
+//=================================================================
+//============= SVG (GRAPH) ==============================
+//=================================================================
+.graph {
+    flex-grow: 1;
+    max-height: 100%;
+    max-width: 100%;
+
+    background-color: $svg-bg;
+    box-shadow: 0px 5px 15px 0px darken($svg-bg, 20%);
+
+    #title {
+        @include font('heavy', 2.5rem, black, center, 'regular');
+    }
+
+    #y-axis {
+        .tick line {
+            stroke: rgba(230, 126, 34, .3);
+        }
+    }
+
+    #y-axis-label {
+        @include font('roboto', 1rem, black, center, 'bold');
+    }
+
+    .bars {
+        .bar {
+            fill: #3498db;
+            translate: x .5s ease;
+
+            &:hover, &:focus {
+                fill: white;
+            }
+        }
+    }
+}
+
+
+
+//=================================================================
+//============= TOOLTIP AND INDICATOR ==============================
+//=================================================================
+.tooltip {
+    position: absolute;
+    width: 150px;
+    height: 75px;
+    background-color: rgb(212, 212, 212);
+    opacity: 0;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px 0px rgb(44, 44, 44);
+
+    transition: opacity .3s ease;
+
+    @include flex(column, center, center);
+
+    &__time {
+        @include font('roboto', 1.8rem, black, center, 'bold');
+    }
+
+    &__gdp {
+        @include font('roboto', 1.5rem, green, center, 'bold');
+    }
+}
+
+@keyframes floatup {
+    from {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+    to {
+        transform: translate(0px, -100px);
+        opacity: 0;
+    }
+}
+
+.added-indicator {
+    position: absolute;
+    @include font('roboto', 1.5rem, black, center, 'bold');
+
+    opacity: 0;
+
+    animation: none 2s linear;
+}
+
+
+
+#cite {
+    @include font('roboto', 1rem, blue, center, 'regular'); 
+    fill: blue;
+}
+
+
+//=================================================================
+//============= MEDIA QUERIES ======================================
+//=================================================================
+
+@media screen and (max-width: 800px) {
+    #openclose-menu-btn {
+        position: fixed;
+        display: inline-block;
+        top: 10px;
+        left: 0px;
+        padding: 5px 5px 5px 15px;
+        border-radius: 0px 15px 15px 0px;
+        box-shadow: -2px 5px 5px 0px rgb(34, 34, 34);
+
+        z-index: 999;
+        cursor: pointer;
+        transition: all .5s ease;
+        min-width: 55px;
+
+        @include removeBtnStyle();
+        @include font('', 3rem, black, center, '');
+
+        background-color: white;
+    }
+
+    .notes {
+        position: fixed;
+        width: $notediv-width;
+        height: 100%;
+        left: -$notediv-width;
+        top: 0px;
+        padding-top: 50px;
+
+        transition: left .5s ease;
+
+        &.opened {
+            left: 0;
+        }
+    }
+}
+

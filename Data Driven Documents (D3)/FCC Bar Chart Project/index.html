@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <title>FCC Bar Chart - United States GDP</title>
+    <meta charset='UTF-8'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name='author' content='AdmiJW'/>
+    <meta name='description' content='D3 Project with Bar charts on FCC' />
+    <meta name='keywords' content='HTML JS CSS D3'/>
+    
+    <!-- D3 Content Distribution Network (CDN) -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+
+    <!-- CSS -->
+    <link rel='stylesheet' type='text/css' href='Style/style.css'/>
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+
+    <!-- Script for D3 Bar Chart -->
+    <script src='d3script.js'></script>
+
+
+</head>
+
+<body>
+
+    <main>
+        <button for='open-notes' type='button' class='btn' id='openclose-menu-btn' >
+            <i class="fas fa-edit"></i>
+        </button>
+
+        <!-- Tooltip. Shown only when a bar is selected -->
+        <div class='tooltip' id='tooltip' data-date=''>
+            <p class='tooltip__time'></p>
+            <p class='tooltip__gdp'></p>
+        </div>
+
+        <!-- A indicator showing that a selection is added to Highlights window -->
+        <div class='added-indicator' id='added-indicator'>Selection Added!</div>
+
+        <div class='notes' id='notes'>
+            <h1>Highlighted</h1>
+        </div>
+
+        <svg class='graph' id='graph' viewBox='0 0 600 400'>
+
+        </svg>
+    </main>
+
+    <!-- SCRIPT FOR FCC -->
+    
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+</body>
+
+
+</html>
