@@ -1,0 +1,229 @@
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+}
+
+$dot-red: #e74c3c;
+$dot-red-stroke: #c0392b;
+$dot-green:#2ecc71;
+$dot-green-stroke:#27ae60;
+
+//=======================================UTILITIES======================================
+
+@mixin preventLargeScreen() {
+    padding-left: unquote( 'max( (100vw - 1000px) / 2, 20px)' );
+    padding-right: unquote( 'max( (100vw - 1000px) / 2, 20px)' );
+}
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin font($font, $size, $color, $align, $bold) {
+    @if ($font == 'rubik') {
+        font-family: 'Rubik', sans-serif;
+    }
+    @else if ($font == 'roboto') {
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+
+    @if ($bold == 'bold') {
+        font-weight: 700;
+    } @else {
+        font-weight: 400;
+    }
+
+    font-size: $size;
+    color: $color;
+    text-align: $align;
+}
+
+
+//====================================================================================
+
+body {
+    background-color: #2c3e50;
+    background-image: url('https://recmknysna200.co.za/wp-content/uploads/sites/84/2019/03/cycling-mountains-hd-wallpapers.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include flex(row, center, center);
+    width: 100vw;
+    height: 100vh;
+    padding: 0px 20px;
+}
+#main {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    background-color: #c0392b;
+    border-radius: 20px;
+    max-width: 200px;
+    z-index: -1;
+    opacity: 0;
+
+    transition: background-color .5s ease, opacity .5s ease;
+
+    tr {
+        margin: 5px 0px;
+    }
+
+    &-title {
+        @include font('roboto', 1.5rem, white, left, 'bold');
+        margin-right: 10px;
+    }
+    &-val {
+        @include font('roboto', 1.3rem, white, left, 'regular');
+    }
+}
+
+svg {
+    background-color: rgba(255,255,255, .9);
+    max-width: unquote(' min(1200px, 100%, 140vh) ');
+    max-height: 95vh;
+    box-shadow: 0px 0px 15px 15px rgba(255,255,255, .9);
+
+    #title {
+        @include font('rubik', 4rem, none, center, 'bold');
+        fill: rgba(39, 174, 96,1.0);
+    }
+
+    #sub-title {
+        @include font('rubik', 2rem, none, center, 'bold');
+        fill: rgba(46, 204, 113, .5)
+    }
+
+    #legend {
+
+        &__window {
+            fill: rgba(230, 126, 34, .9);
+        }
+
+        &__title {
+            @include font('roboto', 3.5rem, none, center, 'bold');
+            fill: white;
+        }
+
+        &__dot {
+            &--red {
+                fill: $dot-red;
+                stroke: $dot-red-stroke;
+
+                &-text {
+                    @include font('roboto', 1.8rem, none, center, 'regular');
+                    fill: white;
+                }
+            }
+            &--green {
+                fill: $dot-green;
+                stroke: $dot-green-stroke;
+
+                &-text, &-text2 {
+                    @include font('roboto', 1.8rem, none, center, 'regular');
+                    fill: white;
+                }
+            }
+        }
+    }
+
+    #citation {
+        @include font('roboto', 1.4rem, none, center, 'bold');
+        fill: #3498db;
+        text-decoration: underline;
+    }
+
+    #x-axis {
+        @include font('roboto', 1.5rem, rgb(122, 122, 122), center, 'bold');
+
+        &__label {
+            @include font('roboto', 3rem, black, center, 'bold');
+            fill: rgba(39, 174, 96, .5);
+        }
+    }
+
+    #y-axis {
+        @include font('roboto', 1.7rem, black, center, 'bold');
+        .tick {
+            line {
+                stroke: #9b59b6;
+                stroke-width: 2;
+                opacity: .3;
+            }
+        }
+
+        &__label {
+            @include font('roboto', 3rem, black, center, 'bold');
+            fill: rgba(231, 76, 60, .5);
+        }
+    }
+
+
+    .dot {
+        stroke-width: 2px;
+
+        transition: r .5s ease;
+
+
+        &.no-doping {
+            fill: $dot-green;
+            stroke: $dot-green-stroke;
+        }
+        &.doping {
+            fill: $dot-red;
+            stroke: $dot-red-stroke;
+        }
+
+        &:hover {
+            r: 10px;
+            cursor: pointer;
+        }
+    }
+    
+}
+
+
+//==================================================================
+
+@media screen and (max-width: 800px) {
+    body {
+        padding: 0px;
+    }
+    svg {
+        max-width: none;
+        width: 100%;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    svg {
+        max-width: 140vh;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .tooltip {
+        padding: 10px;
+        &-title {
+            @include font('roboto', 1rem, white, left, 'bold');
+        }
+        &-val {
+            @include font('roboto', .7rem, white, left, 'regular');
+        }
+    }
+    
+}

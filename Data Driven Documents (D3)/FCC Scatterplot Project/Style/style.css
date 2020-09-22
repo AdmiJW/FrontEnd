@@ -1,0 +1,251 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: #2c3e50;
+  background-image: url("https://recmknysna200.co.za/wp-content/uploads/sites/84/2019/03/cycling-mountains-hd-wallpapers.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 0px 20px;
+}
+
+#main {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  text-align: center;
+}
+
+.tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  background-color: #c0392b;
+  border-radius: 20px;
+  max-width: 200px;
+  z-index: -1;
+  opacity: 0;
+  -webkit-transition: background-color .5s ease, opacity .5s ease;
+  transition: background-color .5s ease, opacity .5s ease;
+}
+
+.tooltip tr {
+  margin: 5px 0px;
+}
+
+.tooltip-title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  text-align: left;
+  margin-right: 10px;
+}
+
+.tooltip-val {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: white;
+  text-align: left;
+}
+
+svg {
+  background-color: rgba(255, 255, 255, 0.9);
+  max-width:  min(1200px, 100%, 140vh) ;
+  max-height: 95vh;
+  -webkit-box-shadow: 0px 0px 15px 15px rgba(255, 255, 255, 0.9);
+          box-shadow: 0px 0px 15px 15px rgba(255, 255, 255, 0.9);
+}
+
+svg #title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+  color: none;
+  text-align: center;
+  fill: #27ae60;
+}
+
+svg #sub-title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: none;
+  text-align: center;
+  fill: rgba(46, 204, 113, 0.5);
+}
+
+svg #legend__window {
+  fill: rgba(230, 126, 34, 0.9);
+}
+
+svg #legend__title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 3.5rem;
+  color: none;
+  text-align: center;
+  fill: white;
+}
+
+svg #legend__dot--red {
+  fill: #e74c3c;
+  stroke: #c0392b;
+}
+
+svg #legend__dot--red-text {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: none;
+  text-align: center;
+  fill: white;
+}
+
+svg #legend__dot--green {
+  fill: #2ecc71;
+  stroke: #27ae60;
+}
+
+svg #legend__dot--green-text, svg #legend__dot--green-text2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: none;
+  text-align: center;
+  fill: white;
+}
+
+svg #citation {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: none;
+  text-align: center;
+  fill: #3498db;
+  text-decoration: underline;
+}
+
+svg #x-axis {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #7a7a7a;
+  text-align: center;
+}
+
+svg #x-axis__label {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  color: black;
+  text-align: center;
+  fill: rgba(39, 174, 96, 0.5);
+}
+
+svg #y-axis {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: black;
+  text-align: center;
+}
+
+svg #y-axis .tick line {
+  stroke: #9b59b6;
+  stroke-width: 2;
+  opacity: .3;
+}
+
+svg #y-axis__label {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  color: black;
+  text-align: center;
+  fill: rgba(231, 76, 60, 0.5);
+}
+
+svg .dot {
+  stroke-width: 2px;
+  -webkit-transition: r .5s ease;
+  transition: r .5s ease;
+}
+
+svg .dot.no-doping {
+  fill: #2ecc71;
+  stroke: #27ae60;
+}
+
+svg .dot.doping {
+  fill: #e74c3c;
+  stroke: #c0392b;
+}
+
+svg .dot:hover {
+  r: 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    padding: 0px;
+  }
+  svg {
+    max-width: none;
+    width: 100%;
+  }
+}
+
+@media screen and (max-height: 500px) {
+  svg {
+    max-width: 140vh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .tooltip {
+    padding: 10px;
+  }
+  .tooltip-title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
+    text-align: left;
+  }
+  .tooltip-val {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 0.7rem;
+    color: white;
+    text-align: left;
+  }
+}
+/*# sourceMappingURL=style.css.map */
