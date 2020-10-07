@@ -1,0 +1,285 @@
+
+@import 'config';
+
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+}
+
+//====================================================
+
+body {
+    @include flex(column, center, center);
+
+    width: 100vw;
+    height: 100vh;
+
+    background-image: $background-gradient;
+}
+
+.small-screen-notice {
+    display: none;
+}
+
+.level-up {
+    &.hidden {
+        display: none;
+    }
+
+    &.init {
+        opacity: 1;
+        top: 100px;
+    }
+
+    &.final {
+        opacity: 0;
+        top: 0px;
+    }
+
+    transition: opacity 2s ease, top 2s ease;
+    position: absolute;
+    
+
+    &__title {
+        @include font('playful', 6rem, center, black);
+        @include gradientfont;
+    }
+
+    &__msg {
+        @include font('playful', 3rem, center, white);
+
+        &--value {
+            @include gradientfont;
+        }
+    }
+}
+
+//==================================================
+//=========== USER MENU ===========================
+//==================================================
+
+#ui {
+    @include flex(column, flex-start, center);
+
+    
+
+    &__title {
+        @include font('playful', 4.5rem, center, black);
+        position: relative;
+        background: $font-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        text-shadow: 0px 3px 1px black;
+
+        &--actual {
+            position: absolute;
+
+            @include font('playful', 4.5rem, center, black);
+            @include gradientfont;
+        }
+    }
+
+    &__stats {
+        @include font('playful', 2rem, center, $cloud-white);
+        @include flex(row, space-between, center);
+
+        span + span {
+            margin-left: 50px;
+        }
+
+        #ui__level-value{
+            color: $level-color;
+        }
+        #ui__score-value{
+            color: $score-color;
+        }
+    }
+}
+
+
+
+//==================================================
+//=========== PLAY-GAMEOVER DIV ====================
+//=================================================
+.play-gameover {
+
+    &.hidden {
+        transform: scale(0);
+    }
+    position: absolute;
+    @include flex(column, space-around, center);
+    width: 60vw;
+    height: 70vh;
+
+    background-color: $cloud-white;
+    padding: 10px 20px;
+    border: solid 7px $play-gameover-border;
+    border-radius: 20px;
+
+    overflow: auto;
+    transition: transform .3s ease-in;
+    
+    &__title {
+        @include font('young', 5rem, center, black);
+        width: 100%;
+        @include gradientfont;
+    }
+
+    &__text {
+        @include font('playful', 2.2rem, center, black);
+        text-align: left;
+        padding-left: 5px;
+
+        &--color {
+            color: red;
+        }
+    }
+
+    &__score--title, &__level--title {
+        @include font('playful', 3rem, center, black);
+    }
+
+    &__score--value, &__level--value {
+        @include font('playful', 2.5rem, center, red);
+    }
+
+
+
+    &__button {
+        @include font('playful', 3rem, center, black);
+        padding: 5px 10px;
+        border-radius: 10px;
+        border: solid 5px $play-gameover-border;
+        cursor: pointer;
+
+        transition: transform .5s ease;
+
+        &:hover, &:focus {
+            transform: scale(1.1);
+        }
+        
+    }
+
+}
+
+
+//==================================================
+//================== SVG ===========================
+//==================================================
+.svg {
+
+    .bomb-panel .bomb__red, .bomb-panel .bomb__yellow, .bomb-panel .bomb__green {
+
+        cursor: pointer;
+
+        &.pressed g {
+            transform: translateY(2px);
+            & * {
+                transform: none;
+            }
+        }
+
+    }
+}
+
+
+
+
+
+
+
+//=====================================================
+//============== MEDIA QUERIES ========================
+//=====================================================
+
+@media screen and (max-height: 450px) and (min-width: 400px) {
+    #ui {
+        min-width: 100vw;
+        padding: 0px 5vw;
+        @include flex(row, space-between, center);
+        @include preventLargeScreen;
+
+        &__title {
+            font-size: 3rem;
+
+            &--actual {
+                font-size: 3rem;
+            }
+        }
+    
+        &__stats {
+            font-size: 2rem;
+        }
+    }
+
+
+    .play-gameover {
+        &__title {
+            font-size: 4.5rem;
+        }
+    
+        &__text {
+            font-size: 1.6rem;
+        }
+    
+        &__score--title, &__level--title {
+            font-size: 2.5rem;
+        }
+    
+        &__score--value, &__level--value {
+            font-size: 2rem;
+        }
+    
+        &__button {
+            font-size: 2rem;
+        }
+    }
+
+
+    .level-up {
+        &__title {
+            font-size: 4rem;
+        }
+    
+        &__msg {
+            font-size: 2rem;
+        }
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .svg {
+        display: none;
+    }
+
+    .small-screen-notice {
+        @include flex(column, space-around, center);
+
+        flex-grow: 1;
+        padding: 50px 50px;
+        margin: 2% 10%;
+        max-height: 80vh;
+
+        background-color: $cloud-white;
+        border-radius: 50px;
+        border: solid 10px #e74c3c;
+        overflow: auto;
+
+        @include font('playful', 2rem, center, black);
+
+        img {
+            width: 100px;
+            height: auto;
+        }
+    }
+
+    
+
+}

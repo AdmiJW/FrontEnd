@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <title>D3 Bomber Game</title>
+    <meta charset='UTF-8'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    <meta name='author' content='AdmiJW'/>
+    <meta name='description' content='A mini bomber game project made by D3'/>
+    <meta name='keywords' content='HTML CSS SCSS Javascript D3'/>
+
+    <!-- CSS -->
+    <link rel='stylesheet' type='text/css' href='./Style/style.css' />
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
+
+    <!-- D3 Content Distribution Network -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+    <!-- JS -->
+    <script src='./Script/script.js' type='module'></script>
+
+    <!-- FAVICON -->
+    <link rel='icon' type='image/svg+xml' href='bomb.svg'/>
+
+</head>
+<body>
+
+    <!-- The title and the score & level -->
+    <div class='ui' id='ui'>
+        <h1 class='ui__comp' id='ui__title'>
+            BOMBER FURY
+            <h1 class='ui__comp' id='ui__title--actual'>BOMBER FURY</h1>
+        </h1>
+        <div class='ui__comp' id='ui__stats'>
+            <span class='ui__comp' id='ui__score'>
+                Score: <span class='ui__comp' id='ui__score-value'>0</span>
+            </span>
+            <span class='ui__comp' id='ui__level'>
+                Level: <span class='ui__comp' id='ui__level-value'>1</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- The play div and the game over div -->
+    <div class='play-gameover' id='play-gameover'>
+        <h2 class='play-gameover__title'>HOW TO PLAY</h2>
+        <ul class='play-gameover__text'>
+        </ul>
+        <span class='play-gameover__score--title'></span>
+        <span class='play-gameover__score--value'></span>
+        <span class='play-gameover__level--title'></span>
+        <span class='play-gameover__level--value'></span>
+
+        <button type='button' class='play-gameover__button'>PLAY ></button>
+    </div>
+
+    <!-- Level up Message -->
+    <div class='level-up hidden init' id='level-up'>
+        <p class='level-up__title' id='level-up__title'>LEVEL UP!</p>
+        <p class='level-up__msg' id='level-up__msg'>Row 1 getting faster!</p>
+    </div>
+
+    <!-- The Notice shown when the screen is too small -->
+    <div class='small-screen-notice' id='small-screen-notice'>
+        <p>The width of your device screen is too narrow! If you are using mobile devices, please kindly
+            tilt your phone to landscape!
+        </p>
+        <img src='https://media3.giphy.com/media/UQ81e74DpBMVGA2hgM/giphy.gif' alt='rotate phone to landscape'/>
+    </div>
+
+    <svg class='svg' id='svg' viewBox='0 0 500 300'>
+        <rect class='svg__bg' id='svg__bg' x=0 y=0 width=500 height=300 fill='white'></rect>
+    </svg>
+
+</body>
+
+
+</html>

@@ -1,0 +1,56 @@
+
+$background-color: #2c3e50;
+$background-gradient: linear-gradient(180deg , $background-color , darken( $background-color, 25% ) );
+
+$font-gradient: -webkit-linear-gradient(0deg, #e67e22, #c0392b);
+$score-color: #e74c3c;
+$level-color: #f39c12;
+
+$cloud-white: #ecf0f1;
+
+$play-gameover-border: #c0392b;
+
+
+$bomb-primary: #3498db;
+
+
+
+
+
+
+
+
+@mixin flex( $direction, $justify, $align ) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin preventLargeScreen {
+    padding-left: unquote(' max( calc( (100vw - 500px) / 2 ), 10px )');
+    padding-right: unquote(' max( calc( (100vw - 500px) / 2 ), 10px )');
+}
+
+@mixin font($style, $size, $justify, $color) {
+    @if ($style == 'young') {
+        font-family: 'Bangers', cursive;
+    }
+    @else if ($style == 'playful') {
+        font-family: 'Fredoka One', cursive;
+    }
+    @else if ($style == 'regular') {
+        font-family: 'Signika', sans-serif;
+    }
+
+    font-size: $size;
+    text-align: $justify;
+    color: $color;
+}
+
+
+@mixin gradientfont() {
+    background: $font-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

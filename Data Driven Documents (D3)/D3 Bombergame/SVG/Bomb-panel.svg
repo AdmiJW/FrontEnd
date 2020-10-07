@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="button_x5F__x5F_panel" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="50px" height="100px" viewBox="0 0 50 100" enable-background="new 0 0 50 100" xml:space="preserve">
+<rect id="button_x5F__x5F_panel_x5F__x5F_bg" fill="#2980B9" width="50" height="100"/>
+<g id="bomb_x5F__x5F_red">
+	<path id="button_x5F__x5F_red2" fill="#C0392B" d="M44,23.5c0,4.142-3.357,7.5-7.5,7.5h-23C9.357,31,6,27.642,6,23.5v-10
+		C6,9.358,9.357,6,13.5,6h23c4.143,0,7.5,3.358,7.5,7.5V23.5z"/>
+	<g id="button_x5F__x5F_red--surface">
+		<path id="button_x5F__x5F_red" fill="#E74C3C" d="M44,21.5c0,4.142-3.357,7.5-7.5,7.5h-23C9.357,29,6,25.642,6,21.5v-10
+			C6,7.358,9.357,4,13.5,4h23c4.143,0,7.5,3.358,7.5,7.5V21.5z"/>
+		<g id="bomb_x5F__x5F_icon_2_">
+			<circle fill="#FFFFFF" cx="24.924" cy="16.291" r="7.299"/>
+			<path fill="#FFFFFF" d="M30.362,9.162l-1.031,1.031c0.671,0.442,1.263,0.994,1.755,1.628l0.967-0.968
+				C31.585,10.2,31.015,9.629,30.362,9.162z"/>
+			<path fill="#FFFFFF" d="M32.363,8.488l-1.085,1.084c0.202,0.174,0.391,0.361,0.571,0.556l1.062-1.061
+				C32.731,8.871,32.549,8.677,32.363,8.488z"/>
+		</g>
+	</g>
+</g>
+<g id="bomb_x5F__x5F_yellow">
+	<path id="button_x5F__x5F_orange2" fill="#E67E22" d="M44,56.5c0,4.143-3.357,7.5-7.5,7.5h-23C9.357,64,6,60.643,6,56.5v-10
+		c0-4.143,3.357-7.5,7.5-7.5h23c4.143,0,7.5,3.357,7.5,7.5V56.5z"/>
+	<g id="button_x5F__x5F_yellow--surface">
+		<path id="button_x5F__x5F_orange" fill="#F39C12" d="M44,54.5c0,4.143-3.357,7.5-7.5,7.5h-23C9.357,62,6,58.643,6,54.5v-10
+			c0-4.143,3.357-7.5,7.5-7.5h23c4.143,0,7.5,3.357,7.5,7.5V54.5z"/>
+		<g id="bomb_x5F__x5F_icon_1_">
+			<circle fill="#FFFFFF" cx="24.924" cy="49.291" r="7.299"/>
+			<path fill="#FFFFFF" d="M30.362,42.162l-1.031,1.031c0.671,0.442,1.263,0.994,1.755,1.628l0.967-0.968
+				C31.585,43.2,31.015,42.629,30.362,42.162z"/>
+			<path fill="#FFFFFF" d="M32.363,41.488l-1.085,1.084c0.202,0.174,0.391,0.361,0.571,0.556l1.062-1.061
+				C32.731,41.871,32.549,41.677,32.363,41.488z"/>
+		</g>
+	</g>
+</g>
+<g id="bomb_x5F__x5F_green">
+	<path id="button_x5F__x5F_green2" fill="#27AE60" d="M44,90.5c0,4.143-3.357,7.5-7.5,7.5h-23C9.357,98,6,94.643,6,90.5v-10
+		c0-4.143,3.357-7.5,7.5-7.5h23c4.143,0,7.5,3.357,7.5,7.5V90.5z"/>
+	<g id="button_x5F__x5F_green--surface">
+		<path id="button_x5F__x5F_green" fill="#2ECC71" d="M44,88.5c0,4.143-3.357,7.5-7.5,7.5h-23C9.357,96,6,92.643,6,88.5v-10
+			c0-4.143,3.357-7.5,7.5-7.5h23c4.143,0,7.5,3.357,7.5,7.5V88.5z"/>
+		<g id="bomb_x5F__x5F_icon">
+			<circle fill="#FFFFFF" cx="24.924" cy="83.291" r="7.299"/>
+			<path fill="#FFFFFF" d="M30.362,76.162l-1.031,1.031c0.671,0.441,1.263,0.994,1.755,1.627l0.967-0.967
+				C31.585,77.2,31.015,76.629,30.362,76.162z"/>
+			<path fill="#FFFFFF" d="M32.363,75.488l-1.085,1.084c0.202,0.174,0.391,0.36,0.571,0.555l1.062-1.061
+				C32.731,75.871,32.549,75.678,32.363,75.488z"/>
+		</g>
+	</g>
+</g>
+</svg>

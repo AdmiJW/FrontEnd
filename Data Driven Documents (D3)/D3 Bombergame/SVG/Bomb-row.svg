@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="bomb-row" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="450px" height="100px" viewBox="0 0 450 100" enable-background="new 0 0 450 100" xml:space="preserve">
+<rect id="bomb-row_x5F__x5F_wall" fill="#2980B9" width="450" height="100"/>
+<rect id="bomb-row_x5F__x5F_floor" x="19" y="11" fill="#3498DB" width="416" height="80"/>
+<g id="bomb-row_x5F__x5F_border">
+	<line fill="none" stroke="#3498DB" stroke-linecap="round" stroke-miterlimit="10" x1="432.891" y1="12.5" x2="450" y2="0"/>
+	<line fill="none" stroke="#3498DB" stroke-linecap="round" stroke-miterlimit="10" x1="434.666" y1="90.584" x2="450" y2="100"/>
+	<line fill="none" stroke="#3498DB" stroke-linecap="round" stroke-miterlimit="10" x1="19.542" y1="11.458" x2="0" y2="0"/>
+	<line fill="none" stroke="#3498DB" stroke-linecap="round" stroke-miterlimit="10" x1="19.5" y1="90.417" x2="0" y2="100"/>
+</g>
+<g id="bomb-row_x5F__x5F_arrow">
+	<g>
+		
+			<line fill="none" stroke="#E74C3C" stroke-width="8" stroke-linecap="round" stroke-miterlimit="10" x1="212.5" y1="77.5" x2="237.5" y2="52.5"/>
+		
+			<line fill="none" stroke="#E74C3C" stroke-width="8" stroke-linecap="round" stroke-miterlimit="10" x1="237.5" y1="52.5" x2="212.5" y2="27.5"/>
+	</g>
+	<g>
+		
+			<line fill="none" stroke="#E74C3C" stroke-width="8" stroke-linecap="round" stroke-miterlimit="10" x1="182.5" y1="77.5" x2="207.5" y2="52.5"/>
+		
+			<line fill="none" stroke="#E74C3C" stroke-width="8" stroke-linecap="round" stroke-miterlimit="10" x1="207.5" y1="52.5" x2="182.5" y2="27.5"/>
+	</g>
+	<g>
+		
+			<line fill="none" stroke="#E74C3C" stroke-width="8" stroke-linecap="round" stroke-miterlimit="10" x1="242.5" y1="77.5" x2="267.5" y2="52.5"/>
+		
+			<line fill="none" stroke="#E74C3C" stroke-width="8" stroke-linecap="round" stroke-miterlimit="10" x1="267.5" y1="52.5" x2="242.5" y2="27.5"/>
+	</g>
+</g>
+</svg>
