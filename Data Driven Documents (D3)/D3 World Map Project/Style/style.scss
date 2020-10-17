@@ -1,0 +1,57 @@
+
+body {
+    background-color: #34495e;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.title {
+
+    text-align: center;
+    margin: 5px 0px;
+    color: white;
+
+    &__logo {
+        height: 60px;
+        width: auto;
+    }
+}
+
+
+.svg-div {
+    flex-grow: 1;
+    padding: 20px;
+    text-align: center;
+
+    svg {
+        // background-color: white;
+        max-height: 70vh;
+        max-width: 140vh;
+        min-height: 140px;
+        min-width: 280px;
+    }
+
+    .border {
+        fill: #62befc;
+    }
+
+    .country {
+        fill: #2ecc71;
+        stroke: black;
+        stroke-width: 0.3;
+        transition: transform .5s ease, fill .2s ease;
+    }
+
+    .country:hover {
+        fill: #f1c40f;
+        transform: translateY(-5px);
+        transform-origin: center;
+    }
+}

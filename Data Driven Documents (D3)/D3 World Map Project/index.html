@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <title>D3 World Map</title>
+    <meta charset='UTF-8'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    <meta name='author' content='AdmiJW'/>
+    <meta name='description' content='D3 World Map Project'/>
+    <meta name='keywords' content='HTML CSS D3 JS'/>
+
+    <!-- BOOTSTRAP CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel='stylesheet' href='./Style/style.css' type='text/css' />
+
+    <!-- D3 CDN -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js'></script>
+
+    <!-- TopoJSON library -->
+    <script src='https://unpkg.com/topojson@3.0.2/dist/topojson.js'></script>
+
+    <!-- SCRIPT -->
+    <script src='script.js'></script>
+
+</head>
+
+<body>
+    <main class='container'>
+        <h1 class='title'>
+            World Map
+            <img class='title__logo' src='https://www.flaticon.com/svg/static/icons/svg/703/703358.svg' alt=''/>
+        </h1>
+
+        <form>
+
+            <div class='input-group'>
+                <div class='input-group-prepend'>
+                    <label for='map_type' class='input-group-text'>Select Map Type: </label>
+                </div>
+                <select class='custom-select' id='map_type'>
+                    <option value='geoAzimuthalEqualArea'>geoAzimuthalEqualArea</option>
+                    <option value='geoAzimuthalEquidistant'>geoAzimuthalEquidistant</option>
+                    <option value='geoGnomonic'>geoGnomonic</option>
+                    <option value='geoOrthographic'>geoOrthographic</option>
+                    <option value='geoStereographic'>geoStereographic</option>
+                    <option value='geoEqualEarth'>geoEqualEarth</option>
+                    <option value='geoConicEqualArea'>geoConicEqualArea</option>
+                    <option value='geoConicEquidistant'>geoConicEquidistant</option>
+                    <option value='geoEquirectangular'>geoEquirectangular</option>
+                    <option value='geoMercator'>geoMercator</option>
+                    <option value='geoNaturalEarth1'>geoNaturalEarth1</option>
+                </select>
+            </div>
+
+        </form>
+    </main>
+
+    <div class='svg-div'>
+        <svg viewBox='0 0 1600 800'>
+        </svg>
+    </div>
+</body>
+
+</html>

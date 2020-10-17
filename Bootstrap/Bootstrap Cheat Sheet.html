@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <title>Bootstrap Cheat Sheet</title>
+    <meta charset='UTF-8'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    <meta name='author' content='AdmiJW'/>
+    <meta name='description' content='Bootstrap cheat sheet'/>
+    <meta name='keywords' content='html css bootstrap'/>
+
+    <!-- BOOTSTRAP CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- BOOTSTRAP JS, POPPER, JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+    <!-- STYLE -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color:#2c3e50;
+        }
+
+        .jumbotron {
+            height: 100vh;
+            min-height: 500px;
+            background-image: url('https://wallpaperaccess.com/full/880901.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        #table_of_contents {
+            min-height: 40%;
+            overflow-y: auto;
+        }
+
+        .topic {
+            margin: 100px 0px;
+        }
+
+        .topic__title, .topic__desc, .topic__showcase {
+            margin: 10px 0px;
+        }
+
+        .topic__code {
+            margin: 10px auto;
+            width: 90%;
+        }
+
+        code {
+            display: block;
+            white-space:pre-wrap;
+        }
+
+        @media (max-width: 576px) {
+            .display-2 {
+                font-size: 4rem;
+            }
+            .lead {
+                font-size: 1rem;
+            }
+            .table {
+                width: 100%;
+                overflow-x: auto;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- JUMBOTRON -->
+    <div class='jumbotron d-flex flex-column align-items-center justify-content-center bg-dark'>
+        <!-- JUMBOTRON TEXT -->
+        <h1 class='display-2 text-center text-white'>Bootstrap Cheat Sheet P.1</h1>
+        <p class='lead text-center text-white'>Cheat sheet made by AdmiJW</p>
+
+        <!-- JUMBOTRON - TABLE OF CONTENTS -->
+        <div class='card w-50' id='table_of_contents'>
+
+            <h3 class='card-title text-muted text-center'>Table of Contents</h3>
+
+            <nav id='table_of_contents__'>
+                <ul class='nav flex-column'>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#bootstraps_responsive_breakpoints'>Bootstrap's Responsive Breakpoints</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#containers'>Containers</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#width_and_height'>Width and Height</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#margins'>Margins</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#paddings'>Paddings</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#text_alignment_and_transforms'>Text alignment and Transforms</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#color_context'>Color Context</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#display_properties'>Display Properties</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#flexbox_attributes'>Flexbox Attributes</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#box_shadow'>Box Shadow</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#grid_system'>Grid System</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+<!-- Contents -->
+<div class='container'>
+
+    <!---------------------------------------->
+    <!-- Bootstrap's Responsive Breakpoints -->
+    <!---------------------------------------->
+    <div class='card topic' id='bootstraps_responsive_breakpoints'>
+        <!-- HEADER -->
+        <h2 class='display-4 text-center topic__title'>Bootstrap Responsive Breakpoints</h2>
+        
+        <!-- DESCRIPTION -->
+        <div class='card bg-light m-4 rounded topic__desc'>
+            <p>
+                <ul>
+                    <li>
+                        Bootstrap is a <strong>mobile-first</strong> framework. This means that all the styling classes
+                        that we've applied are targeted for mobile devices first.
+                    </li>
+                    <li>
+                        Although it is not obvious at first glance, we can obviously see the designing pattern when we 
+                        apply for some responsive breakpoints. Responsive breakpoints are the certain sizes that we 
+                        can apply to certain styles, so that they poccess different styling on different viewport 
+                        sizes.
+                    </li>
+                    <li>
+                        When responsive breakpoints are applied, what it does is basically apply the media queries for
+                        the very same styles. Like so: <br/>
+                        <code class='code'>@media (min-width: 576px) { ... }</code>
+                    </li>
+                </ul>
+
+                <table class='table table-striped table-bordered w-sm-75 m-auto table-responsive-sm'>
+                    <tr>
+                        <th scope='col'>Breakpoints</th>
+                        <th scope='col'>Screen size</th>
+                        <th scope='col'>Description</th>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <strong>xs</strong> </td>
+                        <td class='lead'>&lt;576px</td>
+                        <td class='lead'>No actual media query for this. It is the default for all Bootstrap styles</td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <strong>sm</strong> </td>
+                        <td class='lead'> &gt;576px </td>
+                        <td class='lead'>Phones in landscape mode</td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <strong>md</strong> </td>
+                        <td class='lead'> &gt;768px </td>
+                        <td class='lead'>Tablets</td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <strong>lg</strong> </td>
+                        <td class='lead'> &gt;992px </td>
+                        <td class='lead'>Desktops</td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <strong>xl</strong> </td>
+                        <td class='lead'> &gt;1200px </td>
+                        <td class='lead'>Large Desktops</td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+
+        <!-- SHOWCASE -->
+        <div class='topic__showcase'>
+            <p class='lead w-75 m-auto'>
+                Those rectangles demonstrate responsive breakpoints: When the device width exceeds the responsive
+                breakpoint, it will expand to cover 100% width
+            </p>
+            <div class='col-12 m-auto bg-primary text-white text-center'>Default(xs) - Breakpoint at &lt;576px</div>
+            <div class='col-6 col-sm-12 m-auto bg-success text-white text-center'>sm - Breakpoint at &gt;576px</div>
+            <div class='col-6 col-md-12 m-auto bg-danger text-white text-center'>md - Breakpoint at &gt;768px</div>
+            <div class='col-6 col-lg-12 m-auto bg-warning text-white text-center'>lg - Breakpoint at &gt;992px</div>
+            <div class='col-6 col-xl-12 m-auto bg-info text-white text-center'>xl - Breakpoint at &gt;1200px</div>
+        </div>
+
+        <!-- CODE -->
+        <div class='topic__code card bg-light'>
+        <code>
+&lt;div class='col-12 m-auto ...'&gt; Default(xs) - Breakpoint at &lt;576px &lt;/div&gt;
+&lt;div class='col-6 col-sm-12 m-auto ...'&gt; sm - Breakpoint at &gt;576px &lt;/div&gt;
+&lt;div class='col-6 col-md-12 m-auto ...'&gt; md - Breakpoint at &gt;768px &lt;/div&gt;
+&lt;div class='col-6 col-lg-12 m-auto ...'&gt; lg - Breakpoint at &gt;992px &lt;/div&gt;
+&lt;div class='col-6 col-xl-12 m-auto ...'&gt; xl - Breakpoint at &gt;1200px &lt;/div&gt;
+        </code>
+        </div>
+        
+    </div>
+
+
+
+    <!---------------------------------------->
+    <!-- Containers -->
+    <!---------------------------------------->
+    <div class='card topic' id='containers'>
+        <!-- HEADER -->
+        <h2 class='display-4 text-center topic__title'>Containers</h2>
+        
+        <!-- DESCRIPTION -->
+        <div class='card bg-light m-4 rounded topic__desc'>
+            <p>
+                <ul>
+                    <li>
+                        Bootstrap comes with 2 general container classes:
+                    </li>
+                </ul>
+
+                <table class='table table-striped table-bordered w-sm-75 m-auto table-responsive-sm'>
+                    <tr>
+                        <th scope='col'>Container</th>
+                        <th scope='col'>Description</th>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <strong><code>container</code></strong> </td>
+                        <td class='lead'> This container prevents 100% width on large screens </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <strong><code> container-fluid </code></strong> </td>
+                        <td class='lead'> This container always make it 100% width, with some padding </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+
+
+        <!-- CODE -->
+        <div class='topic__code card bg-light'>
+&lt;div class='container'&gt;Container &lt;/div&gt;
+&lt;div class='container-fluid'&gt; Container-fluid &lt;/div&gt;
+        </div>
+    </div>
+</div>
+
+        <!-- SHOWCASE -->
+        <div class='topic__showcase'>
+            <div class='container'>
+                <p class='display-4 text-white'>
+                    This is an example of <code>container</code> class applied.
+                </p>
+            </div>
+
+            <div class='container-fluid'>
+                <p class='display-4 text-white'>
+                    This is an example of <code>container-fluid</code> class applied.
+                </p>
+            </div>
+        </div>
+
+        
+
+<div class='container'>  
+
+
+
+    <!---------------------------------------->
+    <!-- Width and Height -->
+    <!---------------------------------------->
+    <div class='card topic' id='width_and_height'>
+        <!-- HEADER -->
+        <h2 class='display-4 text-center topic__title'> Width and Height </h2>
+        
+        <!-- DESCRIPTION -->
+        <div class='card bg-light m-4 rounded topic__desc'>
+            <p>
+                <ul>
+                    <li>
+                        In Bootstrap, we can easily set the height and width of a HTML element. However,
+                        we are limited to a selection of width and height sizes, namely, <strong>25,50,75,100 percent and auto</strong>
+                    </li>
+                </ul>
+
+                <table class='table table-striped table-bordered w-sm-75 m-auto table-responsive-sm'>
+                    <tr>
+                        <th scope='col'>Property</th>
+                        <th scope='col'>Class</th>
+                        <th scope='col'>Description</th>
+                    </tr>
+                    <tr>
+                        <td class='lead' rowspan='5'>Width</td>
+                        <td class='lead'> <code>w-25</code> </td>
+                        <td class='lead'> width: 25% </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>w-50</code> </td>
+                        <td class='lead'> width: 50% </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>w-75</code> </td>
+                        <td class='lead'> width: 75% </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>w-75</code> </td>
+                        <td class='lead'> width: 100% </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>w-auto</code> </td>
+                        <td class='lead'> width: auto </td>
+                    </tr>
+                    <tr>
+                        <td class='lead' rowspan='5'>Height</td>
+                        <td class='lead'> <code>h-25</code> </td>
+                        <td class='lead'> height: 25% </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>h-50</code> </td>
+                        <td class='lead'> height: 50% </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>h-75</code> </td>
+                        <td class='lead'> height: 75% </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>h-75</code> </td>
+                        <td class='lead'> height: 100% </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>h-auto</code> </td>
+                        <td class='lead'> height: auto </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+
+        <!-- SHOWCASE -->
+        <div class='topic__showcase'>
+            <div class='w-25 bg-primary text-white'>w-25</div>
+            <div class='w-50 bg-secondary text-white'>w-50</div>
+            <div class='w-75 bg-success text-white'>w-75</div>
+            <div class='w-100 bg-warning text-white'>w-100</div>
+            <div class='w-auto bg-danger text-white'>w-auto</div>
+
+            <div class='row w-75 m-auto border bg-light' style='height: 200px'>
+                <div class='col-2 h-25 bg-primary text-white'>h-25</div>
+                <div class='col-2 h-50 bg-secondary text-white'>h-50</div>
+                <div class='col-2 h-75 bg-success text-white'>h-75</div>
+                <div class='col-2 h-100 bg-warning text-white'>h-100</div>
+                <div class='col-2 h-auto bg-danger text-white'>h-auto</div>
+            </div>
+        </div>
+
+        <!-- CODE -->
+        <div class='topic__code card bg-light'>
+            <code>
+&lt;div class='w-25 '&gt;w-25&lt;/div&gt;
+&lt;div class='w-50 '&gt;w-50&lt;/div&gt;
+&lt;div class='w-75 '&gt;w-75&lt;/div&gt;
+&lt;div class='w-100 '&gt;w-100&lt;/div&gt;
+&lt;div class='w-auto'&gt;w-auto&lt;/div&gt;
+
+&lt;div class='h-25 '&gt;h-25&lt;/div&gt;
+&lt;div class='h-50 '&gt;h-50&lt;/div&gt;
+&lt;div class='h-75 '&gt;h-75&lt;/div&gt;
+&lt;div class='h-100 '&gt;h-100&lt;/div&gt;
+&lt;div class='h-auto'&gt;h-auto&lt;/div&gt;
+            </code>
+        </div>
+        
+    </div>
+
+    
+    
+    
+    <!---------------------------------------->
+    <!-- Margins -->
+    <!---------------------------------------->
+    <div class='card topic' id='margins'>
+        <!-- HEADER -->
+        <h2 class='display-4 text-center topic__title'>Margins</h2>
+        
+        <!-- DESCRIPTION -->
+        <div class='card bg-light m-4 rounded topic__desc'>
+            <p>
+                <ul>
+                    <li>
+                        Bootstrap comes with some easy ways to set margins on an HTML element. It provides a scale 
+                        in which we can set the margin to. The scale ranges from <strong>0 to 5</strong>. 
+                        which scales from 0px, 4px up to 48px maximum. See:
+                    </li>
+                </ul>
+
+                <table class='table table-striped table-bordered w-sm-75 m-auto table-responsive-sm'>
+                    <tr>
+                        <th scope='col'>Margin Type</th>
+                        <th scope='col'>Classes</th>
+                        <th scope='col'>Description</th>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Margin all around </td>
+                        <td class='lead'> <code>m-0 m-1 m-2 m-3 m-4 m-5 </code> </td>
+                        <td class='lead'>Margin on all sides (left, right, top, bottom) </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Margin left </td>
+                        <td class='lead'> <code>ml-0 ml-1 ml-2 ml-3 ml-4 ml-5 </code> </td>
+                        <td class='lead'> Margin on left side </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Margin right </td>
+                        <td class='lead'> <code>mr-0 mr-1 mr-2 mr-3 mr-4 mr-5 </code> </td>
+                        <td class='lead'> Margin on right side </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Margin top </td>
+                        <td class='lead'> <code>mt-0 mt-1 mt-2 mt-3 mt-4 mt-5 </code> </td>
+                        <td class='lead'> Margin on upper side </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Margin bottom </td>
+                        <td class='lead'> <code>mb-0 mb-1 mb-2 mb-3 mb-4 mb-5 </code> </td>
+                        <td class='lead'> Margin on bottom side </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Margin Horizontal </td>
+                        <td class='lead'> <code>mx-0 mx-1 mx-2 mx-3 mx-4 mx-5 </code> </td>
+                        <td class='lead'> Margin on left and right </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Margin Vertical </td>
+                        <td class='lead'> <code>my-0 my-1 my-2 my-3 my-4 my-5 </code> </td>
+                        <td class='lead'> Margin on top and bottom </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Margin Auto </td>
+                        <td class='lead'> <code>m-auto</code> </td>
+                        <td class='lead'> Automatically apply the margin to elements which width is smaller than
+                            100% the parent container size, so that it centers
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Breakpoint Variants </td>
+                        <td class='lead'> <code> m()-(size)-(1-5) </code> </td>
+                        <td class='lead'> Apply the respective margin size according to the responsive breakpoints</td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+
+        <!-- SHOWCASE -->
+        <div class='topic__showcase'>
+            <div class='m-0 bg-primary text-white text-center'> m-0 </div>
+            <div class='m-1 bg-success text-white text-center'> m-1 </div>
+            <div class='m-2 bg-danger text-white text-center'> m-2 </div>
+            <div class='m-3 bg-warning text-white text-center'> m-3 </div>
+            <div class='m-4 bg-info text-white text-center'> m-4 </div>
+            <div class='m-5 bg-dark text-white text-center'> m-5 </div>
+
+            <br/>
+
+            <div class='m-0 m-sm-2 m-lg-5 text-white bg-primary text-center'> m-0 | m-sm-2 | m-lg-5</div>
+        </div>
+
+        <!-- CODE -->
+        <div class='topic__code card bg-light'>
+        <code>
+&lt;div class='m-0 ...'&gt; m-0 &lt;/div&gt;
+&lt;div class='m-1 ...'&gt; m-1 &lt;/div&gt;
+&lt;div class='m-2 ...'&gt; m-2 &lt;/div&gt;
+&lt;div class='m-3 ...'&gt; m-3 &lt;/div&gt;
+&lt;div class='m-4 ...'&gt; m-4 &lt;/div&gt;
+&lt;div class='m-5 ...'&gt; m-5 &lt;/div&gt;
+
+&lt;div class='m-0 m-sm-2 m-lg-5 ...'&gt; m-0 | m-sm-2 | m-lg-5&lt;/div&gt;
+        </code>
+        </div>
+        
+    </div>
+    
+
+
+
+    <!---------------------------------------->
+    <!-- Paddings -->
+    <!---------------------------------------->
+    <div class='card topic' id='paddings'>
+        <!-- HEADER -->
+        <h2 class='display-4 text-center topic__title'>Paddings</h2>
+        
+        <!-- DESCRIPTION -->
+        <div class='card bg-light m-4 rounded topic__desc'>
+            <p>
+                <ul>
+                    <li>
+                        Like margins, padding is also implemented in a very similar fashion. All we have to do is 
+                        replace the 'm' with 'p'
+                    </li>
+                </ul>
+
+                <table class='table table-striped table-bordered w-sm-75 m-auto table-responsive-sm'>
+                    <tr>
+                        <th scope='col'>Padding Type</th>
+                        <th scope='col'>Classes</th>
+                        <th scope='col'>Description</th>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Padding all around </td>
+                        <td class='lead'> <code>p-0 p-1 p-2 p-3 p-4 p-5 </code> </td>
+                        <td class='lead'>Padding on all sides (left, right, top, bottom) </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Padding left </td>
+                        <td class='lead'> <code>pl-0 pl-1 pl-2 pl-3 pl-4 pl-5 </code> </td>
+                        <td class='lead'> Padding on left side </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Padding right </td>
+                        <td class='lead'> <code>pr-0 pr-1 pr-2 pr-3 pr-4 pr-5 </code> </td>
+                        <td class='lead'> Padding on right side </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Padding top </td>
+                        <td class='lead'> <code>pt-0 pt-1 pt-2 pt-3 pt-4 pt-5 </code> </td>
+                        <td class='lead'> Padding on upper side </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Padding bottom </td>
+                        <td class='lead'> <code>pb-0 pb-1 pb-2 pb-3 pb-4 pb-5 </code> </td>
+                        <td class='lead'> Padding on bottom side </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Padding Horizontal </td>
+                        <td class='lead'> <code>px-0 px-1 px-2 px-3 px-4 px-5 </code> </td>
+                        <td class='lead'> Padding on left and right </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Padding Vertical </td>
+                        <td class='lead'> <code>py-0 py-1 py-2 py-3 py-4 py-5 </code> </td>
+                        <td class='lead'> Padding on top and bottom </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Breakpoint Variants </td>
+                        <td class='lead'> <code> p()-(size)-(1-5) </code> </td>
+                        <td class='lead'> Apply the respective padding size according to the responsive breakpoints</td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+
+        <!-- SHOWCASE -->
+        <div class='topic__showcase'>
+            <div class='p-0 bg-primary text-white'> p-0 </div>
+            <div class='p-1 bg-success text-white'> p-1 </div>
+            <div class='p-2 bg-danger text-white'> p-2 </div>
+            <div class='p-3 bg-warning text-white'> p-3 </div>
+            <div class='p-4 bg-info text-white'> p-4 </div>
+            <div class='p-5 bg-dark text-white'> p-5 </div>
+
+            <br/>
+
+            <div class='p-0 p-sm-2 p-lg-5 text-white bg-primary'> p-0 | p-sm-2 | p-lg-5</div>
+        </div>
+
+        <!-- CODE -->
+        <div class='topic__code card bg-light'>
+            <code>
+&lt;div class='p-0 ...'&gt; p-0 &lt;/div&gt;
+&lt;div class='p-1 ...'&gt; p-1 &lt;/div&gt;
+&lt;div class='p-2 ...'&gt; p-2 &lt;/div&gt;
+&lt;div class='p-3 ...'&gt; p-3 &lt;/div&gt;
+&lt;div class='p-4 ...'&gt; p-4 &lt;/div&gt;
+&lt;div class='p-5 ...'&gt; p-5 &lt;/div&gt;
+
+&lt;div class='p-0 p-sm-2 p-lg-5 ...'&gt; p-0 | p-sm-2 | p-lg-5 &lt;/div&gt;
+            </code>
+        </div>
+        
+    </div>
+
+
+
+
+    <!---------------------------------------->
+    <!-- TEXT ALIGNMENT AND TRANSFORMS -->
+    <!---------------------------------------->
+    <div class='card topic' id='text_alignment_and_transforms'>
+        <!-- HEADER -->
+        <h2 class='display-4 text-center topic__title'>Text Alignment and Transforms</h2>
+        
+        <!-- DESCRIPTION -->
+        <div class='card bg-light m-4 rounded topic__desc'>
+            <p>
+                <ul>
+                    <li>
+                       With bootstrap, we can easily change how the text looks.
+                    </li>
+                </ul>
+
+                <table class='table table-striped table-bordered w-sm-75 m-auto table-responsive-sm'>
+                    <tr>
+                        <th scope='col'></th>
+                        <th scope='col'>Properties</th>
+                        <th scope='col'>Classes</th>
+                    </tr>
+
+                    <!-- ALIGNMENT -->
+                    <tr>
+                        <td class='lead' rowspan=3>Text Alignment</td>
+                        <td class='lead'> Left alignment </td>
+                        <td class='lead'> <code>text-left</code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Right alignment </td>
+                        <td class='lead'> <code>text-right</code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Center alignment </td>
+                        <td class='lead'> <code>text-center</code> </td>
+                    </tr>
+                    
+                    <!-- TRANSFORM -->
+                    <tr>
+                        <td class='lead' rowspan=3>Text Transform</td>
+                        <td class='lead'> Uppercase </td>
+                        <td class='lead'> <code>text-uppercase</code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Lowercase </td>
+                        <td class='lead'> <code>text-lowercase</code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Capitalize </td>
+                        <td class='lead'> <code>text-capitalize</code> </td>
+                    </tr>
+
+                    <!-- WEIGHT -->
+                    <tr>
+                        <td class='lead' rowspan=3>Font Weights</td>
+                        <td class='lead'> Bold </td>
+                        <td class='lead'> <code>font-weight-bold</code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Light </td>
+                        <td class='lead'> <code>font-weight-light</code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Normal </td>
+                        <td class='lead'> <code>font-weight-normal</code> </td>
+                    </tr>
+
+                    <!-- ITALIC -->
+                    <tr>
+                        <td class='lead' >Font Italicize</td>
+                        <td class='lead'>  Italics </td>
+                        <td class='lead'> <code>font-italic</code> </td>
+                    </tr>
+
+                    <!-- DISPLAY TEXT -->
+                    <tr>
+                        <td class='lead' rowspan=4>Display Texts</td>
+                        <td class='lead' rowspan=4> Custom Bootstrap display text, usually used for heading texts </td>
+                        <td class='lead'> <code>display-1</code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>display-2</code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>display-3</code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>display-4</code> </td>
+                    </tr>
+
+                    <!-- LEAD TEXT -->
+                    <tr>
+                        <td class='lead' >Lead Text</td>
+                        <td class='lead'> Bootstrap's fancier paragraph text, usually used with display text </td>
+                        <td class='lead'> <code>lead</code> </td>
+                    </tr>
+                    
+                </table>
+            </p>
+        </div>
+
+        <!-- SHOWCASE -->
+        <div class='topic__showcase'>
+            <div class='card m-auto w-75 bg-light'>
+                <p class='text-right bg-success text-white'>.text-right</p>
+                <p class='text-left bg-primary text-white'>.text-left</p>
+                <p class='text-center bg-warning text-white'>.text-center</p>
+            </div>
+
+            <div class='card m-auto w-75 bg-light'>
+                <p>Normal Text is here</p>
+                <p class='text-uppercase'>Uppercase Text is here</p>
+                <p class='text-lowercase'>Lowercase Text is here</p>
+                <p class='text-capitalize'>Capitalized Text is here</p>
+            </div>
+
+            <div class='card m-auto w-75 bg-light'>
+                <p class='font-weight-bold'>Bold Text is here</p>
+                <p class='font-weight-light'>Light Text is here</p>
+                <p class='font-weight-normal'>Normal Text is here</p>
+            </div>
+
+            <div class='card m-auto w-75 bg-light'>
+                <p class='font-italic'>Italicized Text is here</p>
+            </div>
+
+            <div class='card m-auto w-75 bg-light'>
+                <p class='display-1'>Display 1</p>
+                <p class='display-2'>Display 2</p>
+                <p class='display-3'>Display 3</p>
+                <p class='display-4'>Display 4</p>
+            </div>
+
+            <div class='card m-auto w-75 bg-light'>
+                <p class='lead'>Lead Text is here</p>
+            </div>
+        </div>
+
+        <!-- CODE -->
+        <div class='topic__code card bg-light'>
+        <code>
+&lt;p class='text-right'&gt;.text-right&lt;/p&gt;
+&lt;p class='text-left'&gt;.text-left&lt;/p&gt;
+&lt;p class='text-center'&gt;.text-center&lt;/p&gt;
+
+&lt;p class='text-uppercase'&gt;Uppercase Text is here&lt;/p&gt;
+&lt;p class='text-lowercase'&gt;Lowercase Text is here&lt;/p&gt;
+&lt;p class='text-capitalize'&gt;Capitalized Text is here&lt;/p&gt;
+
+&lt;p class='font-weight-bold'&gt;Bold Text is here&lt;/p&gt;
+&lt;p class='font-weight-light'&gt;Light Text is here&lt;/p&gt;
+&lt;p class='font-weight-normal'&gt;Normal Text is here&lt;/p&gt;
+
+&lt;p class='font-italic'&gt;Italicized Text is here&lt;/p&gt;
+
+&lt;p class='display-1'&gt;Display 1&lt;/p&gt;
+&lt;p class='display-2'&gt;Display 2&lt;/p&gt;
+&lt;p class='display-3'&gt;Display 3&lt;/p&gt;
+&lt;p class='display-4'&gt;Display 4&lt;/p&gt;
+
+&lt;p class='lead'&gt;Lead Text is here&lt;/p&gt;
+        </code>
+        </div>
+        
+    </div>
+
+
+
+
+
+
+    <!---------------------------------------->
+    <!-- COLOR CONTEXT -->
+    <!---------------------------------------->
+    <div class='card topic' id='color_context'>
+        <!-- HEADER -->
+        <h2 class='display-4 text-center topic__title'>Color Contexts</h2>
+        
+        <!-- DESCRIPTION -->
+        <div class='card bg-light m-4 rounded topic__desc'>
+            <p>
+                <ul>
+                    <li>
+                        Bootstrap comes with a set of predefined color selections for us to set on HTML elements.
+                        The more common ones include setting colors of text and background.
+                    </li>
+                </ul>
+
+                <table class='table table-striped table-bordered w-sm-75 m-auto table-responsive-sm'>
+                    <tr>
+                        <th scope='col'>Class</th>
+                        <th scope='col'>Color</th>
+                    </tr>
+
+                    <tr>
+                        <td class='lead'> <code>{}-primary</code> </td>
+                        <td class='lead text-white bg-primary'> Blue </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>{}-secondary</code> </td>
+                        <td class='lead text-white bg-secondary'> Grey </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>{}-success</code> </td>
+                        <td class='lead text-white bg-success'> Green </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>{}-danger</code> </td>
+                        <td class='lead text-white bg-danger'> Red </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>{}-warning</code> </td>
+                        <td class='lead text-white bg-warning'> Yellow </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>{}-info</code> </td>
+                        <td class='lead text-white bg-info'> Teal </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>{}-light</code> </td>
+                        <td class='lead bg-light'> Light grey </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>{}-dark</code> </td>
+                        <td class='lead text-white bg-dark'> Dark grey </td>
+                    </tr>
+                    
+                </table>
+            </p>
+        </div>
+
+        <!-- SHOWCASE -->
+        <div class='topic__showcase'>
+            <div class='card m-auto w-75 bg-light'>
+                <p class='text-primary'>.text-primary</p>
+                <p class='text-secondary'>.text-secondary</p>
+                <p class='text-success'>.text-success</p>
+                <p class='text-danger'>.text-danger</p>
+                <p class='text-warning'>.text-warning</p>
+                <p class='text-info'>.text-info</p>
+                <p class='text-light bg-dark'>.text-light <small class='text-muted'>(Along with bg-dark)</small></p>
+                <p class='text-dark'>.text-dark </p>
+                <p class='text-white bg-dark'>.text-white <small class='text-muted'>(Along with bg-dark)</small></p>
+                <p class='text-muted'>.text-muted</p>
+                <p class='text-black-50'>.text-black-50 <small class='text-muted'>(Opacity .5)</small></p>
+                <p class='text-white-50 bg-dark'>.text-white-50 <small class='text-muted'>(Along with bg-dark, Opacity .5)</small></p>
+            </div>
+        </div>
+
+        <!-- CODE -->
+        <div class='topic__code card bg-light'>
+        <code>
+&lt;p class='text-primary'&gt;.text-primary&lt;/p&gt;
+&lt;p class='text-secondary'&gt;.text-secondary&lt;/p&gt;
+&lt;p class='text-success'&gt;.text-success&lt;/p&gt;
+&lt;p class='text-danger'&gt;.text-danger&lt;/p&gt;
+&lt;p class='text-warning'&gt;.text-warning&lt;/p&gt;
+&lt;p class='text-info'&gt;.text-info&lt;/p&gt;
+&lt;p class='text-light bg-dark'&gt;.text-light &lt;/p&gt;
+&lt;p class='text-dark'&gt;.text-dark &lt;/p&gt;
+&lt;p class='text-white bg-dark'&gt;.text-white &lt;/p&gt;
+&lt;p class='text-muted'&gt;.text-muted&lt;/p&gt;
+&lt;p class='text-black-50'&gt;.text-black-50&lt;/p&gt;
+&lt;p class='text-white-50 bg-dark'&gt;.text-white-50 &lt;/p&gt;
+        </code>
+        </div>
+
+
+        <!-- SHOWCASE -->
+        <div class='topic__showcase'>
+            <div class='card m-auto w-75 bg-light'>
+                <p class='bg-primary text-white'>.bg-primary</p>
+                <p class='bg-secondary text-white'>.bg-secondary</p>
+                <p class='bg-success text-white'>.bg-success</p>
+                <p class='bg-danger text-white'>.bg-danger</p>
+                <p class='bg-warning text-white'>.bg-warning</p>
+                <p class='bg-info text-white'>.bg-info</p>
+                <p class='bg-light'>.bg-light </p>
+                <p class='bg-dark text-white'>.bg-darkbg
+            </div>
+        </div>
+
+        <!-- CODE -->
+        <div class='topic__code card bg-light'>
+        <code>
+&lt;p class='bg-primary text-white'&gt;.bg-primary&lt;/p&gt;
+&lt;p class='bg-secondary text-white'&gt;.bg-secondary&lt;/p&gt;
+&lt;p class='bg-success text-white'&gt;.bg-success&lt;/p&gt;
+&lt;p class='bg-danger text-white'&gt;.bg-danger&lt;/p&gt;
+&lt;p class='bg-warning text-white'&gt;.bg-warning&lt;/p&gt;
+&lt;p class='bg-info text-white'&gt;.bg-info&lt;/p&gt;
+&lt;p class='bg-light'&gt;.bg-light &lt;/p&gt;
+&lt;p class='bg-dark text-white'&gt;.bg-dark &lt;/p&gt;
+        </code>
+        </div>
+        
+    </div>
+
+
+
+
+
+    <!---------------------------------------->
+    <!-- Display Properties -->
+    <!---------------------------------------->
+    <div class='card topic' id='display_properties'>
+        <!-- HEADER -->
+        <h2 class='display-4 text-center topic__title'>Display Attribute</h2>
+        
+        <!-- DESCRIPTION -->
+        <div class='card bg-light m-4 rounded topic__desc'>
+            <p>
+                <ul>
+                    <li>
+                        Whenever we want to change the display attribute, we can simply apply the Bootstrap's
+                        display classes
+                    </li>
+                </ul>
+
+                <table class='table table-striped table-bordered w-sm-75 m-auto table-responsive-sm'>
+                    <tr>
+                        <th scope='col'>Display Property</th>
+                        <th scope='col'>Class</th>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Block </td>
+                        <td class='lead'> <code> d-block </code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Inline </td>
+                        <td class='lead'> <code> d-inline </code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Inline Block </td>
+                        <td class='lead'> <code> d-inline-block </code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> None </td>
+                        <td class='lead'> <code> d-none </code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Flex </td>
+                        <td class='lead'> <code> d-flex </code> </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+
+        <!-- SHOWCASE -->
+        <div class='topic__showcase'>
+            <div class='lead d-block bg-primary text-white'>d-block</div>
+            <div class='lead d-inline bg-success text-white'>d-inline</div>
+            <div class='lead d-inline-block bg-warning text-white'>d-inline-block</div>
+            <div class='lead d-none d-sm-block bg-info text-white'>d-none <small class='text-muted'>Applied on very small screen</small></div>
+            <div class='d-flex bg-danger'>
+                <p class='lead text-white'> (d-flex Element 1) </p>
+                <p class='lead text-white'> (d-flex Element 2) </p>
+                <p class='lead text-white'> (d-flex Element 3) </p>
+            </div>
+        </div>
+
+        <!-- CODE -->
+        <div class='topic__code card bg-light'>
+            <code>
+&lt;div class='d-block '&gt; d-block &lt;/div&gt;
+&lt;div class='d-inline '&gt; d-inline &lt;/div&gt;
+&lt;div class='d-inline-block '&gt; d-inline-block &lt;/div&gt;
+&lt;div class='d-none d-sm-block '&gt; d-none &lt;/div&gt;
+&lt;div class='d-flex '&gt;
+    &lt;p&gt; (d-flex Element 1) &lt;/p&gt;
+    &lt;p&gt; (d-flex Element 2) &lt;/p&gt;
+    &lt;p&gt; (d-flex Element 3) &lt;/p&gt;
+&lt;/div&gt;
+            </code>
+        </div>
+        
+    </div>
+
+
+
+    <!---------------------------------------->
+    <!-- Flexbox Attributes -->
+    <!---------------------------------------->
+    <div class='card topic' id='flexbox_attributes'>
+        <!-- HEADER -->
+        <h2 class='display-4 text-center topic__title'>Flexbox Attributes</h2>
+        
+        <!-- DESCRIPTION -->
+        <div class='card bg-light m-4 rounded topic__desc'>
+            <p>
+                <ul>
+                    <li>
+                        When we have applied the <code class='d-inline'>d-flex</code> property, we can further adjust its behavior
+                        to suit what we actually want from the flexbox
+                    </li>
+                </ul>
+
+                <table class='table table-striped table-bordered w-sm-75 m-auto table-responsive-sm'>
+                    <tr>
+                        <th scope='col'>Property</th>
+                        <th scope='col'>Behavior</th>
+                        <th scope='col'>Class</th>
+                    </tr>
+                    <tr>
+                        <td scope='col' rowspan='4'> Flex Direction</th>
+                        <td class='lead'> Row </td>
+                        <td class='lead'> <code> flex-row </code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Column </td>
+                        <td class='lead'> <code> flex-column </code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Row Reversed </td>
+                        <td class='lead'> <code> flex-row-reverse </code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Column Reversed </td>
+                        <td class='lead'> <code> flex-column-reverse </code> </td>
+                    </tr>
+                    <tr>
+                        <td scope='col' rowspan='5'> Justify Content</th>
+                        <td class='lead'> Start (Justify left of Main Axis) </td>
+                        <td class='lead'> <code> justify-content-start </code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> End (Justify right of Main Axis) </td>
+                        <td class='lead'> <code> justify-content-end </code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Center </td>
+                        <td class='lead'> <code> justify-content-center </code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Between <small class='text-muted'>(even spacing between each element, both ends not included) </small></td>
+                        <td class='lead'> <code> justify-content-between </code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Around <small class='text-muted'>(even spacing between each element, both ends half the space) </small> </td>
+                        <td class='lead'> <code> justify-content-around </code> </td>
+                    </tr>
+                    <tr>
+                        <td scope='col' rowspan='3'> Align items</th>
+                        <td class='lead'> Start (Align left on Cross axis) </td>
+                        <td class='lead'> <code> align-items-left </code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> End (Align right on Cross axis) </td>
+                        <td class='lead'> <code> align-items-right </code> </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> Center </td>
+                        <td class='lead'> <code> align-items-center </code> </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+
+        <!-- SHOWCASE -->
+        <div class='topic__showcase'>
+            <div class='card bg-light'>
+                <div class='d-flex flex-row bg-primary text-white'>
+                    <span class='lead'>( Direction Row 1 )</span>
+                    <span class='lead'>( Direction Row 2 )</span>
+                    <span class='lead'>( Direction Row 3 )</span>
+                </div>
+                <div class='d-flex flex-column bg-success text-white'>
+                    <span class='lead'>( Direction Column 1 )</span>
+                    <span class='lead'>( Direction Column 2 )</span>
+                    <span class='lead'>( Direction Column 3 )</span>
+                </div>
+                <div class='d-flex flex-row-reverse bg-warning text-white'>
+                    <span class='lead'>( Direction Row Reverse 1 )</span>
+                    <span class='lead'>( Direction Row Reverse 2 )</span>
+                    <span class='lead'>( Direction Row Reverse 3 )</span>
+                </div>
+                <div class='d-flex flex-column-reverse bg-danger text-white'>
+                    <span class='lead'>( Direction Column Reverse 1 )</span>
+                    <span class='lead'>( Direction Column Reverse 2 )</span>
+                    <span class='lead'>( Direction Column Reverse 3 )</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CODE -->
+        <div class='topic__code card bg-light'>
+            <code>
+&lt;div class='d-flex flex-row'&gt;
+    &lt;span&gt;( Direction Row 1 )&lt;/span&gt;
+    &lt;span&gt;( Direction Row 2 )&lt;/span&gt;
+    &lt;span&gt;( Direction Row 3 )&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class='d-flex flex-column'&gt;
+    &lt;span&gt;( Direction Column 1 )&lt;/span&gt;
+    &lt;span&gt;( Direction Column 2 )&lt;/span&gt;
+    &lt;span&gt;( Direction Column 3 )&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class='d-flex flex-row-reverse'&gt;
+    &lt;span&gt;( Direction Row Reverse 1 )&lt;/span&gt;
+    &lt;span&gt;( Direction Row Reverse 2 )&lt;/span&gt;
+    &lt;span&gt;( Direction Row Reverse 3 )&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class='d-flex flex-column-reverse'&gt;
+    &lt;span&gt;( Direction Column Reverse 1 )&lt;/span&gt;
+    &lt;span&gt;( Direction Column Reverse 2 )&lt;/span&gt;
+    &lt;span&gt;( Direction Column Reverse 3 )&lt;/span&gt;
+&lt;/div&gt;
+            </code>
+        </div>
+
+
+        <!-- SHOWCASE -->
+        <div class='topic__showcase'>
+            <div class='card bg-light'>
+                <div class='d-flex justify-content-start bg-primary text-white'>
+                    <span class='lead'>( Justify Start - Element 1 )</span>
+                    <span class='lead'>( Start - Element 2 )</span>
+                </div>
+                <div class='d-flex justify-content-end bg-success text-white'>
+                    <span class='lead'>( Justify End - Element 1 )</span>
+                    <span class='lead'>( Justify End - Element 2 )</span>
+                </div>
+                <div class='d-flex justify-content-center bg-warning text-white'>
+                    <span class='lead'>( Justify Center - Element 1 )</span>
+                    <span class='lead'>( Justify Center - Element 2 )</span>
+                </div>
+                <div class='d-flex justify-content-between bg-danger text-white'>
+                    <span class='lead'>( Justify Between - Element 1 )</span>
+                    <span class='lead'>( Justify Between - Element 2 )</span>
+                </div>
+                <div class='d-flex justify-content-around bg-info text-white'>
+                    <span class='lead'>( Justify Around - Element 1 )</span>
+                    <span class='lead'>( Justify Around - Element 2 )</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CODE -->
+        <div class='topic__code card bg-light'>
+            <code>
+&lt;div class='d-flex justify-content-start '&gt;
+    &lt;span&gt;( Justify Start - Element 1 )&lt;/span&gt;
+    &lt;span&gt;( Justify Start - Element 2 )&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class='d-flex justify-content-end '&gt;
+    &lt;span&gt;( Justify End - Element 1 )&lt;/span&gt;
+    &lt;span&gt;( Justify End - Element 2 )&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class='d-flex justify-content-center '&gt;
+    &lt;span&gt;( Justify Center - Element 1 )&lt;/span&gt;
+    &lt;span&gt;( Justify Center - Element 2 )&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class='d-flex justify-content-between'&gt;
+    &lt;span&gt;( Justify Between - Element 1 )&lt;/span&gt;
+    &lt;span&gt;( Justify Between - Element 2 )&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class='d-flex justify-content-around'&gt;
+    &lt;span&gt;( Justify Around - Element 1 )&lt;/span&gt;
+    &lt;span&gt;( Justify Around - Element 2 )&lt;/span&gt;
+&lt;/div&gt;
+            </code>
+        </div>
+
+
+        <!-- SHOWCASE -->
+        <div class='topic__showcase'>
+            <div class='card bg-light'>
+                <div class='d-flex align-items-start bg-primary text-white' style='height: 100px'>
+                    <span class='lead'>( Align Start - Element 1 )</span>
+                    <span class='lead'>( Align Start - Element 2 )</span>
+                </div>
+                <div class='d-flex align-items-end bg-success text-white' style='height: 100px'>
+                    <span class='lead'>( Align End - Element 1 )</span>
+                    <span class='lead'>( Align End - Element 2 )</span>
+                </div>
+                <div class='d-flex align-items-center bg-danger text-white' style='height: 100px'>
+                    <span class='lead'>( Align Center - Element 1 )</span>
+                    <span class='lead'>( Align Center - Element 2 )</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- CODE -->
+        <div class='topic__code card bg-light'>
+            <code>
+&lt;div class='d-flex align-items-start' style='height: 100px'&gt;
+    &lt;span&gt;( Align Start - Element 1 )&lt;/span&gt;
+    &lt;span&gt;( Align Start - Element 2 )&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class='d-flex align-items-end' style='height: 100px'&gt;
+    &lt;span&gt;( Align End - Element 1 )&lt;/span&gt;
+    &lt;span&gt;( Align End - Element 2 )&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class='d-flex align-items-center' style='height: 100px'&gt;
+    &lt;span&gt;( Align Center - Element 1 )&lt;/span&gt;
+    &lt;span&gt;( Align Center - Element 2 )&lt;/span&gt;
+&lt;/div&gt;
+            </code>
+        </div>
+
+        
+    </div>
+
+
+
+
+
+    <!---------------------------------------->
+    <!-- Border Radius -->
+    <!---------------------------------------->
+    <div class='card topic'>
+        <!-- HEADER -->
+        <h2 class='display-4 text-center topic__title'> Border Radius </h2>
+        
+        <!-- DESCRIPTION -->
+        <div class='card bg-light m-4 rounded topic__desc'>
+            <p>
+                <ul>
+                    <li>
+                        We can easily make a HTML element's border rounded by applying Bootstrap's border radius 
+                        classes
+                    </li>
+                </ul>
+
+                <table class='table table-striped table-bordered w-sm-75 m-auto table-responsive-sm'>
+                    <tr>
+                        <th scope='col'>Class</th>
+                        <th scope='col'>Description</th>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>rounded</code> </td>
+                        <td class='lead'> Rounded on all sides </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>rounded-top</code> </td>
+                        <td class='lead'> Rounded on top </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>rounded-bottom</code> </td>
+                        <td class='lead'> Rounded on bottom </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>rounded-left</code> </td>
+                        <td class='lead'> Rounded on left side </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>rounded-right</code> </td>
+                        <td class='lead'> Rounded on right side </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>rounded-circle</code> </td>
+                        <td class='lead'> Rounded 50% </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>rounded-pill</code> </td>
+                        <td class='lead'> Rounded such that it forms a pill shape </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+
+        <!-- SHOWCASE -->
+        <div class='topic__showcase d-flex justify-content-center flex-wrap'>
+            <span class='bg-danger text-white p-3 rounded' style='height: 50px'>Rounded</span>
+            <span class='bg-primary text-white p-3 rounded-top' style='height: 50px'>Rounded Top</span>
+            <span class='bg-warning text-white p-3 rounded-bottom' style='height: 50px'>Rounded Bottom</span>
+            <span class='bg-secondary text-white p-3 rounded-left' style='height: 50px'>Rounded Left</span>
+            <span class='bg-success text-white p-3 rounded-right' style='height: 50px'>Rounded Right</span>
+            <span class='bg-info text-white p-3 rounded-circle' style='height: 50px'>Rounded Circle</span>
+            <span class='bg-dark text-white p-3 rounded-pill' style='height: 50px'>Rounded Pill</span>
+        </div>
+
+        <!-- CODE -->
+        <div class='topic__code card bg-light'>
+            <code>
+&lt;span class='rounded' style='height: 50px'&gt;Rounded&lt;/span&gt;
+&lt;span class='rounded-top' style='height: 50px'&gt;Rounded Top&lt;/span&gt;
+&lt;span class='rounded-bottom' style='height: 50px'&gt;Rounded Bottom&lt;/span&gt;
+&lt;span class='rounded-left' style='height: 50px'&gt;Rounded Left&lt;/span&gt;
+&lt;span class='rounded-right' style='height: 50px'&gt;Rounded Right&lt;/span&gt;
+&lt;span class='rounded-circle' style='height: 50px'&gt;Rounded Circle&lt;/span&gt;
+&lt;span class='rounded-pill' style='height: 50px'&gt;Rounded Pill&lt;/span&gt;
+            </code>
+        </div>
+        
+    </div>
+
+
+
+    <!---------------------------------------->
+    <!-- Box Shadow -->
+    <!---------------------------------------->
+    <div class='card topic' id='box_shadow'>
+        <!-- HEADER -->
+        <h2 class='display-4 text-center topic__title'> Box Shadow </h2>
+        
+        <!-- DESCRIPTION -->
+        <div class='card bg-light m-4 rounded topic__desc'>
+            <p>
+                <ul>
+                    <li>
+                        Bootstrap comes with some easy classes for us to apply box shadow. 
+                    </li>
+                </ul>
+
+                <table class='table table-striped table-bordered w-sm-75 m-auto table-responsive-sm'>
+                    <tr>
+                        <th scope='col'>Class</th>
+                        <th scope='col'>Description</th>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>shadow</code> </td>
+                        <td class='lead'> Normal shadow </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>shadow-sm</code> </td>
+                        <td class='lead'> Smaller shadow </td>
+                    </tr>
+                    <tr>
+                        <td class='lead'> <code>shadow-lg</code> </td>
+                        <td class='lead'> Larger shadow </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+
+        <!-- SHOWCASE -->
+        <div class='topic__showcase d-flex bg-white justify-content-around flex-wrap'>
+            <span class='text-success lead p-3 shadow'>shadow</span>
+            <span class='text-primary lead p-3 shadow-sm'>shadow-sm</span>
+            <span class='text-danger lead p-3 shadow-lg'>shadow-lg</span>
+        </div>
+
+        <!-- CODE -->
+        <div class='topic__code card bg-light'>
+            <code>
+&lt;span class='text-success lead p-3 shadow'&gt;shadow&lt;/span&gt;
+&lt;span class='text-primary lead p-3 shadow-sm'&gt;shadow-sm&lt;/span&gt;
+&lt;span class='text-danger lead p-3 shadow-lg'&gt;shadow-lg&lt;/span&gt;
+            </code>
+        </div>
+        
+    </div>
+
+
+
+
+
+
+    <!---------------------------------------->
+    <!-- Grid System -->
+    <!---------------------------------------->
+    <div class='card topic' id='grid_system'>
+        <!-- HEADER -->
+        <h2 class='display-4 text-center topic__title'>Bootstrap Grid System</h2>
+        
+        <!-- DESCRIPTION -->
+        <div class='card bg-light m-4 rounded topic__desc'>
+            <p>
+                <ul>
+                    <li>
+                        Bootstrap follows a design pattern for grid system: Every row shall be wrapped in a row
+                        container. The row container shall be applied the class:
+                        <code>  row</code>
+                    </li>
+                    <li>
+                        Every row is lined from 1 to 12. The mix and match of the column elements must add up to 12.
+                        Every column item shall be applied their respective sized column classes:
+                        <code>  col-{}</code>
+                        where {} represents scale from 1 to 12.
+                    </li>
+                </ul>
+            </p>
+        </div>
+
+        <!-- SHOWCASE -->
+        <div class='topic__showcase w-75 m-auto'>
+            
+            <div class='row'>
+                <div class='col-6 bg-primary text-white lead'>col-6</div>
+                <div class='col-4 bg-success text-white lead'>col-4</div>
+                <div class='col-2 bg-warning text-white lead'>col-2</div>
+            </div>
+
+            <div class='row'>
+                <div class='col-5 bg-warning text-white lead'>col-5</div>
+                <div class='col-4 bg-danger text-white lead'>col-4</div>
+                <div class='col-3 bg-primary text-white lead'>col-3</div>
+            </div>
+
+            <div class='row'>
+                <div class='col-2 bg-primary text-white lead'>col-2</div>
+                <div class='col-2 bg-secondary text-white lead'>col-2</div>
+                <div class='col-2 bg-dark text-white lead'>col-2</div>
+                <div class='col-2 bg-danger text-white lead'>col-2</div>
+                <div class='col-2 bg-success text-white lead'>col-2</div>
+                <div class='col-2 bg-warning text-white lead'>col-2</div>
+            </div>
+
+        </div>
+
+        <!-- CODE -->
+        <div class='topic__code card bg-light'>
+        <code>
+
+&lt;div class='row'&gt;
+    &lt;div class='col-6 bg-primary'&gt; col-6 &lt;/div&gt;
+    &lt;div class='col-4 bg-success'&gt; col-4 &lt;/div&gt;
+    &lt;div class='col-2 bg-warning'&gt; col-2 &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class='row'&gt;
+    &lt;div class='col-5 bg-warning'&gt; col-5 &lt;/div&gt;
+    &lt;div class='col-4 bg-danger'&gt; col-4 &lt;/div&gt;
+    &lt;div class='col-3 bg-primary'&gt; col-3 &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class='row'&gt;
+    &lt;div class='col-2 bg-primary'&gt; col-2 &lt;/div&gt;
+    &lt;div class='col-2 bg-secondary'&gt; col-2 &lt;/div&gt;
+    &lt;div class='col-2 bg-dark'&gt; col-2 &lt;/div&gt;
+    &lt;div class='col-2 bg-danger'&gt; col-2 &lt;/div&gt;
+    &lt;div class='col-2 bg-success'&gt; col-2 &lt;/div&gt;
+    &lt;div class='col-2 bg-warning'&gt; col-2 &lt;/div&gt;
+&lt;/div&gt;
+
+        </code>
+        </div>
+        
+    </div>
+
+
+</div> <!-- END OF CONTAINER -->
+
+</body>
+
+
+</html>
