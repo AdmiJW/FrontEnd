@@ -1,0 +1,248 @@
+
+:root {
+    --header-height: 110px;
+    --time-delete-button-size: 20px;
+    --large-screen-window-y-margin: 20px; 
+}
+
+$header-bg: #d63031;
+$general-bg: #2c3e50;
+$course-bg: #f7f7f7;
+$course-item-bg: #3498db;
+$course-time-bg: #2980b9;
+$footer-bg: black;
+
+$btn-primary-bg: #3498db;
+$btn-danger-bg: #e74c3c;
+$btn-success-bg: #2ecc71;
+
+
+
+
+
+
+/* =======================================================================================
+    Mixin function largeScreenPadding()
+    When the screen is very wide, add the corresponding padding so that the contents are
+    limited to 1000px.
+    The reason to not use max-width is because background color will not be applied
+======================================================================================= */
+@mixin largeScreenPadding() {
+    padding-left: unquote(' max( 15px, calc( (100vw - 1000px) / 2) ) ') !important;
+    padding-right: unquote(' max( 15px, calc( (100vw - 1000px) / 2 ) ) ') !important;
+}
+
+
+/* =======================================================================================
+    Mixin function largeScreenMargin()
+    When the screen is very wide, add the corresponding margin so that the contents are
+    limited to 1000px.
+    The reason to not use max-width is because it won't center your content automatically
+======================================================================================= */
+@mixin largeScreenMargin() {
+    margin-left: unquote(' max( 20px, calc( (100vw - 1000px) / 2) ) ') !important;
+    margin-right: unquote(' max( 20px, calc( (100vw - 1000px) / 2 ) ) ') !important;
+}
+
+/* =======================================================================================
+    Mixin function flex( direction, justify, align )
+    A mixin which will apply display flex, flex-direction, justify-content, align-items in
+    just 1 line
+======================================================================================= */
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+/* =======================================================================================
+    Mixin function font( font, size, color, align, bold )
+    A mixin which will apply font family, size, color, text-align and bold in just 1 line
+======================================================================================= */
+$map-font-weight: (     //  Map the possible string font weights into their value
+    "thin": 100,
+    "light": 300,
+    "regular": 400,
+    "medium": 500,
+    "bold": 700,
+    "black": 900
+);
+@mixin font($font, $size, $color, $align, $bold) {
+    @if ($font == 'roboto') {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    font-size: $size;
+    color: $color;
+    text-align: $align;
+
+    // If the provided bold value is a string bold value, then get the value and apply to the font weight
+    @if map-has-key( $map-font-weight , $bold ) {
+        font-weight: map-get($map-font-weight, $bold);
+    }
+    font-weight: $bold;     // Otherwise attempt to apply the raw value into the font weight
+} 
+
+/* =======================================================================================
+    Base class for buttons. Remove the default button styles.
+======================================================================================= */
+%btn {
+    appearance: none;
+    border: 0px;
+    
+    cursor: pointer;
+    @include flex(row, center, center);
+}
+
+/* =======================================================================================
+    Mixin function btn-primary( size, font-size)
+    Apply the style of a circular button with blue-ish background and white text
+======================================================================================= */
+@mixin btn-rounded($size, $color, $font-size) {
+    background-color: $color;
+    width: $size;
+    height: $size;
+    @include font('roboto', $font-size, white, center, 'thin');
+    border-radius: 50%;
+}
+
+/* =======================================================================================
+    Mixin function btn-ripple-effect( duration )
+    Apply the background ripple effect when button is hovered or focused
+======================================================================================= */
+@mixin btn-ripple-effect($color, $duration) {
+    z-index: 1;     //  So content will be in front of the after pseudo element
+
+    &:hover::before, &:focus::before {
+        content:'';
+        position: absolute;
+        z-index: -1;       // After pseudo element will be at back, but in front of background
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color:darken($color, 10%);
+        animation: ripple $duration ease forwards;
+    }
+
+    // Keyframes for ripple effect
+    @keyframes ripple {
+        0% {
+            opacity: 1;
+            height: 0;
+            width: 0;
+        }
+        50% {
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+}
+
+
+/* =======================================================================================
+    Base class for select elements. Give it a more modern style
+======================================================================================= */
+@mixin selectHTML($font-size) {
+    padding: 5px 0px;
+    border-radius: 10px;
+
+    @include font('roboto', $font-size, black, left, 'light');
+}
+
+
+/* =======================================================================================
+    Mixin function courseItemInfoStyling( marginTop, shadowOffset)
+    Make the course item info text fields (Course name, lecturer name, course code)...
+    style nice, like a bewel inside
+======================================================================================= */
+@mixin courseItemInfoStyling($bg-color, $margintop, $shadowOffset, $upperBorderRadius, $lowerBorderRadius) {
+    width: 95%;
+    margin: $margintop auto 0px auto;
+    padding: 5px 0px;
+    background-color: darken($bg-color, 5%);
+    border-radius: $upperBorderRadius $upperBorderRadius $lowerBorderRadius $lowerBorderRadius;
+    box-shadow: 0px $shadowOffset 0px 0px darken($bg-color, 12%);
+}
+
+
+/* =======================================================================================
+    Mixin function wrapperForScrolling( maxHeight, height )
+    This mixin style is applied for the div that is wrapper. The idea comes because
+    if the HTML is like this:
+    <div>
+        <button (absolute >
+        <list item 1>
+        <list item 2>
+    </div>
+    When the div scrolls, the button which is positioned absolutely, will also scroll.
+======================================================================================= */
+@mixin wrapperForScrolling($height, $fullWidth) {
+    @if ($fullWidth == 'true') {
+        width: 100%;
+    }
+    height: $height;
+    overflow-y: auto;
+}
+
+
+
+/* =======================================================================================
+    Fadein effect mixin
+    This mixin when applied, will cause element to fade in from the left when first rendered.
+======================================================================================= */
+@mixin fadeInEffect() {
+    animation: fade-in 1s cubic-bezier(0, 0, 0, 1) forwards;
+
+}
+@keyframes fade-in {
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/* =======================================================================================
+    Fadeout effect mixin
+    This is a class which when applied, will apply the transition to fade out to the left
+======================================================================================= */
+.fade-out {
+    animation: fade-out 1s cubic-bezier(0, 0, 0, 1) forwards !important;
+}
+@keyframes fade-out {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    } to {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+}
+
+
+/* =======================================================================================
+    Scrollbar custom styled
+======================================================================================= */
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: rgba(255,255,255,.3);
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    width: 10%;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,1); 
+}

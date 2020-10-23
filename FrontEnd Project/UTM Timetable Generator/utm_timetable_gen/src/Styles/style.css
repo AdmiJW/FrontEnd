@@ -1,0 +1,722 @@
+:root {
+  --header-height: 110px;
+  --time-delete-button-size: 20px;
+  --large-screen-window-y-margin: 20px;
+}
+
+/* =======================================================================================
+    Mixin function largeScreenPadding()
+    When the screen is very wide, add the corresponding padding so that the contents are
+    limited to 1000px.
+    The reason to not use max-width is because background color will not be applied
+======================================================================================= */
+/* =======================================================================================
+    Mixin function largeScreenMargin()
+    When the screen is very wide, add the corresponding margin so that the contents are
+    limited to 1000px.
+    The reason to not use max-width is because it won't center your content automatically
+======================================================================================= */
+/* =======================================================================================
+    Mixin function flex( direction, justify, align )
+    A mixin which will apply display flex, flex-direction, justify-content, align-items in
+    just 1 line
+======================================================================================= */
+/* =======================================================================================
+    Mixin function font( font, size, color, align, bold )
+    A mixin which will apply font family, size, color, text-align and bold in just 1 line
+======================================================================================= */
+/* =======================================================================================
+    Base class for buttons. Remove the default button styles.
+======================================================================================= */
+.course-window__add-button, .course-item__info__buttons__delete-btn, .course-item__info__buttons__add-button, .course-item__times__entry__delete-button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* =======================================================================================
+    Mixin function btn-primary( size, font-size)
+    Apply the style of a circular button with blue-ish background and white text
+======================================================================================= */
+/* =======================================================================================
+    Mixin function btn-ripple-effect( duration )
+    Apply the background ripple effect when button is hovered or focused
+======================================================================================= */
+/* =======================================================================================
+    Base class for select elements. Give it a more modern style
+======================================================================================= */
+/* =======================================================================================
+    Mixin function courseItemInfoStyling( marginTop, shadowOffset)
+    Make the course item info text fields (Course name, lecturer name, course code)...
+    style nice, like a bewel inside
+======================================================================================= */
+/* =======================================================================================
+    Mixin function wrapperForScrolling( maxHeight, height )
+    This mixin style is applied for the div that is wrapper. The idea comes because
+    if the HTML is like this:
+    <div>
+        <button (absolute >
+        <list item 1>
+        <list item 2>
+    </div>
+    When the div scrolls, the button which is positioned absolutely, will also scroll.
+======================================================================================= */
+/* =======================================================================================
+    Fadein effect mixin
+    This mixin when applied, will cause element to fade in from the left when first rendered.
+======================================================================================= */
+@-webkit-keyframes fade-in {
+  from {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  from {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* =======================================================================================
+    Fadeout effect mixin
+    This is a class which when applied, will apply the transition to fade out to the left
+======================================================================================= */
+.fade-out {
+  -webkit-animation: fade-out 1s cubic-bezier(0, 0, 0, 1) forwards !important;
+          animation: fade-out 1s cubic-bezier(0, 0, 0, 1) forwards !important;
+}
+
+@-webkit-keyframes fade-out {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    opacity: 0;
+  }
+}
+
+/* =======================================================================================
+    Scrollbar custom styled
+======================================================================================= */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  width: 10%;
+  -webkit-box-shadow: inset 0 0 6px black;
+}
+
+html {
+  font-size: 10px;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #2c3e50;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left:  max( 15px, calc( (100vw - 1000px) / 2) )  !important;
+  padding-right:  max( 15px, calc( (100vw - 1000px) / 2 ) )  !important;
+  padding: 15px;
+  height: var(--header-height);
+  background-color: #d63031;
+  -webkit-box-shadow: 0px 5px 15px 0.5px black;
+          box-shadow: 0px 5px 15px 0.5px black;
+}
+
+.header__logo {
+  max-height: 75px;
+  width: auto;
+}
+
+.header__title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 3rem;
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  font-weight: "bold";
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.course-window {
+  position: relative;
+  height:  calc( 100vh - var(--header-height) );
+  background-color: #f7f7f7;
+}
+
+.course-window__div {
+  width: 100%;
+  height:  calc( 100vh - var(--header-height) );
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.course-window__add-button {
+  position: absolute;
+  bottom: 15px;
+  right:  max(3vw, 15px) ;
+  background-color: #2ecc71;
+  width: 50px;
+  height: 50px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 5rem;
+  color: white;
+  text-align: center;
+  font-weight: 100;
+  font-weight: "thin";
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.course-window__add-button:hover::before, .course-window__add-button:focus::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #25a25a;
+  -webkit-animation: ripple 1s ease forwards;
+          animation: ripple 1s ease forwards;
+}
+
+@-webkit-keyframes ripple {
+  0% {
+    opacity: 1;
+    height: 0;
+    width: 0;
+  }
+  50% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 1;
+    height: 0;
+    width: 0;
+  }
+  50% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.course-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: initial;
+      -ms-flex-align: initial;
+          align-items: initial;
+  -webkit-animation: fade-in 1s cubic-bezier(0, 0, 0, 1) forwards;
+          animation: fade-in 1s cubic-bezier(0, 0, 0, 1) forwards;
+  position: relative;
+  width: 90%;
+  margin: 10px auto;
+  background-color: #3498db;
+  border-radius: 15px;
+}
+
+.course-item__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: inherit;
+      -ms-flex-align: inherit;
+          align-items: inherit;
+}
+
+.course-item__info__courseName {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.5rem;
+  color: white;
+  text-align: center;
+  font-weight: 100;
+  font-weight: "thin";
+  width: 95%;
+  margin: 15px auto 0px auto;
+  padding: 5px 0px;
+  background-color: #2472a4;
+  border-radius: 15px 15px 15px 15px;
+  -webkit-box-shadow: 0px -5px 0px 0px #1e5d87;
+          box-shadow: 0px -5px 0px 0px #1e5d87;
+}
+
+.course-item__info__lecturerName {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+  font-weight: 300;
+  font-weight: "light";
+  width: 95%;
+  margin: 10px auto 0px auto;
+  padding: 5px 0px;
+  background-color: #258cd1;
+  border-radius: 15px 15px 0px 0px;
+  -webkit-box-shadow: 0px 0px 0px 0px #2077b2;
+          box-shadow: 0px 0px 0px 0px #2077b2;
+}
+
+.course-item__info__courseCode {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  font-weight: "bold";
+  width: 95%;
+  margin: 0px auto 0px auto;
+  padding: 5px 0px;
+  background-color: #258cd1;
+  border-radius: 0px 0px 15px 15px;
+  -webkit-box-shadow: 0px 0px 0px 0px #2077b2;
+          box-shadow: 0px 0px 0px 0px #2077b2;
+}
+
+.course-item__info__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 10px;
+}
+
+.course-item__info__buttons__delete-btn {
+  background-color: #e74c3c;
+  width: 40px;
+  height: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  font-weight: 100;
+  font-weight: "thin";
+  border-radius: 50%;
+  z-index: 1;
+  position: relative;
+}
+
+.course-item__info__buttons__delete-btn:hover::before, .course-item__info__buttons__delete-btn:focus::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #d62c1a;
+  -webkit-animation: ripple 1s ease forwards;
+          animation: ripple 1s ease forwards;
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 1;
+    height: 0;
+    width: 0;
+  }
+  50% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.course-item__info__buttons__add-button {
+  background-color: #2ecc71;
+  width: 40px;
+  height: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 3rem;
+  color: white;
+  text-align: center;
+  font-weight: 100;
+  font-weight: "thin";
+  border-radius: 50%;
+  z-index: 1;
+  position: relative;
+}
+
+.course-item__info__buttons__add-button:hover::before, .course-item__info__buttons__add-button:focus::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #25a25a;
+  -webkit-animation: ripple 1s ease forwards;
+          animation: ripple 1s ease forwards;
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 1;
+    height: 0;
+    width: 0;
+  }
+  50% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.course-item__info__buttons button + button {
+  margin-left: 20px;
+}
+
+.course-item__seperator {
+  width: 95%;
+  height: 1px;
+  background-color: white;
+  border-radius: 1px;
+  margin: 10px auto;
+}
+
+.course-item__times {
+  width: 95%;
+  margin: 5px auto 0px auto;
+  padding: 5px 0px;
+  background-color: #2472a4;
+  border-radius: 5px 5px 5px 5px;
+  -webkit-box-shadow: 0px -5px 0px 0px #1e5d87;
+          box-shadow: 0px -5px 0px 0px #1e5d87;
+  position: relative;
+  margin-bottom: 5px;
+  overflow-x: hidden;
+}
+
+.course-item__times__entry {
+  width: 95%;
+  margin: 5px auto 0px auto;
+  padding: 5px 0px;
+  background-color: #258cd1;
+  border-radius: 5px 5px 5px 5px;
+  -webkit-box-shadow: 0px 0px 0px 0px #2077b2;
+          box-shadow: 0px 0px 0px 0px #2077b2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-animation: fade-in 1s cubic-bezier(0, 0, 0, 1) forwards;
+          animation: fade-in 1s cubic-bezier(0, 0, 0, 1) forwards;
+  position: relative;
+}
+
+.course-item__times__entry__delete-button {
+  background-color: #e74c3c;
+  width: var(--time-delete-button-size);
+  height: var(--time-delete-button-size);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+  font-weight: 100;
+  font-weight: "thin";
+  border-radius: 50%;
+  z-index: 1;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.course-item__times__entry__delete-button:hover::before, .course-item__times__entry__delete-button:focus::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #d62c1a;
+  -webkit-animation: ripple 1s ease forwards;
+          animation: ripple 1s ease forwards;
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 1;
+    height: 0;
+    width: 0;
+  }
+  50% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.course-item__times__entry__dayOfWeek {
+  padding: 5px 0px;
+  border-radius: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  color: black;
+  text-align: left;
+  font-weight: 300;
+  font-weight: "light";
+  margin: 5px;
+  width: 85%;
+}
+
+.course-item__times__entry__session {
+  padding: 5px 0px;
+  border-radius: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: black;
+  text-align: left;
+  font-weight: 300;
+  font-weight: "light";
+  width: 95%;
+  margin: auto;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left:  max( 15px, calc( (100vw - 1000px) / 2) )  !important;
+  padding-right:  max( 15px, calc( (100vw - 1000px) / 2 ) )  !important;
+  min-height: 200px;
+  background-color: black;
+}
+
+.footer__text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  font-weight: "bold";
+}
+
+@media screen and (min-width: 500px) {
+  .course-window {
+    margin: var(--large-screen-window-y-margin) 0;
+    margin-left:  max( 20px, calc( (100vw - 1000px) / 2) )  !important;
+    margin-right:  max( 20px, calc( (100vw - 1000px) / 2 ) )  !important;
+    border-radius: 20px;
+    max-width: 1000px;
+    height:  max( 300px, calc(100vh - var(--header-height) - 2 * var(--large-screen-window-y-margin) ) );
+  }
+  .course-window__div {
+    height: max( 300px, calc(100vh - var(--header-height) - 2 * var(--large-screen-window-y-margin) ) );
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .course-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    width: 95%;
+    margin: 10px auto;
+    padding: 10px;
+  }
+  .course-item__info {
+    width: 45%;
+  }
+  .course-item__seperator {
+    display: none;
+  }
+  .course-item__times {
+    width: 95%;
+    margin: 5px auto 0px auto;
+    padding: 5px 0px;
+    background-color: #2472a4;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-box-shadow: 0px -5px 0px 0px #1e5d87;
+            box-shadow: 0px -5px 0px 0px #1e5d87;
+    position: relative;
+    margin-bottom: 5px;
+  }
+  .course-item__times__entry {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    padding:  calc( var(--time-delete-button-size) + 5px )  5px 0px 5px;
+  }
+  .course-item__times__entry__dayOfWeek {
+    padding: 5px 0px;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.7rem;
+    color: black;
+    text-align: left;
+    font-weight: 300;
+    font-weight: "light";
+    width: 40%;
+  }
+  .course-item__times__entry__session {
+    padding: 5px 0px;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    color: black;
+    text-align: left;
+    font-weight: 300;
+    font-weight: "light";
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+}
+/*# sourceMappingURL=style.css.map */
