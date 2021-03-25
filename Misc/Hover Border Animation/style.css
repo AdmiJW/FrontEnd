@@ -1,0 +1,112 @@
+/*
+    This demonstrates how a Border hover effect can be done via pseudoelements and animation.
+    However, the very same thing can be done via transitions alone.
+*/
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color: #2ecc71;
+}
+
+
+/* Nothing really here, just centering the element */
+body {
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    background-color: #2c3e50;
+    color: var(--color);
+    font-size: min(10vw, 10vh);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color);
+}
+
+
+/* Setting the position relative (for before and after positioning), and setting up border for proper
+ placement of pseudoelements */
+.hoverme {
+    position: relative;
+    padding: .3em;
+    transition: transform 1s ease ;
+    border: solid .1em transparent;  /* Required to correctly place the absolutely positioned before and after pseudoelement */
+}
+
+.hoverme:hover {
+    transform: scale(1.1);
+}
+
+
+.hoverme::before, .hoverme::after {
+    content: '';
+    position: absolute;
+    top: -.1em; left: -.1em;
+    border-radius: 5px;
+    width: 0;
+    height: 0;
+    border: solid .1em transparent;
+}
+
+
+/*==================================
+    Animation Happens here
+===================================*/
+.hoverme:hover::before {
+    animation: border_anim_top_right .8s ease forwards;
+}
+
+.hoverme:hover::after {
+    animation: border_anim_bottom_left .8s ease forwards .8s;
+}
+
+
+@keyframes border_anim_top_right {
+    /* Make the top border 'visible' */
+    50% {
+        width: 100%;
+        height: 0;
+        border-right-color: transparent;
+        border-top-color: var(--color);
+    }
+    /* Make the right border 'visible' */
+    100% {
+        width: 100%;
+        height: 100%;
+        border-top-color: var(--color);
+        border-right-color: var(--color);
+    }
+}
+
+@keyframes border_anim_bottom_left {
+    /* Make the left border 'visible' */
+    50% {
+        width: 0;
+        height: 100%;
+        border-bottom-color: transparent;
+        border-left-color: var(--color);
+    }
+    /* Make the bottom border 'visible' */
+    100% {
+        width: 100%;
+        height: 100%;
+        border-bottom-color: var(--color);
+        border-left-color: var(--color);
+    }
+}
+
+
+
