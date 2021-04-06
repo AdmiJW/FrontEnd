@@ -59,10 +59,10 @@ a::after {
     transform: scaleY(0);
 }
 
-a:hover::before, .second_sqr:hover::before {
+a:hover::before, a:hover .second_sqr::before {
     transform: scaleX(1);
 }
-a:hover::after, .second_sqr:hover::after {
+a:hover::after, a:hover .second_sqr::after {
     transform: scaleY(1);
 }
 
