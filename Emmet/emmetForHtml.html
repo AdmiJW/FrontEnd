@@ -1,0 +1,198 @@
+<!-- The legit cheat sheet is at https://docs.emmet.io/cheat-sheet/ -->
+
+
+<!--==============================================-->
+<!-- Simple elements by typing the name directly: -->
+<!--==============================================-->
+
+<!-- "div" -->
+<div></div>
+
+<!-- "header" -->
+<header></header>
+
+<!-- Abbrevations include hdr, bq, ftr, btn -->
+<header></header>
+<blockquote></blockquote>
+<footer></footer>
+<button></button>
+
+
+
+<!--==============================================-->
+<!-- Involve classes and IDs via . and # -->
+<!-- For div, you can simply ignore typing out div -->
+<!--==============================================-->
+
+<!-- "h1.myclass"-->
+<h1 class="myclass"></h1>
+
+<!-- ".myclass" -->
+<div class="myclass"></div>
+
+<!-- "h1#myid" -->
+<h1 id="myid"></h1>
+
+<!-- "#myid"-->
+<div id="myid"></div>
+
+<!-- Involve multiple classes and id by chaining-->
+<!-- "h1.myclass1.myclass2#myid1"-->
+<h1 class="myclass1 myclass2" id="myid1"></h1>
+
+
+
+
+
+<!--==============================================-->
+<!-- Include contents by using curly brackets -->
+<!--==============================================-->
+
+<!-- h1{Hello World!} -->
+<h1>Hello World!</h1>
+
+<!-- h1.myclass1.myclass2#myid1{Hello World!}-->
+<h1 class="myclass1 myclass2" id="myid1">Hello World!</h1>
+
+
+
+
+
+
+<!--======================================================-->
+<!-- Nest elements easily by greater than operator! (>) -->
+<!--======================================================-->
+
+<!-- hdr>div>h1 -->
+<header>
+    <div>
+        <h1></h1>
+    </div>
+</header>
+
+
+<!-- nav>ul>li.logo#nav-logo{Logo}-->
+<nav>
+    <ul>
+        <li class="logo" id="nav-logo">Logo</li>
+    </ul>
+</nav>
+
+
+
+
+
+<!--======================================================-->
+<!-- Multiplication of HTML elements using * sign -->
+<!--======================================================-->
+
+<!-- ul>li*5-->
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+
+<!-- Edit contents with >{} or {} after multiplication-->
+<!-- ul>li*5{List Item}-->
+<ul>
+    <li>List Item</li>
+    <li>List Item</li>
+    <li>List Item</li>
+    <li>List Item</li>
+    <li>List Item</li>
+</ul>
+
+
+<!-- Use Dollar sign $ to indicate index -->
+<!-- ul>li*5{List Item $}-->
+<ul>
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+    <li>List Item 4</li>
+    <li>List Item 5</li>
+</ul>
+
+
+
+
+
+<!--======================================================-->
+<!-- Create adjacent HTML elements using + sign -->
+<!--======================================================-->
+
+<!-- nav+main+ftr -->
+<nav></nav>
+<main></main>
+<footer></footer>
+
+
+<!-- main>h1.header+p.text -->
+<main>
+    <h1 class="header"></h1>
+    <p class="text"></p>
+</main>
+
+
+
+
+
+
+
+
+
+<!--======================================================-->
+<!-- Climb up one level using ^ sign -->
+<!-- Repeat ^ to climb up multi levels-->
+<!--======================================================-->
+
+<!-- nav>ul>li*5^h1-->
+<nav>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <h1></h1>
+</nav>
+
+
+
+<!-- main>div>div^^ftr -->
+<main>
+    <div>
+        <div></div>
+    </div>
+</main>
+<footer></footer>
+
+
+<!--======================================================-->
+<!-- Grouping using () brackets -->
+<!--======================================================-->
+
+<!-- (nav>ul>li)+main+ftr -->
+<nav>
+    <ul>
+        <li></li>
+    </ul>
+</nav>
+<main></main>
+<footer></footer>
+
+
+
+
+
+<!--======================================================-->
+<!-- Attributes using [] brackets -->
+<!--======================================================-->
+
+<!-- a[href='#' target='_blank']-->
+<a href="#" target="blank"></a>
