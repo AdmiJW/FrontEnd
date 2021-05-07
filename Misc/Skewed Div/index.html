@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <title>Skewed Div</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="AdmiJW">
+    <meta name="description" content="skewed div example">
+    <meta name="keywords" content="skewed div">
+
+    <!-- CSS -->
+    <link rel='stylesheet' type='text/css' href='./styles/style.css'/>
+
+    <!-- Google font - 100, 300, 400, 500,700, 900 -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script async src="https://kit.fontawesome.com/7c7cd4fe53.js" crossorigin="anonymous"></script>
+
+    <!-- Script -->
+    <script defer src='./script.js'></script>
+</head>
+
+<body>
+    <!-- Header Sticky -->
+    <nav class='container'>
+        <a href="#" class="nav-logo">
+            SKEWED
+        </a>
+        <ul class="nav-menu">
+            <li><a href="#" class="nav-menu__item">Home</a></li>
+            <li><a href="#" class="nav-menu__item">Contacts</a></li>
+            <li><a href="#" class="nav-menu__item">About</a></li>
+        </ul>
+
+        <button type='button' class='nav-expand' aria-label='expand navbar button'>
+            <i class="fas fa-ellipsis-v"></i>
+        </button>
+    </nav>
+
+
+    <!-- Jumbotron - Skewed -->
+    <div class='jumbotron'>
+        <div class='jumbotron-background'>
+            <div class='jumbotron-img-container container-margin'>
+                <img class='phoneimg' id='phoneimg-1' src='./imgs/P6YUM71.gif' alt='Smartphone'/>
+                <img class='phoneimg' id='phoneimg-2' src='./imgs/P6YUM71.gif' alt='Smartphone'/>
+                <img class='phoneimg' id='phoneimg-3' src='./imgs/P6YUM71.gif' alt='Smartphone'/>
+            </div>
+        </div>
+        <div class='container'>
+            <div class='jumbotron__card'>
+                <h1 class='jumbotron__title'>SKEWED.</h1>
+                <p class='jumbotron__text'>
+                    To achieve skewed divs, the easiest choice is to use skew transform in your container. However, it will also
+                    apply the skewed effect to all its child elements.
+                </p>
+                <p class="jumbotron__text">As an alternative, you may use pseudoelements, or even svg.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Content 1 - Why Skewed? -->
+    <section class='content1 container-margin' id='content-1'>
+        <h2 class='content1-header'>Why Skewed?</h2>
+        <div class='content1-grid'>
+            <div class='content1-cell'>
+                <i class="content1-logo fas fa-address-card"></i>
+                <h4 class='content1-title'>Identity</h4>
+                <p class='content1-desc'>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius, dolorem ducimus quis qui reiciendis deserunt?
+                </p>
+            </div>
+            <div class='content1-cell'>
+                <i class="content1-logo fas fa-baby-carriage"></i>
+                <h4 class='content1-title'>Friendly</h4>
+                <p class='content1-desc'>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius, dolorem ducimus quis qui reiciendis deserunt?
+                </p>
+            </div>
+            <div class='content1-cell'>
+                <i class="content1-logo fas fa-band-aid"></i>
+                <h4 class='content1-title'>Recovery</h4>
+                <p class='content1-desc'>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius, dolorem ducimus quis qui reiciendis deserunt?
+                </p>
+            </div>
+            <div class='content1-cell'>
+                <i class="content1-logo fas fa-bed"></i>
+                <h4 class='content1-title'>Peaceful</h4>
+                <p class='content1-desc'>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius, dolorem ducimus quis qui reiciendis deserunt?
+                </p>
+            </div>
+            <div class='content1-cell'>
+                <i class="content1-logo fas fa-binoculars"></i>
+                <h4 class='content1-title'>Vision</h4>
+                <p class='content1-desc'>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius, dolorem ducimus quis qui reiciendis deserunt?
+                </p>
+            </div>
+            <div class='content1-cell'>
+                <i class="content1-logo fas fa-bomb"></i>
+                <h4 class='content1-title'>Astonishing</h4>
+                <p class='content1-desc'>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius, dolorem ducimus quis qui reiciendis deserunt?
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Content 2 - Testimonials -->
+    <section class='content2' id='content-2'>
+        <h2 class='content2-header'>Testimonials</h2>
+
+        <div class='content2-row container' id='content2-row1'>
+            <img src='./imgs/people2.jpg' alt='Bearded man grinning' class='content2-img hide'/>
+            <div class='content2-info'>
+                <h4 class='content2-name'>Marcus M. Quinn</h4>
+                <p class='content2-subtitle'>Ratings Analyst</p>
+            </div>
+            <div class='content2-quote hide'>
+                <p class='content2-quote--inner'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, dolor.</p>
+            </div>
+        </div>
+
+        <div class='content2-row container' id='content2-row2'>
+            <img src='./imgs/people3.jpg' alt='Bearded man grinning' class='content2-img hide'/>
+            <div class='content2-info'>
+                <h4 class='content2-name'>Sally A. Park</h4>
+                <p class='content2-subtitle'>Guidance Counselor</p>
+            </div>
+            <div class='content2-quote hide'>
+                <p class='content2-quote--inner'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, dolor.</p>
+            </div>
+        </div>
+
+        <div class='content2-row container' id='content2-row3'>
+            <img src='./imgs/people1.jpg' alt='Bearded man grinning' class='content2-img hide'/>
+            <div class='content2-info'>
+                <h4 class='content2-name'>Rachel W. Walker</h4>
+                <p class='content2-subtitle'>Cardiovascular Technologist</p>
+            </div>
+            <div class='content2-quote hide'>
+                <p class='content2-quote--inner'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, dolor.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer>
+        🛠 Created By AdmiJW 🛠
+
+        <a href='https://www.freepik.com/photos/' target='_blank' rel='noreferrer noopener'>Photo created by rawpixel.com, wayhomestudio, marymarkevich - www.freepik.com</a>
+    </footer>
+
+    
+</body>
+
+</html>

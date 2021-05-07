@@ -1,0 +1,426 @@
+:root {
+    font-size: 10px;
+
+    --container-width: 1000px;
+    --font: 'Montserrat', sans-serif;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+@mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin themefont($size: 1rem, $weight: 400, $color: black) {
+    font-family: var(--font);
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+}
+
+@mixin clearAnchorStyle {
+    text-decoration: none;
+    color: initial;
+}
+
+@mixin glassmorphism {
+    background-color: #fff7;
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 8px );
+    box-shadow: 0 0px 8px 0 rgba( 0,0,0, 0.37 );
+}
+
+
+.container {
+    width: 100%;
+    padding-left: unquote('max( 30px, calc((100vw - var(--container-width)) / 2) )') !important;
+    padding-right: unquote('max( 30px, calc((100vw - var(--container-width)) / 2) )') !important;
+}
+
+.container-margin {
+    margin-left: unquote('max( 30px, calc((100vw - var(--container-width)) / 2) )') !important;
+    margin-right: unquote('max( 30px, calc((100vw - var(--container-width)) / 2) )') !important;
+}
+
+
+
+
+body {
+    background-image:  linear-gradient(30deg, #f3f3f3 12%, transparent 12.5%, transparent 87%, #f3f3f3 87.5%, #f3f3f3), linear-gradient(150deg, #f3f3f3 12%, transparent 12.5%, transparent 87%, #f3f3f3 87.5%, #f3f3f3), linear-gradient(30deg, #f3f3f3 12%, transparent 12.5%, transparent 87%, #f3f3f3 87.5%, #f3f3f3), linear-gradient(150deg, #f3f3f3 12%, transparent 12.5%, transparent 87%, #f3f3f3 87.5%, #f3f3f3), linear-gradient(60deg, #f3f3f377 25%, transparent 25.5%, transparent 75%, #f3f3f377 75%, #f3f3f377), linear-gradient(60deg, #f3f3f377 25%, transparent 25.5%, transparent 75%, #f3f3f377 75%, #f3f3f377);
+    background-size: 80px 140px;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+
+
+
+//=====================================
+//      Header
+//=====================================
+nav {
+    position: fixed;
+    z-index: 999;
+    top: 0; left: 0;
+    padding: 10px 0;
+    @include flex(row, space-between, center);
+    transition: all .5s ease;
+    * { transition: color .5s ease, font-size .5s ease; }
+
+    .nav-logo {
+        @include themefont(3.5rem, 900);
+        @include clearAnchorStyle;
+    }
+
+    .nav-menu {
+        @include flex(row, flex-start, center);
+        @include themefont(2.5rem, 700);
+        list-style-type: none;
+
+        &__item {
+            margin: 0 10px;
+            @include clearAnchorStyle();
+        }
+
+        // Please Add Burger Menu later
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    .nav-expand {
+        font-size: 3rem;
+        padding: 3px;
+        display: none;
+        background: none; border: none;
+        cursor: pointer;
+
+        &:is(:focus, :active) { outline: solid 1px yellow ; }
+
+        @media screen and (max-width: 768px) { display: inline-block; }
+    }
+
+    &.outJumbotron {
+        background-color: #18212b;
+        * { color: white !important; font-size: 2.6rem; }
+    }
+}
+
+
+//=====================================
+//      Jumbotron
+//=====================================
+.jumbotron {
+    height: 100vh;
+    position: relative;
+
+    &-background {
+        position: absolute;
+        top: 0; left: 0;
+        height: 170vh; width: 100%;
+        z-index: -1;
+        // Credits to http://nicolasgallagher.com/ for the background
+        background-color: #fff; background-size: 58px 58px; background-position: 0px 2px, 4px 35px, 29px 31px, 33px 6px, 0px 36px, 4px 2px, 29px 6px, 33px 30px; background-image: linear-gradient(335deg, #ddd 23px, transparent 23px), linear-gradient(155deg, #ddd 23px, transparent 23px), linear-gradient(335deg, #ddd 23px, transparent 23px), linear-gradient(155deg, #ddd 23px, transparent 23px), linear-gradient(335deg, #ddd 10px, transparent 10px), linear-gradient(155deg, #ddd 10px, transparent 10px), linear-gradient(335deg, #ddd 10px, transparent 10px), linear-gradient(155deg, #ddd 10px, transparent 10px); --darkreader-inline-bgcolor:#890014; --darkreader-inline-bgimage:linear-gradient(335deg, #af001d 23px, rgba(0, 0, 0, 0) 23px), linear-gradient(155deg, #af001d 23px, rgba(0, 0, 0, 0) 23px), linear-gradient(335deg, #af001d 23px, rgba(0, 0, 0, 0) 23px), linear-gradient(155deg, #af001d 23px, rgba(0, 0, 0, 0) 23px), linear-gradient(335deg, #af001d 10px, rgba(0, 0, 0, 0) 10px), linear-gradient(155deg, #af001d 10px, rgba(0, 0, 0, 0) 10px), linear-gradient(335deg, #af001d 10px, rgba(0, 0, 0, 0) 10px), linear-gradient(155deg, #af001d 10px, rgba(0, 0, 0, 0) 10px);
+        transform: skewY(-10deg) translateY(-50%);
+        overflow: hidden;
+
+        .jumbotron-img-container {
+            height: 100%;
+            position: relative;
+        }
+        .phoneimg {
+            position: absolute;
+            transform: skewY(10deg) rotate(-25deg) translate(10%, 20%);
+            width: unquote('min(65%, 220px)'); height: auto;
+            bottom: 0; right: 0;
+        }
+
+        #phoneimg-1 {
+            transform: skewY(10deg) rotate(-25deg) translate(10%, 20%);
+            z-index: 3;
+        }
+        #phoneimg-2 {
+            transform: skewY(10deg) rotate(-45deg) translate(-50%, 20%) scale(.8);
+            z-index: 2;
+        }
+        #phoneimg-3 {
+            transform: skewY(10deg) rotate(-75deg) translate(-100%, 0%) scale(.5);
+            z-index: 1;
+        }
+    }
+
+
+    .container {
+        @include flex(column, center, center);
+        height: 100%;
+    }
+
+    .jumbotron__card {
+        @include flex(column, center, center);
+        @include glassmorphism();
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .jumbotron__title {
+        @include themefont(4.5rem,700, black );
+        margin: 20px 0;
+    }
+
+    .jumbotron__text {
+        @include themefont(1.5rem, 400, black);
+        margin: 10px 0;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    @media screen and (min-width: 768px) {
+        .container {
+            @include flex(column, center, flex-start);
+        }
+    
+        .jumbotron__card {
+            align-items: stretch;
+            background-color: transparent;
+            box-shadow: none;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+    
+        .jumbotron__title {
+            @include themefont(5rem,700, black );
+            text-align: left;
+        }
+    
+        .jumbotron__text {
+            @include themefont(2rem, 400, black);
+            text-align: left;
+        }
+    }
+}
+
+
+
+
+
+//=====================================
+//      Content 1
+//=====================================
+.content1 {
+    margin: 2em 0;
+    &-header {
+        @include themefont(5rem, 700);
+        text-align: center;
+        margin: 0 0 .5em 0;
+    }
+
+    &-grid {
+        display: grid;
+        gap: 2em 1em ;
+        grid-template-rows: repeat(6, 1fr);
+        justify-items: center;
+    }
+
+    &-cell {
+        position: relative;
+        max-width: 300px;
+        text-align: center;
+        border-radius: 15px;
+        padding: 1em;
+
+        background-color: #fff;
+        box-shadow: 0 0px 8px 0 rgba( 0,0,0, 0.37 );
+
+        transition: color .5s ease;
+        z-index: 1;
+
+        &::before {
+            position: absolute;
+            top: 0; left: 0;
+            content: '';
+            width: 100%; height: 100%;
+            border-radius: 15px;
+            background-color: #2c3e50;
+            transition: transform .5s ease;
+            transform: scaleX(0);
+            transform-origin: left;
+            z-index: -1;
+        }
+
+        &:hover, &:focus {
+            color: white;
+            &::before { transform: scaleX(1); }
+        }
+    }
+
+    &-logo {
+        display: block !important;
+        font-size: 6rem;
+        margin: .2em 0;
+    }
+
+    &-title { @include themefont(3rem, 700, inherit); margin: .5em 0; }
+    &-desc { @include themefont(1.3rem, 300, inherit); }
+}
+
+
+
+//============================
+//  Content 2
+//============================
+.content2 {
+    margin: 120px 0;
+
+    &-header {
+        @include themefont(4.5rem, 700);
+        text-align: center;
+        margin: 0 0 .5em 0;
+    }
+
+    &-row {
+        @include flex(column, flex-start, center);
+
+        padding: 4em 2em;
+        margin: 4em auto;
+        max-width: 300px;
+        
+        border-radius: 20px;
+        background-color: rgba(39, 39, 39, .8);
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, .7);
+        border: 2px solid rgba(39, 39, 39, .2);
+        color: white;
+        text-align: center;
+    }
+
+    &-img {
+        width: 200px; height: 200px;
+        object-position: center;
+        object-fit: cover;
+        border-radius: 50%;
+        transition: transform 1s ease, opacity 1s ease;
+
+        &.hide { transform: translateX(-50px); opacity: 0; }
+    }
+
+    &-info { margin: 3.5em 0; }
+
+    &-name {
+        @include themefont(3.5rem, 700, inherit);
+    }
+
+    &-subtitle {
+        @include themefont(1.4rem, 300, inherit);
+    }
+
+    &-quote {
+        @include themefont(2rem, 300, inherit);
+        transition: transform 1s ease, opacity 1s ease;
+        transition-delay: .5s;
+
+        &--inner::before, &--inner::after { content: '"'; }
+
+        &.hide { transform: translateX(-150px); opacity: 0; }
+    }
+}
+
+
+
+
+//=====================================
+//      Footer
+//=====================================
+footer {
+    @include flex(column, center, center);
+    @include themefont(3rem, 400, white);
+    text-align: center;
+    padding: 80px 0;
+    background-color: black;
+
+    a {
+        @include clearAnchorStyle();
+        @include themefont(1.5rem, 300, rgb(0, 183, 255));
+        margin: 2em 0;
+    }
+}
+
+
+
+
+
+//=====================================
+//      Media Queries
+//=====================================
+@media screen and (min-width: 768px) {
+
+    // Content 1 will go into grid of 3 columns and 2 rows
+    .content1 {
+        &-grid {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+        &-desc { font-size: 1.5rem; }
+    }
+
+
+
+    // Content 2 will go into skewed row mode
+    .content2 {
+        &-row {
+            @include flex(row-reverse, space-between, stretch);
+            position: relative;
+            max-width: initial; min-height: 260px;
+            
+            border-radius: 0;
+            background-color: #ecf0f1;
+            z-index: 0;
+            box-shadow: initial;
+            border: initial;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0; right: 40%;
+                width: 75%; height: 100%;
+                background-color: #2c3e50;
+                z-index: -1;
+                transform: skewX(-30deg);
+
+                @media screen and (min-width: 1000px) { right: 50%; transform: translateX(100px) skewX(-30deg); }
+            }
+        }
+    
+        &-img {
+            position: absolute;
+            top: 50%; right: 32%;
+            transform: translateY(-50%);
+            border: solid 10px #2c3e50;
+
+            &.hide { transform: translateX(-150px) translateY(-50%); opacity: 0; }
+
+            @media screen and (min-width: 1000px) {
+                right: unquote('calc(50% - 175px)');
+            }
+        }
+    
+        &-info { 
+            @include flex(column, center, center);
+            color: black;
+            width: 25%;
+        }
+    
+        &-name { font-size: 3.5rem; }
+        &-subtitle { font-size: 2rem; }
+    
+        &-quote {
+            @include flex(column, center, center);
+            @include themefont(2.5rem, 700, white);
+            text-align: left;
+            max-width: 40%;
+        }
+    }
+}
