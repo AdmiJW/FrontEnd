@@ -5,6 +5,10 @@ body {
     background-position: 0 0, 0 0, 35px 61px, 35px 61px, 0 0, 35px 61px;
 }
 
+.cursor {
+    background-color: white !important;
+}
+
 
 /* Used for collapsibles */
 .collapsible {
@@ -48,7 +52,7 @@ body {
     background: linear-gradient( transparent 0%, #f6f6f6 100%);
 }
 
-#jumbotron__h1 {
+#jumbotron__div {
     color: white;
     padding: .5em;
     background: rgba( 0, 0, 0, 0.45 );

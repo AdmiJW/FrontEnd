@@ -1,3 +1,21 @@
+// Text typer
+const tt = new TextTyper( document.getElementById('jumbotron__h1') );
+tt.settings({
+    typeCPS: 10,
+    deleteCPS: 20,
+    cursorSettings: {
+        cursorStyling: TextTyper.CURSOR_STYLE__
+    }
+})
+
+tt.eventQueue()
+    .typeText('Front End Development')
+    .standby(8000)
+    .deleteChar()
+    .standby(500)
+    .loop()
+    .start();
+
 //  Navbar
 const nav = document.querySelector('nav');
 
@@ -28,3 +46,4 @@ function linkClicked(e) {
     iframe.src = url;
     link.href = url;
 }
+
