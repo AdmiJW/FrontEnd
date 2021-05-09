@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='author' content='AdmiJW'/>
+    <meta name='description' content='My Front end works'/>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- Style -->
+    <link rel='stylesheet' type='text/css' href='./IndexHTMLFiles/style.css'/>
+    <!-- Script -->
+    <script defer src='./IndexHTMLFiles/script.js'></script>
+
+    <title>My Front End Repository</title>
+</head>
+<body>
+    <!-- Navbar Toggle -->
+    <button class="btn nav-toggler flex-column" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" tabindex="0">
+        <span class="nav-toggler-icon rounded-pill"></span>
+        <span class="nav-toggler-icon my-1 rounded-pill"></span>
+        <span class="nav-toggler-icon rounded-pill"></span>
+    </button>
+    
+    <div class='jumbotron d-flex justify-content-center align-items-center m-0' id='jumbotron'>
+        <h1 class='display-2 text-center' id='jumbotron__h1'>
+            Front End Development
+            <p class='lead my-3'>Main Index</p>
+        </h1>
+    </div>
+
+    
+
+    <main class='d-flex'>
+        <!-- Navigation -->
+        <nav class='nav text-light flex-nowrap flex-column rounded-3 rounded-end my-5 ml-2 mr-4 p-3' id='navigation'>
+            <h2 class='display-4 mx-4'>Contents</h2>
+            <section class='mx-3' id='nav-bootstrap'>
+                <button class='btn expand-btn text-white w-100 text-left lead px-0' id='bootstrap-expand'>⋅ Bootstrap</button>
+                <ul class='list-unstyled mx-3 my-0 collapsible' id='bootstrap-list'>
+                    <li><button class='btn btn-link text-white' id='bootstrap-1' data-url='./Bootstrap/bootstrap.html' onclick='linkClicked(this)'>Bootstrap.html</button></li>
+                    <li><button class='btn btn-link text-white' id='bootstrap-2' data-url='./Bootstrap/Bootstrap Cheat Sheet.html' onclick='linkClicked(this)'>Bootstrap Cheat Sheet 1</button></li>
+                    <li><button class='btn btn-link text-white' id='bootstrap-3' data-url='./Bootstrap/Bootstrap Cheat Sheet 2.html' onclick='linkClicked(this)'>Bootstrap Cheat Sheet 2</button></li>
+                </ul>
+            </section>
+            <section class='mx-3' id='nav-bootstrap'>
+                <button class='btn expand-btn text-white w-100 text-left lead px-0' id='d3-expand'>⋅ Data Driven Documents (D3)</button>
+                <ul class='list-unstyled mx-3 my-0 collapsible' id='d3-list'>
+                    <li><button class='btn btn-link text-white' id='d3-1' data-url='./Data Driven Documents (D3)/D3 Bombergame/' onclick='linkClicked(this)'>D3 Bombergame</button></li>
+                    <li><button class='btn btn-link text-white' id='d3-2' data-url='./Data Driven Documents (D3)/D3 World Map Project' onclick='linkClicked(this)'>D3 World Map Project</button></li>
+                    <li><button class='btn btn-link text-white' id='d3-3' data-url='./Data Driven Documents (D3)/Drawing With D3' onclick='linkClicked(this)'>Drawing with D3</button></li>
+                    <li><button class='btn btn-link text-white' id='d3-4' data-url='./Data Driven Documents (D3)/FCC Bar Chart Project' onclick='linkClicked(this)'>D3 Bar Chart Project</button></li>
+                    <li><button class='btn btn-link text-white' id='d3-5' data-url='./Data Driven Documents (D3)/FCC Scatterplot Project' onclick='linkClicked(this)'>D3 Scatterplot Project</button></li>
+                </ul>
+            </section>
+            <section class='mx-3' id='nav-bootstrap'>
+                <button class='btn expand-btn text-white w-100 text-left lead px-0' id='git-expand'>⋅ Git</button>
+                <ul class='list-unstyled mx-3 my-0 collapsible' id='git-list'>
+                    <li><button class='btn btn-link text-white' id='git-1' data-url='./Git/GitCrashCourse.html' onclick='linkClicked(this)'>Git Notes</button></li>
+                </ul>
+            </section>
+            <section class='mx-3' id='nav-bootstrap'>
+                <button class='btn expand-btn text-white w-100 text-left lead px-0' id='url-expand'>⋅ URL</button>
+                <ul class='list-unstyled mx-3 my-0 collapsible' id='url-list'>
+                    <li><button class='btn btn-link text-white' id='url-1' data-url='./HTML URL/Level1.html' onclick='linkClicked(this)'>Level1.html</button></li>
+                </ul>
+            </section>
+            <section class='mx-3' id='nav-bootstrap'>
+                <button class='btn expand-btn text-white w-100 text-left lead px-0' id='md-expand'>⋅ Markdown</button>
+                <ul class='list-unstyled mx-3 my-0 collapsible' id='md-list'>
+                    <li><button class='btn btn-link text-white' id='url-1' data-url='./Markdown Tutorial/markdown_cheat_sheet.html' onclick='linkClicked(this)'>Markdown Cheat Sheet</button></li>
+                </ul>
+            </section>
+            <section class='mx-3' id='nav-bootstrap'>
+                <button class='btn expand-btn text-white w-100 text-left lead px-0' id='misc-expand'>⋅ Misc</button>
+                <ul class='list-unstyled mx-3 my-0 collapsible' id='misc-list'>
+                    <li><button class="btn btn-link text-white" id="misc-1" data-url='./Misc/Carousel/' onclick='linkClicked(this)'>Carousel</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-2" data-url='./Misc/Clock/clock.html' onclick='linkClicked(this)'>Clock</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-3" data-url='./Misc/Conquering_Responsive_layouts/challengefinal/' onclick='linkClicked(this)'>Conquering Responsive Layouts</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-4" data-url='./Misc/HeroChangingBG/HeroChangingBG.html' onclick='linkClicked(this)'>Hero Changing Bg</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-5" data-url='./Misc/Hover Border Animation/' onclick='linkClicked(this)'>Hover Border Animation</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-6" data-url='./Misc/Parallax Effect/' onclick='linkClicked(this)'>Parallax Effect</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-7" data-url='./Misc/Scalable Vector Graphics (SVG)/BurgerBuilder/' onclick='linkClicked(this)'>SVG Burger Builder</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-8" data-url='./Misc/Skewed Div/' onclick='linkClicked(this)'>Skewed Div</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-9" data-url='./Misc/AnimatedBurgerMenu.html' onclick='linkClicked(this)'>Animated Burger Menu</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-10" data-url='./Misc/buttonAnimate.html' onclick='linkClicked(this)'>Button Animate</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-11" data-url='./Misc/CSSGrid.html' onclick='linkClicked(this)'>CSS Grid</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-12" data-url='./Misc/DropdownMenu.html' onclick='linkClicked(this)'>Dropdown Menu</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-13" data-url='./Misc/flexbox.html' onclick='linkClicked(this)'>Flexbox</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-14" data-url='./Misc/FormTemplate.html' onclick='linkClicked(this)'>Form Template</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-15" data-url='./Misc/JunjiItou.html' onclick='linkClicked(this)'>Junji Itou</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-16" data-url='./Misc/MyWebsite.html' onclick='linkClicked(this)'>My Website</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-17" data-url='./Misc/Portfolio.html' onclick='linkClicked(this)'>Portfolio</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-18" data-url='./Misc/ProductLandingPage.html' onclick='linkClicked(this)'>Product Landing Page</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-19" data-url='./Misc/Project1.html' onclick='linkClicked(this)'>Biblography</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-20" data-url='./Misc/ResponsiveNav.html' onclick='linkClicked(this)'>Responsive Nav</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-21" data-url='./Misc/Tabs.html' onclick='linkClicked(this)'>Tabs</button></li>
+                    <li><button class="btn btn-link text-white" id="misc-22" data-url='./Misc/TechnicalDocumentation.html' onclick='linkClicked(this)'>Technical Documentation</button></li>
+                </ul>
+            </section>
+        </nav>
+
+        <!-- IFrame -->
+        <section class='d-flex flex-grow-1 flex-column' id='content'>
+            <a href='#' id='link-to-project' class='lead text-center mt-5' target='_blank' rel='noreferrer noopener'><strong>Link to Project</strong></a>
+            <iframe id='iframe' class='m-2 rounded rounded-3' src='' title='visit'></iframe>
+        </section>
+        
+    </main>
+
+    <footer class='bg-dark p-5 text-light text-center'>
+        <p class='display-4 text-light'>Created by AdmiJW</p>
+        <a href='https://www.freepik.com/photos/background' class='text-light'>Background photo created by 4045 - www.freepik.com</a>
+    </footer>
+</body>
+</html>

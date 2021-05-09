@@ -1,9 +1,6 @@
 I've created some png images of seperating bars. They may come in useful when you want your markdown files to have more colourful seperators
 other than the horizontal rule:
 
-
-
-
 RED:
 https://github.com/AdmiJW/Items/blob/master/SeperatingBars/Horizontalbar_red.png?raw=true
 
