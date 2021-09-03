@@ -1,0 +1,141 @@
+:root {
+    --clr-orange: hsl(7 100% 63%);
+    --clr-blue: hsl(239 100% 50%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.row {
+    display: grid;
+    margin: 2em;
+    gap: 1em;
+    justify-content: center;
+    /* Maximum, each card can go 300px. If screen is narrow, wraps to new row */
+    grid-template-columns: repeat(auto-fit, 300px); 
+}
+
+.card {
+    position: relative;
+    font-family: sans-serif;
+    color: white;
+    padding: 1em;
+    background-color: var(--clr-orange);
+}
+
+.card__title {
+    font-size: 1.4rem;
+    margin: .8em 0;
+}
+
+.card__text {
+    margin: 2em 0;
+}
+
+
+/* ========================================================================================================== */
+/* ========================================================================================================== */
+.card-1 {
+    background-image: url(https://images.unsplash.com/photo-1627503218607-0626b62bc1a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYyOTgyOTg3Nw&ixlib=rb-1.2.1&q=80&w=400);
+    background-size: cover;
+    overflow: hidden;
+}
+
+.card-1a {
+    /* If we do not specify a z-index on the element, its pseudoelements, which initially stacks on top of the element itself,
+        when put z-index of -1, the pseudoelement will immediately go under the whole element
+        
+        If we want the effect where pseudoelement is above the element's background, but still under the element's text, we
+        need to create a new stacking context on the element itself, either by specifying a z-index, or use isolation property
+        
+        isolation: isolate forces the element to create a new stacking-context */
+    isolation: isolate;
+}
+
+.card-1a::before {
+    content: '';
+    position: absolute;
+    /* inset is the same as top, left, bottom, right */
+    inset: 0;
+    z-index: -1;
+
+    /* Create a gradient to have the darkening effect */
+    background: linear-gradient(
+        0deg,
+        rgb(0 0 0 / .7),        /* This is shorthand for rgba */
+        rgb(0 0 0 / 0)
+    );
+}
+
+
+/* ========================================================================================================== */
+/* ========================================================================================================== */
+
+.card__img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: -3;
+}
+
+.card-2 {
+    isolation: isolate;
+}
+
+.card-2a::before, .card-2a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+
+/* The background image has an index of -3. So we will have 2 pseudoelements stacked on top of them, acting as filters */
+.card-2a::before {
+    z-index: -1;
+    background-color: var(--clr-orange);
+    mix-blend-mode: multiply;
+}
+
+.card-2a::after {
+    z-index: -2;
+    background-color: var(--clr-blue);
+    mix-blend-mode: screen;
+}
+
+
+/* ========================================================================================================== */
+/* ========================================================================================================== */
+.card-3 {
+    background: linear-gradient(
+        45deg,
+        var(--clr-orange),
+        var(--clr-blue)
+    );
+    isolation: isolate;
+}
+
+.card-3a::before, .card-3a::after {
+    content:'';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: inherit;
+}
+
+.card-3a::before {
+    /* Applying blur effect will essentially cause a box shaodw-ish effect. However, this time the shadow's color
+        follows what's is the background */
+    filter: blur(0.75em);
+}
+
+.card-3a::after {
+    opacity: 0.5;
+    filter: blur(2em);
+}
