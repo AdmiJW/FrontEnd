@@ -631,6 +631,29 @@ This is a note on git, as a reference for my future self, or for anyone that wan
 
 ---
 
+# Git Stash
+
+> `git stash` temporarily shelves (or stashes) changes you've made to your working copy so you can work on something else, and then come back and re-apply them later on.
+
+* `git stash` works like a Stack - in Last in First out order.
+
+* To see the list (stack) of the stash, use `git stash list`
+
+* To save our changes to the stash, we can use `git stash push <message>` or `git stash save <message>`
+
+* To apply the changes from the stash, we can use `git stash apply <stash@{n}>`. This does not remove the stash from the stack. 
+
+* To apply the changes of the most recent (top of stack) stash, use `git stash pop`. Note that this will remove the topmost stash from the stack.
+
+* To remove a stash and discard the changes that are made, use `git stash drop <stash@{n}>`
+
+* To entirely clear the stash, use `git stash clear`
+
+
+---
+<br><br><br>
+
+
 # Undoing Changes
 
 ## __Modify Last Commit__
